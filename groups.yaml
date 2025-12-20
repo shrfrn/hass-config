@@ -1,0 +1,38 @@
+lr_lt_all:
+  name: "Living Room Lights"
+  entities:
+    - light.lr_lt_wall_e
+    - light.lr_lt_wall_s
+    - light.lr_lt_wall_n
+    - light.lr_lt_ceiling
+    - switch.lr_soc_e
+    - switch.lr_soc_w
+
+mb_lt_all:
+  name: "Master Bedroom Lights"
+  entities:
+    - light.mb_lt_wall
+    - light.mb_lt_ceiling_hall
+    - light.mb_bed_s
+    - light.mb_bed_n
+    - light.mb_lt_wardrobe
+    - switch.mb_soc
+
+kt_lt_all:
+  name: "Kitchen Lights"
+  entities:
+    - light.kt_lt_strip_n
+    - light.kt_lt_strip_s
+    - light.kt_lt_ceiling_main
+    - light.kt_lt_ceiling_bar
+    - light.kt_lt_ceiling_entrance
+    - light.kt_lt_wall_s_entrance
+    - light.kt_lt_wall_s
+
+stdn_lt_all:
+  name: "Sharon's Studio Lights"
+  entities:
+    - light.stdn_lt_wall_e
+    - light.stdn_lt_wall_w
+    - light.stdn_lt_wall_n
+    - switch.stdn_skt

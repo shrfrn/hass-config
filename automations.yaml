@@ -1,0 +1,147 @@
+- id: '1765579264848'
+  alias: Heating On
+  description: ''
+  triggers:
+  - trigger: time
+    at: 05:00:00
+  - trigger: time
+    at: '16:00:00'
+  conditions: []
+  actions:
+  - action: switch.turn_on
+    metadata: {}
+    target:
+      entity_id: switch.home_sw_heating
+    data: {}
+  mode: single
+- id: '1765579407219'
+  alias: Heating Off
+  description: ''
+  triggers:
+  - trigger: time
+    at: 09:00:00
+  - trigger: time
+    at: '23:30:00'
+  conditions: []
+  actions:
+  - action: switch.turn_off
+    metadata: {}
+    target:
+      entity_id: switch.home_sw_heating
+    data: {}
+  mode: single
+- id: '1765636113081'
+  alias: IPAS LEDs - Dim
+  description: ''
+  triggers:
+  - trigger: sun
+    event: sunset
+    offset: 00:20:00
+  conditions: []
+  actions:
+  - action: switch.turn_on
+    metadata: {}
+    target:
+      entity_id: switch.dim_wall_switch_leds
+    data: {}
+  mode: single
+- id: '1765636186997'
+  alias: IPAS LEDs - Bright
+  description: ''
+  triggers:
+  - trigger: sun
+    event: sunrise
+    offset: -00:20:00
+  conditions: []
+  actions:
+  - action: switch.turn_off
+    metadata: {}
+    target:
+      entity_id: switch.dim_wall_switch_leds
+    data: {}
+  mode: single
+- id: '1766150056002'
+  alias: Open Blue Gate
+  description: ''
+  triggers:
+  - domain: mqtt
+    device_id: 22f0664a78c44004f11da96163e70555
+    type: action
+    subtype: hold
+    trigger: device
+  conditions: []
+  actions:
+  - action: switch.turn_on
+    metadata: {}
+    target:
+      entity_id: switch.ptio_gate_ne
+    data: {}
+  mode: single
+- id: '1766150289581'
+  alias: Kitchen Lights - Standard
+  description: ''
+  triggers:
+  - domain: mqtt
+    device_id: 22f0664a78c44004f11da96163e70555
+    type: action
+    subtype: single
+    trigger: device
+  conditions: []
+  actions:
+  - action: scene.turn_on
+    metadata: {}
+    target:
+      entity_id: scene.kt_standard
+    data: {}
+  mode: single
+- id: '1766150362748'
+  alias: Toggle Kitchen AC
+  description: ''
+  triggers:
+  - domain: mqtt
+    device_id: 22f0664a78c44004f11da96163e70555
+    type: action
+    subtype: double
+    trigger: device
+  conditions: []
+  actions:
+  - action: climate.toggle
+    metadata: {}
+    target:
+      entity_id: climate.kt_ac
+    data: {}
+  mode: single
+- id: '1766150591741'
+  alias: Master Bedroom Minimal Lights
+  description: ''
+  triggers:
+  - domain: mqtt
+    device_id: 1debab5d77b8d9bfa256e5fc2b615854
+    type: action
+    subtype: single
+    trigger: device
+  conditions: []
+  actions:
+  - action: scene.turn_on
+    metadata: {}
+    target:
+      entity_id: scene.mb_minimal
+    data: {}
+  mode: single
+- id: '1766150708872'
+  alias: Master Bedroom Lights Off
+  description: ''
+  triggers:
+  - domain: mqtt
+    device_id: 1debab5d77b8d9bfa256e5fc2b615854
+    type: action
+    subtype: double
+    trigger: device
+  conditions: []
+  actions:
+  - action: scene.turn_on
+    metadata: {}
+    target:
+      entity_id: scene.mb_off
+    data: {}
+  mode: single

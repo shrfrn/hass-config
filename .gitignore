@@ -1,0 +1,34 @@
+# HA internals / churn
+.storage/
+.cloud/
+.backup/
+tts/
+
+# Runtime / locks
+.ha_run.lock
+
+# Logs
+home-assistant.log*
+*.log
+
+# Databases
+*.db
+*.db-shm
+*.db-wal
+
+# Python caches
+__pycache__/
+*.pyc
+
+# Secrets
+secrets.yaml
+
+# HACS / addons data
+custom_components/
+zigbee2mqtt/
+www/community/
+
+# macOS noise
+.DS_Store
+._*
+.Trashes

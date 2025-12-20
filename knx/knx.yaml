@@ -1,0 +1,565 @@
+# Lights
+
+light:
+
+  # Living Room
+  
+  - name: "lr_lt_wall_n"
+    address: "1/0/65"
+
+  - name: "lr_lt_wall_e"
+    address: "1/0/70"
+
+  - name: "lr_lt_wall_s"
+    address: "1/0/97"
+
+  - name: "lr_lt_ceiling"
+    address: "1/0/69"
+
+  - name: "lr_lt_outdoor_projector"
+    address: "1/0/144"
+
+  # Kitchen
+
+  - name: "kt_lt_strip_n"
+    address: "1/0/60"
+
+  - name: "kt_lt_ceiling_main"
+    address: "1/0/62"
+
+  - name: "kt_lt_strip_s"
+    address: "1/0/63"
+
+  - name: "kt_lt_wall_s"
+    address: "1/0/73"
+
+  - name: "kt_lt_ceiling_bar"
+    address: "1/0/58"
+
+  - name: "kt_lt_wall_s_entrance"
+    address: "1/0/71"
+
+  - name: "kt_lt_ceiling_entrance"
+    address: "1/0/101"
+
+  - name: "kt_lt_entrance_wall_outdoors"
+    address: "1/0/72"
+    
+    # Kitchen Solaris
+    
+  - name: "ksol_lt_wall_w"
+    address: "1/0/103"
+    
+  - name: "ksol_lt_sink"
+    address: "1/0/80"
+    
+    # Master Bedroom
+    
+  - name: "mb_lt_wall"
+    address: "1/0/79"
+        
+  - name: "mb_bed_s"
+    address: "1/0/75"
+        
+  - name: "mb_bed_n"
+    address: "1/0/98"
+    
+  - name: "mb_lt_wardrobe"
+    address: "1/0/77"
+    
+  - name: "mb_lt_ceiling_hall"
+    address: "1/0/56"
+
+    # Master Bathroom
+
+  - name: "mwc_main_ceiling"
+    address: "1/0/49"
+
+  - name: "mwc_main_wall"
+    address: "1/0/50"
+
+  - name: "mwc_toilet_ceiling"
+    address: "1/0/51"
+
+  - name: "mwc_shower_ceiling"
+    address: "1/0/52"
+    
+  - name: "mwc_outdoor_projector"
+    address: "1/0/35"
+    
+    # Office
+    
+  - name: "ofc_lt_ceiling_hall"
+    address: "1/0/54"
+    
+  - name: "ofc_lt_ceiling_wc"
+    address: "1/0/57"
+    
+  - name: "ofc_lt_walls"
+    address: "1/0/104"
+
+    # Corridor
+
+  - name: "crd_lt_wall_e"
+    address: "1/0/110"
+
+  - name: "crd_lt_mmd_wall_n"
+    address: "1/0/105"
+
+  - name: "crd_lt_entrance_wall_outdoors"
+    address: "1/0/112"
+
+    # Children Bathroom
+
+  - name: "cwc_lt_toilet_wall_e"
+    address: "1/0/106"
+
+  - name: "cwc_lt_bathroom_ceiling"
+    address: "1/0/123"
+
+  - name: "cwc_lt_bathroom_wall_s"
+    address: "1/0/124"
+
+  - name: "cwc_heater_bathroom"
+    address: "1/0/127"
+
+  - name: "cwc_lt_bathroom_wall_outdoors"
+    address: "1/0/146"
+
+    # Amai's Room
+
+  - name: "br1_lt_ceiling"
+    address: "1/0/117"
+
+  - name: "br1_lt_wall_s"
+    address: "1/0/118"
+
+  - name: "br1_lt_window_w"
+    address: "1/0/122"
+
+  - name: "br1_lt_wall_w"
+    address: "1/0/120"
+
+    # Tom's Room
+
+  - name: "br2_lt_ceiling"
+    address: "1/0/113"
+
+  - name: "br2_lt_wall_n"
+    address: "1/0/114"
+
+  - name: "br2_lt_window_w"
+    address: "1/0/115"
+
+  - name: "br2_lt_wall_w"
+    address: "1/0/136"
+
+    # Laundry Room
+
+  - name: "lndr_lt_ceiling"
+    address: "1/0/149"
+
+  - name: "lndr_lt_outdoor_projector"
+    address: "1/0/125"
+
+  - name: "lndr_lt_entrance_wall_outdoor"
+    address: "1/0/148"
+  
+    # Sharon's Studio
+    
+  - name: "stdn_lt_wall_w"
+    address: "1/0/3"
+    
+  - name: "stdn_lt_wall_n"
+    address: "1/0/4"
+    
+  - name: "stdn_lt_wall_e"
+    address: "1/0/5"
+    
+    # Sharar's Studio
+    
+  - name: "stdr_lt_ceiling_stripes"
+    address: "1/0/9"
+    
+  - name: "stdr_lt_ceiling_center"
+    address: "1/0/8"
+
+  - name: "stdr_lt_wall_n_sink"
+    address: "1/0/11"
+
+  - name: "stdr_gallery_lt_wall_s"
+    address: "1/0/19"
+
+  - name: "stdr_gallery_lt_ceiling"
+    address: "1/0/20"
+
+  - name: "stdr_lt_wall_s_sink"
+    address: "1/0/13"
+
+  - name: "stdr_kiln_lt_ceiling"
+    address: "1/0/14"
+
+  - name: "stdr_service_lt_ceiling"
+    address: "1/0/12"
+
+    # Studio Solaris
+    
+  - name: "ssol_lt_wall_s"
+    address: "1/0/22"
+
+    # Patio
+    
+  - name: "ptio_lt_wall_ne"
+    address: "1/0/41"
+    
+  - name: "ptio_lt_wall_nw"
+    address: "1/0/7"
+    
+  - name: "ptio_lt_wall_e"
+    address: "1/0/17"
+    
+  - name: "ptio_lt_wall_w"
+    address: "1/0/61"
+    
+  - name: "ptio_lt_wall_main_entrance"
+    address: "1/0/87"
+    
+  - name: "ptio_lt_corridor_wall_e"
+    address: "1/0/24"
+    
+  - name: "ptio_lt_corridor_wall_s"
+    address: "1/0/15"
+
+# Switches
+
+switch:
+
+  # Home
+  
+  - name: "home_sw_heating"
+    address: "1/0/45"
+
+  - name: "home_sw_ipas_led_brightness"
+    address: "5/0/0"
+
+  # Living Room
+  
+  - name: "lr_fan"
+    address: "1/0/64"
+  
+  - name: "lr_soc_e"
+    address: "1/0/66"
+  
+  - name: "lr_soc_w"
+    address: "1/0/67"
+
+  # Kitchen
+  
+  - name: "kt_door_n"         # Main Entrance
+    address: "5/1/1"          # set
+    state_address: "5/2/1"    # listen
+
+  - name: "kt_door_s"         # Solaris Entrance
+    address: "5/1/2"          # set
+    state_address: "5/2/2"    # listen
+
+  # Master Bedroom
+    
+  - name: "mb_fan"
+    address: "1/0/55"
+    
+  - name: "mb_soc"
+    address: "1/0/76"
+
+  - name: "mb_door_s"         # Master Bedroom Entrance
+    address: "5/1/3"          # set
+    state_address: "5/2/3"    # listen
+
+  # Tom's Room
+
+  - name: "br2_fan"
+    address: "1/0/116"
+
+  # Amai's Room
+
+  - name: "br1_fan"
+    address: "1/0/126"
+
+  # Sharon's Studio
+
+  - name: "stdn_fan"
+    address: "1/0/1"
+
+  - name: "stdn_skt"
+    address: "1/0/2"
+
+  # Patio
+
+  - name: "ptio_gate_ne"      # Blue Gate
+    address: "5/1/4"          # set
+    state_address: "5/2/4"    # listen
+
+  # Legacy
+
+  - name: "קיר צפון חדר שרון"
+    address: "1/0/6"
+  - name: "חוץ קיר כניסה לחדר שרון"
+    address: "1/0/7"
+  - name: "סטודיו תקרה"
+    address: "1/0/10"
+  - name: "סטודיו"
+    address: "1/0/16"
+  - name: "חוץ קיר ימין פטיו"
+    address: "1/0/17"
+  - name: "קיר גלריה סטודיו"
+    address: "1/0/18"
+  - name: "סטודיו קיר כניסה בית"
+    address: "1/0/21"
+  - name: "סטודיו קיר 5 גלריה"
+    address: "1/0/23"
+  - name: "חוץ קיר מעבר ללוח חשמל מרכז"
+    address: "1/0/24"
+  - name: "סטודיו מדרגות"
+    address: "1/0/25"
+  - name: "סטודיו מסדרון"
+    address: "1/0/27"
+  - name: "סטודיו קיר חדר שרון"
+    address: "1/0/28"
+  - name: "סטודיו קיר חדר כביסה"
+    address: "1/0/29"
+  - name: "סטודיו קיר חדר כביסה 2"
+    address: "1/0/30"
+  - name: "סטודיו קיר שירותים"
+    address: "1/0/31"
+  - name: "סטודיו קיר שירותים 2"
+    address: "1/0/32"
+  - name: "תקרה סלון"
+    address: "1/0/68"
+
+# AC
+
+climate:
+  - name: "lr_ac"
+    temperature_address: "9/4/101"              # actual room temp
+
+    target_temperature_address: "10/3/101"      # write setpoint
+    target_temperature_state_address: "9/3/101" # read setpoint
+
+    on_off_address: "10/0/101"
+    on_off_state_address: "9/0/101"
+
+    controller_modes:                           # cooling-only + off
+      - "off"
+      - "cool"
+    default_controller_mode: "cool"
+
+    min_temp: 16
+    max_temp: 30
+
+  - name: "kt_ac"
+    temperature_address: "9/4/104"              # actual room temp
+
+    target_temperature_address: "10/3/104"      # write setpoint
+    target_temperature_state_address: "9/3/104" # read setpoint
+
+    on_off_address: "10/0/104"
+    on_off_state_address: "9/0/104"
+
+    controller_modes:                           # cooling-only + off
+      - "off"
+      - "cool"
+    default_controller_mode: "cool"
+
+    min_temp: 16
+    max_temp: 30
+
+  - name: "lndr_ac"
+    temperature_address: "9/4/113"              # actual room temp
+
+    target_temperature_address: "10/3/113"      # write setpoint
+    target_temperature_state_address: "9/3/113" # read setpoint
+
+    on_off_address: "10/0/113"
+    on_off_state_address: "9/0/113"
+
+    controller_modes:
+      - "off"
+      - "cool"
+    default_controller_mode: "cool"
+
+    min_temp: 16
+    max_temp: 30
+
+  - name: "ssol_ac"
+    temperature_address: "9/4/111"              # actual room temp
+
+    target_temperature_address: "10/3/111"      # write setpoint
+    target_temperature_state_address: "9/3/111" # read setpoint
+
+    on_off_address: "10/0/111"
+    on_off_state_address: "9/0/111"
+
+    controller_modes:
+      - "off"
+      - "cool"
+    default_controller_mode: "cool"
+
+    min_temp: 16
+    max_temp: 30
+
+  - name: "ksol_ac"
+    temperature_address: "9/4/110"              # actual room temp
+
+    target_temperature_address: "10/3/110"      # write setpoint
+    target_temperature_state_address: "9/3/110" # read setpoint
+
+    on_off_address: "10/0/110"
+    on_off_state_address: "9/0/110"
+
+    controller_modes:
+      - "off"
+      - "cool"
+    default_controller_mode: "cool"
+
+    min_temp: 16
+    max_temp: 30
+
+  - name: "mmd_ac"
+    temperature_address: "9/4/109"              # actual room temp
+
+    target_temperature_address: "10/3/109"      # write setpoint
+    target_temperature_state_address: "9/3/109" # read setpoint
+
+    on_off_address: "10/0/109"
+    on_off_state_address: "9/0/109"
+
+    controller_modes:
+      - "off"
+      - "cool"
+    default_controller_mode: "cool"
+
+    min_temp: 16
+    max_temp: 30
+
+  - name: "stdn_ac"
+    temperature_address: "9/4/108"              # actual room temp
+
+    target_temperature_address: "10/3/108"      # write setpoint
+    target_temperature_state_address: "9/3/108" # read setpoint
+
+    on_off_address: "10/0/108"
+    on_off_state_address: "9/0/108"
+
+    controller_modes:
+      - "off"
+      - "cool"
+    default_controller_mode: "cool"
+
+    min_temp: 16
+    max_temp: 30
+
+  - name: "br1_ac"
+    temperature_address: "9/4/107"              # actual room temp
+
+    target_temperature_address: "10/3/107"      # write setpoint
+    target_temperature_state_address: "9/3/107" # read setpoint
+
+    on_off_address: "10/0/107"
+    on_off_state_address: "9/0/107"
+
+    controller_modes:
+      - "off"
+      - "cool"
+    default_controller_mode: "cool"
+
+    min_temp: 16
+    max_temp: 30
+
+  - name: "crd_ac"
+    temperature_address: "9/4/106"              # actual room temp
+
+    target_temperature_address: "10/3/106"      # write setpoint
+    target_temperature_state_address: "9/3/106" # read setpoint
+
+    on_off_address: "10/0/106"
+    on_off_state_address: "9/0/106"
+
+    controller_modes:
+      - "off"
+      - "cool"
+    default_controller_mode: "cool"
+
+    min_temp: 16
+    max_temp: 30
+
+  - name: "br2_ac"
+    temperature_address: "9/4/105"              # actual room temp
+
+    target_temperature_address: "10/3/105"      # write setpoint
+    target_temperature_state_address: "9/3/105" # read setpoint
+
+    on_off_address: "10/0/105"
+    on_off_state_address: "9/0/105"
+
+    controller_modes:
+      - "off"
+      - "cool"
+    default_controller_mode: "cool"
+
+    min_temp: 16
+    max_temp: 30
+
+  - name: "mb_ac"
+    temperature_address: "9/4/103"              # actual room temp
+
+    target_temperature_address: "10/3/103"      # write setpoint
+    target_temperature_state_address: "9/3/103" # read setpoint
+
+    on_off_address: "10/0/103"
+    on_off_state_address: "9/0/103"
+
+    controller_modes:
+      - "off"
+      - "cool"
+    default_controller_mode: "cool"
+
+    min_temp: 16
+    max_temp: 30
+
+  - name: "ofc_ac"
+    temperature_address: "9/4/102"              # actual room temp
+
+    target_temperature_address: "10/3/102"      # write setpoint
+    target_temperature_state_address: "9/3/102" # read setpoint
+
+    on_off_address: "10/0/102"
+    on_off_state_address: "9/0/102"
+
+    controller_modes:
+      - "off"
+      - "cool"
+    default_controller_mode: "cool"
+
+    min_temp: 16
+    max_temp: 30
+
+  - name: "stdr_ac"
+    temperature_address: "9/4/112"              # actual room temp
+
+    target_temperature_address: "10/3/112"      # write setpoint
+    target_temperature_state_address: "9/3/112" # read setpoint
+
+    on_off_address: "10/0/112"
+    on_off_state_address: "9/0/112"
+
+    heat_cool_address: "10/5/112"               # 0 = heat, 1 = cool (DPT 1.100)
+    heat_cool_state_address: "9/5/112"
+
+    controller_modes:
+      - "off"
+      - "heat"
+      - "cool"
+    default_controller_mode: "cool"
+
+    min_temp: 16
+    max_temp: 30
