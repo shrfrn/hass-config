@@ -242,6 +242,9 @@ switch:
   - name: "home_sw_ipas_led_brightness"
     address: "5/0/0"
 
+  - name: "home_sw_pima"
+    address: "15/0/1"
+
   # Living Room
   
   - name: "lr_fan"
