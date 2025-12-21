@@ -7,6 +7,7 @@ import { connect, disconnect } from './websocket.js'
 import { fetchAllData } from './fetchers.js'
 import { transformData } from './transform.js'
 import { checkNamingConsistency } from './naming-check.js'
+import { generateSchemaAndStarterConfig } from './schema-generator.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const OUTPUT_DIR = join(__dirname, '..', 'output')
@@ -26,6 +27,7 @@ async function main() {
 
     await writeOutput(transformedData)
     await checkNamingConsistency(OUTPUT_FILE)
+    await generateSchemaAndStarterConfig(OUTPUT_FILE)
 
     console.log('\n✅ Data generation complete!')
     console.log(`   Output: ${OUTPUT_FILE}`)

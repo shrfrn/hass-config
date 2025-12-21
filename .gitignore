@@ -42,3 +42,6 @@ node_modules/
 
 # Generator output
 tools/hass-data-generator/output/
+
+# Generator user config (contains local overrides)
+tools/hass-data-generator/generator-config.js
