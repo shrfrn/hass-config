@@ -6,6 +6,7 @@ import { fileURLToPath } from 'url'
 import { connect, disconnect } from './websocket.js'
 import { fetchAllData } from './fetchers.js'
 import { transformData } from './transform.js'
+import { checkNamingConsistency } from './naming-check.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const OUTPUT_DIR = join(__dirname, '..', 'output')
@@ -24,6 +25,7 @@ async function main() {
     const transformedData = transformData(rawData)
 
     await writeOutput(transformedData)
+    await checkNamingConsistency(OUTPUT_FILE)
 
     console.log('\n✅ Data generation complete!')
     console.log(`   Output: ${OUTPUT_FILE}`)
