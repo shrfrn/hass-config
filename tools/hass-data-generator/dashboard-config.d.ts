@@ -470,6 +470,9 @@ export interface DashboardAreaConfig {
 
   /** Entities to include in Lights section (switches, etc). Order determines display order. */
   included_lights?: EntityId[]
+
+  /** User IDs who can see this area. If not set, visible to all. Find IDs in Settings > People > user URL */
+  visible_to_users?: string[]
 }
 
 /** Dashboard generator configuration */
