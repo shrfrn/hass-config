@@ -20,7 +20,7 @@ homeassistant:
 lovelace:
   mode: yaml
   dashboards:
-    generated:
+    auto-generated:
       mode: yaml
       title: Generated
       icon: mdi:view-dashboard
