@@ -202,7 +202,7 @@ function buildOtherGrid(entities) {
 
   return {
     type: 'grid',
-    square: true,
+    square: false,
     columns: 2,
     cards,
   }
