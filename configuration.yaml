@@ -16,3 +16,13 @@ knx: !include knx/knx.yaml
 
 homeassistant:
   packages: !include_dir_named packages
+
+lovelace:
+  mode: yaml
+  dashboards:
+    generated:
+      mode: yaml
+      title: Generated
+      icon: mdi:view-dashboard
+      show_in_sidebar: true
+      filename: lovelace/generated.yaml

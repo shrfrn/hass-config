@@ -7,7 +7,9 @@
   "scripts": {
     "start": "node src/index.js",
     "generate": "node src/index.js",
-    "generate:yaml": "node src/generate-yaml.js"
+    "generate:yaml": "node src/generate-yaml.js",
+    "generate:dashboard": "node src/generate-dashboard.js",
+    "generate:all": "npm run generate:yaml && npm run generate:dashboard"
   },
   "dependencies": {
     "dotenv": "^16.3.1",
