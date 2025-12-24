@@ -474,6 +474,9 @@ export interface DashboardAreaConfig {
 
 /** Dashboard generator configuration */
 export interface DashboardConfig {
+  /** Areas to pin at the top of the dashboard (in order) */
+  pinned_areas?: AreaId[]
+
   /** Areas to exclude from the dashboard entirely */
   excluded_areas?: AreaId[]
 
