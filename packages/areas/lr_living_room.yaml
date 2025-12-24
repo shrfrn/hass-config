@@ -18,9 +18,7 @@ input_select:
     options:
       - "none"
       - scene.lr_minimal
-      - scene.lr_off
       - scene.lr_tv
-      - scene.lr_on
       - scene.lr_standard
     initial: "none"
 

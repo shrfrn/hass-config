@@ -13,7 +13,7 @@ const config = {
   pinned_areas: ['living_room', 'kitchen', 'bedroom', 'shahar_s_studio', 'sharon_s_studio', 'office', 'corridor', 'laundry_room', 'mamad', 'parent_s_wc', 'studio_solaris'],
 
   // Areas to exclude from the dashboard
-  excluded_areas: [],
+  excluded_areas: ['home_assistant'],
 
   // Scene suffix for default tap action (scene.<prefix><suffix>)
   default_scene_suffix: 'standard',

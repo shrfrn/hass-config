@@ -10,18 +10,16 @@ group:
     name: Patio Lights
     entities:
       - light.khtsr_pnymyt_qyr_m_rby
-      - light.khvts_qyr_knysh_lkhdr_shrvn
       - light.ptio_lt_corridor_wall_e
       - light.ptio_lt_wall_e
       - light.ptio_lt_wall_main_entrance
+      - light.ptio_lt_wall_nw
 
 input_select:
   ptio_active_scene:
     name: Patio Active Scene
     options:
       - "none"
-      - scene.ptio_off
-      - scene.ptio_on
     initial: "none"
 
 input_datetime:
