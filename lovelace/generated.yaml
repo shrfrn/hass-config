@@ -34,6 +34,409 @@ views:
               - entity: switch.lr_fan
                 tap_action:
                   action: toggle
+          - type: "custom:bubble-card"
+            card_type: button
+            button_type: switch
+            entity: group.kt_lights
+            name: Kitchen
+            icon: "mdi:pot-steam-outline"
+            tap_action:
+              action: perform-action
+              perform_action: scene.turn_on
+              target:
+                entity_id: scene.kt_standard
+              data:
+            hold_action:
+              action: toggle
+            button_action:
+              tap_action:
+                action: navigate
+                navigation_path: "#kt_details"
+            sub_button:
+              - entity: climate.kt_ac
+                icon: "mdi:snowflake"
+                tap_action:
+                  action: toggle
+          - type: conditional
+            conditions:
+              - condition: user
+                users:
+                  - bdc857a611d74e9998fdc8535024b263
+                  - b10953f68ec043cea57260ca2f5e0880
+            card:
+              type: "custom:bubble-card"
+              card_type: button
+              button_type: switch
+              entity: group.mb_lights
+              name: Master Bedroom
+              icon: "mdi:bed-king-outline"
+              tap_action:
+                action: perform-action
+                perform_action: scene.turn_on
+                target:
+                  entity_id: scene.mb_standard
+                data:
+              hold_action:
+                action: toggle
+              button_action:
+                tap_action:
+                  action: navigate
+                  navigation_path: "#mb_details"
+              sub_button:
+                - entity: climate.mb_ac
+                  icon: "mdi:snowflake"
+                  tap_action:
+                    action: toggle
+                - entity: switch.mb_fan
+                  tap_action:
+                    action: toggle
+          - type: conditional
+            conditions:
+              - condition: user
+                users:
+                  - bdc857a611d74e9998fdc8535024b263
+                  - b10953f68ec043cea57260ca2f5e0880
+            card:
+              type: "custom:bubble-card"
+              card_type: button
+              button_type: switch
+              entity: group.stdr_lights
+              name: Shahar's Studio
+              icon: "mdi:palette"
+              tap_action:
+                action: perform-action
+                perform_action: scene.turn_on
+                target:
+                  entity_id: scene.stdr_standard
+                data:
+              hold_action:
+                action: toggle
+              button_action:
+                tap_action:
+                  action: navigate
+                  navigation_path: "#stdr_details"
+              sub_button:
+                - entity: climate.stdr_ac
+                  icon: "mdi:snowflake"
+                  tap_action:
+                    action: toggle
+          - type: conditional
+            conditions:
+              - condition: user
+                users:
+                  - bdc857a611d74e9998fdc8535024b263
+                  - b10953f68ec043cea57260ca2f5e0880
+            card:
+              type: "custom:bubble-card"
+              card_type: button
+              button_type: switch
+              entity: group.stdn_lights
+              name: Sharon's Studio
+              icon: "mdi:piano"
+              tap_action:
+                action: perform-action
+                perform_action: scene.turn_on
+                target:
+                  entity_id: scene.stdn_standard
+                data:
+              hold_action:
+                action: toggle
+              button_action:
+                tap_action:
+                  action: navigate
+                  navigation_path: "#stdn_details"
+              sub_button:
+                - entity: climate.stdn_ac
+                  icon: "mdi:snowflake"
+                  tap_action:
+                    action: toggle
+          - type: "custom:bubble-card"
+            card_type: button
+            button_type: switch
+            entity: group.ofc_lights
+            name: Office
+            icon: "mdi:printer-outline"
+            tap_action:
+              action: perform-action
+              perform_action: scene.turn_on
+              target:
+                entity_id: scene.ofc_standard
+              data:
+            hold_action:
+              action: toggle
+            button_action:
+              tap_action:
+                action: navigate
+                navigation_path: "#ofc_details"
+            sub_button:
+              - entity: climate.ofc_ac
+                icon: "mdi:snowflake"
+                tap_action:
+                  action: toggle
+          - type: "custom:bubble-card"
+            card_type: button
+            button_type: switch
+            entity: group.corridor_lights
+            name: Corridor
+            icon: "mdi:domain-switch"
+            tap_action:
+              action: perform-action
+              perform_action: scene.turn_on
+              target:
+                entity_id: scene.corridor_standard
+              data:
+            hold_action:
+              action: toggle
+            button_action:
+              tap_action:
+                action: navigate
+                navigation_path: "#corridor_details"
+            sub_button:
+              - entity: climate.corridor_ac
+                icon: "mdi:snowflake"
+                tap_action:
+                  action: toggle
+          - type: "custom:bubble-card"
+            card_type: button
+            button_type: switch
+            entity: group.lndr_lights
+            name: Laundry Room
+            icon: "mdi:washing-machine"
+            tap_action:
+              action: perform-action
+              perform_action: scene.turn_on
+              target:
+                entity_id: scene.lndr_standard
+              data:
+            hold_action:
+              action: toggle
+            button_action:
+              tap_action:
+                action: navigate
+                navigation_path: "#lndr_details"
+            sub_button:
+              - entity: climate.lndr_ac
+                icon: "mdi:snowflake"
+                tap_action:
+                  action: toggle
+          - type: "custom:bubble-card"
+            card_type: button
+            button_type: switch
+            entity: group.mmd_lights
+            name: Mamad
+            icon: "mdi:security"
+            tap_action:
+              action: perform-action
+              perform_action: scene.turn_on
+              target:
+                entity_id: scene.mmd_standard
+              data:
+            hold_action:
+              action: toggle
+            button_action:
+              tap_action:
+                action: navigate
+                navigation_path: "#mmd_details"
+            sub_button:
+              - entity: climate.mmd_ac
+                icon: "mdi:snowflake"
+                tap_action:
+                  action: toggle
+          - type: "custom:bubble-card"
+            card_type: button
+            button_type: switch
+            entity: group.mwc_lights
+            name: Master WC
+            icon: "mdi:bathtub-outline"
+            tap_action:
+              action: perform-action
+              perform_action: scene.turn_on
+              target:
+                entity_id: scene.mwc_standard
+              data:
+            hold_action:
+              action: toggle
+            button_action:
+              tap_action:
+                action: navigate
+                navigation_path: "#mwc_details"
+          - type: conditional
+            conditions:
+              - condition: user
+                users:
+                  - bdc857a611d74e9998fdc8535024b263
+                  - b10953f68ec043cea57260ca2f5e0880
+            card:
+              type: "custom:bubble-card"
+              card_type: button
+              button_type: switch
+              entity: group.ssol_lights
+              name: Studio Solaris
+              icon: "mdi:greenhouse"
+              tap_action:
+                action: perform-action
+                perform_action: scene.turn_on
+                target:
+                  entity_id: scene.ssol_standard
+                data:
+              hold_action:
+                action: toggle
+              button_action:
+                tap_action:
+                  action: navigate
+                  navigation_path: "#ssol_details"
+              sub_button:
+                - entity: climate.ssol_ac
+                  icon: "mdi:snowflake"
+                  tap_action:
+                    action: toggle
+          - type: "custom:bubble-card"
+            card_type: button
+            button_type: switch
+            entity: group.br1_lights
+            name: Amai's Room
+            icon: "mdi:bed-queen"
+            tap_action:
+              action: perform-action
+              perform_action: scene.turn_on
+              target:
+                entity_id: scene.br1_standard
+              data:
+            hold_action:
+              action: toggle
+            button_action:
+              tap_action:
+                action: navigate
+                navigation_path: "#br1_details"
+            sub_button:
+              - entity: climate.br1_ac
+                icon: "mdi:snowflake"
+                tap_action:
+                  action: toggle
+              - entity: switch.br1_fan
+                tap_action:
+                  action: toggle
+          - type: "custom:bubble-card"
+            card_type: button
+            button_type: switch
+            entity: group.cwc_lights
+            name: Children's WC
+            icon: "mdi:bathtub"
+            tap_action:
+              action: perform-action
+              perform_action: scene.turn_on
+              target:
+                entity_id: scene.cwc_standard
+              data:
+            hold_action:
+              action: toggle
+            button_action:
+              tap_action:
+                action: navigate
+                navigation_path: "#cwc_details"
+          - type: "custom:bubble-card"
+            card_type: button
+            button_type: switch
+            entity: group.home_lights
+            name: Home
+            icon: "mdi:home"
+            tap_action:
+              action: perform-action
+              perform_action: scene.turn_on
+              target:
+                entity_id: scene.home_standard
+              data:
+            hold_action:
+              action: toggle
+            button_action:
+              tap_action:
+                action: navigate
+                navigation_path: "#home_details"
+          - type: "custom:bubble-card"
+            card_type: button
+            button_type: switch
+            entity: group.hacs_lights
+            name: Home Assistant
+            icon: "mdi:raspberry-pi"
+            tap_action:
+              action: perform-action
+              perform_action: scene.turn_on
+              target:
+                entity_id: scene.hacs_standard
+              data:
+            hold_action:
+              action: toggle
+            button_action:
+              tap_action:
+                action: navigate
+                navigation_path: "#hacs_details"
+          - type: "custom:bubble-card"
+            card_type: button
+            button_type: switch
+            entity: group.ksol_lights
+            name: Kitchen Solaris
+            icon: "mdi:greenhouse"
+            tap_action:
+              action: perform-action
+              perform_action: scene.turn_on
+              target:
+                entity_id: scene.ksol_standard
+              data:
+            hold_action:
+              action: toggle
+            button_action:
+              tap_action:
+                action: navigate
+                navigation_path: "#ksol_details"
+            sub_button:
+              - entity: climate.ksol_ac
+                icon: "mdi:snowflake"
+                tap_action:
+                  action: toggle
+          - type: "custom:bubble-card"
+            card_type: button
+            button_type: switch
+            entity: group.ptio_lights
+            name: Patio
+            icon: "mdi:tree-outline"
+            tap_action:
+              action: perform-action
+              perform_action: scene.turn_on
+              target:
+                entity_id: scene.ptio_standard
+              data:
+            hold_action:
+              action: toggle
+            button_action:
+              tap_action:
+                action: navigate
+                navigation_path: "#ptio_details"
+          - type: "custom:bubble-card"
+            card_type: button
+            button_type: switch
+            entity: group.br2_lights
+            name: Tom's Bedroom
+            icon: "mdi:bed-queen-outline"
+            tap_action:
+              action: perform-action
+              perform_action: scene.turn_on
+              target:
+                entity_id: scene.br2_standard
+              data:
+            hold_action:
+              action: toggle
+            button_action:
+              tap_action:
+                action: navigate
+                navigation_path: "#br2_details"
+            sub_button:
+              - entity: climate.br2_ac
+                icon: "mdi:snowflake"
+                tap_action:
+                  action: toggle
+              - entity: switch.br2_fan
+                tap_action:
+                  action: toggle
           - type: vertical-stack
             cards:
               - type: "custom:bubble-card"
@@ -192,29 +595,6 @@ views:
                     name: Living Room TV
                     tap_action:
                       action: toggle
-          - type: "custom:bubble-card"
-            card_type: button
-            button_type: switch
-            entity: group.kt_lights
-            name: Kitchen
-            icon: "mdi:pot-steam-outline"
-            tap_action:
-              action: perform-action
-              perform_action: scene.turn_on
-              target:
-                entity_id: scene.kt_standard
-              data:
-            hold_action:
-              action: toggle
-            button_action:
-              tap_action:
-                action: navigate
-                navigation_path: "#kt_details"
-            sub_button:
-              - entity: climate.kt_ac
-                icon: "mdi:snowflake"
-                tap_action:
-                  action: toggle
           - type: vertical-stack
             cards:
               - type: "custom:bubble-card"
@@ -384,39 +764,6 @@ views:
                   - bdc857a611d74e9998fdc8535024b263
                   - b10953f68ec043cea57260ca2f5e0880
             card:
-              type: "custom:bubble-card"
-              card_type: button
-              button_type: switch
-              entity: group.mb_lights
-              name: Master Bedroom
-              icon: "mdi:bed-king-outline"
-              tap_action:
-                action: perform-action
-                perform_action: scene.turn_on
-                target:
-                  entity_id: scene.mb_standard
-                data:
-              hold_action:
-                action: toggle
-              button_action:
-                tap_action:
-                  action: navigate
-                  navigation_path: "#mb_details"
-              sub_button:
-                - entity: climate.mb_ac
-                  icon: "mdi:snowflake"
-                  tap_action:
-                    action: toggle
-                - entity: switch.mb_fan
-                  tap_action:
-                    action: toggle
-          - type: conditional
-            conditions:
-              - condition: user
-                users:
-                  - bdc857a611d74e9998fdc8535024b263
-                  - b10953f68ec043cea57260ca2f5e0880
-            card:
               type: vertical-stack
               cards:
                 - type: "custom:bubble-card"
@@ -561,36 +908,6 @@ views:
                   - bdc857a611d74e9998fdc8535024b263
                   - b10953f68ec043cea57260ca2f5e0880
             card:
-              type: "custom:bubble-card"
-              card_type: button
-              button_type: switch
-              entity: group.stdr_lights
-              name: Shahar's Studio
-              icon: "mdi:palette"
-              tap_action:
-                action: perform-action
-                perform_action: scene.turn_on
-                target:
-                  entity_id: scene.stdr_standard
-                data:
-              hold_action:
-                action: toggle
-              button_action:
-                tap_action:
-                  action: navigate
-                  navigation_path: "#stdr_details"
-              sub_button:
-                - entity: climate.stdr_ac
-                  icon: "mdi:snowflake"
-                  tap_action:
-                    action: toggle
-          - type: conditional
-            conditions:
-              - condition: user
-                users:
-                  - bdc857a611d74e9998fdc8535024b263
-                  - b10953f68ec043cea57260ca2f5e0880
-            card:
               type: vertical-stack
               cards:
                 - type: "custom:bubble-card"
@@ -718,36 +1035,6 @@ views:
                   - bdc857a611d74e9998fdc8535024b263
                   - b10953f68ec043cea57260ca2f5e0880
             card:
-              type: "custom:bubble-card"
-              card_type: button
-              button_type: switch
-              entity: group.stdn_lights
-              name: Sharon's Studio
-              icon: "mdi:piano"
-              tap_action:
-                action: perform-action
-                perform_action: scene.turn_on
-                target:
-                  entity_id: scene.stdn_standard
-                data:
-              hold_action:
-                action: toggle
-              button_action:
-                tap_action:
-                  action: navigate
-                  navigation_path: "#stdn_details"
-              sub_button:
-                - entity: climate.stdn_ac
-                  icon: "mdi:snowflake"
-                  tap_action:
-                    action: toggle
-          - type: conditional
-            conditions:
-              - condition: user
-                users:
-                  - bdc857a611d74e9998fdc8535024b263
-                  - b10953f68ec043cea57260ca2f5e0880
-            card:
               type: vertical-stack
               cards:
                 - type: "custom:bubble-card"
@@ -847,29 +1134,6 @@ views:
                       name: stdn_skt
                       tap_action:
                         action: toggle
-          - type: "custom:bubble-card"
-            card_type: button
-            button_type: switch
-            entity: group.ofc_lights
-            name: Office
-            icon: "mdi:printer-outline"
-            tap_action:
-              action: perform-action
-              perform_action: scene.turn_on
-              target:
-                entity_id: scene.ofc_standard
-              data:
-            hold_action:
-              action: toggle
-            button_action:
-              tap_action:
-                action: navigate
-                navigation_path: "#ofc_details"
-            sub_button:
-              - entity: climate.ofc_ac
-                icon: "mdi:snowflake"
-                tap_action:
-                  action: toggle
           - type: vertical-stack
             cards:
               - type: "custom:bubble-card"
@@ -934,29 +1198,6 @@ views:
                   - entity: climate.ofc_ac
                     select_attribute: hvac_modes
                     show_arrow: true
-          - type: "custom:bubble-card"
-            card_type: button
-            button_type: switch
-            entity: group.corridor_lights
-            name: Corridor
-            icon: "mdi:domain-switch"
-            tap_action:
-              action: perform-action
-              perform_action: scene.turn_on
-              target:
-                entity_id: scene.corridor_standard
-              data:
-            hold_action:
-              action: toggle
-            button_action:
-              tap_action:
-                action: navigate
-                navigation_path: "#corridor_details"
-            sub_button:
-              - entity: climate.corridor_ac
-                icon: "mdi:snowflake"
-                tap_action:
-                  action: toggle
           - type: vertical-stack
             cards:
               - type: "custom:bubble-card"
@@ -1021,29 +1262,6 @@ views:
                   - entity: climate.corridor_ac
                     select_attribute: hvac_modes
                     show_arrow: true
-          - type: "custom:bubble-card"
-            card_type: button
-            button_type: switch
-            entity: group.lndr_lights
-            name: Laundry Room
-            icon: "mdi:washing-machine"
-            tap_action:
-              action: perform-action
-              perform_action: scene.turn_on
-              target:
-                entity_id: scene.lndr_standard
-              data:
-            hold_action:
-              action: toggle
-            button_action:
-              tap_action:
-                action: navigate
-                navigation_path: "#lndr_details"
-            sub_button:
-              - entity: climate.lndr_ac
-                icon: "mdi:snowflake"
-                tap_action:
-                  action: toggle
           - type: vertical-stack
             cards:
               - type: "custom:bubble-card"
@@ -1108,29 +1326,6 @@ views:
                   - entity: climate.lndr_ac
                     select_attribute: hvac_modes
                     show_arrow: true
-          - type: "custom:bubble-card"
-            card_type: button
-            button_type: switch
-            entity: group.mmd_lights
-            name: Mamad
-            icon: "mdi:security"
-            tap_action:
-              action: perform-action
-              perform_action: scene.turn_on
-              target:
-                entity_id: scene.mmd_standard
-              data:
-            hold_action:
-              action: toggle
-            button_action:
-              tap_action:
-                action: navigate
-                navigation_path: "#mmd_details"
-            sub_button:
-              - entity: climate.mmd_ac
-                icon: "mdi:snowflake"
-                tap_action:
-                  action: toggle
           - type: vertical-stack
             cards:
               - type: "custom:bubble-card"
@@ -1167,24 +1362,6 @@ views:
                   - entity: climate.mmd_ac
                     select_attribute: hvac_modes
                     show_arrow: true
-          - type: "custom:bubble-card"
-            card_type: button
-            button_type: switch
-            entity: group.mwc_lights
-            name: Master WC
-            icon: "mdi:bathtub-outline"
-            tap_action:
-              action: perform-action
-              perform_action: scene.turn_on
-              target:
-                entity_id: scene.mwc_standard
-              data:
-            hold_action:
-              action: toggle
-            button_action:
-              tap_action:
-                action: navigate
-                navigation_path: "#mwc_details"
           - type: vertical-stack
             cards:
               - type: "custom:bubble-card"
@@ -1254,36 +1431,6 @@ views:
                   - bdc857a611d74e9998fdc8535024b263
                   - b10953f68ec043cea57260ca2f5e0880
             card:
-              type: "custom:bubble-card"
-              card_type: button
-              button_type: switch
-              entity: group.ssol_lights
-              name: Studio Solaris
-              icon: "mdi:greenhouse"
-              tap_action:
-                action: perform-action
-                perform_action: scene.turn_on
-                target:
-                  entity_id: scene.ssol_standard
-                data:
-              hold_action:
-                action: toggle
-              button_action:
-                tap_action:
-                  action: navigate
-                  navigation_path: "#ssol_details"
-              sub_button:
-                - entity: climate.ssol_ac
-                  icon: "mdi:snowflake"
-                  tap_action:
-                    action: toggle
-          - type: conditional
-            conditions:
-              - condition: user
-                users:
-                  - bdc857a611d74e9998fdc8535024b263
-                  - b10953f68ec043cea57260ca2f5e0880
-            card:
               type: vertical-stack
               cards:
                 - type: "custom:bubble-card"
@@ -1334,32 +1481,6 @@ views:
                     - entity: climate.ssol_ac
                       select_attribute: hvac_modes
                       show_arrow: true
-          - type: "custom:bubble-card"
-            card_type: button
-            button_type: switch
-            entity: group.br1_lights
-            name: Amai's Room
-            icon: "mdi:bed-queen"
-            tap_action:
-              action: perform-action
-              perform_action: scene.turn_on
-              target:
-                entity_id: scene.br1_standard
-              data:
-            hold_action:
-              action: toggle
-            button_action:
-              tap_action:
-                action: navigate
-                navigation_path: "#br1_details"
-            sub_button:
-              - entity: climate.br1_ac
-                icon: "mdi:snowflake"
-                tap_action:
-                  action: toggle
-              - entity: switch.br1_fan
-                tap_action:
-                  action: toggle
           - type: vertical-stack
             cards:
               - type: "custom:bubble-card"
@@ -1434,24 +1555,6 @@ views:
                   - entity: climate.br1_ac
                     select_attribute: hvac_modes
                     show_arrow: true
-          - type: "custom:bubble-card"
-            card_type: button
-            button_type: switch
-            entity: group.cwc_lights
-            name: Children's WC
-            icon: "mdi:bathtub"
-            tap_action:
-              action: perform-action
-              perform_action: scene.turn_on
-              target:
-                entity_id: scene.cwc_standard
-              data:
-            hold_action:
-              action: toggle
-            button_action:
-              tap_action:
-                action: navigate
-                navigation_path: "#cwc_details"
           - type: vertical-stack
             cards:
               - type: "custom:bubble-card"
@@ -1514,24 +1617,6 @@ views:
                     name: cwc_lt_bathroom_wall_outdoors
                     tap_action:
                       action: toggle
-          - type: "custom:bubble-card"
-            card_type: button
-            button_type: switch
-            entity: group.home_lights
-            name: Home
-            icon: "mdi:home"
-            tap_action:
-              action: perform-action
-              perform_action: scene.turn_on
-              target:
-                entity_id: scene.home_standard
-              data:
-            hold_action:
-              action: toggle
-            button_action:
-              tap_action:
-                action: navigate
-                navigation_path: "#home_details"
           - type: vertical-stack
             cards:
               - type: "custom:bubble-card"
@@ -1566,24 +1651,6 @@ views:
                     name: Central Heating
                     tap_action:
                       action: toggle
-          - type: "custom:bubble-card"
-            card_type: button
-            button_type: switch
-            entity: group.hacs_lights
-            name: Home Assistant
-            icon: "mdi:raspberry-pi"
-            tap_action:
-              action: perform-action
-              perform_action: scene.turn_on
-              target:
-                entity_id: scene.hacs_standard
-              data:
-            hold_action:
-              action: toggle
-            button_action:
-              tap_action:
-                action: navigate
-                navigation_path: "#hacs_details"
           - type: vertical-stack
             cards:
               - type: "custom:bubble-card"
@@ -1618,29 +1685,6 @@ views:
                     name: HACS update
                     tap_action:
                       action: toggle
-          - type: "custom:bubble-card"
-            card_type: button
-            button_type: switch
-            entity: group.ksol_lights
-            name: Kitchen Solaris
-            icon: "mdi:greenhouse"
-            tap_action:
-              action: perform-action
-              perform_action: scene.turn_on
-              target:
-                entity_id: scene.ksol_standard
-              data:
-            hold_action:
-              action: toggle
-            button_action:
-              tap_action:
-                action: navigate
-                navigation_path: "#ksol_details"
-            sub_button:
-              - entity: climate.ksol_ac
-                icon: "mdi:snowflake"
-                tap_action:
-                  action: toggle
           - type: vertical-stack
             cards:
               - type: "custom:bubble-card"
@@ -1691,24 +1735,6 @@ views:
                   - entity: climate.ksol_ac
                     select_attribute: hvac_modes
                     show_arrow: true
-          - type: "custom:bubble-card"
-            card_type: button
-            button_type: switch
-            entity: group.ptio_lights
-            name: Patio
-            icon: "mdi:tree-outline"
-            tap_action:
-              action: perform-action
-              perform_action: scene.turn_on
-              target:
-                entity_id: scene.ptio_standard
-              data:
-            hold_action:
-              action: toggle
-            button_action:
-              tap_action:
-                action: navigate
-                navigation_path: "#ptio_details"
           - type: vertical-stack
             cards:
               - type: "custom:bubble-card"
@@ -1855,32 +1881,6 @@ views:
                     name: שער ראשי Motion detection
                     tap_action:
                       action: toggle
-          - type: "custom:bubble-card"
-            card_type: button
-            button_type: switch
-            entity: group.br2_lights
-            name: Tom's Bedroom
-            icon: "mdi:bed-queen-outline"
-            tap_action:
-              action: perform-action
-              perform_action: scene.turn_on
-              target:
-                entity_id: scene.br2_standard
-              data:
-            hold_action:
-              action: toggle
-            button_action:
-              tap_action:
-                action: navigate
-                navigation_path: "#br2_details"
-            sub_button:
-              - entity: climate.br2_ac
-                icon: "mdi:snowflake"
-                tap_action:
-                  action: toggle
-              - entity: switch.br2_fan
-                tap_action:
-                  action: toggle
           - type: vertical-stack
             cards:
               - type: "custom:bubble-card"
