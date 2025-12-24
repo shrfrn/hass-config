@@ -12,15 +12,15 @@ CYAN='\033[1;36m'
 DIM='\033[2m'
 NC='\033[0m'
 
+SPINNER='⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏'
+
 BRANCH=$(git branch --show-current)
 
-# Check we're not on main
 if [ "$BRANCH" = "main" ]; then
     echo -e "${RED}Error: Switch to a feature branch first.${NC}"
     exit 1
 fi
 
-# Check for unpushed commits
 UNPUSHED=$(git log origin/$BRANCH..$BRANCH --oneline 2>/dev/null | wc -l | tr -d ' ')
 if [ "$UNPUSHED" -eq 0 ]; then
     echo -e "${YELLOW}No new commits to deploy on $BRANCH${NC}"
@@ -36,67 +36,73 @@ echo ""
 echo -e "${CYAN}🍓 Deploying to Pi...${NC}"
 echo ""
 
-# Spinner characters
-SPINNER='⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏'
+# Temp file for output
+TEMP_OUT=$(mktemp)
+TOTAL_START=$SECONDS
 
-# Current stage tracking
-CURRENT_STAGE=""
-STAGE_START=0
-OUTPUT_LINES=()
+# Run SSH in background
+ssh "$PI_HOST" "$PI_SCRIPT $BRANCH" > "$TEMP_OUT" 2>&1 &
+SSH_PID=$!
 
-# Process SSH output in real-time
-SECONDS=0
-exec 3< <(ssh "$PI_HOST" "$PI_SCRIPT $BRANCH" 2>&1; echo "[EXIT:$?]")
+# Spinner function
+spin_until_stage() {
+    local msg="$1"
+    local stage_marker="$2"
+    local start=$SECONDS
+    local i=0
+    
+    while kill -0 $SSH_PID 2>/dev/null; do
+        # Check if stage marker appeared
+        if grep -q "$stage_marker" "$TEMP_OUT" 2>/dev/null; then
+            local elapsed=$((SECONDS - start))
+            printf "\r   ${GREEN}✓${NC} ${msg} ${DIM}(${elapsed}s)${NC}          \n"
+            return 0
+        fi
+        
+        # Check for failure
+        if grep -q "\[STAGE:CHECK_FAIL\]" "$TEMP_OUT" 2>/dev/null; then
+            local elapsed=$((SECONDS - start))
+            printf "\r   ${RED}✗${NC} Config check failed ${DIM}(${elapsed}s)${NC}          \n"
+            return 1
+        fi
+        
+        local elapsed=$((SECONDS - start))
+        printf "\r   ${YELLOW}${SPINNER:i++%10:1}${NC} ${msg}... ${DIM}${elapsed}s${NC}  "
+        sleep 0.1
+    done
+    
+    # SSH ended, check final state
+    if grep -q "$stage_marker" "$TEMP_OUT" 2>/dev/null; then
+        local elapsed=$((SECONDS - start))
+        printf "\r   ${GREEN}✓${NC} ${msg} ${DIM}(${elapsed}s)${NC}          \n"
+        return 0
+    fi
+    return 1
+}
 
-while IFS= read -r line <&3; do
-    case "$line" in
-        "[STAGE:CHECK]")
-            CURRENT_STAGE="check"
-            STAGE_START=$SECONDS
-            printf "   ${YELLOW}◐${NC} Config check running...  "
-            ;;
-        "[STAGE:CHECK_PASS]")
-            ELAPSED=$((SECONDS - STAGE_START))
-            printf "\r   ${GREEN}✓${NC} Config check passed ${DIM}(${ELAPSED}s)${NC}          \n"
-            CURRENT_STAGE=""
-            ;;
-        "[STAGE:CHECK_FAIL]")
-            ELAPSED=$((SECONDS - STAGE_START))
-            printf "\r   ${RED}✗${NC} Config check failed ${DIM}(${ELAPSED}s)${NC}          \n"
-            CURRENT_STAGE=""
-            ;;
-        "[STAGE:RESTART]")
-            CURRENT_STAGE="restart"
-            STAGE_START=$SECONDS
-            printf "   ${YELLOW}◐${NC} Restarting Home Assistant...  "
-            ;;
-        "[STAGE:RESTART_DONE]")
-            ELAPSED=$((SECONDS - STAGE_START))
-            printf "\r   ${GREEN}✓${NC} Home Assistant restarted ${DIM}(${ELAPSED}s)${NC}          \n"
-            CURRENT_STAGE=""
-            ;;
-        "[EXIT:"*)
-            EXIT_CODE="${line#[EXIT:}"
-            EXIT_CODE="${EXIT_CODE%]}"
-            ;;
-        *)
-            # Store non-marker lines for later display
-            OUTPUT_LINES+=("$line")
-            ;;
-    esac
-done
+# Wait for config check
+spin_until_stage "Config check" "\[STAGE:CHECK_PASS\]"
+CHECK_RESULT=$?
 
-exec 3<&-
+if [ $CHECK_RESULT -eq 0 ]; then
+    # Wait for restart
+    spin_until_stage "Home Assistant restart" "\[STAGE:RESTART_DONE\]"
+fi
 
-# Show Pi output
+# Wait for SSH to finish
+wait $SSH_PID
+EXIT_CODE=$?
+
+TOTAL_TIME=$((SECONDS - TOTAL_START))
+
+# Show Pi output (filter out stage markers)
 echo ""
 echo -e "${DIM}── Pi log ──${NC}"
-for line in "${OUTPUT_LINES[@]}"; do
+grep -v "^\[STAGE:" "$TEMP_OUT" | while IFS= read -r line; do
     echo -e "   ${DIM}│${NC} $line"
 done
 echo -e "${DIM}────────────${NC}"
-
-TOTAL_TIME=$SECONDS
+rm -f "$TEMP_OUT"
 
 if [ "$EXIT_CODE" -eq 0 ]; then
     echo ""
