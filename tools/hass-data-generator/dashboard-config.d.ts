@@ -477,6 +477,9 @@ export interface DashboardAreaConfig {
 
 /** Dashboard generator configuration */
 export interface DashboardConfig {
+  /** Dashboard view title (shown in HA) */
+  dashboard_name?: string
+
   /** Areas to pin at the top of the dashboard (in order) */
   pinned_areas?: AreaId[]
 

@@ -2,6 +2,7 @@ import { buildPreviewCard, buildDetailsPopup } from './dashboard-cards.js'
 
 export function generateDashboard(inventory, config) {
   const { areas, entities, scenes, } = inventory
+  const dashboardName = config.dashboard_name || 'Home'
   const excludedAreas = new Set(config.excluded_areas || [])
   const pinnedAreas = config.pinned_areas || []
   const defaultSceneSuffix = config.default_scene_suffix || 'standard'
@@ -56,7 +57,7 @@ export function generateDashboard(inventory, config) {
   return {
     views: [
       {
-        title: 'Home',
+        title: dashboardName,
         sections: [
           {
             type: 'grid',
