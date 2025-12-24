@@ -101,7 +101,7 @@ function transformEntities(states, entityRegistryMap, deviceMap) {
     return {
       entity_id: state.entity_id,
       domain: state.entity_id.split('.')[0],
-      name: registryEntry?.name || state.attributes.friendly_name,
+      name: state.attributes.friendly_name || registryEntry?.name,
       state: state.state,
       attributes: state.attributes,
       area_id: areaId,

@@ -1,4 +1,4 @@
-// Auto-generated type definitions for generator config
+// Auto-generated type definitions for dashboard config
 // Regenerated on each inventory run - DO NOT EDIT
 
 /** Valid area IDs from Home Assistant */
@@ -463,23 +463,23 @@ export type EntityId =
   | 'light.rshy_khdrym'
   | 'light.rshy_mtbkh_2'
 
-/** Configuration for a specific area */
-export interface AreaConfig {
-  /** Override vacancy timer duration (HH:MM:SS format) */
-  vacancy_timer_duration?: string
+/** Dashboard configuration for a specific area */
+export interface DashboardAreaConfig {
+  /** Lights to exclude from the Lights section (moved to Other section) */
+  excluded_lights?: EntityId[]
 
-  /** Additional entities to include in the light group (e.g., switches acting as lights) */
-  include_in_group?: EntityId[]
-
-  /** Entities to exclude from the light group */
-  exclude_from_group?: EntityId[]
+  /** Entities to include in Lights section (switches, etc). Order determines display order. */
+  included_lights?: EntityId[]
 }
 
-/** Generator configuration */
-export interface GeneratorConfig {
-  /** Default vacancy timer duration (HH:MM:SS format). Default: "00:10:00" */
-  default_vacancy_duration?: string
+/** Dashboard generator configuration */
+export interface DashboardConfig {
+  /** Areas to exclude from the dashboard entirely */
+  excluded_areas?: AreaId[]
 
-  /** Per-area configuration overrides */
-  areas?: Partial<Record<AreaId, AreaConfig>>
+  /** Scene suffix for default tap action (e.g., 'standard' for scene.<prefix>standard) */
+  default_scene_suffix?: string
+
+  /** Per-area dashboard configuration */
+  areas?: Partial<Record<AreaId, DashboardAreaConfig>>
 }
