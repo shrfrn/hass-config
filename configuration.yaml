@@ -20,7 +20,7 @@ homeassistant:
 lovelace:
   mode: yaml
   resources:
-    - url: /hacsfiles/bubble-card/bubble-card.js
+    - url: /hacsfiles/Bubble-Card/bubble-card.js
       type: module
   dashboards:
     auto-generated:
