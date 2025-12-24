@@ -4,10 +4,11 @@ import { writeYamlFile, generateFloorHeader } from './yaml-utils.js'
 export async function generateFloorPackages(inventory, packagesDir) {
   const { floors, areas, entities, } = inventory
   const floorsDir = join(packagesDir, 'floors')
+  const createdFiles = []
 
   if (!floors || floors.length === 0) {
     console.log('\nNo floors defined, skipping floor packages')
-    return
+    return createdFiles
   }
 
   console.log('\nGenerating floor packages...')
@@ -25,8 +26,11 @@ export async function generateFloorPackages(inventory, packagesDir) {
     const filePath = join(floorsDir, fileName)
 
     await writeYamlFile(filePath, pkg, generateFloorHeader(floor.name))
+    createdFiles.push(`floors/${fileName}`)
     console.log(`  ✓ ${fileName}`)
   }
+
+  return createdFiles
 }
 
 function sanitizeFileName(str) {

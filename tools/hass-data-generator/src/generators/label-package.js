@@ -4,10 +4,11 @@ import { writeYamlFile, generateLabelHeader } from './yaml-utils.js'
 export async function generateLabelPackages(inventory, packagesDir) {
   const { labels, entities, } = inventory
   const labelsDir = join(packagesDir, 'labels')
+  const createdFiles = []
 
   if (!labels || labels.length === 0) {
     console.log('\nNo labels defined, skipping label packages')
-    return
+    return createdFiles
   }
 
   console.log('\nGenerating label packages...')
@@ -25,8 +26,11 @@ export async function generateLabelPackages(inventory, packagesDir) {
     const filePath = join(labelsDir, fileName)
 
     await writeYamlFile(filePath, pkg, generateLabelHeader(label.name))
+    createdFiles.push(`labels/${fileName}`)
     console.log(`  ✓ ${fileName}`)
   }
+
+  return createdFiles
 }
 
 function sanitizeFileName(str) {

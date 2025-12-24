@@ -15,13 +15,7 @@ knx: !include knx/knx.yaml
 
 
 homeassistant:
-  packages:
-    # Auto-generated packages
-    areas: !include_dir_named packages/areas
-    floors: !include_dir_named packages/floors
-    labels: !include_dir_named packages/labels
-    # Manual packages
-    climate_persistence: !include packages/climate_persistence.yaml
+  packages: !include packages/index.yaml
 
 lovelace:
   mode: yaml
