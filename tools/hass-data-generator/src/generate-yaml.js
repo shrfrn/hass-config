@@ -8,7 +8,9 @@ import { generateLabelPackages } from './generators/label-package.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const TOOL_ROOT = join(__dirname, '..')
+const REPO_ROOT = join(TOOL_ROOT, '..', '..')
 const OUTPUT_DIR = join(TOOL_ROOT, 'output')
+const PACKAGES_DIR = join(REPO_ROOT, 'packages')
 const INVENTORY_FILE = join(OUTPUT_DIR, 'hass-data.json')
 const CONFIG_FILE = join(TOOL_ROOT, 'generator-config.js')
 
@@ -20,14 +22,13 @@ async function main() {
     const inventory = await loadInventory()
     const config = await loadConfig()
 
-    await generateAreaPackages(inventory, config, OUTPUT_DIR)
-    await generateFloorPackages(inventory, OUTPUT_DIR)
-    await generateLabelPackages(inventory, OUTPUT_DIR)
+    await generateAreaPackages(inventory, config, PACKAGES_DIR)
+    await generateFloorPackages(inventory, PACKAGES_DIR)
+    await generateLabelPackages(inventory, PACKAGES_DIR)
 
     console.log('\n✅ YAML generation complete!')
-    console.log(`   Output: ${join(OUTPUT_DIR, 'packages')}`)
-    console.log('\n💡 Copy packages to your Home Assistant config:')
-    console.log('   cp -r output/packages/* /path/to/homeassistant/packages/')
+    console.log(`   Output: ${PACKAGES_DIR}`)
+    console.log('\n💡 Deploy to Home Assistant and restart to apply changes.')
   } catch (err) {
     console.error('\n❌ Error:', err.message)
     process.exit(1)
