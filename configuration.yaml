@@ -19,6 +19,9 @@ homeassistant:
 
 lovelace:
   mode: yaml
+  resources:
+    - url: /hacsfiles/bubble-card/bubble-card.js
+      type: module
   dashboards:
     auto-generated:
       mode: yaml
