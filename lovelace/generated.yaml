@@ -377,434 +377,476 @@ views:
                     name: Kitchen Mini Switch
                     tap_action:
                       action: toggle
-          - type: "custom:bubble-card"
-            card_type: button
-            button_type: switch
-            entity: group.mb_lights
-            name: Master Bedroom
-            icon: "mdi:bed-king-outline"
-            tap_action:
-              action: perform-action
-              perform_action: scene.turn_on
-              target:
-                entity_id: scene.mb_standard
-              data:
-            hold_action:
-              action: toggle
-            button_action:
+          - type: conditional
+            conditions:
+              - condition: user
+                users:
+                  - bdc857a611d74e9998fdc8535024b263
+                  - b10953f68ec043cea57260ca2f5e0880
+            card:
+              type: "custom:bubble-card"
+              card_type: button
+              button_type: switch
+              entity: group.mb_lights
+              name: Master Bedroom
+              icon: "mdi:bed-king-outline"
               tap_action:
-                action: navigate
-                navigation_path: "#mb_details"
-            sub_button:
-              - entity: climate.mb_ac
-                icon: "mdi:snowflake"
+                action: perform-action
+                perform_action: scene.turn_on
+                target:
+                  entity_id: scene.mb_standard
+                data:
+              hold_action:
+                action: toggle
+              button_action:
                 tap_action:
-                  action: toggle
-              - entity: switch.mb_fan
-                tap_action:
-                  action: toggle
-          - type: vertical-stack
-            cards:
-              - type: "custom:bubble-card"
-                card_type: pop-up
-                hash: "#mb_details"
-                button_type: switch
-                name: Master Bedroom
-                icon: "mdi:bed-king-outline"
-                entity: group.mb_lights
-                tap_action:
-                  action: perform-action
-                  perform_action: scene.turn_on
-                  target:
-                    entity_id: scene.mb_standard
-                  data:
-                hold_action:
-                  action: toggle
-                button_action:
+                  action: navigate
+                  navigation_path: "#mb_details"
+              sub_button:
+                - entity: climate.mb_ac
+                  icon: "mdi:snowflake"
                   tap_action:
-                    action: "none"
-              - type: "custom:bubble-card"
-                card_type: separator
-                name: Scenes
-              - type: grid
-                square: false
-                columns: 2
-                cards:
-                  - type: "custom:bubble-card"
-                    card_type: button
-                    button_type: switch
-                    entity: scene.mb_minimal
-                    name: mb_minimal
+                    action: toggle
+                - entity: switch.mb_fan
+                  tap_action:
+                    action: toggle
+          - type: conditional
+            conditions:
+              - condition: user
+                users:
+                  - bdc857a611d74e9998fdc8535024b263
+                  - b10953f68ec043cea57260ca2f5e0880
+            card:
+              type: vertical-stack
+              cards:
+                - type: "custom:bubble-card"
+                  card_type: pop-up
+                  hash: "#mb_details"
+                  button_type: switch
+                  name: Master Bedroom
+                  icon: "mdi:bed-king-outline"
+                  entity: group.mb_lights
+                  tap_action:
+                    action: perform-action
+                    perform_action: scene.turn_on
+                    target:
+                      entity_id: scene.mb_standard
+                    data:
+                  hold_action:
+                    action: toggle
+                  button_action:
                     tap_action:
-                      action: toggle
-                  - type: "custom:bubble-card"
-                    card_type: button
-                    button_type: switch
-                    entity: scene.mb_on
-                    name: mb_on
-                    tap_action:
-                      action: toggle
-                  - type: "custom:bubble-card"
-                    card_type: button
-                    button_type: switch
-                    entity: scene.mb_standard
-                    name: mb_standard
-                    tap_action:
-                      action: toggle
-                  - type: "custom:bubble-card"
-                    card_type: button
-                    button_type: switch
-                    entity: scene.mb_off
-                    name: mb_off
-                    tap_action:
-                      action: toggle
-              - type: "custom:bubble-card"
-                card_type: separator
-                name: Lights
-              - type: grid
-                square: false
-                columns: 2
-                cards:
-                  - type: "custom:bubble-card"
-                    card_type: button
-                    button_type: switch
-                    entity: light.mb_lt_wall
-                    name: mb_lt_wall
-                    tap_action:
-                      action: toggle
-                  - type: "custom:bubble-card"
-                    card_type: button
-                    button_type: switch
-                    entity: light.mb_bed_s
-                    name: mb_bed_s
-                    tap_action:
-                      action: toggle
-                  - type: "custom:bubble-card"
-                    card_type: button
-                    button_type: switch
-                    entity: light.mb_bed_n
-                    name: mb_bed_n
-                    tap_action:
-                      action: toggle
-                  - type: "custom:bubble-card"
-                    card_type: button
-                    button_type: switch
-                    entity: light.mb_lt_wardrobe
-                    name: mb_lt_wardrobe
-                    tap_action:
-                      action: toggle
-                  - type: "custom:bubble-card"
-                    card_type: button
-                    button_type: switch
-                    entity: light.mb_lt_ceiling_hall
-                    name: mb_lt_ceiling_hall
-                    tap_action:
-                      action: toggle
-              - type: "custom:bubble-card"
-                card_type: separator
-                name: Climate
-              - type: "custom:bubble-card"
-                card_type: climate
-                entity: climate.mb_ac
-                name: AC
-                min_temp: 16
-                max_temp: 30
-                step: 1
-                tap_action:
-                  action: toggle
-                sub_button:
-                  - entity: switch.mb_fan
-                    tap_action:
-                      action: toggle
-                  - entity: climate.mb_ac
-                    select_attribute: hvac_modes
-                    show_arrow: true
-              - type: "custom:bubble-card"
-                card_type: separator
-                name: Other
-              - type: grid
-                square: false
-                columns: 2
-                cards:
-                  - type: "custom:bubble-card"
-                    card_type: button
-                    button_type: switch
-                    entity: switch.mb_soc
-                    name: mb_soc
-                    tap_action:
-                      action: toggle
-                  - type: "custom:bubble-card"
-                    card_type: button
-                    button_type: switch
-                    entity: switch.mb_door_s
-                    name: mb_door_s
-                    tap_action:
-                      action: toggle
-          - type: "custom:bubble-card"
-            card_type: button
-            button_type: switch
-            entity: group.stdr_lights
-            name: Shahar's Studio
-            icon: "mdi:palette"
-            tap_action:
-              action: perform-action
-              perform_action: scene.turn_on
-              target:
-                entity_id: scene.stdr_standard
-              data:
-            hold_action:
-              action: toggle
-            button_action:
+                      action: "none"
+                - type: "custom:bubble-card"
+                  card_type: separator
+                  name: Scenes
+                - type: grid
+                  square: false
+                  columns: 2
+                  cards:
+                    - type: "custom:bubble-card"
+                      card_type: button
+                      button_type: switch
+                      entity: scene.mb_minimal
+                      name: mb_minimal
+                      tap_action:
+                        action: toggle
+                    - type: "custom:bubble-card"
+                      card_type: button
+                      button_type: switch
+                      entity: scene.mb_on
+                      name: mb_on
+                      tap_action:
+                        action: toggle
+                    - type: "custom:bubble-card"
+                      card_type: button
+                      button_type: switch
+                      entity: scene.mb_standard
+                      name: mb_standard
+                      tap_action:
+                        action: toggle
+                    - type: "custom:bubble-card"
+                      card_type: button
+                      button_type: switch
+                      entity: scene.mb_off
+                      name: mb_off
+                      tap_action:
+                        action: toggle
+                - type: "custom:bubble-card"
+                  card_type: separator
+                  name: Lights
+                - type: grid
+                  square: false
+                  columns: 2
+                  cards:
+                    - type: "custom:bubble-card"
+                      card_type: button
+                      button_type: switch
+                      entity: light.mb_lt_wall
+                      name: mb_lt_wall
+                      tap_action:
+                        action: toggle
+                    - type: "custom:bubble-card"
+                      card_type: button
+                      button_type: switch
+                      entity: light.mb_bed_s
+                      name: mb_bed_s
+                      tap_action:
+                        action: toggle
+                    - type: "custom:bubble-card"
+                      card_type: button
+                      button_type: switch
+                      entity: light.mb_bed_n
+                      name: mb_bed_n
+                      tap_action:
+                        action: toggle
+                    - type: "custom:bubble-card"
+                      card_type: button
+                      button_type: switch
+                      entity: light.mb_lt_wardrobe
+                      name: mb_lt_wardrobe
+                      tap_action:
+                        action: toggle
+                    - type: "custom:bubble-card"
+                      card_type: button
+                      button_type: switch
+                      entity: light.mb_lt_ceiling_hall
+                      name: mb_lt_ceiling_hall
+                      tap_action:
+                        action: toggle
+                - type: "custom:bubble-card"
+                  card_type: separator
+                  name: Climate
+                - type: "custom:bubble-card"
+                  card_type: climate
+                  entity: climate.mb_ac
+                  name: AC
+                  min_temp: 16
+                  max_temp: 30
+                  step: 1
+                  tap_action:
+                    action: toggle
+                  sub_button:
+                    - entity: switch.mb_fan
+                      tap_action:
+                        action: toggle
+                    - entity: climate.mb_ac
+                      select_attribute: hvac_modes
+                      show_arrow: true
+                - type: "custom:bubble-card"
+                  card_type: separator
+                  name: Other
+                - type: grid
+                  square: false
+                  columns: 2
+                  cards:
+                    - type: "custom:bubble-card"
+                      card_type: button
+                      button_type: switch
+                      entity: switch.mb_soc
+                      name: mb_soc
+                      tap_action:
+                        action: toggle
+                    - type: "custom:bubble-card"
+                      card_type: button
+                      button_type: switch
+                      entity: switch.mb_door_s
+                      name: mb_door_s
+                      tap_action:
+                        action: toggle
+          - type: conditional
+            conditions:
+              - condition: user
+                users:
+                  - bdc857a611d74e9998fdc8535024b263
+                  - b10953f68ec043cea57260ca2f5e0880
+            card:
+              type: "custom:bubble-card"
+              card_type: button
+              button_type: switch
+              entity: group.stdr_lights
+              name: Shahar's Studio
+              icon: "mdi:palette"
               tap_action:
-                action: navigate
-                navigation_path: "#stdr_details"
-            sub_button:
-              - entity: climate.stdr_ac
-                icon: "mdi:snowflake"
+                action: perform-action
+                perform_action: scene.turn_on
+                target:
+                  entity_id: scene.stdr_standard
+                data:
+              hold_action:
+                action: toggle
+              button_action:
                 tap_action:
-                  action: toggle
-          - type: vertical-stack
-            cards:
-              - type: "custom:bubble-card"
-                card_type: pop-up
-                hash: "#stdr_details"
-                button_type: switch
-                name: Shahar's Studio
-                icon: "mdi:palette"
-                entity: group.stdr_lights
-                tap_action:
-                  action: perform-action
-                  perform_action: scene.turn_on
-                  target:
-                    entity_id: scene.stdr_standard
-                  data:
-                hold_action:
-                  action: toggle
-                button_action:
+                  action: navigate
+                  navigation_path: "#stdr_details"
+              sub_button:
+                - entity: climate.stdr_ac
+                  icon: "mdi:snowflake"
                   tap_action:
-                    action: "none"
-              - type: "custom:bubble-card"
-                card_type: separator
-                name: Scenes
-              - type: grid
-                square: false
-                columns: 2
-                cards:
-                  - type: "custom:bubble-card"
-                    card_type: button
-                    button_type: switch
-                    entity: scene.stdr_off
-                    name: stdr_off
+                    action: toggle
+          - type: conditional
+            conditions:
+              - condition: user
+                users:
+                  - bdc857a611d74e9998fdc8535024b263
+                  - b10953f68ec043cea57260ca2f5e0880
+            card:
+              type: vertical-stack
+              cards:
+                - type: "custom:bubble-card"
+                  card_type: pop-up
+                  hash: "#stdr_details"
+                  button_type: switch
+                  name: Shahar's Studio
+                  icon: "mdi:palette"
+                  entity: group.stdr_lights
+                  tap_action:
+                    action: perform-action
+                    perform_action: scene.turn_on
+                    target:
+                      entity_id: scene.stdr_standard
+                    data:
+                  hold_action:
+                    action: toggle
+                  button_action:
                     tap_action:
-                      action: toggle
-                  - type: "custom:bubble-card"
-                    card_type: button
-                    button_type: switch
-                    entity: scene.stdr_on
-                    name: stdr_on
-                    tap_action:
-                      action: toggle
-              - type: "custom:bubble-card"
-                card_type: separator
-                name: Lights
-              - type: grid
-                square: false
-                columns: 2
-                cards:
-                  - type: "custom:bubble-card"
-                    card_type: button
-                    button_type: switch
-                    entity: light.stdr_lt_ceiling_stripes
-                    name: stdr_lt_ceiling_stripes
-                    tap_action:
-                      action: toggle
-                  - type: "custom:bubble-card"
-                    card_type: button
-                    button_type: switch
-                    entity: light.stvdyv_tqrh_mrkz
-                    name: stdr_lt_ceiling_center
-                    tap_action:
-                      action: toggle
-                  - type: "custom:bubble-card"
-                    card_type: button
-                    button_type: switch
-                    entity: light.stdr_lt_wall_n_sink
-                    name: stdr_lt_wall_n_sink
-                    tap_action:
-                      action: toggle
-                  - type: "custom:bubble-card"
-                    card_type: button
-                    button_type: switch
-                    entity: light.stdr_gallery_lt_wall_s
-                    name: stdr_gallery_lt_wall_s
-                    tap_action:
-                      action: toggle
-                  - type: "custom:bubble-card"
-                    card_type: button
-                    button_type: switch
-                    entity: light.stvdyv_tqrh_glryh
-                    name: stdr_gallery_lt_ceiling
-                    tap_action:
-                      action: toggle
-                  - type: "custom:bubble-card"
-                    card_type: button
-                    button_type: switch
-                    entity: light.stdr_lt_wall_s_sink
-                    name: stdr_lt_wall_s_sink
-                    tap_action:
-                      action: toggle
-                  - type: "custom:bubble-card"
-                    card_type: button
-                    button_type: switch
-                    entity: light.stdr_kiln_lt_ceiling
-                    name: stdr_kiln_lt_ceiling
-                    tap_action:
-                      action: toggle
-                  - type: "custom:bubble-card"
-                    card_type: button
-                    button_type: switch
-                    entity: light.stvdyv_tqrh_tkht_glryh
-                    name: stdr_service_lt_ceiling
-                    tap_action:
-                      action: toggle
-              - type: "custom:bubble-card"
-                card_type: separator
-                name: Climate
-              - type: "custom:bubble-card"
-                card_type: climate
-                entity: climate.stdr_ac
-                name: AC
-                min_temp: 16
-                max_temp: 30
-                step: 1
-                tap_action:
-                  action: toggle
-                sub_button:
-                  - entity: climate.stdr_ac
-                    select_attribute: hvac_modes
-                    show_arrow: true
-          - type: "custom:bubble-card"
-            card_type: button
-            button_type: switch
-            entity: group.stdn_lights
-            name: Sharon's Studio
-            icon: "mdi:piano"
-            tap_action:
-              action: perform-action
-              perform_action: scene.turn_on
-              target:
-                entity_id: scene.stdn_standard
-              data:
-            hold_action:
-              action: toggle
-            button_action:
+                      action: "none"
+                - type: "custom:bubble-card"
+                  card_type: separator
+                  name: Scenes
+                - type: grid
+                  square: false
+                  columns: 2
+                  cards:
+                    - type: "custom:bubble-card"
+                      card_type: button
+                      button_type: switch
+                      entity: scene.stdr_off
+                      name: stdr_off
+                      tap_action:
+                        action: toggle
+                    - type: "custom:bubble-card"
+                      card_type: button
+                      button_type: switch
+                      entity: scene.stdr_on
+                      name: stdr_on
+                      tap_action:
+                        action: toggle
+                - type: "custom:bubble-card"
+                  card_type: separator
+                  name: Lights
+                - type: grid
+                  square: false
+                  columns: 2
+                  cards:
+                    - type: "custom:bubble-card"
+                      card_type: button
+                      button_type: switch
+                      entity: light.stdr_lt_ceiling_stripes
+                      name: stdr_lt_ceiling_stripes
+                      tap_action:
+                        action: toggle
+                    - type: "custom:bubble-card"
+                      card_type: button
+                      button_type: switch
+                      entity: light.stvdyv_tqrh_mrkz
+                      name: stdr_lt_ceiling_center
+                      tap_action:
+                        action: toggle
+                    - type: "custom:bubble-card"
+                      card_type: button
+                      button_type: switch
+                      entity: light.stdr_lt_wall_n_sink
+                      name: stdr_lt_wall_n_sink
+                      tap_action:
+                        action: toggle
+                    - type: "custom:bubble-card"
+                      card_type: button
+                      button_type: switch
+                      entity: light.stdr_gallery_lt_wall_s
+                      name: stdr_gallery_lt_wall_s
+                      tap_action:
+                        action: toggle
+                    - type: "custom:bubble-card"
+                      card_type: button
+                      button_type: switch
+                      entity: light.stvdyv_tqrh_glryh
+                      name: stdr_gallery_lt_ceiling
+                      tap_action:
+                        action: toggle
+                    - type: "custom:bubble-card"
+                      card_type: button
+                      button_type: switch
+                      entity: light.stdr_lt_wall_s_sink
+                      name: stdr_lt_wall_s_sink
+                      tap_action:
+                        action: toggle
+                    - type: "custom:bubble-card"
+                      card_type: button
+                      button_type: switch
+                      entity: light.stdr_kiln_lt_ceiling
+                      name: stdr_kiln_lt_ceiling
+                      tap_action:
+                        action: toggle
+                    - type: "custom:bubble-card"
+                      card_type: button
+                      button_type: switch
+                      entity: light.stvdyv_tqrh_tkht_glryh
+                      name: stdr_service_lt_ceiling
+                      tap_action:
+                        action: toggle
+                - type: "custom:bubble-card"
+                  card_type: separator
+                  name: Climate
+                - type: "custom:bubble-card"
+                  card_type: climate
+                  entity: climate.stdr_ac
+                  name: AC
+                  min_temp: 16
+                  max_temp: 30
+                  step: 1
+                  tap_action:
+                    action: toggle
+                  sub_button:
+                    - entity: climate.stdr_ac
+                      select_attribute: hvac_modes
+                      show_arrow: true
+          - type: conditional
+            conditions:
+              - condition: user
+                users:
+                  - bdc857a611d74e9998fdc8535024b263
+                  - b10953f68ec043cea57260ca2f5e0880
+            card:
+              type: "custom:bubble-card"
+              card_type: button
+              button_type: switch
+              entity: group.stdn_lights
+              name: Sharon's Studio
+              icon: "mdi:piano"
               tap_action:
-                action: navigate
-                navigation_path: "#stdn_details"
-            sub_button:
-              - entity: climate.stdn_ac
-                icon: "mdi:snowflake"
+                action: perform-action
+                perform_action: scene.turn_on
+                target:
+                  entity_id: scene.stdn_standard
+                data:
+              hold_action:
+                action: toggle
+              button_action:
                 tap_action:
-                  action: toggle
-          - type: vertical-stack
-            cards:
-              - type: "custom:bubble-card"
-                card_type: pop-up
-                hash: "#stdn_details"
-                button_type: switch
-                name: Sharon's Studio
-                icon: "mdi:piano"
-                entity: group.stdn_lights
-                tap_action:
-                  action: perform-action
-                  perform_action: scene.turn_on
-                  target:
-                    entity_id: scene.stdn_standard
-                  data:
-                hold_action:
-                  action: toggle
-                button_action:
+                  action: navigate
+                  navigation_path: "#stdn_details"
+              sub_button:
+                - entity: climate.stdn_ac
+                  icon: "mdi:snowflake"
                   tap_action:
-                    action: "none"
-              - type: "custom:bubble-card"
-                card_type: separator
-                name: Scenes
-              - type: grid
-                square: false
-                columns: 2
-                cards:
-                  - type: "custom:bubble-card"
-                    card_type: button
-                    button_type: switch
-                    entity: scene.stdn_standard
-                    name: stdn_standard
+                    action: toggle
+          - type: conditional
+            conditions:
+              - condition: user
+                users:
+                  - bdc857a611d74e9998fdc8535024b263
+                  - b10953f68ec043cea57260ca2f5e0880
+            card:
+              type: vertical-stack
+              cards:
+                - type: "custom:bubble-card"
+                  card_type: pop-up
+                  hash: "#stdn_details"
+                  button_type: switch
+                  name: Sharon's Studio
+                  icon: "mdi:piano"
+                  entity: group.stdn_lights
+                  tap_action:
+                    action: perform-action
+                    perform_action: scene.turn_on
+                    target:
+                      entity_id: scene.stdn_standard
+                    data:
+                  hold_action:
+                    action: toggle
+                  button_action:
                     tap_action:
-                      action: toggle
-                  - type: "custom:bubble-card"
-                    card_type: button
-                    button_type: switch
-                    entity: scene.stdn_minimal
-                    name: stdn_minimal
-                    tap_action:
-                      action: toggle
-              - type: "custom:bubble-card"
-                card_type: separator
-                name: Lights
-              - type: grid
-                square: false
-                columns: 2
-                cards:
-                  - type: "custom:bubble-card"
-                    card_type: button
-                    button_type: switch
-                    entity: light.stdn_lt_wall_w
-                    name: stdn_lt_wall_w
-                    tap_action:
-                      action: toggle
-                  - type: "custom:bubble-card"
-                    card_type: button
-                    button_type: switch
-                    entity: light.stdn_lt_wall_n
-                    name: stdn_lt_wall_n
-                    tap_action:
-                      action: toggle
-                  - type: "custom:bubble-card"
-                    card_type: button
-                    button_type: switch
-                    entity: light.stdn_lt_wall_e
-                    name: stdn_lt_wall_e
-                    tap_action:
-                      action: toggle
-              - type: "custom:bubble-card"
-                card_type: separator
-                name: Climate
-              - type: "custom:bubble-card"
-                card_type: climate
-                entity: climate.stdn_ac
-                name: AC
-                min_temp: 16
-                max_temp: 30
-                step: 1
-                tap_action:
-                  action: toggle
-                sub_button:
-                  - entity: climate.stdn_ac
-                    select_attribute: hvac_modes
-                    show_arrow: true
-              - type: "custom:bubble-card"
-                card_type: separator
-                name: Other
-              - type: grid
-                square: false
-                columns: 2
-                cards:
-                  - type: "custom:bubble-card"
-                    card_type: button
-                    button_type: switch
-                    entity: switch.stdn_skt
-                    name: stdn_skt
-                    tap_action:
-                      action: toggle
+                      action: "none"
+                - type: "custom:bubble-card"
+                  card_type: separator
+                  name: Scenes
+                - type: grid
+                  square: false
+                  columns: 2
+                  cards:
+                    - type: "custom:bubble-card"
+                      card_type: button
+                      button_type: switch
+                      entity: scene.stdn_standard
+                      name: stdn_standard
+                      tap_action:
+                        action: toggle
+                    - type: "custom:bubble-card"
+                      card_type: button
+                      button_type: switch
+                      entity: scene.stdn_minimal
+                      name: stdn_minimal
+                      tap_action:
+                        action: toggle
+                - type: "custom:bubble-card"
+                  card_type: separator
+                  name: Lights
+                - type: grid
+                  square: false
+                  columns: 2
+                  cards:
+                    - type: "custom:bubble-card"
+                      card_type: button
+                      button_type: switch
+                      entity: light.stdn_lt_wall_w
+                      name: stdn_lt_wall_w
+                      tap_action:
+                        action: toggle
+                    - type: "custom:bubble-card"
+                      card_type: button
+                      button_type: switch
+                      entity: light.stdn_lt_wall_n
+                      name: stdn_lt_wall_n
+                      tap_action:
+                        action: toggle
+                    - type: "custom:bubble-card"
+                      card_type: button
+                      button_type: switch
+                      entity: light.stdn_lt_wall_e
+                      name: stdn_lt_wall_e
+                      tap_action:
+                        action: toggle
+                - type: "custom:bubble-card"
+                  card_type: separator
+                  name: Climate
+                - type: "custom:bubble-card"
+                  card_type: climate
+                  entity: climate.stdn_ac
+                  name: AC
+                  min_temp: 16
+                  max_temp: 30
+                  step: 1
+                  tap_action:
+                    action: toggle
+                  sub_button:
+                    - entity: climate.stdn_ac
+                      select_attribute: hvac_modes
+                      show_arrow: true
+                - type: "custom:bubble-card"
+                  card_type: separator
+                  name: Other
+                - type: grid
+                  square: false
+                  columns: 2
+                  cards:
+                    - type: "custom:bubble-card"
+                      card_type: button
+                      button_type: switch
+                      entity: switch.stdn_skt
+                      name: stdn_skt
+                      tap_action:
+                        action: toggle
           - type: "custom:bubble-card"
             card_type: button
             button_type: switch
@@ -1205,79 +1247,93 @@ views:
                     name: mwc_outdoor_projector
                     tap_action:
                       action: toggle
-          - type: "custom:bubble-card"
-            card_type: button
-            button_type: switch
-            entity: group.ssol_lights
-            name: Studio Solaris
-            icon: "mdi:greenhouse"
-            tap_action:
-              action: perform-action
-              perform_action: scene.turn_on
-              target:
-                entity_id: scene.ssol_standard
-              data:
-            hold_action:
-              action: toggle
-            button_action:
+          - type: conditional
+            conditions:
+              - condition: user
+                users:
+                  - bdc857a611d74e9998fdc8535024b263
+                  - b10953f68ec043cea57260ca2f5e0880
+            card:
+              type: "custom:bubble-card"
+              card_type: button
+              button_type: switch
+              entity: group.ssol_lights
+              name: Studio Solaris
+              icon: "mdi:greenhouse"
               tap_action:
-                action: navigate
-                navigation_path: "#ssol_details"
-            sub_button:
-              - entity: climate.ssol_ac
-                icon: "mdi:snowflake"
+                action: perform-action
+                perform_action: scene.turn_on
+                target:
+                  entity_id: scene.ssol_standard
+                data:
+              hold_action:
+                action: toggle
+              button_action:
                 tap_action:
-                  action: toggle
-          - type: vertical-stack
-            cards:
-              - type: "custom:bubble-card"
-                card_type: pop-up
-                hash: "#ssol_details"
-                button_type: switch
-                name: Studio Solaris
-                icon: "mdi:greenhouse"
-                entity: group.ssol_lights
-                tap_action:
-                  action: perform-action
-                  perform_action: scene.turn_on
-                  target:
-                    entity_id: scene.ssol_standard
-                  data:
-                hold_action:
-                  action: toggle
-                button_action:
+                  action: navigate
+                  navigation_path: "#ssol_details"
+              sub_button:
+                - entity: climate.ssol_ac
+                  icon: "mdi:snowflake"
                   tap_action:
-                    action: "none"
-              - type: "custom:bubble-card"
-                card_type: separator
-                name: Lights
-              - type: grid
-                square: false
-                columns: 2
-                cards:
-                  - type: "custom:bubble-card"
-                    card_type: button
-                    button_type: switch
-                    entity: light.ssol_lt_wall_s
-                    name: ssol_lt_wall_s
+                    action: toggle
+          - type: conditional
+            conditions:
+              - condition: user
+                users:
+                  - bdc857a611d74e9998fdc8535024b263
+                  - b10953f68ec043cea57260ca2f5e0880
+            card:
+              type: vertical-stack
+              cards:
+                - type: "custom:bubble-card"
+                  card_type: pop-up
+                  hash: "#ssol_details"
+                  button_type: switch
+                  name: Studio Solaris
+                  icon: "mdi:greenhouse"
+                  entity: group.ssol_lights
+                  tap_action:
+                    action: perform-action
+                    perform_action: scene.turn_on
+                    target:
+                      entity_id: scene.ssol_standard
+                    data:
+                  hold_action:
+                    action: toggle
+                  button_action:
                     tap_action:
-                      action: toggle
-              - type: "custom:bubble-card"
-                card_type: separator
-                name: Climate
-              - type: "custom:bubble-card"
-                card_type: climate
-                entity: climate.ssol_ac
-                name: AC
-                min_temp: 16
-                max_temp: 30
-                step: 1
-                tap_action:
-                  action: toggle
-                sub_button:
-                  - entity: climate.ssol_ac
-                    select_attribute: hvac_modes
-                    show_arrow: true
+                      action: "none"
+                - type: "custom:bubble-card"
+                  card_type: separator
+                  name: Lights
+                - type: grid
+                  square: false
+                  columns: 2
+                  cards:
+                    - type: "custom:bubble-card"
+                      card_type: button
+                      button_type: switch
+                      entity: light.ssol_lt_wall_s
+                      name: ssol_lt_wall_s
+                      tap_action:
+                        action: toggle
+                - type: "custom:bubble-card"
+                  card_type: separator
+                  name: Climate
+                - type: "custom:bubble-card"
+                  card_type: climate
+                  entity: climate.ssol_ac
+                  name: AC
+                  min_temp: 16
+                  max_temp: 30
+                  step: 1
+                  tap_action:
+                    action: toggle
+                  sub_button:
+                    - entity: climate.ssol_ac
+                      select_attribute: hvac_modes
+                      show_arrow: true
           - type: "custom:bubble-card"
             card_type: button
             button_type: switch
