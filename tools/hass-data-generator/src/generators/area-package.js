@@ -4,6 +4,7 @@ import { writeYamlFile, generateHeader } from './yaml-utils.js'
 export async function generateAreaPackages(inventory, config, packagesDir) {
   const { areas, entities, scenes, } = inventory
   const areasDir = join(packagesDir, 'areas')
+  const createdFiles = []
 
   console.log('\nGenerating area packages...')
 
@@ -22,8 +23,11 @@ export async function generateAreaPackages(inventory, config, packagesDir) {
     const header = generateHeader(area.name, prefix, includeExcludeInfo)
 
     await writeYamlFile(filePath, pkg, header)
+    createdFiles.push(`areas/${fileName}`)
     console.log(`  ✓ ${fileName}`)
   }
+
+  return createdFiles
 }
 
 function extractPrefix(entities, areaId) {

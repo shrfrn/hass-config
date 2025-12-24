@@ -1,4 +1,4 @@
-import { readFile, access } from 'fs/promises'
+import { readFile, writeFile, access } from 'fs/promises'
 import { dirname, join } from 'path'
 import { fileURLToPath, pathToFileURL } from 'url'
 
@@ -13,6 +13,7 @@ const OUTPUT_DIR = join(TOOL_ROOT, 'output')
 const PACKAGES_DIR = join(REPO_ROOT, 'packages')
 const INVENTORY_FILE = join(OUTPUT_DIR, 'hass-data.json')
 const CONFIG_FILE = join(TOOL_ROOT, 'generator-config.js')
+const INDEX_FILE = join(PACKAGES_DIR, 'index.yaml')
 
 async function main() {
   console.log('Home Assistant YAML Generator')
@@ -22,9 +23,13 @@ async function main() {
     const inventory = await loadInventory()
     const config = await loadConfig()
 
-    await generateAreaPackages(inventory, config, PACKAGES_DIR)
-    await generateFloorPackages(inventory, PACKAGES_DIR)
-    await generateLabelPackages(inventory, PACKAGES_DIR)
+    // Each generator returns list of created files (relative to packages dir)
+    const areaFiles = await generateAreaPackages(inventory, config, PACKAGES_DIR)
+    const floorFiles = await generateFloorPackages(inventory, PACKAGES_DIR)
+    const labelFiles = await generateLabelPackages(inventory, PACKAGES_DIR)
+
+    // Generate index.yaml that includes all packages
+    await generatePackageIndex([...areaFiles, ...floorFiles, ...labelFiles])
 
     console.log('\n✅ YAML generation complete!')
     console.log(`   Output: ${PACKAGES_DIR}`)
@@ -33,6 +38,44 @@ async function main() {
     console.error('\n❌ Error:', err.message)
     process.exit(1)
   }
+}
+
+async function generatePackageIndex(generatedFiles) {
+  console.log('\nUpdating package index...')
+
+  // Build expected content
+  const lines = [
+    '# Package index - auto-managed',
+    '# Generated entries are added/removed automatically',
+    '# Manual entries (like climate_persistence) are preserved',
+    '',
+    '# Manual packages',
+    'climate_persistence: !include climate_persistence.yaml',
+    '',
+    '# Auto-generated packages',
+  ]
+
+  for (const file of generatedFiles.sort()) {
+    const packageName = file.replace(/\.yaml$/, '').replace(/\//g, '_')
+    lines.push(`${packageName}: !include ${file}`)
+  }
+
+  const newContent = lines.join('\n') + '\n'
+
+  // Check if update is needed
+  try {
+    const existingContent = await readFile(INDEX_FILE, 'utf-8')
+
+    if (existingContent === newContent) {
+      console.log(`  ✓ index.yaml (no changes)`)
+      return
+    }
+  } catch (err) {
+    // File doesn't exist, will create
+  }
+
+  await writeFile(INDEX_FILE, newContent, 'utf-8')
+  console.log(`  ✓ index.yaml (${generatedFiles.length} packages)`)
 }
 
 async function loadInventory() {
