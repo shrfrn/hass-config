@@ -1,11 +1,11 @@
 import { join } from 'path'
 import { writeYamlFile, generateLabelHeader } from './yaml-utils.js'
 
-export async function generateLabelPackages(inventory, outputDir) {
+export async function generateLabelPackages(inventory, packagesDir) {
   const { labels, entities, } = inventory
-  const packagesDir = join(outputDir, 'packages', 'labels')
+  const labelsDir = join(packagesDir, 'labels')
 
-  if (labels.length === 0) {
+  if (!labels || labels.length === 0) {
     console.log('\nNo labels defined, skipping label packages')
     return
   }
@@ -22,7 +22,7 @@ export async function generateLabelPackages(inventory, outputDir) {
 
     const pkg = buildLabelPackage(label, labelEntities)
     const fileName = `label_${sanitizeFileName(label.id)}.yaml`
-    const filePath = join(packagesDir, fileName)
+    const filePath = join(labelsDir, fileName)
 
     await writeYamlFile(filePath, pkg, generateLabelHeader(label.name))
     console.log(`  ✓ ${fileName}`)

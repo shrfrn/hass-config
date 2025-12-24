@@ -1,9 +1,9 @@
 import { join } from 'path'
 import { writeYamlFile, generateHeader } from './yaml-utils.js'
 
-export async function generateAreaPackages(inventory, config, outputDir) {
+export async function generateAreaPackages(inventory, config, packagesDir) {
   const { areas, entities, scenes, } = inventory
-  const packagesDir = join(outputDir, 'packages', 'areas')
+  const areasDir = join(packagesDir, 'areas')
 
   console.log('\nGenerating area packages...')
 
@@ -18,7 +18,7 @@ export async function generateAreaPackages(inventory, config, outputDir) {
 
     const { pkg, includeExcludeInfo, } = buildAreaPackage(area, entities, scenes, areaConfig, config, prefix)
     const fileName = `${prefix}${sanitizeFileName(area.id)}.yaml`
-    const filePath = join(packagesDir, fileName)
+    const filePath = join(areasDir, fileName)
     const header = generateHeader(area.name, prefix, includeExcludeInfo)
 
     await writeYamlFile(filePath, pkg, header)
