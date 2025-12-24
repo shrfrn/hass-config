@@ -14,10 +14,10 @@ const config = {
   // Browse output/entities.js to find entity IDs
   areas: {
     // Example:
-    // living_room: {
-    //   excluded_lights: ['light.lr_notification'],  // moved to Other section
+    living_room: {
+      excluded_lights: ['light.lr_lt_outdoor_projector'],  // moved to Other section
     //   included_lights: ['switch.lr_floor_lamp'],   // added to Lights section
-    // },
+    },
   },
 }
 

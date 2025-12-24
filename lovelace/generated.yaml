@@ -317,7 +317,7 @@ views:
                 card_type: separator
                 name: Other
               - type: grid
-                square: true
+                square: false
                 columns: 2
                 cards:
                   - type: "custom:bubble-card"
@@ -369,7 +369,7 @@ views:
                 card_type: separator
                 name: Other
               - type: grid
-                square: true
+                square: false
                 columns: 2
                 cards:
                   - type: "custom:bubble-card"
@@ -540,7 +540,7 @@ views:
                 card_type: separator
                 name: Other
               - type: grid
-                square: true
+                square: false
                 columns: 2
                 cards:
                   - type: "custom:bubble-card"
@@ -847,13 +847,6 @@ views:
                     name: Ceiling
                     tap_action:
                       action: toggle
-                  - type: "custom:bubble-card"
-                    card_type: button
-                    button_type: switch
-                    entity: light.lr_lt_outdoor_projector
-                    name: lr_lt_outdoor_projector
-                    tap_action:
-                      action: toggle
               - type: "custom:bubble-card"
                 card_type: separator
                 name: Climate
@@ -877,7 +870,7 @@ views:
                 card_type: separator
                 name: Other
               - type: grid
-                square: true
+                square: false
                 columns: 2
                 cards:
                   - type: "custom:bubble-card"
@@ -892,6 +885,13 @@ views:
                     button_type: switch
                     entity: switch.lr_soc_w
                     name: Socket
+                    tap_action:
+                      action: toggle
+                  - type: "custom:bubble-card"
+                    card_type: button
+                    button_type: switch
+                    entity: light.lr_lt_outdoor_projector
+                    name: lr_lt_outdoor_projector
                     tap_action:
                       action: toggle
                   - type: "custom:bubble-card"
@@ -1113,7 +1113,7 @@ views:
                 card_type: separator
                 name: Other
               - type: grid
-                square: true
+                square: false
                 columns: 2
                 cards:
                   - type: "custom:bubble-card"
@@ -1409,7 +1409,7 @@ views:
                 card_type: separator
                 name: Other
               - type: grid
-                square: true
+                square: false
                 columns: 2
                 cards:
                   - type: "custom:bubble-card"
@@ -1716,7 +1716,7 @@ views:
                 card_type: separator
                 name: Other
               - type: grid
-                square: true
+                square: false
                 columns: 2
                 cards:
                   - type: "custom:bubble-card"
