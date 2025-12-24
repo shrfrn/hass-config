@@ -16,10 +16,9 @@ git push origin "$BRANCH"
 echo "Deploying to Pi..."
 if ssh "$PI_HOST" "$PI_SCRIPT $BRANCH"; then
     echo ""
-    echo "Deploy succeeded! Pulling main..."
-    git checkout main
-    git pull origin main
-    echo "Done - you're on updated main"
+    echo "Deploy succeeded! Updating main..."
+    git fetch origin main:main
+    echo "Done - staying on $BRANCH (main updated)"
 else
     echo ""
     echo "Deploy failed - config check didn't pass"
