@@ -4,6 +4,9 @@
 
 /** @type {import('./dashboard-config.d.ts').DashboardConfig} */
 const config = {
+  // Areas to pin at the top of the dashboard (in order)
+  pinned_areas: ['living_room', 'bedroom', 'kitchen'],
+
   // Areas to exclude from the dashboard
   excluded_areas: [],
 

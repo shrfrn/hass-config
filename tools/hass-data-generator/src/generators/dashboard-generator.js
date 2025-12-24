@@ -3,6 +3,7 @@ import { buildPreviewCard, buildDetailsPopup } from './dashboard-cards.js'
 export function generateDashboard(inventory, config) {
   const { areas, entities, scenes, } = inventory
   const excludedAreas = new Set(config.excluded_areas || [])
+  const pinnedAreas = config.pinned_areas || []
   const defaultSceneSuffix = config.default_scene_suffix || 'standard'
 
   const cards = [
@@ -13,8 +14,10 @@ export function generateDashboard(inventory, config) {
   const entityMap = buildEntityMap(entities)
   const sceneMap = buildSceneMap(scenes)
 
-  for (const area of areas) {
-    if (excludedAreas.has(area.id)) continue
+  // Sort areas: pinned first (in order), then rest alphabetically by name
+  const sortedAreas = sortAreas(areas, pinnedAreas, excludedAreas)
+
+  for (const area of sortedAreas) {
 
     const prefix = extractPrefix(entities, area.id)
 
@@ -93,6 +96,34 @@ function buildSceneMap(scenes) {
   }
 
   return map
+}
+
+function sortAreas(areas, pinnedAreas, excludedAreas) {
+  // Filter out excluded areas
+  const included = areas.filter(a => !excludedAreas.has(a.id))
+
+  // Create pinned set for quick lookup
+  const pinnedSet = new Set(pinnedAreas)
+
+  // Separate pinned and unpinned
+  const pinned = []
+  const unpinned = []
+
+  for (const area of included) {
+    if (pinnedSet.has(area.id)) {
+      pinned.push(area)
+    } else {
+      unpinned.push(area)
+    }
+  }
+
+  // Sort pinned by their order in pinnedAreas
+  pinned.sort((a, b) => pinnedAreas.indexOf(a.id) - pinnedAreas.indexOf(b.id))
+
+  // Sort unpinned alphabetically by name
+  unpinned.sort((a, b) => a.name.localeCompare(b.name))
+
+  return [...pinned, ...unpinned]
 }
 
 function extractPrefix(entities, areaId) {
