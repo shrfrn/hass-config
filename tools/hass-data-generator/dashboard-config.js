@@ -2,7 +2,7 @@
 // Dashboard configuration - YOUR EDITS GO HERE
 // This file is never overwritten by the generator
 
-import { ADULTS } from './users.js'
+import { PARENTS } from './users.js'
 
 /** @type {import('./dashboard-config.d.ts').DashboardConfig} */
 const config = {
@@ -25,16 +25,16 @@ const config = {
       excluded_lights: ['light.lr_lt_outdoor_projector'],
     },
     bedroom: {
-      visible_to_users: ADULTS,
+      visible_to_users: PARENTS,
     },
     shahar_s_studio: {
-      visible_to_users: ADULTS,
+      visible_to_users: PARENTS,
     },
     sharon_s_studio: {
-      visible_to_users: ADULTS,
+      visible_to_users: PARENTS,
     },
     studio_solaris: {
-      visible_to_users: ADULTS,
+      visible_to_users: PARENTS,
     },
   },
 }
