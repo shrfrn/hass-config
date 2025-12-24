@@ -32,3 +32,16 @@ www/community/
 .DS_Store
 ._*
 .Trashes
+
+# Node.js
+node_modules/
+
+# Environment files
+.env
+.env.local
+
+# Generator output
+tools/hass-data-generator/output/
+
+# Generator user config (contains local overrides)
+tools/hass-data-generator/generator-config.js

@@ -1,0 +1,156 @@
+import { join } from 'path'
+import { writeYamlFile, generateHeader } from './yaml-utils.js'
+
+export async function generateAreaPackages(inventory, config, outputDir) {
+  const { areas, entities, scenes, } = inventory
+  const packagesDir = join(outputDir, 'packages', 'areas')
+
+  console.log('\nGenerating area packages...')
+
+  for (const area of areas) {
+    const areaConfig = config.areas?.[area.id] || {}
+    const prefix = extractPrefix(entities, area.id)
+
+    if (!prefix) {
+      console.log(`  ⚠ Skipping ${area.name}: no prefix detected`)
+      continue
+    }
+
+    const { pkg, includeExcludeInfo, } = buildAreaPackage(area, entities, scenes, areaConfig, config, prefix)
+    const fileName = `${prefix}${sanitizeFileName(area.id)}.yaml`
+    const filePath = join(packagesDir, fileName)
+    const header = generateHeader(area.name, prefix, includeExcludeInfo)
+
+    await writeYamlFile(filePath, pkg, header)
+    console.log(`  ✓ ${fileName}`)
+  }
+}
+
+function extractPrefix(entities, areaId) {
+  const areaEntities = entities.filter(e => e.area_id === areaId)
+
+  for (const entity of areaEntities) {
+    const name = entity.entity_id.split('.')[1]
+    const underscoreIndex = name?.indexOf('_')
+
+    if (underscoreIndex > 0) {
+      return name.substring(0, underscoreIndex + 1)
+    }
+  }
+
+  return null
+}
+
+function sanitizeFileName(str) {
+  return str.replace(/[^a-z0-9_]/gi, '_').toLowerCase()
+}
+
+function buildAreaPackage(area, entities, scenes, areaConfig, globalConfig, prefix) {
+  const pkg = {}
+
+  // Light group with include/exclude tracking
+  const { lightGroup, included, excluded, } = buildLightGroup(area, entities, areaConfig, prefix)
+
+  if (lightGroup) {
+    pkg.group = { [`${prefix}lights`]: lightGroup, }
+  }
+
+  // Scene selector
+  const areaScenes = getAreaScenes(scenes, prefix)
+  pkg.input_select = {
+    [`${prefix}active_scene`]: buildSceneSelector(area, areaScenes),
+  }
+
+  // Last presence timestamp
+  pkg.input_datetime = {
+    [`${prefix}last_presence`]: {
+      name: `${area.name} Last Presence`,
+      has_date: true,
+      has_time: true,
+    },
+  }
+
+  // Pause automations boolean
+  pkg.input_boolean = {
+    [`${prefix}pause_automations`]: {
+      name: `${area.name} Pause Automations`,
+      icon: 'mdi:pause-circle',
+    },
+  }
+
+  // Vacancy timer
+  const duration = areaConfig.vacancy_timer_duration || globalConfig.default_vacancy_duration || '00:10:00'
+  pkg.timer = {
+    [`${prefix}vacancy`]: {
+      name: `${area.name} Vacancy Timer`,
+      duration,
+    },
+  }
+
+  // People present template sensor
+  pkg.template = [
+    {
+      sensor: [
+        {
+          name: `${area.name} People Present`,
+          unique_id: `${prefix}people_present`,
+          state: buildPeopleTemplate(area.id),
+        },
+      ],
+    },
+  ]
+
+  const includeExcludeInfo = { included, excluded, }
+
+  return { pkg, includeExcludeInfo, }
+}
+
+function buildLightGroup(area, entities, areaConfig, prefix) {
+  const includes = areaConfig.include_in_group || []
+  const excludeList = areaConfig.exclude_from_group || []
+  const excludeSet = new Set(excludeList)
+
+  // Get lights from this area
+  const areaLights = entities
+    .filter(e => e.area_id === area.id && e.domain === 'light')
+    .map(e => e.entity_id)
+    .filter(id => !excludeSet.has(id))
+
+  // Combine with includes
+  const allLights = [...new Set([...areaLights, ...includes])]
+
+  if (allLights.length === 0) {
+    return { lightGroup: null, included: [], excluded: [], }
+  }
+
+  const lightGroup = {
+    name: `${area.name} Lights`,
+    entities: allLights.sort(),
+  }
+
+  return {
+    lightGroup,
+    included: includes,
+    excluded: excludeList,
+  }
+}
+
+function getAreaScenes(scenes, prefix) {
+  return scenes
+    .filter(s => s.entity_id.includes(`.${prefix}`))
+    .map(s => s.entity_id)
+}
+
+function buildSceneSelector(area, areaScenes) {
+  const options = ['none', ...areaScenes]
+
+  return {
+    name: `${area.name} Active Scene`,
+    options,
+    initial: 'none',
+  }
+}
+
+function buildPeopleTemplate(areaId) {
+  return `{{ states.person | selectattr('state', 'eq', '${areaId}') | map(attribute='name') | list | join(', ') or 'none' }}`
+}

@@ -1,0 +1,221 @@
+import { buildPreviewCard, buildDetailsPopup } from './dashboard-cards.js'
+
+export function generateDashboard(inventory, config) {
+  const { areas, entities, scenes, } = inventory
+  const excludedAreas = new Set(config.excluded_areas || [])
+  const defaultSceneSuffix = config.default_scene_suffix || 'standard'
+
+  const cards = [
+    { type: 'heading', heading: 'Areas', },
+  ]
+
+  // Build area data map for quick lookup
+  const entityMap = buildEntityMap(entities)
+  const sceneMap = buildSceneMap(scenes)
+
+  for (const area of areas) {
+    if (excludedAreas.has(area.id)) continue
+
+    const prefix = extractPrefix(entities, area.id)
+
+    if (!prefix) {
+      console.log(`  ⚠ Skipping ${area.name}: no prefix detected`)
+      continue
+    }
+
+    const areaConfig = config.areas?.[area.id] || {}
+    const areaData = buildAreaData(area, prefix, entityMap, sceneMap, areaConfig)
+
+    // Skip areas with no light group
+    if (!areaData.lightGroup) {
+      console.log(`  ⚠ Skipping ${area.name}: no light group`)
+      continue
+    }
+
+    // Add preview card
+    cards.push(buildPreviewCard(area, prefix, areaData, defaultSceneSuffix))
+
+    // Add details popup
+    cards.push(buildDetailsPopup(area, prefix, areaData, defaultSceneSuffix))
+
+    console.log(`  ✓ ${area.name}`)
+  }
+
+  return {
+    views: [
+      {
+        title: 'Home',
+        sections: [
+          {
+            type: 'grid',
+            cards,
+          },
+        ],
+      },
+    ],
+  }
+}
+
+function buildEntityMap(entities) {
+  const map = new Map()
+
+  for (const entity of entities) {
+    if (!entity.area_id) continue
+
+    if (!map.has(entity.area_id)) {
+      map.set(entity.area_id, [])
+    }
+
+    map.get(entity.area_id).push(entity)
+  }
+
+  return map
+}
+
+function buildSceneMap(scenes) {
+  const map = new Map()
+
+  for (const scene of scenes) {
+    // Extract prefix from scene entity_id (e.g., scene.lr_minimal -> lr_)
+    const parts = scene.entity_id.split('.')
+    const name = parts[1] || ''
+    const underscoreIdx = name.indexOf('_')
+
+    if (underscoreIdx > 0) {
+      const prefix = name.substring(0, underscoreIdx + 1)
+
+      if (!map.has(prefix)) {
+        map.set(prefix, [])
+      }
+
+      map.get(prefix).push(scene)
+    }
+  }
+
+  return map
+}
+
+function extractPrefix(entities, areaId) {
+  const areaEntities = entities.filter(e => e.area_id === areaId)
+
+  for (const entity of areaEntities) {
+    const name = entity.entity_id.split('.')[1]
+    const underscoreIndex = name?.indexOf('_')
+
+    if (underscoreIndex > 0) {
+      return name.substring(0, underscoreIndex + 1)
+    }
+  }
+
+  return null
+}
+
+function buildAreaData(area, prefix, entityMap, sceneMap, areaConfig) {
+  const areaEntities = entityMap.get(area.id) || []
+  const areaScenes = sceneMap.get(prefix) || []
+
+  const excludedLights = new Set(areaConfig.excluded_lights || [])
+  const includedLights = areaConfig.included_lights || []
+
+  // Find light group
+  const lightGroup = `group.${prefix}lights`
+
+  // Find AC entity (climate domain, ends with _ac)
+  const acEntity = findAcEntity(areaEntities)
+
+  // Find fan entity
+  const fanEntity = findFanEntity(areaEntities)
+
+  // Build lights list
+  const lights = buildLightsList(areaEntities, excludedLights, includedLights)
+
+  // Build other entities list (excluded lights + other stuff)
+  const otherEntities = buildOtherList(areaEntities, excludedLights, lights, acEntity, fanEntity)
+
+  return {
+    lightGroup,
+    acEntity,
+    fanEntity,
+    scenes: areaScenes,
+    lights,
+    otherEntities,
+  }
+}
+
+function findAcEntity(entities) {
+  const ac = entities.find(e =>
+    e.domain === 'climate' && e.entity_id.endsWith('_ac')
+  )
+
+  return ac?.entity_id || null
+}
+
+function findFanEntity(entities) {
+  // First try domain: fan
+  const fan = entities.find(e => e.domain === 'fan')
+
+  if (fan) return fan.entity_id
+
+  // Then try switch with 'fan' in name/id
+  const fanSwitch = entities.find(e =>
+    e.domain === 'switch' && (
+      e.entity_id.toLowerCase().includes('fan') ||
+      e.name?.toLowerCase().includes('fan')
+    )
+  )
+
+  return fanSwitch?.entity_id || null
+}
+
+function buildLightsList(entities, excludedLights, includedLights) {
+  // Start with included lights (preserves order)
+  const includedSet = new Set(includedLights)
+  const result = []
+
+  // Add included lights first (in order)
+  for (const entityId of includedLights) {
+    const entity = entities.find(e => e.entity_id === entityId)
+
+    if (entity) {
+      result.push(entity)
+    } else {
+      // Entity might be from different area (like a switch)
+      result.push({ entity_id: entityId, name: null, })
+    }
+  }
+
+  // Add remaining lights from area (not excluded, not already included)
+  const areaLights = entities.filter(e =>
+    e.domain === 'light' &&
+    !excludedLights.has(e.entity_id) &&
+    !includedSet.has(e.entity_id)
+  )
+
+  result.push(...areaLights)
+
+  return result
+}
+
+function buildOtherList(entities, excludedLights, lightsInSection, acEntity, fanEntity) {
+  const lightIds = new Set(lightsInSection.map(l => l.entity_id))
+
+  return entities.filter(e => {
+    // Include if it's an excluded light
+    if (excludedLights.has(e.entity_id)) return true
+
+    // Exclude if already in lights section
+    if (lightIds.has(e.entity_id)) return false
+
+    // Exclude climate and fan (in their own section)
+    if (e.entity_id === acEntity || e.entity_id === fanEntity) return false
+
+    // Exclude scenes, sensors, automations, etc.
+    const excludeDomains = ['scene', 'sensor', 'binary_sensor', 'automation', 'script', 'climate', 'fan', 'group']
+
+    if (excludeDomains.includes(e.domain)) return false
+
+    // Include switches and other controllable entities
+    return true
+  })
+}
+

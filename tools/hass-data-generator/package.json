@@ -1,0 +1,19 @@
+{
+  "name": "hass-data-generator",
+  "version": "1.0.0",
+  "description": "Generates a JSON data source from Home Assistant configuration",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "generate": "node src/index.js",
+    "generate:yaml": "node src/generate-yaml.js",
+    "generate:dashboard": "node src/generate-dashboard.js",
+    "generate:all": "npm run generate:yaml && npm run generate:dashboard"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "ws": "^8.14.2"
+  }
+}
+
