@@ -35,13 +35,18 @@ export function generateDashboard(inventory, config) {
       continue
     }
 
-    // Add preview card
-    cards.push(buildPreviewCard(area, prefix, areaData, defaultSceneSuffix))
+    const visibleToUsers = areaConfig.visible_to_users || null
 
-    // Add details popup
-    cards.push(buildDetailsPopup(area, prefix, areaData, defaultSceneSuffix))
+    // Add preview card (wrapped in conditional if user-restricted)
+    const previewCard = buildPreviewCard(area, prefix, areaData, defaultSceneSuffix)
+    cards.push(wrapWithUserCondition(previewCard, visibleToUsers))
 
-    console.log(`  ✓ ${area.name}`)
+    // Add details popup (wrapped in conditional if user-restricted)
+    const detailsPopup = buildDetailsPopup(area, prefix, areaData, defaultSceneSuffix)
+    cards.push(wrapWithUserCondition(detailsPopup, visibleToUsers))
+
+    const userNote = visibleToUsers ? ` (${visibleToUsers.length} users)` : ''
+    console.log(`  ✓ ${area.name}${userNote}`)
   }
 
   return {
@@ -56,6 +61,23 @@ export function generateDashboard(inventory, config) {
         ],
       },
     ],
+  }
+}
+
+function wrapWithUserCondition(card, visibleToUsers) {
+  if (!visibleToUsers || visibleToUsers.length === 0) {
+    return card
+  }
+
+  return {
+    type: 'conditional',
+    conditions: [
+      {
+        condition: 'user',
+        users: visibleToUsers,
+      },
+    ],
+    card,
   }
 }
 

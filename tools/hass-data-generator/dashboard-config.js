@@ -15,11 +15,24 @@ const config = {
 
   // Per-area dashboard configuration
   // Browse output/entities.js to find entity IDs
+  // Find user IDs: Settings > People > click user > look at URL
   areas: {
-    // Example:
     living_room: {
       excluded_lights: ['light.lr_lt_outdoor_projector'],  // moved to Other section
-    //   included_lights: ['switch.lr_floor_lamp'],   // added to Lights section
+      // included_lights: ['switch.lr_floor_lamp'],   // added to Lights section
+    },
+    // Example: Restrict area to specific users
+    bedroom: {
+      visible_to_users: ['person.sharon_frenkel', 'person.shahar_katz'],  // Only this user sees Office
+    },
+    shahar_s_studio: {
+      visible_to_users: ['person.sharon_frenkel', 'person.shahar_katz'],  // Only this user sees Office
+    },
+    sharon_s_studio: {
+      visible_to_users: ['person.sharon_frenkel', 'person.shahar_katz'],  // Only this user sees Office
+    },
+    studio_solaris: {
+      visible_to_users: ['person.sharon_frenkel', 'person.shahar_katz'],  // Only this user sees Office
     },
   },
 }
