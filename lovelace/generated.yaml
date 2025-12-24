@@ -51,6 +51,9 @@ views:
                   data:
                 hold_action:
                   action: toggle
+                button_action:
+                  tap_action:
+                    action: "none"
               - type: "custom:bubble-card"
                 card_type: separator
                 name: Lights
@@ -140,6 +143,9 @@ views:
                   data:
                 hold_action:
                   action: toggle
+                button_action:
+                  tap_action:
+                    action: "none"
               - type: "custom:bubble-card"
                 card_type: separator
                 name: Lights
@@ -222,6 +228,9 @@ views:
                   data:
                 hold_action:
                   action: toggle
+                button_action:
+                  tap_action:
+                    action: "none"
               - type: "custom:bubble-card"
                 card_type: separator
                 name: Lights
@@ -301,6 +310,9 @@ views:
                   data:
                 hold_action:
                   action: toggle
+                button_action:
+                  tap_action:
+                    action: "none"
               - type: "custom:bubble-card"
                 card_type: separator
                 name: Other
@@ -350,6 +362,9 @@ views:
                   data:
                 hold_action:
                   action: toggle
+                button_action:
+                  tap_action:
+                    action: "none"
               - type: "custom:bubble-card"
                 card_type: separator
                 name: Other
@@ -404,6 +419,9 @@ views:
                   data:
                 hold_action:
                   action: toggle
+                button_action:
+                  tap_action:
+                    action: "none"
               - type: "custom:bubble-card"
                 card_type: separator
                 name: Scenes
@@ -586,6 +604,9 @@ views:
                   data:
                 hold_action:
                   action: toggle
+                button_action:
+                  tap_action:
+                    action: "none"
               - type: "custom:bubble-card"
                 card_type: separator
                 name: Lights
@@ -656,6 +677,9 @@ views:
                   data:
                 hold_action:
                   action: toggle
+                button_action:
+                  tap_action:
+                    action: "none"
               - type: "custom:bubble-card"
                 card_type: separator
                 name: Lights
@@ -743,6 +767,9 @@ views:
                   data:
                 hold_action:
                   action: toggle
+                button_action:
+                  tap_action:
+                    action: "none"
               - type: "custom:bubble-card"
                 card_type: separator
                 name: Scenes
@@ -921,6 +948,9 @@ views:
                   data:
                 hold_action:
                   action: toggle
+                button_action:
+                  tap_action:
+                    action: "none"
               - type: "custom:bubble-card"
                 card_type: separator
                 name: Climate
@@ -980,6 +1010,9 @@ views:
                   data:
                 hold_action:
                   action: toggle
+                button_action:
+                  tap_action:
+                    action: "none"
               - type: "custom:bubble-card"
                 card_type: separator
                 name: Scenes
@@ -1132,6 +1165,9 @@ views:
                   data:
                 hold_action:
                   action: toggle
+                button_action:
+                  tap_action:
+                    action: "none"
               - type: "custom:bubble-card"
                 card_type: separator
                 name: Lights
@@ -1214,6 +1250,9 @@ views:
                   data:
                 hold_action:
                   action: toggle
+                button_action:
+                  tap_action:
+                    action: "none"
               - type: "custom:bubble-card"
                 card_type: separator
                 name: Lights
@@ -1293,6 +1332,9 @@ views:
                   data:
                 hold_action:
                   action: toggle
+                button_action:
+                  tap_action:
+                    action: "none"
               - type: "custom:bubble-card"
                 card_type: separator
                 name: Scenes
@@ -1459,6 +1501,9 @@ views:
                   data:
                 hold_action:
                   action: toggle
+                button_action:
+                  tap_action:
+                    action: "none"
               - type: "custom:bubble-card"
                 card_type: separator
                 name: Scenes
@@ -1599,6 +1644,9 @@ views:
                   data:
                 hold_action:
                   action: toggle
+                button_action:
+                  tap_action:
+                    action: "none"
               - type: "custom:bubble-card"
                 card_type: separator
                 name: Scenes
@@ -1718,6 +1766,9 @@ views:
                   data:
                 hold_action:
                   action: toggle
+                button_action:
+                  tap_action:
+                    action: "none"
               - type: "custom:bubble-card"
                 card_type: separator
                 name: Lights
@@ -1791,6 +1842,9 @@ views:
                   data:
                 hold_action:
                   action: toggle
+                button_action:
+                  tap_action:
+                    action: "none"
               - type: "custom:bubble-card"
                 card_type: separator
                 name: Lights
