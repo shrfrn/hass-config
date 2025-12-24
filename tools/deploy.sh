@@ -12,18 +12,15 @@ CYAN='\033[1;36m'
 DIM='\033[2m'
 NC='\033[0m'
 
-# Spinner characters
 SPINNER='⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏'
 
 BRANCH=$(git branch --show-current)
 
-# Check we're not on main
 if [ "$BRANCH" = "main" ]; then
     echo -e "${RED}Error: Switch to a feature branch first.${NC}"
     exit 1
 fi
 
-# Check for unpushed commits
 UNPUSHED=$(git log origin/$BRANCH..$BRANCH --oneline 2>/dev/null | wc -l | tr -d ' ')
 if [ "$UNPUSHED" -eq 0 ]; then
     echo -e "${YELLOW}No new commits to deploy on $BRANCH${NC}"
@@ -39,103 +36,73 @@ echo ""
 echo -e "${CYAN}🍓 Deploying to Pi...${NC}"
 echo ""
 
-# Create pipes for communication
-PIPE=$(mktemp -u)
-mkfifo "$PIPE"
-
-# Start SSH and write to pipe
-ssh "$PI_HOST" "$PI_SCRIPT $BRANCH" 2>&1 > "$PIPE" &
-SSH_PID=$!
-
-# Track state
-CURRENT_STAGE=""
-STAGE_START=0
-SPIN_IDX=0
-OUTPUT_LINES=()
-EXIT_CODE=0
+# Temp file for output
+TEMP_OUT=$(mktemp)
 TOTAL_START=$SECONDS
 
-# Read from pipe with timeout to allow spinner updates
-while true; do
-    # Try to read a line (with timeout)
-    if read -t 0.1 line < "$PIPE" 2>/dev/null; then
-        case "$line" in
-            "[STAGE:CHECK]")
-                CURRENT_STAGE="check"
-                STAGE_START=$SECONDS
-                ;;
-            "[STAGE:CHECK_PASS]")
-                ELAPSED=$((SECONDS - STAGE_START))
-                printf "\r   ${GREEN}✓${NC} Config check passed ${DIM}(${ELAPSED}s)${NC}          \n"
-                CURRENT_STAGE=""
-                ;;
-            "[STAGE:CHECK_FAIL]")
-                ELAPSED=$((SECONDS - STAGE_START))
-                printf "\r   ${RED}✗${NC} Config check failed ${DIM}(${ELAPSED}s)${NC}          \n"
-                CURRENT_STAGE=""
-                ;;
-            "[STAGE:RESTART]")
-                CURRENT_STAGE="restart"
-                STAGE_START=$SECONDS
-                ;;
-            "[STAGE:RESTART_DONE]")
-                ELAPSED=$((SECONDS - STAGE_START))
-                printf "\r   ${GREEN}✓${NC} Home Assistant restarted ${DIM}(${ELAPSED}s)${NC}          \n"
-                CURRENT_STAGE=""
-                ;;
-            "[EXIT:"*)
-                EXIT_CODE="${line#[EXIT:}"
-                EXIT_CODE="${EXIT_CODE%]}"
-                break
-                ;;
-            *)
-                OUTPUT_LINES+=("$line")
-                ;;
-        esac
-    fi
-    
-    # Update spinner if in a stage
-    if [ -n "$CURRENT_STAGE" ]; then
-        ELAPSED=$((SECONDS - STAGE_START))
-        SPIN_CHAR="${SPINNER:SPIN_IDX++%10:1}"
-        
-        case "$CURRENT_STAGE" in
-            "check")
-                printf "\r   ${YELLOW}${SPIN_CHAR}${NC} Config check running... ${DIM}${ELAPSED}s${NC}  "
-                ;;
-            "restart")
-                printf "\r   ${YELLOW}${SPIN_CHAR}${NC} Restarting Home Assistant... ${DIM}${ELAPSED}s${NC}  "
-                ;;
-        esac
-    fi
-    
-    # Check if SSH is still running
-    if ! kill -0 $SSH_PID 2>/dev/null; then
-        # Drain any remaining output
-        while read -t 0.1 line < "$PIPE" 2>/dev/null; do
-            case "$line" in
-                "[STAGE:"*) ;;
-                *) OUTPUT_LINES+=("$line") ;;
-            esac
-        done
-        break
-    fi
-done
+# Run SSH in background
+ssh "$PI_HOST" "$PI_SCRIPT $BRANCH" > "$TEMP_OUT" 2>&1 &
+SSH_PID=$!
 
-# Cleanup
-rm -f "$PIPE"
-wait $SSH_PID 2>/dev/null
+# Spinner function
+spin_until_stage() {
+    local msg="$1"
+    local stage_marker="$2"
+    local start=$SECONDS
+    local i=0
+    
+    while kill -0 $SSH_PID 2>/dev/null; do
+        # Check if stage marker appeared
+        if grep -q "$stage_marker" "$TEMP_OUT" 2>/dev/null; then
+            local elapsed=$((SECONDS - start))
+            printf "\r   ${GREEN}✓${NC} ${msg} ${DIM}(${elapsed}s)${NC}          \n"
+            return 0
+        fi
+        
+        # Check for failure
+        if grep -q "\[STAGE:CHECK_FAIL\]" "$TEMP_OUT" 2>/dev/null; then
+            local elapsed=$((SECONDS - start))
+            printf "\r   ${RED}✗${NC} Config check failed ${DIM}(${elapsed}s)${NC}          \n"
+            return 1
+        fi
+        
+        local elapsed=$((SECONDS - start))
+        printf "\r   ${YELLOW}${SPINNER:i++%10:1}${NC} ${msg}... ${DIM}${elapsed}s${NC}  "
+        sleep 0.1
+    done
+    
+    # SSH ended, check final state
+    if grep -q "$stage_marker" "$TEMP_OUT" 2>/dev/null; then
+        local elapsed=$((SECONDS - start))
+        printf "\r   ${GREEN}✓${NC} ${msg} ${DIM}(${elapsed}s)${NC}          \n"
+        return 0
+    fi
+    return 1
+}
+
+# Wait for config check
+spin_until_stage "Config check" "\[STAGE:CHECK_PASS\]"
+CHECK_RESULT=$?
+
+if [ $CHECK_RESULT -eq 0 ]; then
+    # Wait for restart
+    spin_until_stage "Home Assistant restart" "\[STAGE:RESTART_DONE\]"
+fi
+
+# Wait for SSH to finish
+wait $SSH_PID
 EXIT_CODE=$?
 
 TOTAL_TIME=$((SECONDS - TOTAL_START))
 
-# Show Pi output
+# Show Pi output (filter out stage markers)
 echo ""
 echo -e "${DIM}── Pi log ──${NC}"
-for line in "${OUTPUT_LINES[@]}"; do
+grep -v "^\[STAGE:" "$TEMP_OUT" | while IFS= read -r line; do
     echo -e "   ${DIM}│${NC} $line"
 done
 echo -e "${DIM}────────────${NC}"
+rm -f "$TEMP_OUT"
 
 if [ "$EXIT_CODE" -eq 0 ]; then
     echo ""
