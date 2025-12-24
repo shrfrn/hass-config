@@ -75,6 +75,9 @@ export function buildDetailsPopup(area, prefix, areaData, defaultSceneSuffix) {
       data: {},
     },
     hold_action: { action: 'toggle', },
+    button_action: {
+      tap_action: { action: 'none', },
+    },
   })
 
   // Scenes section
