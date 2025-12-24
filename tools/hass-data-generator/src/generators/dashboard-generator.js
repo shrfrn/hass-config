@@ -2,13 +2,15 @@ import { buildPreviewCard, buildDetailsPopup } from './dashboard-cards.js'
 
 export function generateDashboard(inventory, config) {
   const { areas, entities, scenes, } = inventory
+  const dashboardName = config.dashboard_name || 'Home'
   const excludedAreas = new Set(config.excluded_areas || [])
   const pinnedAreas = config.pinned_areas || []
   const defaultSceneSuffix = config.default_scene_suffix || 'standard'
 
-  const cards = [
+  const previewCards = [
     { type: 'heading', heading: 'Areas', },
   ]
+  const popupCards = []
 
   // Build area data map for quick lookup
   const entityMap = buildEntityMap(entities)
@@ -39,20 +41,23 @@ export function generateDashboard(inventory, config) {
 
     // Add preview card (wrapped in conditional if user-restricted)
     const previewCard = buildPreviewCard(area, prefix, areaData, defaultSceneSuffix)
-    cards.push(wrapWithUserCondition(previewCard, visibleToUsers))
+    previewCards.push(wrapWithUserCondition(previewCard, visibleToUsers))
 
-    // Add details popup (wrapped in conditional if user-restricted)
+    // Add details popup (wrapped in conditional if user-restricted) - collected separately
     const detailsPopup = buildDetailsPopup(area, prefix, areaData, defaultSceneSuffix)
-    cards.push(wrapWithUserCondition(detailsPopup, visibleToUsers))
+    popupCards.push(wrapWithUserCondition(detailsPopup, visibleToUsers))
 
     const userNote = visibleToUsers ? ` (${visibleToUsers.length} users)` : ''
     console.log(`  ✓ ${area.name}${userNote}`)
   }
 
+  // Combine: all preview cards first, then all popup cards at the end
+  const cards = [...previewCards, ...popupCards]
+
   return {
     views: [
       {
-        title: 'Home',
+        title: dashboardName,
         sections: [
           {
             type: 'grid',

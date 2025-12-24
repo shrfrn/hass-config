@@ -4,6 +4,9 @@
 
 /** @type {import('./dashboard-config.d.ts').DashboardConfig} */
 const config = {
+  // Dashboard view title
+  dashboard_name: 'Home',
+
   // Areas to pin at the top of the dashboard (in order)
   pinned_areas: ['living_room', 'kitchen', 'bedroom', 'shahar_s_studio', 'sharon_s_studio', 'office', 'corridor', 'laundry_room', 'mamad', 'parent_s_wc', 'studio_solaris'],
 
