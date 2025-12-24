@@ -34,40 +34,73 @@ git push origin "$BRANCH" 2>&1 | sed "s/^/   /"
 
 echo ""
 echo -e "${CYAN}🍓 Deploying to Pi...${NC}"
-
-# Create a temp file for SSH output
-TEMP_OUTPUT=$(mktemp)
-
-# Run SSH in background, capture output
-ssh "$PI_HOST" "$PI_SCRIPT $BRANCH" > "$TEMP_OUTPUT" 2>&1 &
-SSH_PID=$!
-
-# Show spinner with timer while waiting
-SPINNER='⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏'
-SECONDS=0
-i=0
-while kill -0 $SSH_PID 2>/dev/null; do
-    printf "\r   ${YELLOW}${SPINNER:i++%10:1}${NC} Running on Pi... ${DIM}${SECONDS}s${NC}  "
-    sleep 0.1
-done
-printf "\r   ${GREEN}✓${NC} Completed in ${SECONDS}s          \n"
-
-# Get exit code
-wait $SSH_PID
-EXIT_CODE=$?
-
-# Show Pi output with subtle prefix
 echo ""
-echo -e "${DIM}── Pi output ──${NC}"
-while IFS= read -r line; do
+
+# Spinner characters
+SPINNER='⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏'
+
+# Current stage tracking
+CURRENT_STAGE=""
+STAGE_START=0
+OUTPUT_LINES=()
+
+# Process SSH output in real-time
+SECONDS=0
+exec 3< <(ssh "$PI_HOST" "$PI_SCRIPT $BRANCH" 2>&1; echo "[EXIT:$?]")
+
+while IFS= read -r line <&3; do
+    case "$line" in
+        "[STAGE:CHECK]")
+            CURRENT_STAGE="check"
+            STAGE_START=$SECONDS
+            printf "   ${YELLOW}◐${NC} Config check running...  "
+            ;;
+        "[STAGE:CHECK_PASS]")
+            ELAPSED=$((SECONDS - STAGE_START))
+            printf "\r   ${GREEN}✓${NC} Config check passed ${DIM}(${ELAPSED}s)${NC}          \n"
+            CURRENT_STAGE=""
+            ;;
+        "[STAGE:CHECK_FAIL]")
+            ELAPSED=$((SECONDS - STAGE_START))
+            printf "\r   ${RED}✗${NC} Config check failed ${DIM}(${ELAPSED}s)${NC}          \n"
+            CURRENT_STAGE=""
+            ;;
+        "[STAGE:RESTART]")
+            CURRENT_STAGE="restart"
+            STAGE_START=$SECONDS
+            printf "   ${YELLOW}◐${NC} Restarting Home Assistant...  "
+            ;;
+        "[STAGE:RESTART_DONE]")
+            ELAPSED=$((SECONDS - STAGE_START))
+            printf "\r   ${GREEN}✓${NC} Home Assistant restarted ${DIM}(${ELAPSED}s)${NC}          \n"
+            CURRENT_STAGE=""
+            ;;
+        "[EXIT:"*)
+            EXIT_CODE="${line#[EXIT:}"
+            EXIT_CODE="${EXIT_CODE%]}"
+            ;;
+        *)
+            # Store non-marker lines for later display
+            OUTPUT_LINES+=("$line")
+            ;;
+    esac
+done
+
+exec 3<&-
+
+# Show Pi output
+echo ""
+echo -e "${DIM}── Pi log ──${NC}"
+for line in "${OUTPUT_LINES[@]}"; do
     echo -e "   ${DIM}│${NC} $line"
-done < "$TEMP_OUTPUT"
-echo -e "${DIM}───────────────${NC}"
-rm -f "$TEMP_OUTPUT"
+done
+echo -e "${DIM}────────────${NC}"
+
+TOTAL_TIME=$SECONDS
 
 if [ "$EXIT_CODE" -eq 0 ]; then
     echo ""
-    echo -e "${GREEN}✅ Deploy succeeded!${NC}"
+    echo -e "${GREEN}✅ Deploy succeeded!${NC} ${DIM}(${TOTAL_TIME}s total)${NC}"
     
     echo -e "${WHITE}📥 Updating local main...${NC}"
     git fetch origin main:main 2>&1 | sed "s/^/   /"
@@ -76,7 +109,7 @@ if [ "$EXIT_CODE" -eq 0 ]; then
     echo -e "${GREEN}🎉 Done - staying on $BRANCH (main updated)${NC}"
 else
     echo ""
-    echo -e "${RED}❌ Deploy failed - config check didn't pass${NC}"
+    echo -e "${RED}❌ Deploy failed${NC}"
     echo -e "${RED}   Fix the issues and try again.${NC}"
     exit 1
 fi
