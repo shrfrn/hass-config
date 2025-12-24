@@ -429,7 +429,7 @@ views:
                     card_type: button
                     button_type: switch
                     entity: scene.kt_standard
-                    name: kt_standard
+                    name: Standard
                     tap_action:
                       action: toggle
                   - type: "custom:bubble-card"
@@ -471,7 +471,7 @@ views:
                     card_type: button
                     button_type: switch
                     entity: light.kt_lt_wall_s
-                    name: kt_lt_wall_s
+                    name: Brick Wall
                     tap_action:
                       action: toggle
                   - type: "custom:bubble-card"
@@ -492,7 +492,7 @@ views:
                     card_type: button
                     button_type: switch
                     entity: light.kt_lt_ceiling_entrance
-                    name: kt_lt_ceiling_entrance
+                    name: Entrance Ceiling
                     tap_action:
                       action: toggle
                   - type: "custom:bubble-card"
@@ -529,14 +529,14 @@ views:
                     card_type: button
                     button_type: switch
                     entity: switch.kt_door_n
-                    name: kt_door_n
+                    name: Solaris Door
                     tap_action:
                       action: toggle
                   - type: "custom:bubble-card"
                     card_type: button
                     button_type: switch
                     entity: switch.kt_door_s
-                    name: kt_door_s
+                    name: Main Door
                     tap_action:
                       action: toggle
                   - type: "custom:bubble-card"
@@ -754,7 +754,7 @@ views:
                     card_type: button
                     button_type: switch
                     entity: scene.lr_minimal
-                    name: lr_minimal
+                    name: Minimal
                     tap_action:
                       action: toggle
                   - type: "custom:bubble-card"
@@ -768,7 +768,7 @@ views:
                     card_type: button
                     button_type: switch
                     entity: scene.lr_tv
-                    name: lr_tv
+                    name: TV
                     tap_action:
                       action: toggle
                   - type: "custom:bubble-card"
@@ -782,7 +782,7 @@ views:
                     card_type: button
                     button_type: switch
                     entity: scene.lr_standard
-                    name: lr_standard
+                    name: Standard
                     tap_action:
                       action: toggle
               - type: "custom:bubble-card"
@@ -796,14 +796,14 @@ views:
                     card_type: button
                     button_type: switch
                     entity: light.lr_lt_wall_n
-                    name: lr_lt_wall_n
+                    name: North Wall
                     tap_action:
                       action: toggle
                   - type: "custom:bubble-card"
                     card_type: button
                     button_type: switch
                     entity: light.lr_lt_wall_e
-                    name: lr_lt_wall_e
+                    name: East Wall
                     tap_action:
                       action: toggle
                   - type: "custom:bubble-card"
@@ -817,7 +817,7 @@ views:
                     card_type: button
                     button_type: switch
                     entity: light.lr_lt_ceiling
-                    name: lr_lt_ceiling
+                    name: Ceiling
                     tap_action:
                       action: toggle
                   - type: "custom:bubble-card"
@@ -857,14 +857,14 @@ views:
                     card_type: button
                     button_type: switch
                     entity: switch.lr_soc_e
-                    name: lr_soc_e
+                    name: Standing Lamp
                     tap_action:
                       action: toggle
                   - type: "custom:bubble-card"
                     card_type: button
                     button_type: switch
                     entity: switch.lr_soc_w
-                    name: lr_soc_w
+                    name: Socket
                     tap_action:
                       action: toggle
                   - type: "custom:bubble-card"
