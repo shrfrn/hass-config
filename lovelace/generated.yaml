@@ -14,6 +14,7 @@ views:
             entity: light.lr_lights
             name: Living Room
             icon: "mdi:sofa-outline"
+            force_icon: true
             tap_action:
               action: perform-action
               perform_action: scene.turn_on
@@ -40,6 +41,7 @@ views:
             entity: light.kt_lights
             name: Kitchen
             icon: "mdi:pot-steam-outline"
+            force_icon: true
             tap_action:
               action: perform-action
               perform_action: scene.turn_on
@@ -70,6 +72,7 @@ views:
               entity: light.mb_lights
               name: Master Bedroom
               icon: "mdi:bed-king-outline"
+              force_icon: true
               tap_action:
                 action: perform-action
                 perform_action: scene.turn_on
@@ -103,6 +106,7 @@ views:
               entity: light.stdr_lights
               name: Shahar's Studio
               icon: "mdi:palette"
+              force_icon: true
               tap_action:
                 action: perform-action
                 perform_action: scene.turn_on
@@ -133,6 +137,7 @@ views:
               entity: light.stdn_lights
               name: Sharon's Studio
               icon: "mdi:piano"
+              force_icon: true
               tap_action:
                 action: perform-action
                 perform_action: scene.turn_on
@@ -156,6 +161,7 @@ views:
             entity: light.ofc_lights
             name: Office
             icon: "mdi:printer-outline"
+            force_icon: true
             tap_action:
               action: perform-action
               perform_action: scene.turn_on
@@ -179,6 +185,7 @@ views:
             entity: light.crd_lights
             name: Corridor
             icon: "mdi:domain-switch"
+            force_icon: true
             tap_action:
               action: perform-action
               perform_action: scene.turn_on
@@ -202,6 +209,7 @@ views:
             entity: light.lndr_lights
             name: Laundry Room
             icon: "mdi:washing-machine"
+            force_icon: true
             tap_action:
               action: perform-action
               perform_action: scene.turn_on
@@ -225,6 +233,7 @@ views:
             entity: light.mmd_lights
             name: Mamad
             icon: "mdi:security"
+            force_icon: true
             tap_action:
               action: perform-action
               perform_action: scene.turn_on
@@ -248,6 +257,7 @@ views:
             entity: light.mwc_lights
             name: Master WC
             icon: "mdi:bathtub-outline"
+            force_icon: true
             tap_action:
               action: perform-action
               perform_action: scene.turn_on
@@ -273,6 +283,7 @@ views:
               entity: light.ssol_lights
               name: Studio Solaris
               icon: "mdi:greenhouse"
+              force_icon: true
               tap_action:
                 action: perform-action
                 perform_action: scene.turn_on
@@ -296,6 +307,7 @@ views:
             entity: light.br1_lights
             name: Amai's Room
             icon: "mdi:bed-queen"
+            force_icon: true
             tap_action:
               action: perform-action
               perform_action: scene.turn_on
@@ -322,6 +334,7 @@ views:
             entity: light.cwc_lights
             name: Children's WC
             icon: "mdi:bathtub"
+            force_icon: true
             tap_action:
               action: perform-action
               perform_action: scene.turn_on
@@ -340,6 +353,7 @@ views:
             entity: light.home_lights
             name: Home
             icon: "mdi:home"
+            force_icon: true
             tap_action:
               action: perform-action
               perform_action: scene.turn_on
@@ -358,6 +372,7 @@ views:
             entity: light.ksol_lights
             name: Kitchen Solaris
             icon: "mdi:greenhouse"
+            force_icon: true
             tap_action:
               action: perform-action
               perform_action: scene.turn_on
@@ -381,6 +396,7 @@ views:
             entity: light.ptio_lights
             name: Patio
             icon: "mdi:tree-outline"
+            force_icon: true
             tap_action:
               action: perform-action
               perform_action: scene.turn_on
@@ -399,6 +415,7 @@ views:
             entity: light.br2_lights
             name: Tom's Bedroom
             icon: "mdi:bed-queen-outline"
+            force_icon: true
             tap_action:
               action: perform-action
               perform_action: scene.turn_on
