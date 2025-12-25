@@ -1,6 +1,22 @@
 // @ts-check
-// Dashboard configuration - YOUR EDITS GO HERE
-// This file is never overwritten by the generator
+// ============================================================================
+// DASHBOARD GENERATOR CONFIG
+// ============================================================================
+// Purpose: Configures the Lovelace dashboard generator (npm run generate:dashboard)
+// Outputs: lovelace/generated.yaml (Bubble Card-based dashboard)
+//
+// Key options:
+//   pinned_areas     - Areas shown first on the dashboard (in order)
+//   excluded_areas   - Areas hidden from the dashboard entirely
+//   excluded_lights  - Lights moved from "Lights" section to "Other" section
+//   included_lights  - Entities added to "Lights" section (display only, not group)
+//   visible_to_users - Restrict area visibility to specific HA user IDs
+//
+// Note: included_lights only affects dashboard display. To also add entities
+// to the light group (for all-on/off), use include_in_group in generator-config.js
+//
+// This file is never overwritten by the generator.
+// ============================================================================
 
 import { PARENTS } from './users.js'
 
