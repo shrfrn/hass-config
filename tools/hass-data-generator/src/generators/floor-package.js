@@ -44,7 +44,8 @@ function buildFloorPackage(floor, floorAreas, entities) {
     const prefix = extractPrefix(entities, area.id)
 
     if (prefix) {
-      areaLightGroups.push(`group.${prefix}lights`)
+      // Reference light platform groups (not group domain)
+      areaLightGroups.push(`light.${prefix}lights`)
     }
   }
 
@@ -54,13 +55,16 @@ function buildFloorPackage(floor, floorAreas, entities) {
 
   const floorPrefix = `floor_${sanitizeFileName(floor.id)}_`
 
+  // Use light platform group for proper state sync (not group domain)
   return {
-    group: {
-      [`${floorPrefix}lights`]: {
+    light: [
+      {
+        platform: 'group',
+        unique_id: `${floorPrefix}lights`,
         name: `${floor.name} Lights`,
         entities: areaLightGroups.sort(),
       },
-    },
+    ],
   }
 }
 
