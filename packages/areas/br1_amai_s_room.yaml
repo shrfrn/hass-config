@@ -2,8 +2,9 @@
 # Area: Amai's Room (br1_)
 # Do not edit manually - changes will be overwritten
 
-group:
-  br1_lights:
+light:
+  - platform: group
+    unique_id: br1_lights
     name: Amai's Room Lights
     entities:
       - light.br1_lt_ceiling

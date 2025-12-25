@@ -5,8 +5,9 @@
 # Included in light group:
 #   + switch.mb_soc
 
-group:
-  mb_lights:
+light:
+  - platform: group
+    unique_id: mb_lights
     name: Master Bedroom Lights
     entities:
       - light.mb_bed_n

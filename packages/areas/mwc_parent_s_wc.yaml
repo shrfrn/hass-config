@@ -2,8 +2,9 @@
 # Area: Master WC (mwc_)
 # Do not edit manually - changes will be overwritten
 
-group:
-  mwc_lights:
+light:
+  - platform: group
+    unique_id: mwc_lights
     name: Master WC Lights
     entities:
       - light.mqlkht_hvrym
