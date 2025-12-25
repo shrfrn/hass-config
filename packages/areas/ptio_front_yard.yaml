@@ -7,8 +7,6 @@ input_select:
     name: Patio Active Scene
     options:
       - "none"
-      - scene.ptio_off
-      - scene.ptio_on
     initial: "none"
 
 input_datetime:
