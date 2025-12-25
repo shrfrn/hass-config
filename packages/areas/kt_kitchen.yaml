@@ -8,7 +8,7 @@ group:
     entities:
       - light.kt_lt_ceiling_1
       - light.kt_lt_ceiling_2
-      - light.kt_lt_ceiling_entrance
+      - light.kt_lt_ceiling_3
       - light.kt_lt_strip_n
       - light.kt_lt_strip_s
       - light.kt_lt_wall_s
