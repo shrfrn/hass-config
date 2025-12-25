@@ -216,13 +216,11 @@ const SCENE_DISPLAY_NAMES = {
 }
 
 function formatEntityName(entityId, name) {
-  if (name) return name
-
-  // Extract readable name from entity_id
   const parts = entityId.split('.')
   const id = parts[1] || entityId
 
-  // Check for known scene suffixes (e.g., lr_standard -> Standard)
+  // Check for known scene suffixes first (e.g., lr_standard -> Standard)
+  // This applies even if name exists (since name is often just the entity_id suffix)
   if (parts[0] === 'scene') {
     for (const [suffix, displayName] of Object.entries(SCENE_DISPLAY_NAMES)) {
       if (id.endsWith(`_${suffix}`)) {
@@ -230,6 +228,9 @@ function formatEntityName(entityId, name) {
       }
     }
   }
+
+  // Use custom name if it's different from entity_id suffix
+  if (name && name !== id) return name
 
   // Remove prefix (e.g., lr_lt_wall_e -> wall_e)
   const withoutPrefix = id.replace(/^[a-z]+_/, '')
