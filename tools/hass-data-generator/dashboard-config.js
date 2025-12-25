@@ -26,6 +26,7 @@ const config = {
       included_lights: ['switch.lr_soc_e'],
     },
     bedroom: {
+      excluded_lights: ['light.mb_lt_wardrobe', 'light.mb_lt_ceiling_hall'],
       visible_to_users: PARENTS,
       included_lights: ['switch.mb_soc'],
     },
