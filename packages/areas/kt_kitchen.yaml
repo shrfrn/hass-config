@@ -19,6 +19,8 @@ input_select:
     name: Kitchen Active Scene
     options:
       - "none"
+      - scene.kt_off
+      - scene.kt_on
       - scene.kt_standard
       - scene.kt_minimal
     initial: "none"
