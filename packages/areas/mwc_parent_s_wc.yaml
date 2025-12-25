@@ -5,7 +5,7 @@
 light:
   - platform: group
     unique_id: mwc_lights
-    name: Master WC Lights
+    name: mwc Lights
     entities:
       - light.mqlkht_hvrym
       - light.mwc_main_ceiling

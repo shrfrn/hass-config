@@ -5,7 +5,7 @@
 light:
   - platform: group
     unique_id: br1_lights
-    name: Amai's Room Lights
+    name: br1 Lights
     entities:
       - light.br1_lt_ceiling
       - light.br1_lt_wall_s

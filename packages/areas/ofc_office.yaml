@@ -5,7 +5,7 @@
 light:
   - platform: group
     unique_id: ofc_lights
-    name: Office Lights
+    name: ofc Lights
     entities:
       - light.ofc_lt_ceiling_hall
       - light.ofc_lt_ceiling_wc

@@ -8,7 +8,7 @@
 light:
   - platform: group
     unique_id: lr_lights
-    name: Living Room Lights
+    name: lr Lights
     entities:
       - light.lr_lt_ceiling
       - light.lr_lt_wall_e

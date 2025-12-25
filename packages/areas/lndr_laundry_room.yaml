@@ -5,7 +5,7 @@
 light:
   - platform: group
     unique_id: lndr_lights
-    name: Laundry Room Lights
+    name: lndr Lights
     entities:
       - light.lndr_lt_ceiling
 

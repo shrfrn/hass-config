@@ -5,7 +5,7 @@
 light:
   - platform: group
     unique_id: br2_lights
-    name: Tom's Bedroom Lights
+    name: br2 Lights
     entities:
       - light.br2_lt_ceiling
       - light.br2_lt_wall_n

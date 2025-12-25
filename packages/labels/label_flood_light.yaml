@@ -5,7 +5,7 @@
 light:
   - platform: group
     unique_id: label_flood_light_lights
-    name: flood light Lights
+    name: label flood light lights
     entities:
       - light.lndr_lt_outdoor_projector
       - light.lr_lt_outdoor_projector

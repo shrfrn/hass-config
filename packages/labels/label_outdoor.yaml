@@ -5,7 +5,7 @@
 light:
   - platform: group
     unique_id: label_outdoor_lights
-    name: outdoor Lights
+    name: label outdoor lights
     entities:
       - light.crd_lt_entrance_wall_outdoors
       - light.cwc_lt_bathroom_wall_outdoors
