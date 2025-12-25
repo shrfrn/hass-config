@@ -178,8 +178,9 @@ function buildClimateCard(acEntity, fanEntity) {
   if (acEntity) {
     subButtons.push({
       entity: acEntity,
+      icon: 'mdi:chevron-down',
       select_attribute: 'hvac_modes',
-      show_arrow: true,
+      show_arrow: false,
     })
   }
 
