@@ -25,7 +25,7 @@ lovelace:
   dashboards:
     auto-generated:
       mode: yaml
-      title: Generated
+      title: Home
       icon: mdi:view-dashboard
       show_in_sidebar: true
       filename: lovelace/generated.yaml

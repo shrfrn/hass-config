@@ -268,7 +268,29 @@ function buildOtherList(entities, excludedLights, lightsInSection, acEntity, fan
     if (e.entity_id === acEntity || e.entity_id === fanEntity) return false
 
     // Exclude scenes, sensors, automations, etc.
-    const excludeDomains = ['scene', 'sensor', 'binary_sensor', 'automation', 'script', 'climate', 'fan', 'group']
+    // Domains that shouldn't appear in the dashboard
+    const excludeDomains = [
+      'scene', 'sensor', 'binary_sensor', 'automation', 'script',
+      'climate', 'fan', 'group',
+      'update',        // Firmware updates
+      'button',        // Action buttons (not toggleable)
+      'event',         // Event entities
+      'number',        // Number inputs (settings)
+      'select',        // Select inputs (settings)
+      'camera',        // Camera feeds
+      'device_tracker', // Tracking
+      'person',        // Person entities
+      'remote',        // Remote controls
+      'image',         // Image entities
+      'todo',          // Todo lists
+      'tts',           // Text-to-speech
+      'stt',           // Speech-to-text
+      'conversation',  // Conversation agents
+      'siren',         // Sirens (usually separate control)
+      'time',          // Time inputs
+      'date',          // Date inputs
+      'datetime',      // DateTime inputs
+    ]
 
     if (excludeDomains.includes(e.domain)) return false
 
