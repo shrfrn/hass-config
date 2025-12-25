@@ -8,7 +8,7 @@
 light:
   - platform: group
     unique_id: mb_lights
-    name: Master Bedroom Lights
+    name: mb Lights
     entities:
       - light.mb_bed_n
       - light.mb_bed_s

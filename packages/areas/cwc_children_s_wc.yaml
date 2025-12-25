@@ -5,7 +5,7 @@
 light:
   - platform: group
     unique_id: cwc_lights
-    name: Children's WC Lights
+    name: cwc Lights
     entities:
       - light.cwc_heater_bathroom
       - light.cwc_lt_bathroom_ceiling

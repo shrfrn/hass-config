@@ -5,7 +5,7 @@
 light:
   - platform: group
     unique_id: stdn_lights
-    name: Sharon's Studio Lights
+    name: stdn Lights
     entities:
       - light.stdn_lt_wall_e
       - light.stdn_lt_wall_n

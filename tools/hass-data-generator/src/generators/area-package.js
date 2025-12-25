@@ -57,11 +57,12 @@ function buildAreaPackage(area, entities, scenes, areaConfig, globalConfig, pref
 
   if (lightGroup) {
     // Use light platform group for proper state sync (not group domain)
+    // Name uses prefix (e.g., "lr Lights") so entity_id becomes light.lr_lights
     pkg.light = [
       {
         platform: 'group',
         unique_id: `${prefix}lights`,
-        name: lightGroup.name,
+        name: `${prefix.replace('_', '')} Lights`,
         entities: lightGroup.entities,
       },
     ]

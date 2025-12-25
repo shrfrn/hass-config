@@ -5,7 +5,7 @@
 light:
   - platform: group
     unique_id: stdr_lights
-    name: Shahar's Studio Lights
+    name: stdr Lights
     entities:
       - light.stdr_gallery_lt_wall_s
       - light.stdr_kiln_lt_ceiling

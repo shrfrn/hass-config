@@ -5,7 +5,7 @@
 light:
   - platform: group
     unique_id: ssol_lights
-    name: Studio Solaris Lights
+    name: ssol Lights
     entities:
       - light.ssol_lt_wall_s
 

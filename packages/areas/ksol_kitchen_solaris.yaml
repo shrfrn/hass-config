@@ -5,7 +5,7 @@
 light:
   - platform: group
     unique_id: ksol_lights
-    name: Kitchen Solaris Lights
+    name: ksol Lights
     entities:
       - light.ksol_lt_sink
       - light.ksol_lt_wall_w
