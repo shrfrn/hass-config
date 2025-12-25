@@ -2,10 +2,9 @@
 # Area: Sharon's Studio (stdn_)
 # Do not edit manually - changes will be overwritten
 
-light:
-  - platform: group
-    unique_id: stdn_lights
-    name: stdn Lights
+group:
+  stdn_lights:
+    name: Sharon's Studio Lights
     entities:
       - light.stdn_lt_wall_e
       - light.stdn_lt_wall_n

@@ -176,7 +176,7 @@ function buildAreaData(area, prefix, entityMap, sceneMap, areaConfig) {
   const includedLights = areaConfig.included_lights || []
 
   // Find light group
-  const lightGroup = `light.${prefix}lights`
+  const lightGroup = `group.${prefix}lights`
 
   // Find AC entity (climate domain, ends with _ac)
   const acEntity = findAcEntity(areaEntities)

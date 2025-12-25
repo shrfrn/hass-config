@@ -2,10 +2,9 @@
 # Area: Corridor (crd_)
 # Do not edit manually - changes will be overwritten
 
-light:
-  - platform: group
-    unique_id: crd_lights
-    name: crd Lights
+group:
+  crd_lights:
+    name: Corridor Lights
     entities:
       - light.crd_lt_mmd_wall_n
       - light.crd_lt_wall_e

@@ -2,10 +2,9 @@
 # Area: Tom's Bedroom (br2_)
 # Do not edit manually - changes will be overwritten
 
-light:
-  - platform: group
-    unique_id: br2_lights
-    name: br2 Lights
+group:
+  br2_lights:
+    name: Tom's Bedroom Lights
     entities:
       - light.br2_lt_ceiling
       - light.br2_lt_wall_n

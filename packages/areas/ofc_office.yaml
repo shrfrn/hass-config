@@ -2,10 +2,9 @@
 # Area: Office (ofc_)
 # Do not edit manually - changes will be overwritten
 
-light:
-  - platform: group
-    unique_id: ofc_lights
-    name: ofc Lights
+group:
+  ofc_lights:
+    name: Office Lights
     entities:
       - light.ofc_lt_ceiling_hall
       - light.ofc_lt_ceiling_wc

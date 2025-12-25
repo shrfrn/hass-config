@@ -2,10 +2,9 @@
 # Area: Laundry Room (lndr_)
 # Do not edit manually - changes will be overwritten
 
-light:
-  - platform: group
-    unique_id: lndr_lights
-    name: lndr Lights
+group:
+  lndr_lights:
+    name: Laundry Room Lights
     entities:
       - light.lndr_lt_ceiling
 

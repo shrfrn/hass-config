@@ -2,10 +2,9 @@
 # Area: Studio Solaris (ssol_)
 # Do not edit manually - changes will be overwritten
 
-light:
-  - platform: group
-    unique_id: ssol_lights
-    name: ssol Lights
+group:
+  ssol_lights:
+    name: Studio Solaris Lights
     entities:
       - light.ssol_lt_wall_s
 

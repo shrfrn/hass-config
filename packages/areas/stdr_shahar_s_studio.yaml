@@ -2,10 +2,9 @@
 # Area: Shahar's Studio (stdr_)
 # Do not edit manually - changes will be overwritten
 
-light:
-  - platform: group
-    unique_id: stdr_lights
-    name: stdr Lights
+group:
+  stdr_lights:
+    name: Shahar's Studio Lights
     entities:
       - light.stdr_gallery_lt_wall_s
       - light.stdr_kiln_lt_ceiling
