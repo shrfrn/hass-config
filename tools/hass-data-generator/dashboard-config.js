@@ -23,9 +23,10 @@ const config = {
   areas: {
     living_room: {
       excluded_lights: ['light.lr_lt_outdoor_projector', 'light.lr_lt_ceiling'],
-      included_lights: ['switch.lr_soc_e', 'switch.lr_soc_w'],
+      included_lights: ['switch.lr_soc_e'],
     },
     bedroom: {
+      excluded_lights: ['light.mb_lt_wardrobe', 'light.mb_lt_ceiling_hall'],
       visible_to_users: PARENTS,
       included_lights: ['switch.mb_soc'],
     },
