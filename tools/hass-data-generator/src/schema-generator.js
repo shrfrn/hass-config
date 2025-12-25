@@ -12,15 +12,16 @@ export async function generateSchemaAndStarterConfig(inventoryPath) {
   console.log('\nGenerating config files...')
 
   const inventory = await loadInventory(inventoryPath)
-  const { areas, entities, } = inventory
+  const { areas, entities, labels, } = inventory
 
   const areaIds = areas.map(a => a.id)
   const areaNames = Object.fromEntries(areas.map(a => [a.id, a.name]))
   const entityIds = entities.map(e => e.entity_id)
+  const labelIds = labels.map(l => l.id)
 
   // Always regenerate types and reference (safe to overwrite)
-  await writeGeneratorTypeDefinitions(areaIds, entityIds)
-  await writeDashboardTypeDefinitions(areaIds, entityIds)
+  await writeGeneratorTypeDefinitions(areaIds, entityIds, labelIds)
+  await writeDashboardTypeDefinitions(areaIds, entityIds, labelIds)
   await writeEntityReference(entities, areaNames)
 
   // Only create user configs if they don't exist
@@ -49,9 +50,10 @@ async function loadInventory(inventoryPath) {
   return JSON.parse(content)
 }
 
-async function writeGeneratorTypeDefinitions(areaIds, entityIds) {
+async function writeGeneratorTypeDefinitions(areaIds, entityIds, labelIds) {
   const areaUnion = areaIds.map(id => `  | '${id}'`).join('\n')
   const entityUnion = entityIds.map(id => `  | '${id}'`).join('\n')
+  const labelUnion = labelIds.map(id => `  | '${id}'`).join('\n')
 
   const content = `// Auto-generated type definitions for generator config
 // Regenerated on each inventory run - DO NOT EDIT
@@ -64,6 +66,10 @@ ${areaUnion}
 export type EntityId =
 ${entityUnion}
 
+/** Valid label IDs from Home Assistant */
+export type LabelId =
+${labelUnion}
+
 /** Configuration for a specific area */
 export interface AreaConfig {
   /** Override vacancy timer duration (HH:MM:SS format) */
@@ -74,12 +80,24 @@ export interface AreaConfig {
 
   /** Entities to exclude from the light group */
   exclude_from_group?: EntityId[]
+
+  /** Labels to exclude from light group (overrides global excluded_labels) */
+  excluded_labels?: LabelId[]
+
+  /** Labels to include in light group (overrides global excluded_labels for these) */
+  included_labels?: LabelId[]
 }
 
 /** Generator configuration */
 export interface GeneratorConfig {
   /** Default vacancy timer duration (HH:MM:SS format). Default: "00:10:00" */
   default_vacancy_duration?: string
+
+  /** Labels to exclude from light groups globally (e.g., ['outdoor', 'flood_light']) */
+  excluded_labels?: LabelId[]
+
+  /** Labels to always include in light groups globally (overrides excluded_labels) */
+  included_labels?: LabelId[]
 
   /** Per-area configuration overrides */
   areas?: Partial<Record<AreaId, AreaConfig>>
@@ -90,9 +108,10 @@ export interface GeneratorConfig {
   await writeFile(typesPath, content, 'utf-8')
 }
 
-async function writeDashboardTypeDefinitions(areaIds, entityIds) {
+async function writeDashboardTypeDefinitions(areaIds, entityIds, labelIds) {
   const areaUnion = areaIds.map(id => `  | '${id}'`).join('\n')
   const entityUnion = entityIds.map(id => `  | '${id}'`).join('\n')
+  const labelUnion = labelIds.map(id => `  | '${id}'`).join('\n')
 
   const content = `// Auto-generated type definitions for dashboard config
 // Regenerated on each inventory run - DO NOT EDIT
@@ -104,6 +123,10 @@ ${areaUnion}
 /** Valid entity IDs from Home Assistant */
 export type EntityId =
 ${entityUnion}
+
+/** Valid label IDs from Home Assistant */
+export type LabelId =
+${labelUnion}
 
 /** Dashboard configuration for a specific area */
 export interface DashboardAreaConfig {

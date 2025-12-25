@@ -53,7 +53,7 @@ function buildAreaPackage(area, entities, scenes, areaConfig, globalConfig, pref
   const pkg = {}
 
   // Light group with include/exclude tracking
-  const { lightGroup, included, excluded, } = buildLightGroup(area, entities, areaConfig, prefix)
+  const { lightGroup, included, excluded, } = buildLightGroup(area, entities, areaConfig, globalConfig, prefix)
 
   if (lightGroup) {
     pkg.group = { [`${prefix}lights`]: lightGroup, }
@@ -109,21 +109,39 @@ function buildAreaPackage(area, entities, scenes, areaConfig, globalConfig, pref
   return { pkg, includeExcludeInfo, }
 }
 
-// Labels that exclude lights from groups by default
-const EXCLUDED_LABELS = new Set(['outdoor', 'flood_light'])
+// Default labels to exclude from light groups
+const DEFAULT_EXCLUDED_LABELS = ['outdoor', 'flood_light']
 
-function buildLightGroup(area, entities, areaConfig, prefix) {
+function buildLightGroup(area, entities, areaConfig, globalConfig, prefix) {
   const includes = areaConfig.include_in_group || []
   const includeSet = new Set(includes)
   const excludeList = areaConfig.exclude_from_group || []
   const excludeSet = new Set(excludeList)
 
+  // Determine which labels to exclude (area overrides global)
+  const globalExcludedLabels = globalConfig.excluded_labels || DEFAULT_EXCLUDED_LABELS
+  const globalIncludedLabels = new Set(globalConfig.included_labels || [])
+  const areaExcludedLabels = areaConfig.excluded_labels
+  const areaIncludedLabels = new Set(areaConfig.included_labels || [])
+
+  // Use area labels if defined, otherwise global
+  const excludedLabels = new Set(areaExcludedLabels ?? globalExcludedLabels)
+  const includedLabels = new Set([...globalIncludedLabels, ...areaIncludedLabels])
+
   // Get lights from this area (domain: light only)
-  // Exclude lights with outdoor/flood_light labels unless explicitly included
   const areaLights = entities
     .filter(e => e.area_id === area.id && e.domain === 'light')
     .filter(e => {
-      const hasExcludedLabel = (e.labels || []).some(label => EXCLUDED_LABELS.has(label))
+      const entityLabels = e.labels || []
+
+      // Check if entity has an included label (overrides exclusion)
+      const hasIncludedLabel = entityLabels.some(label => includedLabels.has(label))
+      if (hasIncludedLabel) return true
+
+      // Check if entity has an excluded label
+      const hasExcludedLabel = entityLabels.some(label => excludedLabels.has(label))
+
+      // Include if: no excluded label OR explicitly included by entity ID
       return !hasExcludedLabel || includeSet.has(e.entity_id)
     })
     .map(e => e.entity_id)
