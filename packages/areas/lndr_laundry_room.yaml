@@ -7,8 +7,6 @@ group:
     name: Laundry Room Lights
     entities:
       - light.lndr_lt_ceiling
-      - light.lndr_lt_entrance_wall_outdoor
-      - light.lndr_lt_outdoor_projector
 
 input_select:
   lndr_active_scene:

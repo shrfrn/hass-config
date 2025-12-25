@@ -7,7 +7,6 @@ group:
     name: Living Room Lights
     entities:
       - light.lr_lt_ceiling
-      - light.lr_lt_outdoor_projector
       - light.lr_lt_wall_e
       - light.lr_lt_wall_n
       - light.lr_lt_wall_s

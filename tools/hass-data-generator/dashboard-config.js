@@ -22,10 +22,12 @@ const config = {
   // Browse output/entities.js to find entity IDs
   areas: {
     living_room: {
-      excluded_lights: ['light.lr_lt_outdoor_projector'],
+      excluded_lights: ['light.lr_lt_outdoor_projector', 'light.lr_lt_ceiling'],
+      included_lights: ['switch.lr_soc_e', 'switch.lr_soc_w'],
     },
     bedroom: {
       visible_to_users: PARENTS,
+      included_lights: ['switch.mb_soc'],
     },
     shahar_s_studio: {
       visible_to_users: PARENTS,
