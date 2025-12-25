@@ -2,10 +2,9 @@
 # Label: outdoor
 # Do not edit manually - changes will be overwritten
 
-light:
-  - platform: group
-    unique_id: label_outdoor_lights
-    name: label outdoor lights
+group:
+  label_outdoor_lights:
+    name: outdoor Lights
     entities:
       - light.crd_lt_entrance_wall_outdoors
       - light.cwc_lt_bathroom_wall_outdoors

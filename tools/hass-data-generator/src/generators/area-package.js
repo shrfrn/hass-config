@@ -56,16 +56,7 @@ function buildAreaPackage(area, entities, scenes, areaConfig, globalConfig, pref
   const { lightGroup, included, excluded, } = buildLightGroup(area, entities, areaConfig, globalConfig, prefix)
 
   if (lightGroup) {
-    // Use light platform group for proper state sync (not group domain)
-    // Name uses prefix (e.g., "lr Lights") so entity_id becomes light.lr_lights
-    pkg.light = [
-      {
-        platform: 'group',
-        unique_id: `${prefix}lights`,
-        name: `${prefix.replace('_', '')} Lights`,
-        entities: lightGroup.entities,
-      },
-    ]
+    pkg.group = { [`${prefix}lights`]: lightGroup, }
   }
 
   // Scene selector

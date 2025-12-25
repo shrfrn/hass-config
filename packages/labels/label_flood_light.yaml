@@ -2,10 +2,9 @@
 # Label: flood light
 # Do not edit manually - changes will be overwritten
 
-light:
-  - platform: group
-    unique_id: label_flood_light_lights
-    name: label flood light lights
+group:
+  label_flood_light_lights:
+    name: flood light Lights
     entities:
       - light.lndr_lt_outdoor_projector
       - light.lr_lt_outdoor_projector

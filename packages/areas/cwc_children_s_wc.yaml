@@ -2,10 +2,9 @@
 # Area: Children's WC (cwc_)
 # Do not edit manually - changes will be overwritten
 
-light:
-  - platform: group
-    unique_id: cwc_lights
-    name: cwc Lights
+group:
+  cwc_lights:
+    name: Children's WC Lights
     entities:
       - light.cwc_heater_bathroom
       - light.cwc_lt_bathroom_ceiling

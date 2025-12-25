@@ -47,17 +47,13 @@ function getLabelLights(entities, labelId) {
 function buildLabelPackage(label, lightEntities) {
   const groupId = `label_${sanitizeFileName(label.id)}_lights`
 
-  // Use light platform group for proper state sync (not group domain)
-  // Name matches unique_id so entity_id becomes light.label_xxx_lights
   return {
-    light: [
-      {
-        platform: 'group',
-        unique_id: groupId,
-        name: groupId.replace(/_/g, ' '),
+    group: {
+      [groupId]: {
+        name: `${label.name} Lights`,
         entities: lightEntities,
       },
-    ],
+    },
   }
 }
 

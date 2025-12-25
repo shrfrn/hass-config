@@ -2,10 +2,9 @@
 # Area: Kitchen Solaris (ksol_)
 # Do not edit manually - changes will be overwritten
 
-light:
-  - platform: group
-    unique_id: ksol_lights
-    name: ksol Lights
+group:
+  ksol_lights:
+    name: Kitchen Solaris Lights
     entities:
       - light.ksol_lt_sink
       - light.ksol_lt_wall_w

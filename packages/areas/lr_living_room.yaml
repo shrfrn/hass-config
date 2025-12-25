@@ -5,10 +5,9 @@
 # Included in light group:
 #   + switch.lr_soc_e
 
-light:
-  - platform: group
-    unique_id: lr_lights
-    name: lr Lights
+group:
+  lr_lights:
+    name: Living Room Lights
     entities:
       - light.lr_lt_ceiling
       - light.lr_lt_wall_e

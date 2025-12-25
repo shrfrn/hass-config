@@ -2,10 +2,9 @@
 # Area: Kitchen (kt_)
 # Do not edit manually - changes will be overwritten
 
-light:
-  - platform: group
-    unique_id: kt_lights
-    name: kt Lights
+group:
+  kt_lights:
+    name: Kitchen Lights
     entities:
       - light.kt_lt_ceiling_1
       - light.kt_lt_ceiling_2
