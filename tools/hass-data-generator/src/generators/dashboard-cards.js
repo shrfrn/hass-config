@@ -12,6 +12,7 @@ export function buildPreviewCard(area, prefix, areaData, defaultSceneSuffix) {
     entity: lightGroup,
     name: area.name,
     icon: area.icon || 'mdi:home',
+    force_icon: true,
     tap_action: {
       action: 'perform-action',
       perform_action: 'scene.turn_on',
