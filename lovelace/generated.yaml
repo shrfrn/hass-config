@@ -484,13 +484,6 @@ views:
                   - type: "custom:bubble-card"
                     card_type: button
                     button_type: switch
-                    entity: switch.lr_soc_w
-                    name: Socket
-                    tap_action:
-                      action: toggle
-                  - type: "custom:bubble-card"
-                    card_type: button
-                    button_type: switch
                     entity: light.lr_lt_wall_n
                     name: North Wall
                     tap_action:
@@ -547,7 +540,14 @@ views:
                     card_type: button
                     button_type: switch
                     entity: light.lr_lt_outdoor_projector
-                    name: lr_lt_outdoor_projector
+                    name: Lt Outdoor Projector
+                    tap_action:
+                      action: toggle
+                  - type: "custom:bubble-card"
+                    card_type: button
+                    button_type: switch
+                    entity: switch.lr_soc_w
+                    name: Socket
                     tap_action:
                       action: toggle
                   - type: "custom:bubble-card"
@@ -602,7 +602,7 @@ views:
                     card_type: button
                     button_type: switch
                     entity: scene.kt_minimal
-                    name: kt_minimal
+                    name: Minimal
                     tap_action:
                       action: toggle
               - type: "custom:bubble-card"
@@ -751,14 +751,14 @@ views:
                       card_type: button
                       button_type: switch
                       entity: scene.mb_minimal
-                      name: mb_minimal
+                      name: Minimal
                       tap_action:
                         action: toggle
                     - type: "custom:bubble-card"
                       card_type: button
                       button_type: switch
                       entity: scene.mb_standard
-                      name: mb_standard
+                      name: Standard
                       tap_action:
                         action: toggle
                 - type: "custom:bubble-card"
@@ -989,14 +989,14 @@ views:
                       card_type: button
                       button_type: switch
                       entity: scene.stdn_standard
-                      name: stdn_standard
+                      name: Standard
                       tap_action:
                         action: toggle
                     - type: "custom:bubble-card"
                       card_type: button
                       button_type: switch
                       entity: scene.stdn_minimal
-                      name: stdn_minimal
+                      name: Minimal
                       tap_action:
                         action: toggle
                 - type: "custom:bubble-card"
