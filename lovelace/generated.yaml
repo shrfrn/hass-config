@@ -557,13 +557,6 @@ views:
                     name: Living Room TV
                     tap_action:
                       action: toggle
-                  - type: "custom:bubble-card"
-                    card_type: button
-                    button_type: switch
-                    entity: remote.slvn
-                    name: Living Room TV
-                    tap_action:
-                      action: toggle
           - type: vertical-stack
             cards:
               - type: "custom:bubble-card"
@@ -704,13 +697,6 @@ views:
                     button_type: switch
                     entity: switch.kt_door_s
                     name: Main Door
-                    tap_action:
-                      action: toggle
-                  - type: "custom:bubble-card"
-                    card_type: button
-                    button_type: switch
-                    entity: update.kt_mini_switch
-                    name: Kitchen Mini Switch
                     tap_action:
                       action: toggle
           - type: conditional
@@ -1727,34 +1713,6 @@ views:
                     button_type: switch
                     entity: switch.ptio_gate_ne
                     name: Blue Gate
-                    tap_action:
-                      action: toggle
-                  - type: "custom:bubble-card"
-                    card_type: button
-                    button_type: switch
-                    entity: camera.sh_r_rshy_live_view
-                    name: שער ראשי Live view
-                    tap_action:
-                      action: toggle
-                  - type: "custom:bubble-card"
-                    card_type: button
-                    button_type: switch
-                    entity: event.sh_r_rshy_ding
-                    name: שער ראשי Ding
-                    tap_action:
-                      action: toggle
-                  - type: "custom:bubble-card"
-                    card_type: button
-                    button_type: switch
-                    entity: event.sh_r_rshy_motion
-                    name: שער ראשי Motion
-                    tap_action:
-                      action: toggle
-                  - type: "custom:bubble-card"
-                    card_type: button
-                    button_type: switch
-                    entity: number.sh_r_rshy_volume
-                    name: שער ראשי Volume
                     tap_action:
                       action: toggle
                   - type: "custom:bubble-card"
