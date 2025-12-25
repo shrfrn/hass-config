@@ -6,6 +6,7 @@ group:
   ksol_lights:
     name: Kitchen Solaris Lights
     entities:
+      - light.ksol_lt_sink
       - light.ksol_lt_wall_w
 
 input_select:

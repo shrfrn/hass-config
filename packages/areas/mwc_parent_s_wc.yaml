@@ -9,7 +9,6 @@ group:
       - light.mqlkht_hvrym
       - light.mwc_main_ceiling
       - light.mwc_main_wall
-      - light.mwc_outdoor_projector
       - light.shrvty_hvrym
 
 input_select:

@@ -6,7 +6,6 @@ group:
   corridor_lights:
     name: Corridor Lights
     entities:
-      - light.crd_lt_entrance_wall_outdoors
       - light.crd_lt_mmd_wall_n
       - light.crd_lt_wall_e
 

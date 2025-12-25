@@ -98,10 +98,13 @@ function transformEntities(states, entityRegistryMap, deviceMap) {
     const registryEntry = entityRegistryMap.get(state.entity_id)
     const areaId = resolveAreaId(registryEntry, deviceMap)
 
+    // Prefer registry name (user-customized) over state friendly_name (often auto-generated)
+    const name = registryEntry?.name || state.attributes.friendly_name || null
+
     return {
       entity_id: state.entity_id,
       domain: state.entity_id.split('.')[0],
-      name: state.attributes.friendly_name || registryEntry?.name,
+      name,
       state: state.state,
       attributes: state.attributes,
       area_id: areaId,
