@@ -109,18 +109,27 @@ function buildAreaPackage(area, entities, scenes, areaConfig, globalConfig, pref
   return { pkg, includeExcludeInfo, }
 }
 
+// Labels that exclude lights from groups by default
+const EXCLUDED_LABELS = new Set(['outdoor', 'flood_light'])
+
 function buildLightGroup(area, entities, areaConfig, prefix) {
   const includes = areaConfig.include_in_group || []
+  const includeSet = new Set(includes)
   const excludeList = areaConfig.exclude_from_group || []
   const excludeSet = new Set(excludeList)
 
-  // Get lights from this area
+  // Get lights from this area (domain: light only)
+  // Exclude lights with outdoor/flood_light labels unless explicitly included
   const areaLights = entities
     .filter(e => e.area_id === area.id && e.domain === 'light')
+    .filter(e => {
+      const hasExcludedLabel = (e.labels || []).some(label => EXCLUDED_LABELS.has(label))
+      return !hasExcludedLabel || includeSet.has(e.entity_id)
+    })
     .map(e => e.entity_id)
     .filter(id => !excludeSet.has(id))
 
-  // Combine with includes
+  // Combine with explicit includes (for switches, etc.)
   const allLights = [...new Set([...areaLights, ...includes])]
 
   if (allLights.length === 0) {

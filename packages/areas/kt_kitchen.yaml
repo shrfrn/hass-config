@@ -9,7 +9,6 @@ group:
       - light.kt_lt_ceiling_1
       - light.kt_lt_ceiling_2
       - light.kt_lt_ceiling_entrance
-      - light.kt_lt_entrance_wall_outdoors
       - light.kt_lt_strip_n
       - light.kt_lt_strip_s
       - light.kt_lt_wall_s

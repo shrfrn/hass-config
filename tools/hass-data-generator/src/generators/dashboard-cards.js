@@ -208,12 +208,27 @@ function buildOtherGrid(entities) {
   }
 }
 
+// Known scene suffixes with their display names
+const SCENE_DISPLAY_NAMES = {
+  standard: 'Standard',
+  minimal: 'Minimal',
+}
+
 function formatEntityName(entityId, name) {
   if (name) return name
 
   // Extract readable name from entity_id
   const parts = entityId.split('.')
   const id = parts[1] || entityId
+
+  // Check for known scene suffixes (e.g., lr_standard -> Standard)
+  if (parts[0] === 'scene') {
+    for (const [suffix, displayName] of Object.entries(SCENE_DISPLAY_NAMES)) {
+      if (id.endsWith(`_${suffix}`)) {
+        return displayName
+      }
+    }
+  }
 
   // Remove prefix (e.g., lr_lt_wall_e -> wall_e)
   const withoutPrefix = id.replace(/^[a-z]+_/, '')

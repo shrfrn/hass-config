@@ -477,6 +477,20 @@ views:
                   - type: "custom:bubble-card"
                     card_type: button
                     button_type: switch
+                    entity: switch.lr_soc_e
+                    name: Standing Lamp
+                    tap_action:
+                      action: toggle
+                  - type: "custom:bubble-card"
+                    card_type: button
+                    button_type: switch
+                    entity: switch.lr_soc_w
+                    name: Socket
+                    tap_action:
+                      action: toggle
+                  - type: "custom:bubble-card"
+                    card_type: button
+                    button_type: switch
                     entity: light.lr_lt_wall_n
                     name: North Wall
                     tap_action:
@@ -493,13 +507,6 @@ views:
                     button_type: switch
                     entity: light.lr_lt_wall_s
                     name: lr_lt_wall_s
-                    tap_action:
-                      action: toggle
-                  - type: "custom:bubble-card"
-                    card_type: button
-                    button_type: switch
-                    entity: light.lr_lt_ceiling
-                    name: Ceiling
                     tap_action:
                       action: toggle
               - type: "custom:bubble-card"
@@ -531,22 +538,15 @@ views:
                   - type: "custom:bubble-card"
                     card_type: button
                     button_type: switch
+                    entity: light.lr_lt_ceiling
+                    name: Ceiling
+                    tap_action:
+                      action: toggle
+                  - type: "custom:bubble-card"
+                    card_type: button
+                    button_type: switch
                     entity: light.lr_lt_outdoor_projector
                     name: lr_lt_outdoor_projector
-                    tap_action:
-                      action: toggle
-                  - type: "custom:bubble-card"
-                    card_type: button
-                    button_type: switch
-                    entity: switch.lr_soc_e
-                    name: Standing Lamp
-                    tap_action:
-                      action: toggle
-                  - type: "custom:bubble-card"
-                    card_type: button
-                    button_type: switch
-                    entity: switch.lr_soc_w
-                    name: Socket
                     tap_action:
                       action: toggle
                   - type: "custom:bubble-card"
@@ -769,6 +769,13 @@ views:
                     - type: "custom:bubble-card"
                       card_type: button
                       button_type: switch
+                      entity: switch.mb_soc
+                      name: Standing Lamp
+                      tap_action:
+                        action: toggle
+                    - type: "custom:bubble-card"
+                      card_type: button
+                      button_type: switch
                       entity: light.mb_lt_wall
                       name: Wall Lights
                       tap_action:
@@ -827,13 +834,6 @@ views:
                   square: false
                   columns: 2
                   cards:
-                    - type: "custom:bubble-card"
-                      card_type: button
-                      button_type: switch
-                      entity: switch.mb_soc
-                      name: Standing Lamp
-                      tap_action:
-                        action: toggle
                     - type: "custom:bubble-card"
                       card_type: button
                       button_type: switch

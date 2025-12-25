@@ -8,7 +8,6 @@ group:
     entities:
       - light.cwc_heater_bathroom
       - light.cwc_lt_bathroom_ceiling
-      - light.cwc_lt_bathroom_wall_outdoors
       - light.cwc_lt_bathroom_wall_s
       - light.cwc_lt_toilet_wall_e
 
