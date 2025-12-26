@@ -109,17 +109,14 @@ function buildAreaPackage(area, entities, scenes, areaConfig, globalConfig, pref
   return { pkg, includeExcludeInfo, }
 }
 
-// Default labels to exclude from light groups
-const DEFAULT_EXCLUDED_LABELS = ['outdoor', 'flood_light']
-
 function buildLightGroup(area, entities, areaConfig, globalConfig, prefix) {
   const includes = areaConfig.include_in_group || []
   const includeSet = new Set(includes)
   const excludeList = areaConfig.exclude_from_group || []
   const excludeSet = new Set(excludeList)
 
-  // Determine which labels to exclude (area overrides global)
-  const globalExcludedLabels = globalConfig.excluded_labels || DEFAULT_EXCLUDED_LABELS
+  // Determine which labels to exclude (area overrides global, no hardcoded defaults)
+  const globalExcludedLabels = globalConfig.excluded_labels || []
   const globalIncludedLabels = new Set(globalConfig.included_labels || [])
   const areaExcludedLabels = areaConfig.excluded_labels
   const areaIncludedLabels = new Set(areaConfig.included_labels || [])

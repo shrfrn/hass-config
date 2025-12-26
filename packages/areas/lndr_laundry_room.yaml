@@ -29,7 +29,7 @@ input_boolean:
 timer:
   lndr_vacancy:
     name: Laundry Room Vacancy Timer
-    duration: "00:9:00"
+    duration: "00:09:00"
 
 template:
   - sensor:

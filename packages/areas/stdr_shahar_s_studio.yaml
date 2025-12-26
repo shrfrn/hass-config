@@ -36,7 +36,7 @@ input_boolean:
 timer:
   stdr_vacancy:
     name: Shahar's Studio Vacancy Timer
-    duration: "00:9:00"
+    duration: "00:09:00"
 
 template:
   - sensor:

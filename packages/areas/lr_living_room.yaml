@@ -39,7 +39,7 @@ input_boolean:
 timer:
   lr_vacancy:
     name: Living Room Vacancy Timer
-    duration: "00:9:00"
+    duration: "00:09:00"
 
 template:
   - sensor:

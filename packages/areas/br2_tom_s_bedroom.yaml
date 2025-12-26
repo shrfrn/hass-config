@@ -32,7 +32,7 @@ input_boolean:
 timer:
   br2_vacancy:
     name: Tom's Bedroom Vacancy Timer
-    duration: "00:9:00"
+    duration: "00:09:00"
 
 template:
   - sensor:
