@@ -8,7 +8,6 @@ group:
     entities:
       - light.crd_lt_entrance_wall_outdoors
       - light.cwc_lt_bathroom_wall_outdoors
-      - light.khtsr_pnymyt_qyr_m_rby
       - light.kt_lt_entrance_wall_outdoors
       - light.lndr_lt_entrance_wall_outdoor
       - light.ptio_lt_corridor_wall_e
@@ -17,3 +16,4 @@ group:
       - light.ptio_lt_wall_main_entrance
       - light.ptio_lt_wall_ne
       - light.ptio_lt_wall_nw
+      - light.west_wall
