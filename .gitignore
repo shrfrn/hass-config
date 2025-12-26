@@ -40,8 +40,8 @@ node_modules/
 .env
 .env.local
 
-# Generator output
-tools/hass-data-generator/output/
+# hass-generator cache
+inventory/
 
-# Generator user config (contains local overrides)
-tools/hass-data-generator/generator-config.js
+# Sensitive tokens
+token.txt

@@ -20,8 +20,11 @@
 
 import { PARENTS } from './users.js'
 
-/** @type {import('./dashboard-config.d.ts').DashboardConfig} */
+/** @type {import('./inventory/types/config.d.ts').DashboardConfig} */
 const config = {
+  // Schema version - do not change manually
+  schemaVersion: 1,
+
   // Dashboard view title
   dashboard_name: 'Home',
 
