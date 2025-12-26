@@ -8,7 +8,6 @@ frontend:
 
 automation: !include automations.yaml
 script: !include scripts.yaml
-scene: !include scenes.yaml
 group: !include groups.yaml
 
 knx: !include knx/knx.yaml
