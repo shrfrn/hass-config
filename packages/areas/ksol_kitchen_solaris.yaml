@@ -30,7 +30,7 @@ input_boolean:
 timer:
   ksol_vacancy:
     name: Kitchen Solaris Vacancy Timer
-    duration: "00:9:00"
+    duration: "00:09:00"
 
 template:
   - sensor:

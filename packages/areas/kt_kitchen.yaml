@@ -37,7 +37,7 @@ input_boolean:
 timer:
   kt_vacancy:
     name: Kitchen Vacancy Timer
-    duration: "00:9:00"
+    duration: "00:09:00"
 
 template:
   - sensor:

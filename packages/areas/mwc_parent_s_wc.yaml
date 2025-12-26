@@ -32,7 +32,7 @@ input_boolean:
 timer:
   mwc_vacancy:
     name: Master WC Vacancy Timer
-    duration: "00:9:00"
+    duration: "00:09:00"
 
 template:
   - sensor:

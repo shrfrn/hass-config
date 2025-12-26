@@ -39,7 +39,7 @@ input_boolean:
 timer:
   mb_vacancy:
     name: Master Bedroom Vacancy Timer
-    duration: "00:9:00"
+    duration: "00:09:00"
 
 template:
   - sensor:
