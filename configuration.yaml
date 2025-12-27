@@ -27,4 +27,4 @@ lovelace:
       title: Home
       icon: mdi:view-dashboard
       show_in_sidebar: true
-      filename: lovelace/generated.yaml
+      filename: lovelace/main.yaml

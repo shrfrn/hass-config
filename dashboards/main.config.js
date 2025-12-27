@@ -3,7 +3,7 @@
 // DASHBOARD GENERATOR CONFIG
 // ============================================================================
 // Purpose: Configures the Lovelace dashboard generator (npm run generate:dashboard)
-// Outputs: lovelace/generated.yaml (Bubble Card-based dashboard)
+// Outputs: lovelace/main.yaml (Bubble Card-based dashboard)
 //
 // Key options:
 //   pinned_areas     - Areas shown first on the dashboard (in order)
@@ -18,12 +18,18 @@
 // This file is never overwritten by the generator.
 // ============================================================================
 
-import { PARENTS } from './users.js'
+import { PARENTS } from '../users.js'
 
-/** @type {import('./inventory/types/config.d.ts').DashboardConfig} */
+/** @type {import('../inventory/types/config.d.ts').DashboardConfig} */
 const config = {
   // Schema version - do not change manually
   schemaVersion: 1,
+
+  // Dashboard template to use
+  template: 'bubble',
+
+  // Output file path (relative to project root)
+  output: 'lovelace/main.yaml',
 
   // Dashboard view title
   dashboard_name: 'Home',
