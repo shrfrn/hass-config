@@ -25,7 +25,8 @@ lovelace:
     - url: /hacsfiles/lovelace-mushroom/mushroom.js
       type: module
     - url: /hacsfiles/lovelace-card-mod/card-mod.js
-      type: module  dashboards:
+      type: module
+  dashboards:
     auto-generated:
       mode: yaml
       title: Home
