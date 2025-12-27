@@ -145,3 +145,47 @@
       entity_id: scene.mb_off
     data: {}
   mode: single
+- id: '1766776838669'
+  alias: Sunset Outdoor Lights
+  description: ''
+  triggers:
+  - trigger: sun
+    event: sunset
+    offset: 00:20:00
+  conditions: []
+  actions:
+  - action: light.turn_on
+    metadata: {}
+    target:
+      label_id: outdoor
+    data: {}
+  mode: single
+- id: '1766776923135'
+  alias: Sunrise Outdoor Lights
+  description: ''
+  triggers:
+  - trigger: sun
+    event: sunrise
+    offset: -00:20:00
+  conditions: []
+  actions:
+  - action: light.turn_off
+    metadata: {}
+    target:
+      label_id: outdoor
+    data: {}
+  mode: single
+- id: '1766845748631'
+  alias: Alarm Off
+  description: Turn home alarm off every morning at 06:45
+  triggers:
+  - trigger: time
+    at: 06:45:00
+  conditions: []
+  actions:
+  - action: switch.turn_off
+    metadata: {}
+    target:
+      entity_id: switch.home_sw_pima
+    data: {}
+  mode: single

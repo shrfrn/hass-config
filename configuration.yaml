@@ -9,6 +9,7 @@ frontend:
 automation: !include automations.yaml
 script: !include scripts.yaml
 group: !include groups.yaml
+scene: !include scenes.yaml
 
 knx: !include knx/knx.yaml
 
@@ -20,6 +21,8 @@ lovelace:
   mode: yaml
   resources:
     - url: /hacsfiles/Bubble-Card/bubble-card.js
+      type: module
+    - url: /hacsfiles/lovelace-mushroom/mushroom.js
       type: module
   dashboards:
     auto-generated:

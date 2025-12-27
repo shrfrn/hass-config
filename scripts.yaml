@@ -1,0 +1,14 @@
+ac_off:
+  sequence:
+  - action: climate.turn_off
+    metadata: {}
+    target:
+      label_id: ac
+    data: {}
+  - action: notify.notify
+    metadata: {}
+    data:
+      message: All AC's turned off
+      title: AC Off
+  alias: AC Off
+  description: ''
