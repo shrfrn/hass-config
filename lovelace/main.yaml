@@ -450,22 +450,8 @@ views:
                   - type: custom:bubble-card
                     card_type: button
                     button_type: switch
-                    entity: scene.lr_off
-                    name: Off
-                    tap_action:
-                      action: toggle
-                  - type: custom:bubble-card
-                    card_type: button
-                    button_type: switch
                     entity: scene.lr_tv
                     name: TV
-                    tap_action:
-                      action: toggle
-                  - type: custom:bubble-card
-                    card_type: button
-                    button_type: switch
-                    entity: scene.lr_on
-                    name: On
                     tap_action:
                       action: toggle
                   - type: custom:bubble-card
@@ -540,6 +526,13 @@ views:
                   - type: custom:bubble-card
                     card_type: button
                     button_type: switch
+                    entity: switch.lr_soc_w
+                    name: Socket
+                    tap_action:
+                      action: toggle
+                  - type: custom:bubble-card
+                    card_type: button
+                    button_type: switch
                     entity: light.lr_lt_ceiling
                     name: Ceiling
                     tap_action:
@@ -549,13 +542,6 @@ views:
                     button_type: switch
                     entity: light.lr_lt_outdoor_projector
                     name: Backyard Flood Light
-                    tap_action:
-                      action: toggle
-                  - type: custom:bubble-card
-                    card_type: button
-                    button_type: switch
-                    entity: switch.lr_soc_w
-                    name: Socket
                     tap_action:
                       action: toggle
                   - type: custom:bubble-card
@@ -592,20 +578,6 @@ views:
                 square: false
                 columns: 2
                 cards:
-                  - type: custom:bubble-card
-                    card_type: button
-                    button_type: switch
-                    entity: scene.kt_off
-                    name: Off
-                    tap_action:
-                      action: toggle
-                  - type: custom:bubble-card
-                    card_type: button
-                    button_type: switch
-                    entity: scene.kt_on
-                    name: On
-                    tap_action:
-                      action: toggle
                   - type: custom:bubble-card
                     card_type: button
                     button_type: switch
@@ -770,22 +742,8 @@ views:
                     - type: custom:bubble-card
                       card_type: button
                       button_type: switch
-                      entity: scene.mb_on
-                      name: On
-                      tap_action:
-                        action: toggle
-                    - type: custom:bubble-card
-                      card_type: button
-                      button_type: switch
                       entity: scene.mb_standard
                       name: Standard
-                      tap_action:
-                        action: toggle
-                    - type: custom:bubble-card
-                      card_type: button
-                      button_type: switch
-                      entity: scene.mb_off
-                      name: Off
                       tap_action:
                         action: toggle
                 - type: custom:bubble-card
@@ -853,6 +811,13 @@ views:
                     - type: custom:bubble-card
                       card_type: button
                       button_type: switch
+                      entity: switch.mb_door_s
+                      name: Patio Door
+                      tap_action:
+                        action: toggle
+                    - type: custom:bubble-card
+                      card_type: button
+                      button_type: switch
                       entity: light.mb_lt_wardrobe
                       name: Wardrobe
                       tap_action:
@@ -862,13 +827,6 @@ views:
                       button_type: switch
                       entity: light.mb_lt_ceiling_hall
                       name: Hall
-                      tap_action:
-                        action: toggle
-                    - type: custom:bubble-card
-                      card_type: button
-                      button_type: switch
-                      entity: switch.mb_door_s
-                      name: Patio Door
                       tap_action:
                         action: toggle
           - type: conditional
@@ -896,27 +854,6 @@ views:
                   button_action:
                     tap_action:
                       action: none
-                - type: custom:bubble-card
-                  card_type: separator
-                  name: Scenes
-                - type: grid
-                  square: false
-                  columns: 2
-                  cards:
-                    - type: custom:bubble-card
-                      card_type: button
-                      button_type: switch
-                      entity: scene.stdr_off
-                      name: Off
-                      tap_action:
-                        action: toggle
-                    - type: custom:bubble-card
-                      card_type: button
-                      button_type: switch
-                      entity: scene.stdr_on
-                      name: On
-                      tap_action:
-                        action: toggle
                 - type: custom:bubble-card
                   card_type: separator
                   name: Lights
@@ -1711,27 +1648,6 @@ views:
                 button_action:
                   tap_action:
                     action: none
-              - type: custom:bubble-card
-                card_type: separator
-                name: Scenes
-              - type: grid
-                square: false
-                columns: 2
-                cards:
-                  - type: custom:bubble-card
-                    card_type: button
-                    button_type: switch
-                    entity: scene.ptio_off
-                    name: Off
-                    tap_action:
-                      action: toggle
-                  - type: custom:bubble-card
-                    card_type: button
-                    button_type: switch
-                    entity: scene.ptio_on
-                    name: On
-                    tap_action:
-                      action: toggle
               - type: custom:bubble-card
                 card_type: separator
                 name: Lights
