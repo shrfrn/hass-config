@@ -1,7 +1,19 @@
 #!/bin/bash
+# =============================================================================
+# ship.sh - Runs on DEV machine (your Mac/laptop)
+# =============================================================================
+# Pushes current branch to GitHub, then SSHs to prod to trigger deploy.
+# Shows progress with spinner while waiting for config check and restart.
+# =============================================================================
 
-PI_HOST="root@homeassistant.local"
-PI_SCRIPT="/root/deploy.sh"
+# Guard: Prevent running on prod
+if [ -f /etc/hassio.json ]; then
+    echo "❌ This script should be run from your dev machine, not prod"
+    exit 1
+fi
+
+PROD_HOST="root@homeassistant.local"
+PROD_SCRIPT="/root/deploy.sh"
 
 # Colors
 WHITE='\033[1;37m'
@@ -33,7 +45,7 @@ echo -e "${WHITE}📤 Pushing $BRANCH to origin...${NC}"
 git push origin "$BRANCH" 2>&1 | sed "s/^/   /"
 
 echo ""
-echo -e "${CYAN}🍓 Deploying to Pi...${NC}"
+echo -e "${CYAN}🚀 Deploying to prod...${NC}"
 echo ""
 
 # Temp file for output
@@ -41,7 +53,7 @@ TEMP_OUT=$(mktemp)
 TOTAL_START=$SECONDS
 
 # Run SSH in background
-ssh "$PI_HOST" "$PI_SCRIPT $BRANCH" > "$TEMP_OUT" 2>&1 &
+ssh "$PROD_HOST" "$PROD_SCRIPT $BRANCH" > "$TEMP_OUT" 2>&1 &
 SSH_PID=$!
 
 # Spinner function
@@ -95,13 +107,13 @@ EXIT_CODE=$?
 
 TOTAL_TIME=$((SECONDS - TOTAL_START))
 
-# Show Pi output (filter out stage markers)
+# Show prod output (filter out stage markers)
 echo ""
-echo -e "${DIM}── Pi log ──${NC}"
+echo -e "${DIM}── Prod log ──${NC}"
 grep -v "^\[STAGE:" "$TEMP_OUT" | while IFS= read -r line; do
     echo -e "   ${DIM}│${NC} $line"
 done
-echo -e "${DIM}────────────${NC}"
+echo -e "${DIM}──────────────${NC}"
 rm -f "$TEMP_OUT"
 
 if [ "$EXIT_CODE" -eq 0 ]; then
@@ -119,3 +131,4 @@ else
     echo -e "${RED}   Fix the issues and try again.${NC}"
     exit 1
 fi
+
