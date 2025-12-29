@@ -592,13 +592,6 @@ views:
                     name: Minimal
                     tap_action:
                       action: toggle
-                  - type: custom:bubble-card
-                    card_type: button
-                    button_type: switch
-                    entity: scene.kt_standard_2
-                    name: kt_standard
-                    tap_action:
-                      action: toggle
               - type: custom:bubble-card
                 card_type: separator
                 name: Lights

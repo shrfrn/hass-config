@@ -50,6 +50,10 @@ const config = {
       include_in_group: ['switch.mb_soc'],
     },
 
+    sharon_s_studio: {
+      include_in_group: ['switch.stdn_skt'],
+    },
+
     // Patio: include outdoor lights (normally excluded globally)
     front_yard: {
       included_labels: ['outdoor'],
