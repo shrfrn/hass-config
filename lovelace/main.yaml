@@ -244,7 +244,7 @@ views:
           - type: custom:bubble-card
             card_type: button
             button_type: switch
-            entity: group.crd_lights
+            entity: group.corridor_lights
             name: Corridor
             icon: mdi:domain-switch
             scrolling_effect: true
@@ -252,14 +252,14 @@ views:
               action: perform-action
               perform_action: scene.turn_on
               target:
-                entity_id: scene.crd_standard
+                entity_id: scene.corridor_standard
               data: {}
             hold_action:
               action: toggle
             button_action:
               tap_action:
                 action: navigate
-                navigation_path: "#crd_details"
+                navigation_path: "#corridor_details"
             sub_button:
               - entity: climate.corridor_ac
                 icon: mdi:snowflake
@@ -704,6 +704,14 @@ views:
                   - type: custom:bubble-card
                     card_type: button
                     button_type: switch
+                    entity: switch.lr_soc_w
+                    name: Socket
+                    scrolling_effect: true
+                    tap_action:
+                      action: toggle
+                  - type: custom:bubble-card
+                    card_type: button
+                    button_type: switch
                     entity: light.lr_lt_ceiling
                     name: Ceiling
                     scrolling_effect: true
@@ -714,14 +722,6 @@ views:
                     button_type: switch
                     entity: light.lr_lt_outdoor_projector
                     name: Backyard Flood Light
-                    scrolling_effect: true
-                    tap_action:
-                      action: toggle
-                  - type: custom:bubble-card
-                    card_type: button
-                    button_type: switch
-                    entity: switch.lr_soc_w
-                    name: Socket
                     scrolling_effect: true
                     tap_action:
                       action: toggle
@@ -773,14 +773,6 @@ views:
                     button_type: switch
                     entity: scene.mb_standard
                     name: Standard
-                    scrolling_effect: true
-                    tap_action:
-                      action: toggle
-                  - type: custom:bubble-card
-                    card_type: button
-                    button_type: switch
-                    entity: scene.baba
-                    name: Baba
                     scrolling_effect: true
                     tap_action:
                       action: toggle
@@ -1042,6 +1034,14 @@ views:
                     - type: custom:bubble-card
                       card_type: button
                       button_type: switch
+                      entity: switch.mb_door_s
+                      name: Patio Door
+                      scrolling_effect: true
+                      tap_action:
+                        action: toggle
+                    - type: custom:bubble-card
+                      card_type: button
+                      button_type: switch
                       entity: light.mb_lt_wardrobe
                       name: Wardrobe
                       scrolling_effect: true
@@ -1052,14 +1052,6 @@ views:
                       button_type: switch
                       entity: light.mb_lt_ceiling_hall
                       name: Hall
-                      scrolling_effect: true
-                      tap_action:
-                        action: toggle
-                    - type: custom:bubble-card
-                      card_type: button
-                      button_type: switch
-                      entity: switch.mb_door_s
-                      name: Patio Door
                       scrolling_effect: true
                       tap_action:
                         action: toggle
@@ -1387,16 +1379,16 @@ views:
             cards:
               - type: custom:bubble-card
                 card_type: pop-up
-                hash: "#crd_details"
+                hash: "#corridor_details"
                 button_type: switch
                 name: Corridor
                 icon: mdi:domain-switch
-                entity: group.crd_lights
+                entity: group.corridor_lights
                 tap_action:
                   action: perform-action
                   perform_action: scene.turn_on
                   target:
-                    entity_id: scene.crd_standard
+                    entity_id: scene.corridor_standard
                   data: {}
                 hold_action:
                   action: toggle
