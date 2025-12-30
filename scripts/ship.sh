@@ -12,6 +12,10 @@ if [ -f /etc/hassio.json ]; then
     exit 1
 fi
 
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
+cd "$PROJECT_ROOT"
+
 PROD_HOST="root@homeassistant.local"
 PROD_SCRIPT="/root/deploy.sh"
 
@@ -131,4 +135,3 @@ else
     echo -e "${RED}   Fix the issues and try again.${NC}"
     exit 1
 fi
-

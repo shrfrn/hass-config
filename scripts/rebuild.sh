@@ -17,6 +17,9 @@ fi
 set -e  # Exit on any error
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
+
+cd "$PROJECT_ROOT"
 
 echo "📦 Fetching inventory from Home Assistant..."
 npx hass-gen inventory
