@@ -5,14 +5,26 @@
 # Full rebuild and deploy:
 # 1. Fetches fresh data from Home Assistant (inventory)
 # 2. Regenerates YAML packages and dashboards
-# 3. Ships to prod
+# 3. Commits the changes    
+# 4. Ships to prod
+#
+# Usage: ./rebuild.sh [-m "commit message"]
 # =============================================================================
+# Parse arguments
+COMMIT_MSG="Regenerate packages and dashboards"
 
-# Guard: Prevent running on prod
-if [ -f /etc/hassio.json ]; then
-    echo "❌ This script should be run from your dev machine, not prod"
-    exit 1
-fi
+# This loop parses command line options for the script.
+# The "getopts" built-in processes optional flags.
+# Here, "-m" allows passing a custom commit message (e.g., ./rebuild.sh -m "my message").
+# If "-m" is provided, its value is saved to the COMMIT_MSG variable.
+# If any other flag or an incorrect usage is detected, usage instructions are shown and the script exits.
+
+while getopts "m:" opt; do
+    case $opt in
+        m) COMMIT_MSG="$OPTARG" ;;
+        *) echo "Usage: $0 [-m \"commit message\"]"; exit 1 ;;
+    esac
+done
 
 set -e  # Exit on any error
 
@@ -29,6 +41,10 @@ echo "⚙️  Generating YAML packages and dashboards..."
 npx hass-gen generate
 
 echo ""
+echo "📝 Committing generated files..."
+git add -A
+git commit -m "$COMMIT_MSG" || echo "   (no changes to commit)"
+
+echo ""
 echo "🚀 Shipping to prod..."
 "$SCRIPT_DIR/ship.sh"
-
