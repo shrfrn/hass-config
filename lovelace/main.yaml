@@ -32,6 +32,17 @@ views:
               - entity: switch.lr_fan
                 tap_action:
                   action: toggle
+            styles: "
+
+              \      .bubble-sub-button-container {
+
+              \        right: unset;
+
+              \        inset-inline-end: 8px;
+
+              \      }
+
+              \    "
           - type: custom:bubble-card
             card_type: button
             button_type: switch
@@ -56,6 +67,17 @@ views:
                 icon: mdi:snowflake
                 tap_action:
                   action: toggle
+            styles: "
+
+              \      .bubble-sub-button-container {
+
+              \        right: unset;
+
+              \        inset-inline-end: 8px;
+
+              \      }
+
+              \    "
           - type: conditional
             conditions:
               - condition: user
@@ -90,6 +112,17 @@ views:
                 - entity: switch.mb_fan
                   tap_action:
                     action: toggle
+              styles: "
+
+                \      .bubble-sub-button-container {
+
+                \        right: unset;
+
+                \        inset-inline-end: 8px;
+
+                \      }
+
+                \    "
           - type: conditional
             conditions:
               - condition: user
@@ -119,6 +152,17 @@ views:
                   icon: mdi:snowflake
                   tap_action:
                     action: toggle
+              styles: "
+
+                \      .bubble-sub-button-container {
+
+                \        right: unset;
+
+                \        inset-inline-end: 8px;
+
+                \      }
+
+                \    "
           - type: conditional
             conditions:
               - condition: user
@@ -151,6 +195,17 @@ views:
                 - entity: switch.stdn_fan
                   tap_action:
                     action: toggle
+              styles: "
+
+                \      .bubble-sub-button-container {
+
+                \        right: unset;
+
+                \        inset-inline-end: 8px;
+
+                \      }
+
+                \    "
           - type: custom:bubble-card
             card_type: button
             button_type: switch
@@ -175,6 +230,17 @@ views:
                 icon: mdi:snowflake
                 tap_action:
                   action: toggle
+            styles: "
+
+              \      .bubble-sub-button-container {
+
+              \        right: unset;
+
+              \        inset-inline-end: 8px;
+
+              \      }
+
+              \    "
           - type: custom:bubble-card
             card_type: button
             button_type: switch
@@ -199,6 +265,17 @@ views:
                 icon: mdi:snowflake
                 tap_action:
                   action: toggle
+            styles: "
+
+              \      .bubble-sub-button-container {
+
+              \        right: unset;
+
+              \        inset-inline-end: 8px;
+
+              \      }
+
+              \    "
           - type: custom:bubble-card
             card_type: button
             button_type: switch
@@ -223,6 +300,17 @@ views:
                 icon: mdi:snowflake
                 tap_action:
                   action: toggle
+            styles: "
+
+              \      .bubble-sub-button-container {
+
+              \        right: unset;
+
+              \        inset-inline-end: 8px;
+
+              \      }
+
+              \    "
           - type: custom:bubble-card
             card_type: button
             button_type: switch
@@ -247,6 +335,17 @@ views:
                 icon: mdi:snowflake
                 tap_action:
                   action: toggle
+            styles: "
+
+              \      .bubble-sub-button-container {
+
+              \        right: unset;
+
+              \        inset-inline-end: 8px;
+
+              \      }
+
+              \    "
           - type: custom:bubble-card
             card_type: button
             button_type: switch
@@ -295,6 +394,17 @@ views:
                   icon: mdi:snowflake
                   tap_action:
                     action: toggle
+              styles: "
+
+                \      .bubble-sub-button-container {
+
+                \        right: unset;
+
+                \        inset-inline-end: 8px;
+
+                \      }
+
+                \    "
           - type: custom:bubble-card
             card_type: button
             button_type: switch
@@ -322,6 +432,17 @@ views:
               - entity: switch.br1_fan
                 tap_action:
                   action: toggle
+            styles: "
+
+              \      .bubble-sub-button-container {
+
+              \        right: unset;
+
+              \        inset-inline-end: 8px;
+
+              \      }
+
+              \    "
           - type: custom:bubble-card
             card_type: button
             button_type: switch
@@ -384,6 +505,17 @@ views:
                 icon: mdi:snowflake
                 tap_action:
                   action: toggle
+            styles: "
+
+              \      .bubble-sub-button-container {
+
+              \        right: unset;
+
+              \        inset-inline-end: 8px;
+
+              \      }
+
+              \    "
           - type: custom:bubble-card
             card_type: button
             button_type: switch
@@ -430,6 +562,17 @@ views:
               - entity: switch.br2_fan
                 tap_action:
                   action: toggle
+            styles: "
+
+              \      .bubble-sub-button-container {
+
+              \        right: unset;
+
+              \        inset-inline-end: 8px;
+
+              \      }
+
+              \    "
           - type: vertical-stack
             cards:
               - type: custom:bubble-card
@@ -532,6 +675,17 @@ views:
                     icon: mdi:chevron-down
                     select_attribute: hvac_modes
                     show_arrow: false
+                styles: "
+
+                  \      .bubble-sub-button-container {
+
+                  \        right: unset;
+
+                  \        inset-inline-end: 8px;
+
+                  \      }
+
+                  \    "
               - type: custom:bubble-card
                 card_type: separator
                 name: Other
@@ -694,6 +848,17 @@ views:
                     icon: mdi:chevron-down
                     select_attribute: hvac_modes
                     show_arrow: false
+                styles: "
+
+                  \      .bubble-sub-button-container {
+
+                  \        right: unset;
+
+                  \        inset-inline-end: 8px;
+
+                  \      }
+
+                  \    "
               - type: custom:bubble-card
                 card_type: separator
                 name: Other
@@ -816,6 +981,17 @@ views:
                       icon: mdi:chevron-down
                       select_attribute: hvac_modes
                       show_arrow: false
+                  styles: "
+
+                    \      .bubble-sub-button-container {
+
+                    \        right: unset;
+
+                    \        inset-inline-end: 8px;
+
+                    \      }
+
+                    \    "
                 - type: custom:bubble-card
                   card_type: separator
                   name: Other
@@ -960,6 +1136,17 @@ views:
                       icon: mdi:chevron-down
                       select_attribute: hvac_modes
                       show_arrow: false
+                  styles: "
+
+                    \      .bubble-sub-button-container {
+
+                    \        right: unset;
+
+                    \        inset-inline-end: 8px;
+
+                    \      }
+
+                    \    "
           - type: conditional
             conditions:
               - condition: user
@@ -1051,6 +1238,17 @@ views:
                       icon: mdi:chevron-down
                       select_attribute: hvac_modes
                       show_arrow: false
+                  styles: "
+
+                    \      .bubble-sub-button-container {
+
+                    \        right: unset;
+
+                    \        inset-inline-end: 8px;
+
+                    \      }
+
+                    \    "
                 - type: custom:bubble-card
                   card_type: separator
                   name: Other
@@ -1134,6 +1332,17 @@ views:
                     icon: mdi:chevron-down
                     select_attribute: hvac_modes
                     show_arrow: false
+                styles: "
+
+                  \      .bubble-sub-button-container {
+
+                  \        right: unset;
+
+                  \        inset-inline-end: 8px;
+
+                  \      }
+
+                  \    "
           - type: vertical-stack
             cards:
               - type: custom:bubble-card
@@ -1202,6 +1411,17 @@ views:
                     icon: mdi:chevron-down
                     select_attribute: hvac_modes
                     show_arrow: false
+                styles: "
+
+                  \      .bubble-sub-button-container {
+
+                  \        right: unset;
+
+                  \        inset-inline-end: 8px;
+
+                  \      }
+
+                  \    "
           - type: vertical-stack
             cards:
               - type: custom:bubble-card
@@ -1270,6 +1490,17 @@ views:
                     icon: mdi:chevron-down
                     select_attribute: hvac_modes
                     show_arrow: false
+                styles: "
+
+                  \      .bubble-sub-button-container {
+
+                  \        right: unset;
+
+                  \        inset-inline-end: 8px;
+
+                  \      }
+
+                  \    "
           - type: vertical-stack
             cards:
               - type: custom:bubble-card
@@ -1307,6 +1538,17 @@ views:
                     icon: mdi:chevron-down
                     select_attribute: hvac_modes
                     show_arrow: false
+                styles: "
+
+                  \      .bubble-sub-button-container {
+
+                  \        right: unset;
+
+                  \        inset-inline-end: 8px;
+
+                  \      }
+
+                  \    "
           - type: vertical-stack
             cards:
               - type: custom:bubble-card
@@ -1431,6 +1673,17 @@ views:
                       icon: mdi:chevron-down
                       select_attribute: hvac_modes
                       show_arrow: false
+                  styles: "
+
+                    \      .bubble-sub-button-container {
+
+                    \        right: unset;
+
+                    \        inset-inline-end: 8px;
+
+                    \      }
+
+                    \    "
           - type: vertical-stack
             cards:
               - type: custom:bubble-card
@@ -1510,6 +1763,17 @@ views:
                     icon: mdi:chevron-down
                     select_attribute: hvac_modes
                     show_arrow: false
+                styles: "
+
+                  \      .bubble-sub-button-container {
+
+                  \        right: unset;
+
+                  \        inset-inline-end: 8px;
+
+                  \      }
+
+                  \    "
           - type: vertical-stack
             cards:
               - type: custom:bubble-card
@@ -1680,6 +1944,17 @@ views:
                     icon: mdi:chevron-down
                     select_attribute: hvac_modes
                     show_arrow: false
+                styles: "
+
+                  \      .bubble-sub-button-container {
+
+                  \        right: unset;
+
+                  \        inset-inline-end: 8px;
+
+                  \      }
+
+                  \    "
           - type: vertical-stack
             cards:
               - type: custom:bubble-card
@@ -1865,3 +2140,14 @@ views:
                     icon: mdi:chevron-down
                     select_attribute: hvac_modes
                     show_arrow: false
+                styles: "
+
+                  \      .bubble-sub-button-container {
+
+                  \        right: unset;
+
+                  \        inset-inline-end: 8px;
+
+                  \      }
+
+                  \    "
