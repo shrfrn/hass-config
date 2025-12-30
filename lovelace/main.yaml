@@ -696,14 +696,6 @@ views:
                   - type: custom:bubble-card
                     card_type: button
                     button_type: switch
-                    entity: switch.lr_soc_w
-                    name: Socket
-                    scrolling_effect: true
-                    tap_action:
-                      action: toggle
-                  - type: custom:bubble-card
-                    card_type: button
-                    button_type: switch
                     entity: light.lr_lt_ceiling
                     name: Ceiling
                     scrolling_effect: true
@@ -714,6 +706,14 @@ views:
                     button_type: switch
                     entity: light.lr_lt_outdoor_projector
                     name: Backyard Flood Light
+                    scrolling_effect: true
+                    tap_action:
+                      action: toggle
+                  - type: custom:bubble-card
+                    card_type: button
+                    button_type: switch
+                    entity: switch.lr_soc_w
+                    name: Socket
                     scrolling_effect: true
                     tap_action:
                       action: toggle
@@ -757,6 +757,14 @@ views:
                     button_type: switch
                     entity: scene.kt_minimal
                     name: Minimal
+                    scrolling_effect: true
+                    tap_action:
+                      action: toggle
+                  - type: custom:bubble-card
+                    card_type: button
+                    button_type: switch
+                    entity: scene.twilight_zone
+                    name: Twilight
                     scrolling_effect: true
                     tap_action:
                       action: toggle
@@ -922,6 +930,14 @@ views:
                       scrolling_effect: true
                       tap_action:
                         action: toggle
+                    - type: custom:bubble-card
+                      card_type: button
+                      button_type: switch
+                      entity: scene.twilight_zone
+                      name: Twilight
+                      scrolling_effect: true
+                      tap_action:
+                        action: toggle
                 - type: custom:bubble-card
                   card_type: separator
                   name: Lights
@@ -1002,14 +1018,6 @@ views:
                     - type: custom:bubble-card
                       card_type: button
                       button_type: switch
-                      entity: switch.mb_door_s
-                      name: Patio Door
-                      scrolling_effect: true
-                      tap_action:
-                        action: toggle
-                    - type: custom:bubble-card
-                      card_type: button
-                      button_type: switch
                       entity: light.mb_lt_wardrobe
                       name: Wardrobe
                       scrolling_effect: true
@@ -1020,6 +1028,14 @@ views:
                       button_type: switch
                       entity: light.mb_lt_ceiling_hall
                       name: Hall
+                      scrolling_effect: true
+                      tap_action:
+                        action: toggle
+                    - type: custom:bubble-card
+                      card_type: button
+                      button_type: switch
+                      entity: switch.mb_door_s
+                      name: Patio Door
                       scrolling_effect: true
                       tap_action:
                         action: toggle

@@ -50,10 +50,14 @@ const config = {
       excluded_lights: ['light.lr_lt_outdoor_projector', 'light.lr_lt_ceiling'],
       included_lights: ['switch.lr_soc_e'],
     },
+    kitchen: {
+      included_scenes: ['scene.twilight_zone'],
+    },
     bedroom: {
       excluded_lights: ['light.mb_lt_wardrobe', 'light.mb_lt_ceiling_hall'],
-      visible_to_users: PARENTS,
       included_lights: ['switch.mb_soc'],
+      included_scenes: ['scene.twilight_zone'],
+      visible_to_users: PARENTS,
     },
     shahar_s_studio: {
       visible_to_users: PARENTS,
