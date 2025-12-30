@@ -573,3 +573,159 @@
     switch.mb_soc:
       entity_only: true
   icon: mdi:power
+- id: '1767119548720'
+  name: Twilight
+  entities:
+    light.lndr_lt_ceiling:
+      supported_color_modes:
+      - onoff
+      color_mode:
+      icon: mdi:light-recessed
+      friendly_name: Ceiling
+      supported_features: 0
+      state: 'off'
+    light.lr_lt_wall_e:
+      supported_color_modes:
+      - onoff
+      color_mode:
+      icon: mdi:wall-sconce-outline
+      friendly_name: East Wall
+      supported_features: 0
+      state: 'off'
+    light.lr_lt_wall_n:
+      supported_color_modes:
+      - onoff
+      color_mode:
+      icon: mdi:wall-sconce-flat-variant
+      friendly_name: North Wall
+      supported_features: 0
+      state: 'off'
+    light.lr_lt_wall_s:
+      supported_color_modes:
+      - onoff
+      color_mode:
+      icon: mdi:wall-sconce-flat-variant
+      friendly_name: South Wall
+      supported_features: 0
+      state: 'off'
+    switch.lr_soc_e:
+      icon: mdi:floor-lamp-outline
+      friendly_name: Standing Lamp
+      state: 'on'
+    light.kt_lt_wall_s:
+      supported_color_modes:
+      - onoff
+      color_mode:
+      icon: mdi:outdoor-lamp
+      friendly_name: Brick Wall
+      supported_features: 0
+      state: 'off'
+    light.kt_lt_strip_s:
+      supported_color_modes:
+      - onoff
+      color_mode: onoff
+      icon: mdi:track-light
+      friendly_name: Brick Wall Spots
+      supported_features: 0
+      state: 'on'
+    light.kt_lt_strip_n:
+      supported_color_modes:
+      - onoff
+      color_mode:
+      icon: mdi:track-light
+      friendly_name: Counter Spots
+      supported_features: 0
+      state: 'off'
+    light.kt_lt_ceiling_3:
+      supported_color_modes:
+      - onoff
+      color_mode:
+      icon: mdi:light-recessed
+      friendly_name: Entrance Ceiling
+      supported_features: 0
+      state: 'off'
+    light.kt_lt_wall_s_entrance:
+      supported_color_modes:
+      - onoff
+      color_mode:
+      icon: mdi:wall-sconce-flat-variant
+      friendly_name: Entrance Wall
+      supported_features: 0
+      state: 'off'
+    light.kt_lt_ceiling_2:
+      supported_color_modes:
+      - onoff
+      color_mode:
+      icon: mdi:ceiling-light-multiple
+      friendly_name: Sitting Counter
+      supported_features: 0
+      state: 'off'
+    switch.mb_soc:
+      icon: mdi:floor-lamp-outline
+      friendly_name: Standing Lamp
+      state: 'on'
+    light.mb_lt_ceiling_hall:
+      supported_color_modes:
+      - onoff
+      color_mode:
+      icon: mdi:ceiling-light-multiple
+      friendly_name: Hall
+      supported_features: 0
+      state: 'off'
+    light.mb_lt_wall:
+      supported_color_modes:
+      - onoff
+      color_mode:
+      icon: mdi:wall-sconce-flat-variant
+      friendly_name: Wall Lights
+      supported_features: 0
+      state: 'off'
+    light.mb_lt_wardrobe:
+      supported_color_modes:
+      - onoff
+      color_mode:
+      icon: mdi:track-light
+      friendly_name: Wardrobe
+      supported_features: 0
+      state: 'off'
+    light.ofc_lt_ceiling_wc:
+      supported_color_modes:
+      - onoff
+      color_mode: onoff
+      friendly_name: Guest WC
+      supported_features: 0
+      state: 'on'
+  icon: mdi:weather-sunset
+  metadata:
+    light.lndr_lt_ceiling:
+      entity_only: true
+    light.lr_lt_wall_e:
+      entity_only: true
+    light.lr_lt_wall_n:
+      entity_only: true
+    light.lr_lt_wall_s:
+      entity_only: true
+    switch.lr_soc_e:
+      entity_only: true
+    light.kt_lt_wall_s:
+      entity_only: true
+    light.kt_lt_strip_s:
+      entity_only: true
+    light.kt_lt_strip_n:
+      entity_only: true
+    light.kt_lt_ceiling_3:
+      entity_only: true
+    light.kt_lt_wall_s_entrance:
+      entity_only: true
+    light.kt_lt_ceiling_2:
+      entity_only: true
+    switch.mb_soc:
+      entity_only: true
+    light.mb_lt_ceiling_hall:
+      entity_only: true
+    light.mb_lt_wall:
+      entity_only: true
+    light.mb_lt_wardrobe:
+      entity_only: true
+    light.ofc_lt_ceiling_wc:
+      entity_only: true
