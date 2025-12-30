@@ -38,9 +38,3 @@ timer:
   stdn_vacancy:
     name: Sharon's Studio Vacancy Timer
     duration: "00:09:00"
-
-template:
-  - sensor:
-      - name: Sharon's Studio People Present
-        unique_id: stdn_people_present
-        state: "{{ states.person | selectattr('state', 'eq', 'sharon_s_studio') | map(attribute='name') | list | join(', ') or 'none' }}"

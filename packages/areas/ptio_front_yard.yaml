@@ -35,9 +35,3 @@ timer:
   ptio_vacancy:
     name: Patio Vacancy Timer
     duration: "00:09:00"
-
-template:
-  - sensor:
-      - name: Patio People Present
-        unique_id: ptio_people_present
-        state: "{{ states.person | selectattr('state', 'eq', 'front_yard') | map(attribute='name') | list | join(', ') or 'none' }}"

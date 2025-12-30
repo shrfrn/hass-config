@@ -30,9 +30,3 @@ timer:
   ssol_vacancy:
     name: Studio Solaris Vacancy Timer
     duration: "00:09:00"
-
-template:
-  - sensor:
-      - name: Studio Solaris People Present
-        unique_id: ssol_people_present
-        state: "{{ states.person | selectattr('state', 'eq', 'studio_solaris') | map(attribute='name') | list | join(', ') or 'none' }}"

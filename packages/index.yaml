@@ -1,14 +1,21 @@
-# Package index - auto-managed
-# Generated entries are added/removed automatically
-# Manual entries (like climate_persistence) are preserved
+# ============================================================
+# Package Index - Auto-managed by hass-gen
+# ============================================================
+# DO NOT edit the auto-generated section below.
+# Add manual packages in the section marked "Manual packages".
+# ============================================================
 
-# Manual packages
+# ------------------------------------------------------------
+# Manual packages (add your custom packages here)
+# ------------------------------------------------------------
 climate_persistence: !include climate_persistence.yaml
 
-# Auto-generated packages
+# ------------------------------------------------------------
+# Auto-generated packages (DO NOT EDIT below this line)
+# ------------------------------------------------------------
 areas_br1_amai_s_room: !include areas/br1_amai_s_room.yaml
 areas_br2_tom_s_bedroom: !include areas/br2_tom_s_bedroom.yaml
-areas_crd_corridor: !include areas/crd_corridor.yaml
+areas_corridor_corridor: !include areas/corridor_corridor.yaml
 areas_cwc_children_s_wc: !include areas/cwc_children_s_wc.yaml
 areas_hacs_home_assistant: !include areas/hacs_home_assistant.yaml
 areas_home_home: !include areas/home_home.yaml
@@ -24,5 +31,6 @@ areas_ptio_front_yard: !include areas/ptio_front_yard.yaml
 areas_ssol_studio_solaris: !include areas/ssol_studio_solaris.yaml
 areas_stdn_sharon_s_studio: !include areas/stdn_sharon_s_studio.yaml
 areas_stdr_shahar_s_studio: !include areas/stdr_shahar_s_studio.yaml
+home: !include home.yaml
 labels_label_flood_light: !include labels/label_flood_light.yaml
 labels_label_outdoor: !include labels/label_outdoor.yaml

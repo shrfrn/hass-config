@@ -10,6 +10,6 @@
     "ship:full": "hass-gen ship --full"
   },
   "devDependencies": {
-    "hass-generator": "file:../hass-generator"
+    "hass-generator": "github:shrfrn/hass-generator#main"
   }
 }

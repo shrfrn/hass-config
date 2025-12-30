@@ -30,9 +30,3 @@ timer:
   lndr_vacancy:
     name: Laundry Room Vacancy Timer
     duration: "00:09:00"
-
-template:
-  - sensor:
-      - name: Laundry Room People Present
-        unique_id: lndr_people_present
-        state: "{{ states.person | selectattr('state', 'eq', 'laundry_room') | map(attribute='name') | list | join(', ') or 'none' }}"

@@ -1,0 +1,23 @@
+# ============================================================
+# Home Package
+# ============================================================
+# Global helpers not tied to a specific area
+# ============================================================
+template:
+  - binary_sensor:
+      - name: Sharon Home
+        unique_id: sharon_home
+        state: "{{ is_state('person.sharon_frenkel', 'home') }}"
+        device_class: presence
+      - name: Shahar Home
+        unique_id: shahar_home
+        state: "{{ is_state('person.shahar_katz', 'home') }}"
+        device_class: presence
+      - name: Tom Home
+        unique_id: tom_home
+        state: "{{ is_state('person.tom_frenkel', 'home') }}"
+        device_class: presence
+      - name: Amai Home
+        unique_id: amai_home
+        state: "{{ is_state('person.amai_frenkel', 'home') }}"
+        device_class: presence

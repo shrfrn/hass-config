@@ -33,9 +33,3 @@ timer:
   mwc_vacancy:
     name: Master WC Vacancy Timer
     duration: "00:09:00"
-
-template:
-  - sensor:
-      - name: Master WC People Present
-        unique_id: mwc_people_present
-        state: "{{ states.person | selectattr('state', 'eq', 'parent_s_wc') | map(attribute='name') | list | join(', ') or 'none' }}"
