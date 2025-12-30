@@ -139,11 +139,9 @@
     trigger: device
   conditions: []
   actions:
-  - action: scene.turn_on
-    metadata: {}
+  - action: homeassistant.turn_off
     target:
-      entity_id: scene.mb_off
-    data: {}
+      entity_id: group.mb_lights
   mode: single
 - id: '1766776838669'
   alias: Sunset Outdoor Lights
