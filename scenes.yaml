@@ -57,7 +57,7 @@
       - onoff
       color_mode:
       icon: mdi:wall-sconce-flat-variant
-      friendly_name: lr_lt_wall_s
+      friendly_name: South Wall
       supported_features: 0
       state: 'off'
     light.lr_lt_wall_e:
@@ -65,7 +65,7 @@
       - onoff
       color_mode: onoff
       icon: mdi:wall-sconce-outline
-      friendly_name: lr_lt_wall_e
+      friendly_name: East Wall
       supported_features: 0
       state: 'on'
     light.lr_lt_wall_n:
@@ -73,7 +73,7 @@
       - onoff
       color_mode:
       icon: mdi:wall-sconce-flat-variant
-      friendly_name: lr_lt_wall_n
+      friendly_name: North Wall
       supported_features: 0
       state: 'off'
     light.lr_lt_ceiling:
@@ -81,43 +81,19 @@
       - onoff
       color_mode:
       icon: mdi:spotlight-beam
-      friendly_name: lr_lt_ceiling
+      friendly_name: Ceiling
       supported_features: 0
       state: 'off'
     switch.lr_soc_e:
       icon: mdi:floor-lamp-outline
-      friendly_name: lr_soc_e
+      friendly_name: Standing Lamp
       state: 'off'
     light.crd_lt_wall_e:
       supported_color_modes:
       - onoff
       color_mode:
       icon: mdi:wall-sconce-flat-variant
-      friendly_name: crd_lt_wall_e
-      supported_features: 0
-      state: 'off'
-    light.kt_lt_ceiling_bar:
-      supported_color_modes:
-      - onoff
-      color_mode:
-      icon: mdi:ceiling-light-multiple
-      friendly_name: kt_lt_ceiling_bar
-      supported_features: 0
-      state: 'off'
-    light.kt_lt_ceiling_entrance:
-      supported_color_modes:
-      - onoff
-      color_mode:
-      icon: mdi:light-recessed
-      friendly_name: kt_lt_ceiling_entrance
-      supported_features: 0
-      state: 'off'
-    light.kt_lt_ceiling_main:
-      supported_color_modes:
-      - onoff
-      color_mode:
-      icon: mdi:ceiling-light
-      friendly_name: kt_lt_ceiling_main
+      friendly_name: Corridor Wall
       supported_features: 0
       state: 'off'
     light.kt_lt_wall_s_entrance:
@@ -125,7 +101,7 @@
       - onoff
       color_mode:
       icon: mdi:wall-sconce-flat-variant
-      friendly_name: kt_lt_wall_s_entrance
+      friendly_name: Entrance Wall
       supported_features: 0
       state: 'off'
     light.kt_lt_strip_n:
@@ -133,7 +109,7 @@
       - onoff
       color_mode:
       icon: mdi:track-light
-      friendly_name: kt_lt_strip_n
+      friendly_name: Counter Spots
       supported_features: 0
       state: 'off'
     light.kt_lt_strip_s:
@@ -141,7 +117,7 @@
       - onoff
       color_mode:
       icon: mdi:track-light
-      friendly_name: kt_lt_strip_s
+      friendly_name: Brick Wall Spots
       supported_features: 0
       state: 'off'
     light.kt_lt_wall_s:
@@ -149,7 +125,7 @@
       - onoff
       color_mode:
       icon: mdi:outdoor-lamp
-      friendly_name: kt_lt_wall_s
+      friendly_name: Brick Wall
       supported_features: 0
       state: 'off'
   icon: mdi:television-classic
@@ -165,12 +141,6 @@
     switch.lr_soc_e:
       entity_only: true
     light.crd_lt_wall_e:
-      entity_only: true
-    light.kt_lt_ceiling_bar:
-      entity_only: true
-    light.kt_lt_ceiling_entrance:
-      entity_only: true
-    light.kt_lt_ceiling_main:
       entity_only: true
     light.kt_lt_wall_s_entrance:
       entity_only: true
