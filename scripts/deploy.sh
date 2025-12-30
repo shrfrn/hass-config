@@ -12,6 +12,14 @@ EXIT_CODE=0
 
 cd "$REPO_DIR"
 
+# Commit any local UI changes (scenes, automations, scripts created via HA UI)
+if [ -n "$(git status --porcelain)" ]; then
+    echo "Committing local UI changes..."
+    git add -A
+    git commit -m "Auto-commit: UI changes from Home Assistant"
+    git push origin main
+fi
+
 git fetch origin
 git checkout "$BRANCH"
 git pull origin "$BRANCH"
