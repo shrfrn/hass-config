@@ -21,3 +21,38 @@ template:
         unique_id: amai_home
         state: "{{ is_state('person.amai_frenkel', 'home') }}"
         device_class: presence
+      - name: Anyone Home
+        unique_id: anyone_home
+        state: "{{ ['person.sharon_frenkel', 'person.shahar_katz', 'person.tom_frenkel', 'person.amai_frenkel'] | select('is_state', 'home') | list | count > 0 }}"
+        device_class: presence
+      - name: Everyone Home
+        unique_id: everyone_home
+        state: "{{ ['person.sharon_frenkel', 'person.shahar_katz', 'person.tom_frenkel', 'person.amai_frenkel'] | reject('is_state', 'home') | list | count == 0 }}"
+        device_class: presence
+    sensor:
+      - name: People Home Count
+        unique_id: people_home_count
+        state: "{{ ['person.sharon_frenkel', 'person.shahar_katz', 'person.tom_frenkel', 'person.amai_frenkel'] | select('is_state', 'home') | list | count }}"
+        icon: "mdi:account-group"
+  - trigger:
+      - platform: state
+        entity_id: binary_sensor.anyone_home
+        from: off
+        to: on
+    sensor:
+      - name: Home Became Occupied
+        unique_id: home_became_occupied
+        state: "{{ now().isoformat() }}"
+        device_class: timestamp
+        icon: "mdi:home-account"
+  - trigger:
+      - platform: state
+        entity_id: binary_sensor.anyone_home
+        from: on
+        to: off
+    sensor:
+      - name: Home Became Empty
+        unique_id: home_became_empty
+        state: "{{ now().isoformat() }}"
+        device_class: timestamp
+        icon: "mdi:home-outline"

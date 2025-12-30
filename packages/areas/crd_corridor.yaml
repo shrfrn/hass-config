@@ -31,9 +31,3 @@ timer:
   crd_vacancy:
     name: Corridor Vacancy Timer
     duration: "00:09:00"
-
-template:
-  - sensor:
-      - name: Corridor People Present
-        unique_id: crd_people_present
-        state: "{{ states.person | selectattr('state', 'eq', 'corridor') | map(attribute='name') | list | join(', ') or 'none' }}"
