@@ -32,9 +32,3 @@ timer:
   ofc_vacancy:
     name: Office Vacancy Timer
     duration: "00:09:00"
-
-template:
-  - sensor:
-      - name: Office People Present
-        unique_id: ofc_people_present
-        state: "{{ states.person | selectattr('state', 'eq', 'office') | map(attribute='name') | list | join(', ') or 'none' }}"

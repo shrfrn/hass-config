@@ -33,9 +33,3 @@ timer:
   cwc_vacancy:
     name: Children's WC Vacancy Timer
     duration: "00:09:00"
-
-template:
-  - sensor:
-      - name: Children's WC People Present
-        unique_id: cwc_people_present
-        state: "{{ states.person | selectattr('state', 'eq', 'children_s_wc') | map(attribute='name') | list | join(', ') or 'none' }}"

@@ -40,9 +40,3 @@ timer:
   lr_vacancy:
     name: Living Room Vacancy Timer
     duration: "00:09:00"
-
-template:
-  - sensor:
-      - name: Living Room People Present
-        unique_id: lr_people_present
-        state: "{{ states.person | selectattr('state', 'eq', 'living_room') | map(attribute='name') | list | join(', ') or 'none' }}"

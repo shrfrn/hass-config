@@ -38,9 +38,3 @@ timer:
   kt_vacancy:
     name: Kitchen Vacancy Timer
     duration: "00:09:00"
-
-template:
-  - sensor:
-      - name: Kitchen People Present
-        unique_id: kt_people_present
-        state: "{{ states.person | selectattr('state', 'eq', 'kitchen') | map(attribute='name') | list | join(', ') or 'none' }}"

@@ -31,9 +31,3 @@ timer:
   ksol_vacancy:
     name: Kitchen Solaris Vacancy Timer
     duration: "00:09:00"
-
-template:
-  - sensor:
-      - name: Kitchen Solaris People Present
-        unique_id: ksol_people_present
-        state: "{{ states.person | selectattr('state', 'eq', 'kitchen_solaris') | map(attribute='name') | list | join(', ') or 'none' }}"

@@ -40,9 +40,3 @@ timer:
   mb_vacancy:
     name: Master Bedroom Vacancy Timer
     duration: "00:09:00"
-
-template:
-  - sensor:
-      - name: Master Bedroom People Present
-        unique_id: mb_people_present
-        state: "{{ states.person | selectattr('state', 'eq', 'bedroom') | map(attribute='name') | list | join(', ') or 'none' }}"
