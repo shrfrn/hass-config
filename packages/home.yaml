@@ -37,8 +37,8 @@ template:
   - trigger:
       - platform: state
         entity_id: binary_sensor.anyone_home
-        from: off
-        to: on
+        from: "off"
+        to: "on"
     sensor:
       - name: Home Became Occupied
         unique_id: home_became_occupied
@@ -48,8 +48,8 @@ template:
   - trigger:
       - platform: state
         entity_id: binary_sensor.anyone_home
-        from: on
-        to: off
+        from: "on"
+        to: "off"
     sensor:
       - name: Home Became Empty
         unique_id: home_became_empty
