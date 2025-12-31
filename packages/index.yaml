@@ -15,7 +15,7 @@ climate_persistence: !include climate_persistence.yaml
 # ------------------------------------------------------------
 areas_br1_amai_s_room: !include areas/br1_amai_s_room.yaml
 areas_br2_tom_s_bedroom: !include areas/br2_tom_s_bedroom.yaml
-areas_crd_corridor: !include areas/crd_corridor.yaml
+areas_corridor_corridor: !include areas/corridor_corridor.yaml
 areas_cwc_children_s_wc: !include areas/cwc_children_s_wc.yaml
 areas_hacs_home_assistant: !include areas/hacs_home_assistant.yaml
 areas_home_home: !include areas/home_home.yaml
