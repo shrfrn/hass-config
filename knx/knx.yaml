@@ -54,7 +54,7 @@ light:
   - name: "kt_lt_entrance_wall_outdoors"
     address: "1/0/72"
     
-    # Kitchen Solaris
+  # Kitchen Solaris
     
   - name: "ksol_lt_wall_w"
     address: "1/0/103"
@@ -62,7 +62,7 @@ light:
   - name: "ksol_lt_sink"
     address: "1/0/80"
     
-    # Master Bedroom
+  # Master Bedroom
     
   - name: "mb_lt_wall"
     address: "1/0/79"
@@ -79,24 +79,30 @@ light:
   - name: "mb_lt_ceiling_hall"
     address: "1/0/56"
 
-    # Master Bathroom
+  # Master Bathroom
 
-  - name: "mwc_main_ceiling"
+  - name: "mwc_lt_main_ceiling"
     address: "1/0/49"
 
-  - name: "mwc_main_wall"
+  - name: "mwc_lt_main_wall"
     address: "1/0/50"
 
-  - name: "mwc_toilet_ceiling"
+  - name: "mwc_lt_toilet_ceiling"
     address: "1/0/51"
 
-  - name: "mwc_shower_ceiling"
+  - name: "mwc_lt_shower_ceiling"
     address: "1/0/52"
+
+  - name: "mwc_lt_bathroom_wall_s"
+    address: "1/0/99"
+
+  - name: "mwc_lt_bathroom_wall_e"
+    address: "1/0/53"
     
-  - name: "mwc_outdoor_projector"
+  - name: "mwc_lt_outdoor_projector"
     address: "1/0/35"
     
-    # Office
+  # Office
     
   - name: "ofc_lt_ceiling_hall"
     address: "1/0/54"
@@ -107,7 +113,7 @@ light:
   - name: "ofc_lt_walls"
     address: "1/0/104"
 
-    # Corridor
+  # Corridor
 
   - name: "crd_lt_wall_e"
     address: "1/0/110"
@@ -118,7 +124,7 @@ light:
   - name: "crd_lt_entrance_wall_outdoors"
     address: "1/0/112"
 
-    # Children Bathroom
+  # Children Bathroom
 
   - name: "cwc_lt_toilet_wall_e"
     address: "1/0/106"
@@ -135,7 +141,7 @@ light:
   - name: "cwc_lt_bathroom_wall_outdoors"
     address: "1/0/146"
 
-    # Amai's Room
+  # Amai's Room
 
   - name: "br1_lt_ceiling"
     address: "1/0/117"
@@ -149,7 +155,7 @@ light:
   - name: "br1_lt_wall_w"
     address: "1/0/120"
 
-    # Tom's Room
+  # Tom's Room
 
   - name: "br2_lt_ceiling"
     address: "1/0/113"
@@ -163,7 +169,7 @@ light:
   - name: "br2_lt_wall_w"
     address: "1/0/136"
 
-    # Laundry Room
+  # Laundry Room
 
   - name: "lndr_lt_ceiling"
     address: "1/0/149"
@@ -174,7 +180,7 @@ light:
   - name: "lndr_lt_entrance_wall_outdoor"
     address: "1/0/148"
   
-    # Sharon's Studio
+  # Sharon's Studio
     
   - name: "stdn_lt_wall_w"
     address: "1/0/3"
@@ -185,7 +191,7 @@ light:
   - name: "stdn_lt_wall_e"
     address: "1/0/5"
     
-    # Sharar's Studio
+  # Sharar's Studio
     
   - name: "stdr_lt_ceiling_stripes"
     address: "1/0/9"
@@ -211,12 +217,12 @@ light:
   - name: "stdr_service_lt_ceiling"
     address: "1/0/12"
 
-    # Studio Solaris
+  # Studio Solaris
     
   - name: "ssol_lt_wall_s"
     address: "1/0/22"
 
-    # Patio
+  # Patio
     
   - name: "ptio_lt_wall_ne"
     address: "1/0/41"
@@ -310,43 +316,6 @@ switch:
   - name: "ptio_gate_ne"      # Blue Gate
     address: "5/1/4"          # set
     state_address: "5/2/4"    # listen
-
-  # Legacy
-
-  - name: "קיר צפון חדר שרון"
-    address: "1/0/6"
-  - name: "חוץ קיר כניסה לחדר שרון"
-    address: "1/0/7"
-  - name: "סטודיו תקרה"
-    address: "1/0/10"
-  - name: "סטודיו"
-    address: "1/0/16"
-  - name: "חוץ קיר ימין פטיו"
-    address: "1/0/17"
-  - name: "קיר גלריה סטודיו"
-    address: "1/0/18"
-  - name: "סטודיו קיר כניסה בית"
-    address: "1/0/21"
-  - name: "סטודיו קיר 5 גלריה"
-    address: "1/0/23"
-  - name: "חוץ קיר מעבר ללוח חשמל מרכז"
-    address: "1/0/24"
-  - name: "סטודיו מדרגות"
-    address: "1/0/25"
-  - name: "סטודיו מסדרון"
-    address: "1/0/27"
-  - name: "סטודיו קיר חדר שרון"
-    address: "1/0/28"
-  - name: "סטודיו קיר חדר כביסה"
-    address: "1/0/29"
-  - name: "סטודיו קיר חדר כביסה 2"
-    address: "1/0/30"
-  - name: "סטודיו קיר שירותים"
-    address: "1/0/31"
-  - name: "סטודיו קיר שירותים 2"
-    address: "1/0/32"
-  - name: "תקרה סלון"
-    address: "1/0/68"
 
 # AC
 
@@ -575,3 +544,40 @@ climate:
 
     min_temp: 16
     max_temp: 30
+
+  # Legacy
+
+  # - name: "קיר צפון חדר שרון"
+  #   address: "1/0/6"
+  # - name: "חוץ קיר כניסה לחדר שרון"
+  #   address: "1/0/7"
+  # - name: "סטודיו תקרה"
+  #   address: "1/0/10"
+  # - name: "סטודיו"
+  #   address: "1/0/16"
+  # - name: "חוץ קיר ימין פטיו"
+  #   address: "1/0/17"
+  # - name: "קיר גלריה סטודיו"
+  #   address: "1/0/18"
+  # - name: "סטודיו קיר כניסה בית"
+  #   address: "1/0/21"
+  # - name: "סטודיו קיר 5 גלריה"
+  #   address: "1/0/23"
+  # - name: "חוץ קיר מעבר ללוח חשמל מרכז"
+  #   address: "1/0/24"
+  # - name: "סטודיו מדרגות"
+  #   address: "1/0/25"
+  # - name: "סטודיו מסדרון"
+  #   address: "1/0/27"
+  # - name: "סטודיו קיר חדר שרון"
+  #   address: "1/0/28"
+  # - name: "סטודיו קיר חדר כביסה"
+  #   address: "1/0/29"
+  # - name: "סטודיו קיר חדר כביסה 2"
+  #   address: "1/0/30"
+  # - name: "סטודיו קיר שירותים"
+  #   address: "1/0/31"
+  # - name: "סטודיו קיר שירותים 2"
+  #   address: "1/0/32"
+  # - name: "תקרה סלון"
+  #   address: "1/0/68"
