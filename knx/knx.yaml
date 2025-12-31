@@ -1,3 +1,12 @@
+# =============================================================================
+# KNX Event Listener - captures ALL group telegrams for discovery
+# Go to: Developer Tools → Events → Listen to "knx_event" → Start Listening
+# Then press physical switches to see their addresses
+# =============================================================================
+
+event:
+  - address: "*/*/*"     # Captures all 3-level addresses (e.g., 1/0/65)
+
 # Lights
 
 light:
