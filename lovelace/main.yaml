@@ -1643,6 +1643,22 @@ views:
                   - type: custom:bubble-card
                     card_type: button
                     button_type: switch
+                    entity: light.mwc_lt_bathroom_wall_s
+                    name: Lt Bathroom Wall S
+                    scrolling_effect: true
+                    tap_action:
+                      action: toggle
+                  - type: custom:bubble-card
+                    card_type: button
+                    button_type: switch
+                    entity: light.mwc_lt_bathroom_wall_e
+                    name: Lt Bathroom Wall E
+                    scrolling_effect: true
+                    tap_action:
+                      action: toggle
+                  - type: custom:bubble-card
+                    card_type: button
+                    button_type: switch
                     entity: light.mwc_outdoor_projector
                     name: Flood Light
                     scrolling_effect: true

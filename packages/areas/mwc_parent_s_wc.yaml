@@ -7,6 +7,8 @@ group:
     name: Master WC Lights
     entities:
       - light.mqlkht_hvrym
+      - light.mwc_lt_bathroom_wall_e
+      - light.mwc_lt_bathroom_wall_s
       - light.mwc_main_ceiling
       - light.mwc_main_wall
       - light.shrvty_hvrym
