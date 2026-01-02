@@ -187,3 +187,113 @@
       entity_id: switch.home_sw_pima
     data: {}
   mode: single
+- id: '1767357592971'
+  alias: Master Bedroom Standing Lamp - On
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - switch.mb_soc
+    from:
+    - 'off'
+    to:
+    - 'on'
+  conditions: []
+  actions:
+  - action: light.turn_on
+    metadata: {}
+    target:
+      entity_id: light.mb_soc_bulb
+    data: {}
+  mode: single
+- id: '1767357795270'
+  alias: Master Bedroom Standing Lamp - Off
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - switch.mb_soc
+    from:
+    - 'on'
+    to:
+    - 'off'
+  conditions: []
+  actions:
+  - action: light.turn_off
+    metadata: {}
+    target:
+      entity_id: light.mb_soc_bulb
+    data: {}
+  mode: single
+- id: '1767358231757'
+  alias: Master Bedroom Standing Lamp - Off from Remote
+  description: ''
+  triggers:
+  - domain: mqtt
+    device_id: 09fbd2ceffb101e3b5e10adf0f7a83b9
+    type: action
+    subtype: 'off'
+    trigger: device
+  conditions: []
+  actions:
+  - action: switch.turn_off
+    metadata: {}
+    target:
+      entity_id: switch.mb_soc
+    data: {}
+  mode: single
+- id: '1767358415172'
+  alias: Master Bedroom Standing Lamp - On from Remote
+  description: ''
+  triggers:
+  - domain: mqtt
+    device_id: 09fbd2ceffb101e3b5e10adf0f7a83b9
+    type: action
+    subtype: 'on'
+    trigger: device
+  conditions: []
+  actions:
+  - action: switch.turn_on
+    metadata: {}
+    target:
+      entity_id: switch.mb_soc
+    data: {}
+  mode: single
+- id: '1767359262960'
+  alias: Master Bedroom Standing Lamp Bulb - On
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - light.mb_soc_bulb
+    from:
+    - 'off'
+    to:
+    - 'on'
+  conditions: []
+  actions:
+  - action: switch.turn_on
+    metadata: {}
+    target:
+      entity_id: switch.mb_soc
+    data: {}
+  mode: single
+- id: '1767359384557'
+  alias: Master Bedroom Standing Lamp Bulb - Off
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - light.mb_soc_bulb
+    from:
+    - 'on'
+    to:
+    - 'off'
+  conditions: []
+  actions:
+  - action: switch.turn_off
+    metadata: {}
+    target:
+      entity_id: switch.mb_soc
+    data: {}
+  mode: single
