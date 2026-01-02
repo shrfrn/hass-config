@@ -98,12 +98,6 @@ light:
 
   - name: "mwc_lt_bathroom_wall_e"
     address: "1/0/53"
-
-  - name: "mwc_sw_bathroom_wall_s"
-    address: "1/0/37"
-
-  - name: "mwc_sw_bathroom_wall_e"
-    address: "1/0/3"
     
   - name: "mwc_lt_outdoor_projector"
     address: "1/0/35"
@@ -298,6 +292,11 @@ switch:
   - name: "mb_door_s"         # Master Bedroom Entrance
     address: "5/1/3"          # set
     state_address: "5/2/3"    # listen
+
+  # Master Bathroom
+  
+  - name: "mwc_sw_bathroom_wall_e" # Wall Switch Bathroom Entrance
+    address: "1/0/37"
 
   # Tom's Room
 
