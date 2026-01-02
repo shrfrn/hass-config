@@ -321,7 +321,8 @@
   description: ''
   triggers:
   - trigger: state
-    entity_id: []
+    entity_id:
+    - switch.mwc_sw_bathroom_wall_e
     from:
     - 'on'
     to:
