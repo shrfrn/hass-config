@@ -98,6 +98,12 @@ light:
 
   - name: "mwc_lt_bathroom_wall_e"
     address: "1/0/53"
+
+  - name: "mwc_sw_bathroom_wall_s"
+    address: "1/0/37"
+
+  - name: "mwc_sw_bathroom_wall_e"
+    address: "1/0/3"
     
   - name: "mwc_lt_outdoor_projector"
     address: "1/0/35"
