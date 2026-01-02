@@ -297,3 +297,79 @@
       entity_id: switch.mb_soc
     data: {}
   mode: single
+- id: '1767367841944'
+  alias: Master WC Bathroom South Wall Light On from Wall Switch
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - light.mwc_sw_bathroom_wall_s
+    from:
+    - 'off'
+    to:
+    - 'on'
+  conditions: []
+  actions:
+  - action: light.turn_on
+    metadata: {}
+    target:
+      entity_id: light.mwc_lt_bathroom_wall_s
+    data: {}
+  mode: single
+- id: '1767368077675'
+  alias: Master WC Bathroom South Wall Light Off from Wall Switch
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - light.mwc_sw_bathroom_wall_s
+    from:
+    - 'on'
+    to:
+    - 'off'
+  conditions: []
+  actions:
+  - action: light.turn_off
+    metadata: {}
+    target:
+      entity_id: light.mwc_lt_bathroom_wall_s
+    data: {}
+  mode: single
+- id: '1767368369456'
+  alias: Master WC Bathroom East Wall Light On from Wall Switch
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - light.mwc_lt_bathroom_wall_e
+    from:
+    - 'off'
+    to:
+    - 'on'
+  conditions: []
+  actions:
+  - action: light.turn_on
+    metadata: {}
+    target:
+      entity_id: light.mwc_lt_bathroom_wall_e
+    data: {}
+  mode: single
+- id: '1767368483783'
+  alias: Master WC Bathroom East Wall Light Off from Wall Switch
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - light.mwc_sw_bathroom_wall_s
+    from:
+    - 'on'
+    to:
+    - 'off'
+  conditions: []
+  actions:
+  - action: light.turn_off
+    metadata: {}
+    target:
+      entity_id: light.mwc_lt_bathroom_wall_e
+    data: {}
+  mode: single
