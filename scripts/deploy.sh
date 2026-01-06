@@ -19,7 +19,10 @@ if [ -n "$(git status --porcelain)" ]; then
     echo "Committing local changes made from HASS UI..."
     git add -A
     git commit -m "Auto-commit: UI changes from Home Assistant"
-    git push origin main
+    git push origin main || {
+        echo "ERROR: Failed to push UI changes to origin"
+        exit 1
+    }
     HAS_CHANGES_FROM_HASS_UI="yes"
 fi
 
@@ -80,7 +83,10 @@ if ha core check; then
         echo "ERROR: Fast-forward merge failed (unexpected)"
         exit 1
     }
-    git push origin main
+    git push origin main || {
+        echo "ERROR: Failed to push to origin. Deployment completed locally but not synced."
+        exit 1
+    }
 
     echo "[STAGE:RESTART]"
     echo "Restarting Home Assistant..."
