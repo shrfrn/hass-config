@@ -335,3 +335,118 @@
       entity_id: light.mwc_lt_bathroom_wall_e
     data: {}
   mode: single
+- id: '1767375669806'
+  alias: Shahar's Studio Standing Lamp Toggle
+  description: ''
+  triggers:
+  - domain: mqtt
+    device_id: f37036e3cff660bc4b409bab98b42eea
+    type: action
+    subtype: single
+    trigger: device
+  conditions: []
+  actions:
+  - action: light.toggle
+    metadata: {}
+    target:
+      device_id: 4423e2ab6016a54e150aa10c0c4bc5c3
+    data: {}
+  mode: single
+- id: '1767377925998'
+  alias: Sharon's Studio Standing Lamp - On
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - switch.stdn_skt
+    from:
+    - 'off'
+    to:
+    - 'on'
+  conditions: []
+  actions:
+  - type: turn_on
+    device_id: 86603bcd666772004de13d270af46603
+    entity_id: 8a8d0f1b7dd3c071a271cd03d30f6ffe
+    domain: light
+  mode: single
+- id: '1767377996664'
+  alias: Sharon's Studio Standing Lamp - Off
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - switch.stdn_skt
+    from:
+    - 'on'
+    to:
+    - 'off'
+  conditions: []
+  actions:
+  - type: turn_off
+    device_id: 86603bcd666772004de13d270af46603
+    entity_id: 8a8d0f1b7dd3c071a271cd03d30f6ffe
+    domain: light
+  mode: single
+- id: '1767379310533'
+  alias: Shahar's Studio Lights On
+  description: ''
+  triggers:
+  - type: occupied
+    device_id: 39005ccb3769f56c7c90999a5504f4f9
+    entity_id: 28dec456e2c1fbc254218c20c7b787ff
+    domain: binary_sensor
+    trigger: device
+  conditions:
+  - condition: sun
+    before: sunrise
+    after: sunset
+  actions:
+  - action: scene.turn_on
+    metadata: {}
+    target:
+      entity_id: scene.standard
+    data: {}
+  mode: single
+- id: '1767380838105'
+  alias: Office Lights On
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - update.office_door_sensor
+    from:
+    - 'on'
+  - type: opened
+    device_id: 9809ed1085c5b85dd5f988c49b346a39
+    entity_id: 76230790b5f54a76ab97962f815d3390
+    domain: binary_sensor
+    trigger: device
+  conditions:
+  - condition: sun
+    before: sunrise
+    after: sunset
+  actions:
+  - action: light.turn_on
+    metadata: {}
+    target:
+      entity_id: light.ofc_lt_walls
+    data: {}
+  mode: single
+- id: '1767695471198'
+  alias: Focus
+  description: ''
+  triggers:
+  - type: turned_on
+    device_id: 95c7b62ae09025f80d97d32e1d53b04b
+    entity_id: 16c2fe50bc72b2227c239dd44401bfcb
+    domain: binary_sensor
+    trigger: device
+  conditions: []
+  actions:
+  - action: light.turn_on
+    metadata: {}
+    target:
+      entity_id: light.lr_lt_wall_n
+    data: {}
+  mode: single
