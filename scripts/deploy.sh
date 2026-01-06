@@ -12,32 +12,81 @@ EXIT_CODE=0
 
 cd "$REPO_DIR"
 
-# Commit any local UI changes (scenes, automations, scripts created via HA UI)
+# Commit any local changes made from HASS UI (scenes, automations, scripts)
+HAS_CHANGES_FROM_HASS_UI=""
+
 if [ -n "$(git status --porcelain)" ]; then
-    echo "Committing local UI changes..."
+    echo "Committing local changes made from HASS UI..."
     git add -A
     git commit -m "Auto-commit: UI changes from Home Assistant"
     git push origin main
+    HAS_CHANGES_FROM_HASS_UI="yes"
 fi
 
 git fetch origin
+
+# Check for divergence between local main and origin/main
+LOCAL_MAIN=$(git rev-parse main)
+REMOTE_MAIN=$(git rev-parse origin/main)
+MERGE_BASE=$(git merge-base main origin/main)
+
+if [ "$MERGE_BASE" != "$REMOTE_MAIN" ] && [ "$MERGE_BASE" != "$LOCAL_MAIN" ]; then
+    echo "ERROR: Local main has diverged from origin/main"
+    echo "Both have commits the other doesn't. Manual resolution required."
+    echo ""
+
+    echo "Commits on local main not in origin:"
+    git log --oneline origin/main..main
+    echo ""
+
+    echo "Commits on origin not in local main:"
+    git log --oneline main..origin/main
+    exit 1
+fi
+
+# Ensure main is current (only pull if we didn't just push it)
+git checkout main
+if [ -z "$HAS_CHANGES_FROM_HASS_UI" ]; then
+    git pull origin main
+fi
+
+# Checkout branch
 git checkout "$BRANCH"
 git pull origin "$BRANCH"
 
+# Only rebase if main has moved forward since branch was created
+BRANCH_BASE=$(git merge-base "$BRANCH" main)
+MAIN_HEAD=$(git rev-parse main)
+
+if [ "$BRANCH_BASE" != "$MAIN_HEAD" ]; then
+    echo "Main has diverged, rebasing branch onto latest main..."
+    git rebase main || {
+        echo "Rebase failed - branch has conflicts with main"
+        git rebase --abort
+        EXIT_CODE=1
+        exit $EXIT_CODE
+    }
+fi
+
 echo "[STAGE:CHECK]"
 echo "Running config check..."
+
 if ha core check; then
     echo "[STAGE:CHECK_PASS]"
     echo "Check passed! Merging to main..."
+
     git checkout main
-    git merge "$BRANCH" --no-ff -m "Deploy: $BRANCH"
+    git merge "$BRANCH" --ff-only || {
+        echo "ERROR: Fast-forward merge failed (unexpected)"
+        exit 1
+    }
     git push origin main
 
     echo "[STAGE:RESTART]"
     echo "Restarting Home Assistant..."
     ha core restart
-    echo "[STAGE:RESTART_DONE]"
 
+    echo "[STAGE:RESTART_DONE]"
     echo "Deployment complete"
 else
     echo "[STAGE:CHECK_FAIL]"
@@ -47,4 +96,3 @@ else
 fi
 
 exit $EXIT_CODE
-
