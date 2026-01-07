@@ -976,13 +976,13 @@ views:
                       name: Standing Lamp
                       scrolling_effect: true
                       tap_action:
-                        action: none
+                        action: perform-action
+                        perform_action: light.toggle
+                        target:
+                          entity_id: switch.mb_soc
                       button_action:
                         tap_action:
-                          action: perform-action
-                          perform_action: light.toggle
-                          target:
-                            entity_id: switch.mb_soc
+                          action: none
                     - type: custom:bubble-card
                       card_type: button
                       button_type: switch
@@ -1203,10 +1203,10 @@ views:
                       name: Shahar's Studio Standing Lamp
                       scrolling_effect: true
                       tap_action:
-                        action: none
+                        action: toggle
                       button_action:
                         tap_action:
-                          action: toggle
+                          action: none
                 - type: custom:bubble-card
                   card_type: separator
                   name: Climate
@@ -1402,13 +1402,13 @@ views:
                     name: Office Walls
                     scrolling_effect: true
                     tap_action:
-                      action: none
+                      action: perform-action
+                      perform_action: light.toggle
+                      target:
+                        entity_id: light.ofc_lt_walls
                     button_action:
                       tap_action:
-                        action: perform-action
-                        perform_action: light.toggle
-                        target:
-                          entity_id: light.ofc_lt_walls
+                        action: none
               - type: custom:bubble-card
                 card_type: separator
                 name: Climate
