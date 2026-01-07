@@ -1401,6 +1401,19 @@ views:
                     button_action:
                       tap_action:
                         action: none
+                  - type: custom:bubble-card
+                    card_type: button
+                    button_type: slider
+                    entity: light.ofc_lt_corridor_table_bulb
+                    name: Office Corridor Table Light Ikea Bulb
+                    scrolling_effect: true
+                    tap_action:
+                      action: toggle
+                    button_action:
+                      tap_action:
+                        action: none
+                    hold_action:
+                      action: more-info
               - type: custom:bubble-card
                 card_type: separator
                 name: Climate
