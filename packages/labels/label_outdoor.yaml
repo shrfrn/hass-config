@@ -16,4 +16,4 @@ group:
       - light.ptio_lt_wall_main_entrance
       - light.ptio_lt_wall_ne
       - light.ptio_lt_wall_nw
-      - light.west_wall
+      - light.ptio_west_wall

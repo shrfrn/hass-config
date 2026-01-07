@@ -23,6 +23,7 @@ input_select:
       - scene.lr_minimal
       - scene.lr_tv
       - scene.lr_standard
+      - scene.lr_twilight_zone
     initial: "none"
 
 input_datetime:

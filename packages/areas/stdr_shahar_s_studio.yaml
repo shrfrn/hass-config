@@ -6,20 +6,23 @@ group:
   stdr_lights:
     name: Shahar's Studio Lights
     entities:
-      - light.stdr_gallery_lt_wall_s
-      - light.stdr_kiln_lt_ceiling
-      - light.stdr_lt_ceiling_stripes
+      - light.shahar_studio_standing_lamp
+      - light.stdr_lt_ceiling_gallery
+      - light.stdr_lt_ceiling_kiln
+      - light.stdr_lt_ceiling_main
+      - light.stdr_lt_ceiling_service_area
+      - light.stdr_lt_ceiling_spots
       - light.stdr_lt_wall_n_sink
+      - light.stdr_lt_wall_s_gallery
       - light.stdr_lt_wall_s_sink
-      - light.stvdyv_tqrh_glryh
-      - light.stvdyv_tqrh_mrkz
-      - light.stvdyv_tqrh_tkht_glryh
 
 input_select:
   stdr_active_scene:
     name: Shahar's Studio Active Scene
     options:
       - "none"
+      - scene.stdr_standard
+      - scene.stdr_minimal
     initial: "none"
 
 input_datetime:

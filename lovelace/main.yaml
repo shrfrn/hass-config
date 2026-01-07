@@ -244,7 +244,7 @@ views:
           - type: custom:bubble-card
             card_type: button
             button_type: switch
-            entity: group.corridor_lights
+            entity: group.crd_lights
             name: Corridor
             icon: mdi:domain-switch
             scrolling_effect: true
@@ -252,16 +252,16 @@ views:
               action: perform-action
               perform_action: scene.turn_on
               target:
-                entity_id: scene.corridor_standard
+                entity_id: scene.crd_standard
               data: {}
             hold_action:
               action: toggle
             button_action:
               tap_action:
                 action: navigate
-                navigation_path: "#corridor_details"
+                navigation_path: "#crd_details"
             sub_button:
-              - entity: climate.corridor_ac
+              - entity: climate.crd_ac
                 icon: mdi:snowflake
                 tap_action:
                   action: toggle
@@ -465,7 +465,7 @@ views:
           - type: custom:bubble-card
             card_type: button
             button_type: switch
-            entity: group.home_lights
+            entity: group.is_lights
             name: Home
             icon: mdi:home
             scrolling_effect: true
@@ -473,14 +473,14 @@ views:
               action: perform-action
               perform_action: scene.turn_on
               target:
-                entity_id: scene.home_standard
+                entity_id: scene.is_standard
               data: {}
             hold_action:
               action: toggle
             button_action:
               tap_action:
                 action: navigate
-                navigation_path: "#home_details"
+                navigation_path: "#is_details"
           - type: custom:bubble-card
             card_type: button
             button_type: switch
@@ -619,7 +619,7 @@ views:
                   - type: custom:bubble-card
                     card_type: button
                     button_type: switch
-                    entity: scene.twilight_zone
+                    entity: scene.lr_twilight_zone
                     name: Twilight
                     scrolling_effect: true
                     tap_action:
@@ -780,7 +780,7 @@ views:
                     card_type: button
                     button_type: switch
                     entity: scene.twilight_zone
-                    name: Twilight
+                    name: Zone
                     scrolling_effect: true
                     tap_action:
                       action: toggle
@@ -906,6 +906,14 @@ views:
                     scrolling_effect: true
                     tap_action:
                       action: toggle
+                  - type: custom:bubble-card
+                    card_type: button
+                    button_type: switch
+                    entity: switch.kt_r_rshy_in_home_chime
+                    name: שער ראשי In-home chime
+                    scrolling_effect: true
+                    tap_action:
+                      action: toggle
           - type: conditional
             conditions:
               - condition: user
@@ -950,7 +958,7 @@ views:
                       card_type: button
                       button_type: switch
                       entity: scene.twilight_zone
-                      name: Twilight
+                      name: Zone
                       scrolling_effect: true
                       tap_action:
                         action: toggle
@@ -1082,6 +1090,29 @@ views:
                       action: none
                 - type: custom:bubble-card
                   card_type: separator
+                  name: Scenes
+                - type: grid
+                  square: false
+                  columns: 2
+                  cards:
+                    - type: custom:bubble-card
+                      card_type: button
+                      button_type: switch
+                      entity: scene.night_work
+                      name: Night Work
+                      scrolling_effect: true
+                      tap_action:
+                        action: toggle
+                    - type: custom:bubble-card
+                      card_type: button
+                      button_type: switch
+                      entity: scene.stdr_minimal
+                      name: Minimal
+                      scrolling_effect: true
+                      tap_action:
+                        action: toggle
+                - type: custom:bubble-card
+                  card_type: separator
                   name: Lights
                 - type: grid
                   square: false
@@ -1090,40 +1121,8 @@ views:
                     - type: custom:bubble-card
                       card_type: button
                       button_type: switch
-                      entity: light.stdr_lt_ceiling_stripes
-                      name: Ceiling Spots
-                      scrolling_effect: true
-                      tap_action:
-                        action: toggle
-                    - type: custom:bubble-card
-                      card_type: button
-                      button_type: switch
-                      entity: light.stvdyv_tqrh_mrkz
-                      name: Ceiling
-                      scrolling_effect: true
-                      tap_action:
-                        action: toggle
-                    - type: custom:bubble-card
-                      card_type: button
-                      button_type: switch
                       entity: light.stdr_lt_wall_n_sink
                       name: Large Sink
-                      scrolling_effect: true
-                      tap_action:
-                        action: toggle
-                    - type: custom:bubble-card
-                      card_type: button
-                      button_type: switch
-                      entity: light.stdr_gallery_lt_wall_s
-                      name: Gallery Wall
-                      scrolling_effect: true
-                      tap_action:
-                        action: toggle
-                    - type: custom:bubble-card
-                      card_type: button
-                      button_type: switch
-                      entity: light.stvdyv_tqrh_glryh
-                      name: Gallery Ceiling
                       scrolling_effect: true
                       tap_action:
                         action: toggle
@@ -1138,7 +1137,39 @@ views:
                     - type: custom:bubble-card
                       card_type: button
                       button_type: switch
-                      entity: light.stdr_kiln_lt_ceiling
+                      entity: light.shahar_studio_standing_lamp
+                      name: Shahar's Studio Standing Lamp
+                      scrolling_effect: true
+                      tap_action:
+                        action: toggle
+                    - type: custom:bubble-card
+                      card_type: button
+                      button_type: switch
+                      entity: light.stdr_lt_ceiling_service_area
+                      name: Service Area
+                      scrolling_effect: true
+                      tap_action:
+                        action: toggle
+                    - type: custom:bubble-card
+                      card_type: button
+                      button_type: switch
+                      entity: light.stdr_lt_ceiling_gallery
+                      name: Gallery Ceiling
+                      scrolling_effect: true
+                      tap_action:
+                        action: toggle
+                    - type: custom:bubble-card
+                      card_type: button
+                      button_type: switch
+                      entity: light.stdr_lt_ceiling_spots
+                      name: Ceiling Spots
+                      scrolling_effect: true
+                      tap_action:
+                        action: toggle
+                    - type: custom:bubble-card
+                      card_type: button
+                      button_type: switch
+                      entity: light.stdr_lt_ceiling_kiln
                       name: Kiln Room
                       scrolling_effect: true
                       tap_action:
@@ -1146,8 +1177,16 @@ views:
                     - type: custom:bubble-card
                       card_type: button
                       button_type: switch
-                      entity: light.stvdyv_tqrh_tkht_glryh
-                      name: Service Area
+                      entity: light.stdr_lt_ceiling_main
+                      name: Ceiling
+                      scrolling_effect: true
+                      tap_action:
+                        action: toggle
+                    - type: custom:bubble-card
+                      card_type: button
+                      button_type: switch
+                      entity: light.stdr_lt_wall_s_gallery
+                      name: Gallery Wall
                       scrolling_effect: true
                       tap_action:
                         action: toggle
@@ -1379,16 +1418,16 @@ views:
             cards:
               - type: custom:bubble-card
                 card_type: pop-up
-                hash: "#corridor_details"
+                hash: "#crd_details"
                 button_type: switch
                 name: Corridor
                 icon: mdi:domain-switch
-                entity: group.corridor_lights
+                entity: group.crd_lights
                 tap_action:
                   action: perform-action
                   perform_action: scene.turn_on
                   target:
-                    entity_id: scene.corridor_standard
+                    entity_id: scene.crd_standard
                   data: {}
                 hold_action:
                   action: toggle
@@ -1431,7 +1470,7 @@ views:
                 name: Climate
               - type: custom:bubble-card
                 card_type: climate
-                entity: climate.corridor_ac
+                entity: climate.crd_ac
                 name: AC
                 min_temp: 16
                 max_temp: 30
@@ -1439,7 +1478,7 @@ views:
                 tap_action:
                   action: toggle
                 sub_button:
-                  - entity: climate.corridor_ac
+                  - entity: climate.crd_ac
                     icon: mdi:chevron-down
                     select_attribute: hvac_modes
                     show_arrow: false
@@ -1627,7 +1666,7 @@ views:
                   - type: custom:bubble-card
                     card_type: button
                     button_type: switch
-                    entity: light.shrvty_hvrym
+                    entity: light.mwc_ceiling_toilet
                     name: Toilet
                     scrolling_effect: true
                     tap_action:
@@ -1635,7 +1674,7 @@ views:
                   - type: custom:bubble-card
                     card_type: button
                     button_type: switch
-                    entity: light.mqlkht_hvrym
+                    entity: light.mwc_ceiling_shower
                     name: Shower
                     scrolling_effect: true
                     tap_action:
@@ -1893,16 +1932,16 @@ views:
             cards:
               - type: custom:bubble-card
                 card_type: pop-up
-                hash: "#home_details"
+                hash: "#is_details"
                 button_type: switch
                 name: Home
                 icon: mdi:home
-                entity: group.home_lights
+                entity: group.is_lights
                 tap_action:
                   action: perform-action
                   perform_action: scene.turn_on
                   target:
-                    entity_id: scene.home_standard
+                    entity_id: scene.is_standard
                   data: {}
                 hold_action:
                   action: toggle
@@ -1916,6 +1955,14 @@ views:
                 square: false
                 columns: 2
                 cards:
+                  - type: custom:bubble-card
+                    card_type: button
+                    button_type: switch
+                    entity: input_boolean.is_dark
+                    name: Is Dark
+                    scrolling_effect: true
+                    tap_action:
+                      action: toggle
                   - type: custom:bubble-card
                     card_type: button
                     button_type: switch
@@ -2057,7 +2104,7 @@ views:
                   - type: custom:bubble-card
                     card_type: button
                     button_type: switch
-                    entity: light.west_wall
+                    entity: light.ptio_west_wall
                     name: West Wall
                     scrolling_effect: true
                     tap_action:
@@ -2096,15 +2143,7 @@ views:
                   - type: custom:bubble-card
                     card_type: button
                     button_type: switch
-                    entity: switch.sh_r_rshy_in_home_chime
-                    name: שער ראשי In-home chime
-                    scrolling_effect: true
-                    tap_action:
-                      action: toggle
-                  - type: custom:bubble-card
-                    card_type: button
-                    button_type: switch
-                    entity: switch.sh_r_rshy_motion_detection
+                    entity: switch.ptio_r_rshy_motion_detection
                     name: שער ראשי Motion detection
                     scrolling_effect: true
                     tap_action:
