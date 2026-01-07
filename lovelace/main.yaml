@@ -704,14 +704,6 @@ views:
                   - type: custom:bubble-card
                     card_type: button
                     button_type: switch
-                    entity: media_player.lr_tv
-                    name: Living Room TV
-                    scrolling_effect: true
-                    tap_action:
-                      action: toggle
-                  - type: custom:bubble-card
-                    card_type: button
-                    button_type: switch
                     entity: switch.lr_soc_w
                     name: Socket
                     scrolling_effect: true
@@ -730,6 +722,14 @@ views:
                     button_type: switch
                     entity: light.lr_lt_outdoor_projector
                     name: Backyard Flood Light
+                    scrolling_effect: true
+                    tap_action:
+                      action: toggle
+                  - type: custom:bubble-card
+                    card_type: button
+                    button_type: switch
+                    entity: media_player.lr_tv
+                    name: Living Room TV
                     scrolling_effect: true
                     tap_action:
                       action: toggle
@@ -1001,6 +1001,14 @@ views:
                       scrolling_effect: true
                       tap_action:
                         action: toggle
+                    - type: custom:bubble-card
+                      card_type: button
+                      button_type: switch
+                      entity: light.mb_soc_bulb
+                      name: Ikea Bulb - Master Bedroom Standing Lamp
+                      scrolling_effect: true
+                      tap_action:
+                        action: toggle
                 - type: custom:bubble-card
                   card_type: separator
                   name: Climate
@@ -1098,16 +1106,16 @@ views:
                     - type: custom:bubble-card
                       card_type: button
                       button_type: switch
-                      entity: scene.night_work
-                      name: Night Work
+                      entity: scene.stdr_minimal
+                      name: Minimal
                       scrolling_effect: true
                       tap_action:
                         action: toggle
                     - type: custom:bubble-card
                       card_type: button
                       button_type: switch
-                      entity: scene.stdr_minimal
-                      name: Minimal
+                      entity: scene.night_work
+                      name: Night Work
                       scrolling_effect: true
                       tap_action:
                         action: toggle
@@ -1121,56 +1129,8 @@ views:
                     - type: custom:bubble-card
                       card_type: button
                       button_type: switch
-                      entity: light.stdr_lt_wall_n_sink
-                      name: Large Sink
-                      scrolling_effect: true
-                      tap_action:
-                        action: toggle
-                    - type: custom:bubble-card
-                      card_type: button
-                      button_type: switch
-                      entity: light.stdr_lt_wall_s_sink
-                      name: Service Sink
-                      scrolling_effect: true
-                      tap_action:
-                        action: toggle
-                    - type: custom:bubble-card
-                      card_type: button
-                      button_type: switch
-                      entity: light.shahar_studio_standing_lamp
-                      name: Shahar's Studio Standing Lamp
-                      scrolling_effect: true
-                      tap_action:
-                        action: toggle
-                    - type: custom:bubble-card
-                      card_type: button
-                      button_type: switch
-                      entity: light.stdr_lt_ceiling_service_area
-                      name: Service Area
-                      scrolling_effect: true
-                      tap_action:
-                        action: toggle
-                    - type: custom:bubble-card
-                      card_type: button
-                      button_type: switch
-                      entity: light.stdr_lt_ceiling_gallery
-                      name: Gallery Ceiling
-                      scrolling_effect: true
-                      tap_action:
-                        action: toggle
-                    - type: custom:bubble-card
-                      card_type: button
-                      button_type: switch
                       entity: light.stdr_lt_ceiling_spots
                       name: Ceiling Spots
-                      scrolling_effect: true
-                      tap_action:
-                        action: toggle
-                    - type: custom:bubble-card
-                      card_type: button
-                      button_type: switch
-                      entity: light.stdr_lt_ceiling_kiln
-                      name: Kiln Room
                       scrolling_effect: true
                       tap_action:
                         action: toggle
@@ -1185,8 +1145,56 @@ views:
                     - type: custom:bubble-card
                       card_type: button
                       button_type: switch
+                      entity: light.stdr_lt_wall_n_sink
+                      name: Large Sink
+                      scrolling_effect: true
+                      tap_action:
+                        action: toggle
+                    - type: custom:bubble-card
+                      card_type: button
+                      button_type: switch
                       entity: light.stdr_lt_wall_s_gallery
                       name: Gallery Wall
+                      scrolling_effect: true
+                      tap_action:
+                        action: toggle
+                    - type: custom:bubble-card
+                      card_type: button
+                      button_type: switch
+                      entity: light.stdr_lt_ceiling_gallery
+                      name: Gallery Ceiling
+                      scrolling_effect: true
+                      tap_action:
+                        action: toggle
+                    - type: custom:bubble-card
+                      card_type: button
+                      button_type: switch
+                      entity: light.stdr_lt_wall_s_sink
+                      name: Service Sink
+                      scrolling_effect: true
+                      tap_action:
+                        action: toggle
+                    - type: custom:bubble-card
+                      card_type: button
+                      button_type: switch
+                      entity: light.stdr_lt_ceiling_kiln
+                      name: Kiln Room
+                      scrolling_effect: true
+                      tap_action:
+                        action: toggle
+                    - type: custom:bubble-card
+                      card_type: button
+                      button_type: switch
+                      entity: light.stdr_lt_ceiling_service_area
+                      name: Service Area
+                      scrolling_effect: true
+                      tap_action:
+                        action: toggle
+                    - type: custom:bubble-card
+                      card_type: button
+                      button_type: switch
+                      entity: light.shahar_studio_standing_lamp
+                      name: Shahar's Studio Standing Lamp
                       scrolling_effect: true
                       tap_action:
                         action: toggle

@@ -14,6 +14,7 @@ group:
       - light.mb_lt_ceiling_hall
       - light.mb_lt_wall
       - light.mb_lt_wardrobe
+      - light.mb_soc_bulb
       - switch.mb_soc
 
 input_select:
