@@ -971,12 +971,15 @@ views:
                   cards:
                     - type: custom:bubble-card
                       card_type: button
-                      button_type: switch
-                      entity: switch.mb_soc
+                      button_type: slider
+                      entity: light.mb_soc_bulb
                       name: Standing Lamp
                       scrolling_effect: true
                       tap_action:
-                        action: toggle
+                        action: perform-action
+                        perform_action: light.toggle
+                        target:
+                          entity_id: switch.mb_soc
                     - type: custom:bubble-card
                       card_type: button
                       button_type: switch
@@ -998,14 +1001,6 @@ views:
                       button_type: switch
                       entity: light.mb_bed_n
                       name: Sharon's Bedside
-                      scrolling_effect: true
-                      tap_action:
-                        action: toggle
-                    - type: custom:bubble-card
-                      card_type: button
-                      button_type: slider
-                      entity: light.mb_soc_bulb
-                      name: Ikea Bulb - Master Bedroom Standing Lamp
                       scrolling_effect: true
                       tap_action:
                         action: toggle
@@ -1068,6 +1063,14 @@ views:
                       button_type: switch
                       entity: light.mb_lt_ceiling_hall
                       name: Hall
+                      scrolling_effect: true
+                      tap_action:
+                        action: toggle
+                    - type: custom:bubble-card
+                      card_type: button
+                      button_type: switch
+                      entity: light.mb_soc_bulb
+                      name: Ikea Bulb - Master Bedroom Standing Lamp
                       scrolling_effect: true
                       tap_action:
                         action: toggle

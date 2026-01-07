@@ -47,7 +47,9 @@ const config = {
     },
 
     bedroom: {
-      include_in_group: ['switch.mb_soc'],
+      dimmable_companions: {
+        'switch.mb_soc': 'light.mb_soc_bulb',
+      },
     },
 
     sharon_s_studio: {
