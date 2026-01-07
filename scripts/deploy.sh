@@ -53,9 +53,15 @@ if [ -z "$HAS_CHANGES_FROM_HASS_UI" ]; then
     git pull origin main
 fi
 
-# Checkout branch
-git checkout "$BRANCH"
-git pull origin "$BRANCH"
+# Checkout branch and reset to match origin (avoids divergence from previous rebases)
+git checkout "$BRANCH" || {
+    echo "ERROR: Could not checkout branch $BRANCH"
+    exit 1
+}
+git reset --hard origin/"$BRANCH" || {
+    echo "ERROR: Could not reset branch to origin/$BRANCH"
+    exit 1
+}
 
 # Only rebase if main has moved forward since branch was created
 BRANCH_BASE=$(git merge-base "$BRANCH" main)
@@ -93,6 +99,10 @@ if ha core check; then
     ha core restart
 
     echo "[STAGE:RESTART_DONE]"
+
+    # Cleanup: reset local branch to match remote (avoids rebase divergence)
+    git branch -f "$BRANCH" origin/"$BRANCH" 2>/dev/null || true
+
     echo "Deployment complete"
 else
     echo "[STAGE:CHECK_FAIL]"
