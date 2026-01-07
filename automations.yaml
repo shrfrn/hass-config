@@ -46,19 +46,43 @@
     data: {}
   mode: single
 - id: '1765636186997'
-  alias: IPAS LEDs - Bright
+  alias: IPAS LEDs
   description: ''
   triggers:
-  - trigger: sun
-    event: sunrise
-    offset: -00:20:00
+  - trigger: state
+    entity_id:
+    - input_boolean.is_dark
+    from:
+    - 'on'
+    to:
+    - 'off'
+    id: sun_up
+  - trigger: state
+    entity_id:
+    - input_boolean.is_dark
+    from:
+    - 'off'
+    to:
+    - 'on'
+    id: sun_down
   conditions: []
   actions:
-  - action: switch.turn_off
-    metadata: {}
-    target:
-      entity_id: switch.dim_wall_switch_leds
-    data: {}
+  - if:
+    - condition: trigger
+      id:
+      - sun_up
+    then:
+    - action: switch.turn_on
+      metadata: {}
+      target:
+        entity_id: switch.dim_wall_switch_leds
+      data: {}
+    else:
+    - action: switch.turn_off
+      metadata: {}
+      target:
+        entity_id: switch.dim_wall_switch_leds
+      data: {}
   mode: single
 - id: '1766150056002'
   alias: Open Blue Gate
@@ -412,11 +436,6 @@
   alias: Office Lights On
   description: ''
   triggers:
-  - trigger: state
-    entity_id:
-    - update.office_door_sensor
-    from:
-    - 'on'
   - type: opened
     device_id: 9809ed1085c5b85dd5f988c49b346a39
     entity_id: 76230790b5f54a76ab97962f815d3390
@@ -449,4 +468,74 @@
     target:
       entity_id: light.lr_lt_wall_n
     data: {}
+  mode: single
+- id: '1767732964988'
+  alias: Toggle Dark Mode
+  description: ''
+  triggers:
+  - trigger: sun
+    event: sunset
+    offset: 00:20:00
+    id: sun_down
+  - trigger: sun
+    event: sunrise
+    offset: -00:20:00
+    id: sun_up
+  conditions: []
+  actions:
+  - if:
+    - condition: trigger
+      id:
+      - sun_down
+    then:
+    - action: input_boolean.turn_on
+      metadata: {}
+      target:
+        entity_id: input_boolean.is_dark
+      data: {}
+    else:
+    - action: input_boolean.turn_off
+      metadata: {}
+      target:
+        entity_id: input_boolean.is_dark
+      data: {}
+  mode: single
+- id: '1767734083465'
+  alias: Toggle Outdoor Lights
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - input_boolean.is_dark
+    from:
+    - 'off'
+    to:
+    - 'on'
+    id: sun_down
+  - trigger: state
+    entity_id:
+    - input_boolean.is_dark
+    from:
+    - 'on'
+    id: sun_up
+    to:
+    - 'off'
+  conditions: []
+  actions:
+  - if:
+    - condition: trigger
+      id:
+      - sun_down
+    then:
+    - action: light.turn_on
+      metadata: {}
+      target:
+        label_id: outdoor
+      data: {}
+    else:
+    - action: light.turn_off
+      metadata: {}
+      target:
+        label_id: outdoor
+      data: {}
   mode: single
