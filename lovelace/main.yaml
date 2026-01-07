@@ -1003,7 +1003,7 @@ views:
                         action: toggle
                     - type: custom:bubble-card
                       card_type: button
-                      button_type: switch
+                      button_type: slider
                       entity: light.mb_soc_bulb
                       name: Ikea Bulb - Master Bedroom Standing Lamp
                       scrolling_effect: true
@@ -1192,7 +1192,7 @@ views:
                         action: toggle
                     - type: custom:bubble-card
                       card_type: button
-                      button_type: switch
+                      button_type: slider
                       entity: light.shahar_studio_standing_lamp
                       name: Shahar's Studio Standing Lamp
                       scrolling_effect: true
