@@ -52,6 +52,12 @@ const config = {
       },
     },
 
+    office: {
+      dimmable_companions: {
+        'light.ofc_lt_walls': 'light.ofc_lt_wall_bulbs',
+      },
+    },
+
     sharon_s_studio: {
       include_in_group: ['switch.stdn_skt'],
     },

@@ -704,14 +704,6 @@ views:
                   - type: custom:bubble-card
                     card_type: button
                     button_type: switch
-                    entity: switch.lr_soc_w
-                    name: Socket
-                    scrolling_effect: true
-                    tap_action:
-                      action: toggle
-                  - type: custom:bubble-card
-                    card_type: button
-                    button_type: switch
                     entity: light.lr_lt_ceiling
                     name: Ceiling
                     scrolling_effect: true
@@ -722,6 +714,14 @@ views:
                     button_type: switch
                     entity: light.lr_lt_outdoor_projector
                     name: Backyard Flood Light
+                    scrolling_effect: true
+                    tap_action:
+                      action: toggle
+                  - type: custom:bubble-card
+                    card_type: button
+                    button_type: switch
+                    entity: switch.lr_soc_w
+                    name: Socket
                     scrolling_effect: true
                     tap_action:
                       action: toggle
@@ -976,10 +976,13 @@ views:
                       name: Standing Lamp
                       scrolling_effect: true
                       tap_action:
-                        action: perform-action
-                        perform_action: light.toggle
-                        target:
-                          entity_id: switch.mb_soc
+                        action: none
+                      button_action:
+                        tap_action:
+                          action: perform-action
+                          perform_action: light.toggle
+                          target:
+                            entity_id: switch.mb_soc
                     - type: custom:bubble-card
                       card_type: button
                       button_type: switch
@@ -1045,14 +1048,6 @@ views:
                     - type: custom:bubble-card
                       card_type: button
                       button_type: switch
-                      entity: switch.mb_door_s
-                      name: Patio Door
-                      scrolling_effect: true
-                      tap_action:
-                        action: toggle
-                    - type: custom:bubble-card
-                      card_type: button
-                      button_type: switch
                       entity: light.mb_lt_wardrobe
                       name: Wardrobe
                       scrolling_effect: true
@@ -1063,6 +1058,14 @@ views:
                       button_type: switch
                       entity: light.mb_lt_ceiling_hall
                       name: Hall
+                      scrolling_effect: true
+                      tap_action:
+                        action: toggle
+                    - type: custom:bubble-card
+                      card_type: button
+                      button_type: switch
+                      entity: switch.mb_door_s
+                      name: Patio Door
                       scrolling_effect: true
                       tap_action:
                         action: toggle
@@ -1200,7 +1203,10 @@ views:
                       name: Shahar's Studio Standing Lamp
                       scrolling_effect: true
                       tap_action:
-                        action: toggle
+                        action: none
+                      button_action:
+                        tap_action:
+                          action: toggle
                 - type: custom:bubble-card
                   card_type: separator
                   name: Climate
@@ -1391,12 +1397,18 @@ views:
                       action: toggle
                   - type: custom:bubble-card
                     card_type: button
-                    button_type: switch
-                    entity: light.ofc_lt_walls
+                    button_type: slider
+                    entity: light.ofc_lt_wall_bulbs
                     name: Office Walls
                     scrolling_effect: true
                     tap_action:
-                      action: toggle
+                      action: none
+                    button_action:
+                      tap_action:
+                        action: perform-action
+                        perform_action: light.toggle
+                        target:
+                          entity_id: light.ofc_lt_walls
               - type: custom:bubble-card
                 card_type: separator
                 name: Climate
