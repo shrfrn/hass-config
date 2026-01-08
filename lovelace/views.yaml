@@ -4,6 +4,83 @@ views:
     sections:
       - type: grid
         cards:
+          - type: custom:bubble-card
+            card_type: button
+            button_type: switch
+            entity: sun.sun
+            name: " "
+            icon: mdi:home-outline
+            card_layout: normal
+            rows: "2"
+            tap_action:
+              action: none
+            hold_action:
+              action: none
+            button_action:
+              tap_action:
+                action: none
+            sub_button:
+              - entity: switch.ptio_gate_ne
+                icon: mdi:key
+                tap_action:
+                  action: toggle
+              - entity: light.lr_lt_ceiling
+                icon: mdi:cctv
+                tap_action:
+                  action: toggle
+              - entity: switch.home_sw_pima
+                name: Alarm
+                tap_action:
+                  action: none
+                hold_action:
+                  action: toggle
+              - entity: script.ac_off
+                icon: mdi:snowflake-off
+                tap_action:
+                  action: none
+                hold_action:
+                  action: toggle
+              - entity: switch.home_sw_heating
+                tap_action:
+                  action: none
+                hold_action:
+                  action: toggle
+          - type: custom:bubble-card
+            card_type: button
+            button_type: state
+            entity: binary_sensor.anyone_home
+            name: " "
+            icon: mdi:account-multiple
+            show_name: true
+            show_icon: true
+            show_state: false
+            scrolling_effect: false
+            button_action: {}
+            sub_button:
+              - entity: binary_sensor.sharon_home
+                name: Sharon
+                icon: mdi:account
+                show_name: true
+                show_state: false
+                show_last_changed: false
+              - entity: binary_sensor.shahar_home
+                name: Shahar
+                icon: mdi:account-tie-woman
+                show_name: true
+                show_state: false
+                show_last_changed: false
+              - entity: binary_sensor.tom_home
+                name: Tom
+                icon: mdi:human-female-girl
+                show_name: true
+                show_state: false
+                show_last_changed: false
+              - entity: binary_sensor.amai_home
+                name: Amai
+                icon: mdi:human-female-girl
+                show_name: true
+                show_state: false
+                show_last_changed: false
           - type: heading
             heading: Areas
           - type: custom:bubble-card

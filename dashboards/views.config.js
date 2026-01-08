@@ -42,6 +42,28 @@ const config = {
   // Scene suffix for default tap action (scene.<prefix><suffix>)
   default_scene_suffix: 'standard',
 
+  // Home card - quick actions at the top
+  home_card: {
+    sub_buttons: [
+      { entity: 'switch.ptio_gate_ne', icon: 'mdi:key' },
+      { entity: 'light.lr_lt_ceiling', icon: 'mdi:cctv' },
+      { entity: 'switch.home_sw_pima', name: 'Alarm', action: 'hold' },
+      { entity: 'script.ac_off', icon: 'mdi:snowflake-off', action: 'hold' },
+      { entity: 'switch.home_sw_heating', action: 'hold' },
+    ],
+  },
+
+  // Presence card - who's home
+  presence_card: {
+    entity: 'binary_sensor.anyone_home',
+    users: [
+      { name: 'Sharon', entity: 'binary_sensor.sharon_home', icon: 'mdi:account' },
+      { name: 'Shahar', entity: 'binary_sensor.shahar_home', icon: 'mdi:account-tie-woman' },
+      { name: 'Tom', entity: 'binary_sensor.tom_home', icon: 'mdi:human-female-girl' },
+      { name: 'Amai', entity: 'binary_sensor.amai_home', icon: 'mdi:human-female-girl' },
+    ],
+  },
+
   // Per-area dashboard configuration
   // Browse output/entities.js to find entity IDs
   areas: {
