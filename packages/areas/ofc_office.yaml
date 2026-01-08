@@ -8,6 +8,7 @@ group:
     entities:
       - light.ofc_lt_ceiling_hall
       - light.ofc_lt_ceiling_wc
+      - light.ofc_lt_corridor_table_bulb
       - light.ofc_lt_walls
 
 input_select:

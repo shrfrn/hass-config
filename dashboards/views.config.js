@@ -1,19 +1,12 @@
 // @ts-check
 // ============================================================================
-// DASHBOARD GENERATOR CONFIG
+// VIEWS-BASED DASHBOARD CONFIG
 // ============================================================================
-// Purpose: Configures the Lovelace dashboard generator (npm run generate:dashboard)
-// Outputs: lovelace/main.yaml (Bubble Card-based dashboard)
+// Purpose: Configures a multi-view Lovelace dashboard (npm run generate:dashboard)
+// Outputs: lovelace/views.yaml (Bubble Card-based dashboard with HA views)
 //
-// Key options:
-//   pinned_areas     - Areas shown first on the dashboard (in order)
-//   excluded_areas   - Areas hidden from the dashboard entirely
-//   excluded_lights  - Lights moved from "Lights" section to "Other" section
-//   included_lights  - Entities added to "Lights" section (display only, not group)
-//   visible_to_users - Restrict area visibility to specific HA user IDs
-//
-// Note: included_lights only affects dashboard display. To also add entities
-// to the light group (for all-on/off), use include_in_group in generator-config.js
+// This dashboard uses Home Assistant's built-in views instead of popups.
+// Each area has its own dedicated view accessible from the main area list.
 //
 // This file is never overwritten by the generator.
 // ============================================================================
@@ -26,18 +19,18 @@ const config = {
   schemaVersion: 1,
 
   // Dashboard template to use
-  template: 'bubble',
+  template: 'bubble-views',
 
   // Output file path (relative to project root)
-  output: 'lovelace/main.yaml',
+  output: 'lovelace/views.yaml',
 
   // Dashboard view title
   dashboard_name: 'Home',
 
   // HA registration settings (auto-updates configuration.yaml)
-  dashboard_path: 'main',
-  dashboard_title: 'Home',
-  dashboard_icon: 'mdi:view-dashboard',
+  dashboard_path: 'views',
+  dashboard_title: 'Home (Views)',
+  dashboard_icon: 'mdi:view-dashboard-variant',
 
   // Areas to pin at the top of the dashboard (in order)
   pinned_areas: ['living_room', 'kitchen', 'bedroom', 'shahar_s_studio', 'sharon_s_studio', 'office', 'corridor', 'laundry_room', 'mamad', 'parent_s_wc', 'studio_solaris'],

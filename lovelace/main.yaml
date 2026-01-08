@@ -779,8 +779,8 @@ views:
                   - type: custom:bubble-card
                     card_type: button
                     button_type: switch
-                    entity: scene.twilight_zone
-                    name: Zone
+                    entity: scene.lr_twilight_zone
+                    name: Twilight
                     scrolling_effect: true
                     tap_action:
                       action: toggle
@@ -957,8 +957,8 @@ views:
                     - type: custom:bubble-card
                       card_type: button
                       button_type: switch
-                      entity: scene.twilight_zone
-                      name: Zone
+                      entity: scene.lr_twilight_zone
+                      name: Twilight
                       scrolling_effect: true
                       tap_action:
                         action: toggle
