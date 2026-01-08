@@ -24,7 +24,7 @@ views:
             button_action:
               tap_action:
                 action: navigate
-                navigation_path: /views/living-room
+                navigation_path: /home-views/living-room
             sub_button:
               - entity: climate.lr_ac
                 icon: mdi:snowflake
@@ -62,7 +62,7 @@ views:
             button_action:
               tap_action:
                 action: navigate
-                navigation_path: /views/kitchen
+                navigation_path: /home-views/kitchen
             sub_button:
               - entity: climate.kt_ac
                 icon: mdi:snowflake
@@ -104,7 +104,7 @@ views:
               button_action:
                 tap_action:
                   action: navigate
-                  navigation_path: /views/bedroom
+                  navigation_path: /home-views/bedroom
               sub_button:
                 - entity: climate.mb_ac
                   icon: mdi:snowflake
@@ -147,7 +147,7 @@ views:
               button_action:
                 tap_action:
                   action: navigate
-                  navigation_path: /views/shahar-s-studio
+                  navigation_path: /home-views/shahar-s-studio
               sub_button:
                 - entity: climate.stdr_ac
                   icon: mdi:snowflake
@@ -187,7 +187,7 @@ views:
               button_action:
                 tap_action:
                   action: navigate
-                  navigation_path: /views/sharon-s-studio
+                  navigation_path: /home-views/sharon-s-studio
               sub_button:
                 - entity: climate.stdn_ac
                   icon: mdi:snowflake
@@ -225,7 +225,7 @@ views:
             button_action:
               tap_action:
                 action: navigate
-                navigation_path: /views/office
+                navigation_path: /home-views/office
             sub_button:
               - entity: climate.ofc_ac
                 icon: mdi:snowflake
@@ -260,7 +260,7 @@ views:
             button_action:
               tap_action:
                 action: navigate
-                navigation_path: /views/corridor
+                navigation_path: /home-views/corridor
             sub_button:
               - entity: climate.crd_ac
                 icon: mdi:snowflake
@@ -295,7 +295,7 @@ views:
             button_action:
               tap_action:
                 action: navigate
-                navigation_path: /views/laundry-room
+                navigation_path: /home-views/laundry-room
             sub_button:
               - entity: climate.lndr_ac
                 icon: mdi:snowflake
@@ -330,7 +330,7 @@ views:
             button_action:
               tap_action:
                 action: navigate
-                navigation_path: /views/mamad
+                navigation_path: /home-views/mamad
             sub_button:
               - entity: climate.mmd_ac
                 icon: mdi:snowflake
@@ -365,7 +365,7 @@ views:
             button_action:
               tap_action:
                 action: navigate
-                navigation_path: /views/parent-s-wc
+                navigation_path: /home-views/parent-s-wc
           - type: conditional
             conditions:
               - condition: user
@@ -389,7 +389,7 @@ views:
               button_action:
                 tap_action:
                   action: navigate
-                  navigation_path: /views/studio-solaris
+                  navigation_path: /home-views/studio-solaris
               sub_button:
                 - entity: climate.ssol_ac
                   icon: mdi:snowflake
@@ -424,7 +424,7 @@ views:
             button_action:
               tap_action:
                 action: navigate
-                navigation_path: /views/amai-s-room
+                navigation_path: /home-views/amai-s-room
             sub_button:
               - entity: climate.br1_ac
                 icon: mdi:snowflake
@@ -462,7 +462,7 @@ views:
             button_action:
               tap_action:
                 action: navigate
-                navigation_path: /views/children-s-wc
+                navigation_path: /home-views/children-s-wc
           - type: custom:bubble-card
             card_type: button
             button_type: switch
@@ -481,7 +481,7 @@ views:
             button_action:
               tap_action:
                 action: navigate
-                navigation_path: /views/home
+                navigation_path: /home-views/home
           - type: custom:bubble-card
             card_type: button
             button_type: switch
@@ -500,7 +500,7 @@ views:
             button_action:
               tap_action:
                 action: navigate
-                navigation_path: /views/kitchen-solaris
+                navigation_path: /home-views/kitchen-solaris
             sub_button:
               - entity: climate.ksol_ac
                 icon: mdi:snowflake
@@ -535,7 +535,7 @@ views:
             button_action:
               tap_action:
                 action: navigate
-                navigation_path: /views/front-yard
+                navigation_path: /home-views/front-yard
           - type: custom:bubble-card
             card_type: button
             button_type: switch
@@ -554,7 +554,7 @@ views:
             button_action:
               tap_action:
                 action: navigate
-                navigation_path: /views/tom-s-bedroom
+                navigation_path: /home-views/tom-s-bedroom
             sub_button:
               - entity: climate.br2_ac
                 icon: mdi:snowflake
@@ -601,7 +601,7 @@ views:
               - icon: mdi:home-outline
                 tap_action:
                   action: navigate
-                  navigation_path: /views/home
+                  navigation_path: /home-views/home
             styles: "
 
               \      .bubble-sub-button-container {
@@ -780,7 +780,7 @@ views:
               - icon: mdi:home-outline
                 tap_action:
                   action: navigate
-                  navigation_path: /views/home
+                  navigation_path: /home-views/home
             styles: "
 
               \      .bubble-sub-button-container {
@@ -980,7 +980,7 @@ views:
               - icon: mdi:home-outline
                 tap_action:
                   action: navigate
-                  navigation_path: /views/home
+                  navigation_path: /home-views/home
             styles: "
 
               \      .bubble-sub-button-container {
@@ -1152,7 +1152,7 @@ views:
               - icon: mdi:home-outline
                 tap_action:
                   action: navigate
-                  navigation_path: /views/home
+                  navigation_path: /home-views/home
             styles: "
 
               \      .bubble-sub-button-container {
@@ -1327,7 +1327,7 @@ views:
               - icon: mdi:home-outline
                 tap_action:
                   action: navigate
-                  navigation_path: /views/home
+                  navigation_path: /home-views/home
             styles: "
 
               \      .bubble-sub-button-container {
@@ -1461,7 +1461,7 @@ views:
               - icon: mdi:home-outline
                 tap_action:
                   action: navigate
-                  navigation_path: /views/home
+                  navigation_path: /home-views/home
             styles: "
 
               \      .bubble-sub-button-container {
@@ -1578,7 +1578,7 @@ views:
               - icon: mdi:home-outline
                 tap_action:
                   action: navigate
-                  navigation_path: /views/home
+                  navigation_path: /home-views/home
             styles: "
 
               \      .bubble-sub-button-container {
@@ -1676,7 +1676,7 @@ views:
               - icon: mdi:home-outline
                 tap_action:
                   action: navigate
-                  navigation_path: /views/home
+                  navigation_path: /home-views/home
             styles: "
 
               \      .bubble-sub-button-container {
@@ -1774,7 +1774,7 @@ views:
               - icon: mdi:home-outline
                 tap_action:
                   action: navigate
-                  navigation_path: /views/home
+                  navigation_path: /home-views/home
             styles: "
 
               \      .bubble-sub-button-container {
@@ -1841,7 +1841,7 @@ views:
               - icon: mdi:home-outline
                 tap_action:
                   action: navigate
-                  navigation_path: /views/home
+                  navigation_path: /home-views/home
             styles: "
 
               \      .bubble-sub-button-container {
@@ -1943,7 +1943,7 @@ views:
               - icon: mdi:home-outline
                 tap_action:
                   action: navigate
-                  navigation_path: /views/home
+                  navigation_path: /home-views/home
             styles: "
 
               \      .bubble-sub-button-container {
@@ -2028,7 +2028,7 @@ views:
               - icon: mdi:home-outline
                 tap_action:
                   action: navigate
-                  navigation_path: /views/home
+                  navigation_path: /home-views/home
             styles: "
 
               \      .bubble-sub-button-container {
@@ -2137,7 +2137,7 @@ views:
               - icon: mdi:home-outline
                 tap_action:
                   action: navigate
-                  navigation_path: /views/home
+                  navigation_path: /home-views/home
             styles: "
 
               \      .bubble-sub-button-container {
@@ -2223,7 +2223,7 @@ views:
               - icon: mdi:home-outline
                 tap_action:
                   action: navigate
-                  navigation_path: /views/home
+                  navigation_path: /home-views/home
             styles: "
 
               \      .bubble-sub-button-container {
@@ -2293,7 +2293,7 @@ views:
               - icon: mdi:home-outline
                 tap_action:
                   action: navigate
-                  navigation_path: /views/home
+                  navigation_path: /home-views/home
             styles: "
 
               \      .bubble-sub-button-container {
@@ -2383,7 +2383,7 @@ views:
               - icon: mdi:home-outline
                 tap_action:
                   action: navigate
-                  navigation_path: /views/home
+                  navigation_path: /home-views/home
             styles: "
 
               \      .bubble-sub-button-container {
@@ -2500,7 +2500,7 @@ views:
               - icon: mdi:home-outline
                 tap_action:
                   action: navigate
-                  navigation_path: /views/home
+                  navigation_path: /home-views/home
             styles: "
 
               \      .bubble-sub-button-container {

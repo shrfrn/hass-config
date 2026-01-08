@@ -25,13 +25,13 @@ lovelace:
     - url: /hacsfiles/lovelace-card-mod/card-mod.js
       type: module
   dashboards:
-    main:
+    home-main:
       mode: yaml
       title: Home
       icon: mdi:view-dashboard
       show_in_sidebar: true
       filename: lovelace/main.yaml
-    views:
+    home-views:
       mode: yaml
       title: Home (Views)
       icon: mdi:view-dashboard-variant

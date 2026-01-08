@@ -35,7 +35,8 @@ const config = {
   dashboard_name: 'Home',
 
   // HA registration settings (auto-updates configuration.yaml)
-  dashboard_path: 'main',
+  // Note: dashboard_path must contain a hyphen (HA requirement)
+  dashboard_path: 'home-main',
   dashboard_title: 'Home',
   dashboard_icon: 'mdi:view-dashboard',
 
