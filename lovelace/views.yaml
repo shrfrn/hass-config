@@ -574,7 +574,7 @@ views:
               \      }
 
               \    "
-  - title: Living Room
+  - icon: mdi:sofa-outline
     path: living-room
     sections:
       - type: grid
@@ -753,7 +753,7 @@ views:
                 scrolling_effect: true
                 tap_action:
                   action: toggle
-  - title: Kitchen
+  - icon: mdi:pot-steam-outline
     path: kitchen
     sections:
       - type: grid
@@ -953,7 +953,7 @@ views:
                 scrolling_effect: true
                 tap_action:
                   action: toggle
-  - title: Master Bedroom
+  - icon: mdi:bed-king-outline
     path: bedroom
     sections:
       - type: grid
@@ -1125,7 +1125,7 @@ views:
     visible:
       - user: bdc857a611d74e9998fdc8535024b263
       - user: b10953f68ec043cea57260ca2f5e0880
-  - title: Shahar's Studio
+  - icon: mdi:palette
     path: shahar-s-studio
     sections:
       - type: grid
@@ -1300,7 +1300,7 @@ views:
     visible:
       - user: bdc857a611d74e9998fdc8535024b263
       - user: b10953f68ec043cea57260ca2f5e0880
-  - title: Sharon's Studio
+  - icon: mdi:piano
     path: sharon-s-studio
     sections:
       - type: grid
@@ -1434,7 +1434,7 @@ views:
     visible:
       - user: bdc857a611d74e9998fdc8535024b263
       - user: b10953f68ec043cea57260ca2f5e0880
-  - title: Office
+  - icon: mdi:printer-outline
     path: office
     sections:
       - type: grid
@@ -1551,7 +1551,7 @@ views:
               \      }
 
               \    "
-  - title: Corridor
+  - icon: mdi:domain-switch
     path: corridor
     sections:
       - type: grid
@@ -1649,7 +1649,7 @@ views:
               \      }
 
               \    "
-  - title: Laundry Room
+  - icon: mdi:washing-machine
     path: laundry-room
     sections:
       - type: grid
@@ -1747,7 +1747,7 @@ views:
               \      }
 
               \    "
-  - title: Mamad
+  - icon: mdi:security
     path: mamad
     sections:
       - type: grid
@@ -1814,7 +1814,7 @@ views:
               \      }
 
               \    "
-  - title: Master WC
+  - icon: mdi:bathtub-outline
     path: parent-s-wc
     sections:
       - type: grid
@@ -1916,7 +1916,7 @@ views:
                 scrolling_effect: true
                 tap_action:
                   action: toggle
-  - title: Studio Solaris
+  - icon: mdi:greenhouse
     path: studio-solaris
     sections:
       - type: grid
@@ -2001,7 +2001,7 @@ views:
     visible:
       - user: bdc857a611d74e9998fdc8535024b263
       - user: b10953f68ec043cea57260ca2f5e0880
-  - title: Amai's Room
+  - icon: mdi:bed-queen
     path: amai-s-room
     sections:
       - type: grid
@@ -2110,7 +2110,7 @@ views:
               \      }
 
               \    "
-  - title: Children's WC
+  - icon: mdi:bathtub
     path: children-s-wc
     sections:
       - type: grid
@@ -2196,7 +2196,7 @@ views:
                 scrolling_effect: true
                 tap_action:
                   action: toggle
-  - title: Home
+  - icon: mdi:home
     path: home
     sections:
       - type: grid
@@ -2266,7 +2266,7 @@ views:
                 scrolling_effect: true
                 tap_action:
                   action: toggle
-  - title: Kitchen Solaris
+  - icon: mdi:greenhouse
     path: kitchen-solaris
     sections:
       - type: grid
@@ -2356,7 +2356,7 @@ views:
               \      }
 
               \    "
-  - title: Patio
+  - icon: mdi:tree-outline
     path: front-yard
     sections:
       - type: grid
@@ -2473,7 +2473,7 @@ views:
                 scrolling_effect: true
                 tap_action:
                   action: toggle
-  - title: Tom's Bedroom
+  - icon: mdi:bed-queen-outline
     path: tom-s-bedroom
     sections:
       - type: grid
