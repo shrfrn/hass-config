@@ -22,7 +22,7 @@ PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
 cd "$PROJECT_ROOT"
 
 PROD_HOST="root@homeassistant.local"
-PROD_SCRIPT="/root/deploy.sh"
+PROD_SCRIPT="/config/scripts/deploy.sh"
 
 # Colors
 WHITE='\033[1;37m'
@@ -148,14 +148,15 @@ spin_until_stage() {
     return 1
 }
 
-# Wait for config check
-spin_until_stage "Config check" "\[STAGE:CHECK_PASS\]"
-CHECK_RESULT=$?
+# TODO: Re-enable config check when hass supervisor bug is fixed
+# spin_until_stage "Config check" "\[STAGE:CHECK_PASS\]"
+# CHECK_RESULT=$?
+# if [ $CHECK_RESULT -eq 0 ]; then
+#     spin_until_stage "Home Assistant restart" "\[STAGE:RESTART_DONE\]"
+# fi
 
-if [ $CHECK_RESULT -eq 0 ]; then
-    # Wait for restart
-    spin_until_stage "Home Assistant restart" "\[STAGE:RESTART_DONE\]"
-fi
+# For now, just wait for restart (skip config check)
+spin_until_stage "Home Assistant restart" "\[STAGE:RESTART_DONE\]"
 
 # Wait for SSH to finish
 wait $SSH_PID
