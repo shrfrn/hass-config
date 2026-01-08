@@ -1,0 +1,39 @@
+# ============================================================
+# Scene Template: Sharon's Studio
+# ============================================================
+# HOW TO USE:
+# 1. Copy this entire file content
+# 2. Paste into scenes.yaml
+# 3. Change 'name' to your desired scene name (keep prefix)
+# 4. Change 'icon' to match the scene purpose
+# 5. Set each entity's 'state' to 'on' or 'off'
+# 6. For dimmable lights, add 'brightness: 0-255'
+# 7. Restart Home Assistant or reload scenes
+#
+# Example brightness levels:
+#   brightness: 255  # Full brightness
+#   brightness: 128  # 50% brightness
+#   brightness: 64   # 25% brightness
+# ============================================================
+
+- id: '1767893225712'
+  name: 'stdn_new_scene'
+  icon: 'mdi:lightbulb-group'
+  entities:
+    light.stdn_lt_wall_e:
+      state: 'on'
+    light.stdn_lt_wall_n:
+      state: 'on'
+    light.stdn_lt_wall_w:
+      state: 'on'
+    switch.stdn_skt:
+      state: 'on'
+  metadata:
+    light.stdn_lt_wall_e:
+      entity_only: true
+    light.stdn_lt_wall_n:
+      entity_only: true
+    light.stdn_lt_wall_w:
+      entity_only: true
+    switch.stdn_skt:
+      entity_only: true

@@ -1,0 +1,27 @@
+# ============================================================
+# Scene Template: Laundry Room
+# ============================================================
+# HOW TO USE:
+# 1. Copy this entire file content
+# 2. Paste into scenes.yaml
+# 3. Change 'name' to your desired scene name (keep prefix)
+# 4. Change 'icon' to match the scene purpose
+# 5. Set each entity's 'state' to 'on' or 'off'
+# 6. For dimmable lights, add 'brightness: 0-255'
+# 7. Restart Home Assistant or reload scenes
+#
+# Example brightness levels:
+#   brightness: 255  # Full brightness
+#   brightness: 128  # 50% brightness
+#   brightness: 64   # 25% brightness
+# ============================================================
+
+- id: '1767893225710'
+  name: 'lndr_new_scene'
+  icon: 'mdi:lightbulb-group'
+  entities:
+    light.lndr_lt_ceiling:
+      state: 'on'
+  metadata:
+    light.lndr_lt_ceiling:
+      entity_only: true
