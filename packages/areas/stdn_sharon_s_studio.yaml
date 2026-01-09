@@ -21,6 +21,7 @@ input_select:
       - "none"
       - scene.stdn_standard
       - scene.stdn_minimal
+      - scene.stdn_template
     initial: "none"
 
 input_datetime:

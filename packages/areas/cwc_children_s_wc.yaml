@@ -16,6 +16,7 @@ input_select:
     name: Children's WC Active Scene
     options:
       - "none"
+      - scene.cwc_template
     initial: "none"
 
 input_datetime:

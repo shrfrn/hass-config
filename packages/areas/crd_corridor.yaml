@@ -14,6 +14,7 @@ input_select:
     name: Corridor Active Scene
     options:
       - "none"
+      - scene.crd_template
     initial: "none"
 
 input_datetime:

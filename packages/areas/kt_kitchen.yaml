@@ -21,6 +21,7 @@ input_select:
       - "none"
       - scene.kt_standard
       - scene.kt_minimal
+      - scene.kt_template
     initial: "none"
 
 input_datetime:

@@ -16,6 +16,7 @@ input_select:
     name: Tom's Bedroom Active Scene
     options:
       - "none"
+      - scene.br2_template
     initial: "none"
 
 input_datetime:

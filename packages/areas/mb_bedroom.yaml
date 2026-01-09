@@ -19,6 +19,7 @@ input_select:
       - "none"
       - scene.mb_minimal
       - scene.mb_standard
+      - scene.mb_template
     initial: "none"
 
 input_datetime:

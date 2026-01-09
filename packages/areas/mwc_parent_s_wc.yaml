@@ -18,6 +18,7 @@ input_select:
     name: Master WC Active Scene
     options:
       - "none"
+      - scene.mwc_template
     initial: "none"
 
 input_datetime:

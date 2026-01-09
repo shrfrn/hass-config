@@ -16,6 +16,7 @@ input_select:
     name: Amai's Room Active Scene
     options:
       - "none"
+      - scene.br1_template
     initial: "none"
 
 input_datetime:

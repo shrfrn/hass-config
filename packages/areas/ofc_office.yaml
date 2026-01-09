@@ -16,6 +16,7 @@ input_select:
     name: Office Active Scene
     options:
       - "none"
+      - scene.ofc_template
     initial: "none"
 
 input_datetime:

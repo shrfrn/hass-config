@@ -13,6 +13,7 @@ input_select:
     name: Studio Solaris Active Scene
     options:
       - "none"
+      - scene.ssol_template
     initial: "none"
 
 input_datetime:

@@ -24,6 +24,7 @@ input_select:
       - scene.lr_tv
       - scene.lr_standard
       - scene.lr_twilight_zone
+      - scene.lr_template
     initial: "none"
 
 input_datetime:

@@ -14,6 +14,7 @@ input_select:
     name: Kitchen Solaris Active Scene
     options:
       - "none"
+      - scene.ksol_template
     initial: "none"
 
 input_datetime:

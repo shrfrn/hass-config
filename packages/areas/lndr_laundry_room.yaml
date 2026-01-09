@@ -13,6 +13,7 @@ input_select:
     name: Laundry Room Active Scene
     options:
       - "none"
+      - scene.lndr_template
     initial: "none"
 
 input_datetime:

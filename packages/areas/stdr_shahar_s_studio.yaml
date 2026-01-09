@@ -23,6 +23,7 @@ input_select:
       - "none"
       - scene.stdr_standard
       - scene.stdr_minimal
+      - scene.stdr_template
     initial: "none"
 
 input_datetime:

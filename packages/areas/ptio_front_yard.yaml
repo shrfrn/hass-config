@@ -18,6 +18,7 @@ input_select:
     name: Patio Active Scene
     options:
       - "none"
+      - scene.ptio_template
     initial: "none"
 
 input_datetime:
