@@ -232,7 +232,7 @@ views:
               card_type: button
               button_type: switch
               entity: group.stdr_lights
-              name: Shahar's Studio
+              name: סטודיו שחר
               icon: mdi:palette
               scrolling_effect: true
               tap_action:
@@ -272,7 +272,7 @@ views:
               card_type: button
               button_type: switch
               entity: group.stdn_lights
-              name: Sharon's Studio
+              name: סטודיו שרון
               icon: mdi:piano
               scrolling_effect: true
               tap_action:
@@ -310,7 +310,7 @@ views:
             card_type: button
             button_type: switch
             entity: group.ofc_lights
-            name: Office
+            name: משרד
             icon: mdi:printer-outline
             scrolling_effect: true
             tap_action:
@@ -415,7 +415,7 @@ views:
             card_type: button
             button_type: switch
             entity: group.mmd_lights
-            name: Mamad
+            name: ממ״ד
             icon: mdi:security
             scrolling_effect: true
             tap_action:
@@ -450,7 +450,7 @@ views:
             card_type: button
             button_type: switch
             entity: group.mwc_lights
-            name: Master WC
+            name: שירותי הורים
             icon: mdi:bathtub-outline
             scrolling_effect: true
             tap_action:
@@ -474,7 +474,7 @@ views:
               card_type: button
               button_type: switch
               entity: group.ssol_lights
-              name: Studio Solaris
+              name: סולריס סטודיו
               icon: mdi:greenhouse
               scrolling_effect: true
               tap_action:
@@ -585,7 +585,7 @@ views:
             card_type: button
             button_type: switch
             entity: group.ksol_lights
-            name: סולריס
+            name: סולריס מטבח
             icon: mdi:greenhouse
             scrolling_effect: true
             tap_action:
@@ -639,7 +639,7 @@ views:
             card_type: button
             button_type: switch
             entity: group.br2_lights
-            name: Tom's Bedroom
+            name: חדר תום
             icon: mdi:bed-queen-outline
             scrolling_effect: true
             tap_action:
@@ -1225,7 +1225,7 @@ views:
             card_type: button
             button_type: switch
             entity: group.stdr_lights
-            name: Shahar's Studio
+            name: סטודיו שחר
             icon: mdi:palette
             scrolling_effect: true
             tap_action:
@@ -1400,7 +1400,7 @@ views:
             card_type: button
             button_type: switch
             entity: group.stdn_lights
-            name: Sharon's Studio
+            name: סטודיו שרון
             icon: mdi:piano
             scrolling_effect: true
             tap_action:
@@ -1534,7 +1534,7 @@ views:
             card_type: button
             button_type: switch
             entity: group.ofc_lights
-            name: Office
+            name: משרד
             icon: mdi:printer-outline
             scrolling_effect: true
             tap_action:
@@ -1847,7 +1847,7 @@ views:
             card_type: button
             button_type: switch
             entity: group.mmd_lights
-            name: Mamad
+            name: ממ״ד
             icon: mdi:security
             scrolling_effect: true
             tap_action:
@@ -1914,7 +1914,7 @@ views:
             card_type: button
             button_type: switch
             entity: group.mwc_lights
-            name: Master WC
+            name: שירותי הורים
             icon: mdi:bathtub-outline
             scrolling_effect: true
             tap_action:
@@ -2016,7 +2016,7 @@ views:
             card_type: button
             button_type: switch
             entity: group.ssol_lights
-            name: Studio Solaris
+            name: סולריס סטודיו
             icon: mdi:greenhouse
             scrolling_effect: true
             tap_action:
@@ -2366,7 +2366,7 @@ views:
             card_type: button
             button_type: switch
             entity: group.ksol_lights
-            name: סולריס
+            name: סולריס מטבח
             icon: mdi:greenhouse
             scrolling_effect: true
             tap_action:
@@ -2581,7 +2581,7 @@ views:
             card_type: button
             button_type: switch
             entity: group.br2_lights
-            name: Tom's Bedroom
+            name: חדר תום
             icon: mdi:bed-queen-outline
             scrolling_effect: true
             tap_action:
