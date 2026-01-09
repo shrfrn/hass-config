@@ -72,13 +72,13 @@
       id:
       - sun_up
     then:
-    - action: switch.turn_on
+    - action: switch.turn_off
       metadata: {}
       target:
         entity_id: switch.dim_wall_switch_leds
       data: {}
     else:
-    - action: switch.turn_off
+    - action: switch.turn_on
       metadata: {}
       target:
         entity_id: switch.dim_wall_switch_leds
