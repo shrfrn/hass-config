@@ -45,6 +45,17 @@ views:
                   action: none
                 hold_action:
                   action: toggle
+            styles: "
+
+              \      .bubble-sub-button-container {
+
+              \        right: unset;
+
+              \        inset-inline-end: 8px;
+
+              \      }
+
+              \    "
           - type: custom:bubble-card
             card_type: button
             button_type: state
@@ -81,6 +92,17 @@ views:
                 show_name: true
                 show_state: false
                 show_last_changed: false
+            styles: "
+
+              \      .bubble-sub-button-container {
+
+              \        right: unset;
+
+              \        inset-inline-end: 8px;
+
+              \      }
+
+              \    "
           - type: heading
             heading: Areas
           - type: custom:bubble-card
