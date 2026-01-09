@@ -452,23 +452,6 @@
       entity_id: light.ofc_lt_walls
     data: {}
   mode: single
-- id: '1767695471198'
-  alias: Focus
-  description: ''
-  triggers:
-  - type: turned_on
-    device_id: 95c7b62ae09025f80d97d32e1d53b04b
-    entity_id: 16c2fe50bc72b2227c239dd44401bfcb
-    domain: binary_sensor
-    trigger: device
-  conditions: []
-  actions:
-  - action: light.turn_on
-    metadata: {}
-    target:
-      entity_id: light.lr_lt_wall_n
-    data: {}
-  mode: single
 - id: '1767732964988'
   alias: Toggle Dark Mode
   description: ''
