@@ -522,3 +522,23 @@
         label_id: outdoor
       data: {}
   mode: single
+- id: '1767987891753'
+  alias: Sleep
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - switch.home_sw_pima
+    from:
+    - 'off'
+    to:
+    - 'on'
+  conditions: []
+  actions:
+  - action: scene.turn_on
+    metadata: {}
+    target:
+      entity_id: scene.sleep
+    data:
+      transition: 2
+  mode: single
