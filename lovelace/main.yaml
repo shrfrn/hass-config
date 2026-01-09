@@ -9,7 +9,7 @@ views:
             card_type: button
             button_type: switch
             entity: group.lr_lights
-            name: Living Room
+            name: סלון
             icon: mdi:sofa-outline
             scrolling_effect: true
             tap_action:
@@ -47,7 +47,7 @@ views:
             card_type: button
             button_type: switch
             entity: group.kt_lights
-            name: Kitchen
+            name: מטבח
             icon: mdi:pot-steam-outline
             scrolling_effect: true
             tap_action:
@@ -89,7 +89,7 @@ views:
               card_type: button
               button_type: switch
               entity: group.mb_lights
-              name: Master Bedroom
+              name: חדר שינה הורים
               icon: mdi:bed-king-outline
               scrolling_effect: true
               tap_action:
@@ -245,7 +245,7 @@ views:
             card_type: button
             button_type: switch
             entity: group.crd_lights
-            name: Corridor
+            name: מסדרון בנות
             icon: mdi:domain-switch
             scrolling_effect: true
             tap_action:
@@ -280,7 +280,7 @@ views:
             card_type: button
             button_type: switch
             entity: group.lndr_lights
-            name: Laundry Room
+            name: חדר כביסה
             icon: mdi:washing-machine
             scrolling_effect: true
             tap_action:
@@ -409,7 +409,7 @@ views:
             card_type: button
             button_type: switch
             entity: group.br1_lights
-            name: Amai's Room
+            name: חדר אמאי
             icon: mdi:bed-queen
             scrolling_effect: true
             tap_action:
@@ -447,7 +447,7 @@ views:
             card_type: button
             button_type: switch
             entity: group.cwc_lights
-            name: Children's WC
+            name: אמבטיה בנות
             icon: mdi:bathtub
             scrolling_effect: true
             tap_action:
@@ -466,7 +466,7 @@ views:
             card_type: button
             button_type: switch
             entity: group.is_lights
-            name: Home
+            name: בית
             icon: mdi:home
             scrolling_effect: true
             tap_action:
@@ -485,7 +485,7 @@ views:
             card_type: button
             button_type: switch
             entity: group.ksol_lights
-            name: Kitchen Solaris
+            name: סולריס
             icon: mdi:greenhouse
             scrolling_effect: true
             tap_action:
@@ -520,7 +520,7 @@ views:
             card_type: button
             button_type: switch
             entity: group.ptio_lights
-            name: Patio
+            name: חצר פנימית
             icon: mdi:tree-outline
             scrolling_effect: true
             tap_action:
@@ -579,7 +579,7 @@ views:
                 card_type: pop-up
                 hash: "#lr_details"
                 button_type: switch
-                name: Living Room
+                name: סלון
                 icon: mdi:sofa-outline
                 entity: group.lr_lights
                 tap_action:
@@ -669,7 +669,7 @@ views:
               - type: custom:bubble-card
                 card_type: climate
                 entity: climate.lr_ac
-                name: AC
+                name: מזגן
                 min_temp: 16
                 max_temp: 30
                 step: 1
@@ -704,8 +704,8 @@ views:
                   - type: custom:bubble-card
                     card_type: button
                     button_type: switch
-                    entity: switch.lr_soc_w
-                    name: שקע נשלט
+                    entity: media_player.lr_tv
+                    name: טלויזיה
                     scrolling_effect: true
                     tap_action:
                       action: toggle
@@ -728,8 +728,8 @@ views:
                   - type: custom:bubble-card
                     card_type: button
                     button_type: switch
-                    entity: media_player.lr_tv
-                    name: טלויזיה
+                    entity: switch.lr_soc_w
+                    name: שקע נשלט
                     scrolling_effect: true
                     tap_action:
                       action: toggle
@@ -739,7 +739,7 @@ views:
                 card_type: pop-up
                 hash: "#kt_details"
                 button_type: switch
-                name: Kitchen
+                name: מטבח
                 icon: mdi:pot-steam-outline
                 entity: group.kt_lights
                 tap_action:
@@ -853,7 +853,7 @@ views:
               - type: custom:bubble-card
                 card_type: climate
                 entity: climate.kt_ac
-                name: AC
+                name: מזגן
                 min_temp: 16
                 max_temp: 30
                 step: 1
@@ -917,7 +917,7 @@ views:
                   card_type: pop-up
                   hash: "#mb_details"
                   button_type: switch
-                  name: Master Bedroom
+                  name: חדר שינה הורים
                   icon: mdi:bed-king-outline
                   entity: group.mb_lights
                   tap_action:
@@ -1005,7 +1005,7 @@ views:
                 - type: custom:bubble-card
                   card_type: climate
                   entity: climate.mb_ac
-                  name: AC
+                  name: מזגן
                   min_temp: 16
                   max_temp: 30
                   step: 1
@@ -1040,14 +1040,6 @@ views:
                     - type: custom:bubble-card
                       card_type: button
                       button_type: switch
-                      entity: switch.mb_door_s
-                      name: דלת פטיו
-                      scrolling_effect: true
-                      tap_action:
-                        action: toggle
-                    - type: custom:bubble-card
-                      card_type: button
-                      button_type: switch
                       entity: light.mb_lt_wardrobe
                       name: חדר ארונות
                       scrolling_effect: true
@@ -1058,6 +1050,14 @@ views:
                       button_type: switch
                       entity: light.mb_lt_ceiling_hall
                       name: מסדרון
+                      scrolling_effect: true
+                      tap_action:
+                        action: toggle
+                    - type: custom:bubble-card
+                      card_type: button
+                      button_type: switch
+                      entity: switch.mb_door_s
+                      name: דלת פטיו
                       scrolling_effect: true
                       tap_action:
                         action: toggle
@@ -1197,7 +1197,7 @@ views:
                 - type: custom:bubble-card
                   card_type: climate
                   entity: climate.stdr_ac
-                  name: AC
+                  name: מזגן
                   min_temp: 16
                   max_temp: 30
                   step: 1
@@ -1296,7 +1296,7 @@ views:
                 - type: custom:bubble-card
                   card_type: climate
                   entity: climate.stdn_ac
-                  name: AC
+                  name: מזגן
                   min_temp: 16
                   max_temp: 30
                   step: 1
@@ -1412,7 +1412,7 @@ views:
               - type: custom:bubble-card
                 card_type: climate
                 entity: climate.ofc_ac
-                name: AC
+                name: מזגן
                 min_temp: 16
                 max_temp: 30
                 step: 1
@@ -1440,7 +1440,7 @@ views:
                 card_type: pop-up
                 hash: "#crd_details"
                 button_type: switch
-                name: Corridor
+                name: מסדרון בנות
                 icon: mdi:domain-switch
                 entity: group.crd_lights
                 tap_action:
@@ -1491,7 +1491,7 @@ views:
               - type: custom:bubble-card
                 card_type: climate
                 entity: climate.crd_ac
-                name: AC
+                name: מזגן
                 min_temp: 16
                 max_temp: 30
                 step: 1
@@ -1519,7 +1519,7 @@ views:
                 card_type: pop-up
                 hash: "#lndr_details"
                 button_type: switch
-                name: Laundry Room
+                name: חדר כביסה
                 icon: mdi:washing-machine
                 entity: group.lndr_lights
                 tap_action:
@@ -1570,7 +1570,7 @@ views:
               - type: custom:bubble-card
                 card_type: climate
                 entity: climate.lndr_ac
-                name: AC
+                name: מזגן
                 min_temp: 16
                 max_temp: 30
                 step: 1
@@ -1618,7 +1618,7 @@ views:
               - type: custom:bubble-card
                 card_type: climate
                 entity: climate.mmd_ac
-                name: AC
+                name: מזגן
                 min_temp: 16
                 max_temp: 30
                 step: 1
@@ -1769,7 +1769,7 @@ views:
                 - type: custom:bubble-card
                   card_type: climate
                   entity: climate.ssol_ac
-                  name: AC
+                  name: מזגן
                   min_temp: 16
                   max_temp: 30
                   step: 1
@@ -1797,7 +1797,7 @@ views:
                 card_type: pop-up
                 hash: "#br1_details"
                 button_type: switch
-                name: Amai's Room
+                name: חדר אמאי
                 icon: mdi:bed-queen
                 entity: group.br1_lights
                 tap_action:
@@ -1856,7 +1856,7 @@ views:
               - type: custom:bubble-card
                 card_type: climate
                 entity: climate.br1_ac
-                name: AC
+                name: מזגן
                 min_temp: 16
                 max_temp: 30
                 step: 1
@@ -1887,7 +1887,7 @@ views:
                 card_type: pop-up
                 hash: "#cwc_details"
                 button_type: switch
-                name: Children's WC
+                name: אמבטיה בנות
                 icon: mdi:bathtub
                 entity: group.cwc_lights
                 tap_action:
@@ -1954,7 +1954,7 @@ views:
                 card_type: pop-up
                 hash: "#is_details"
                 button_type: switch
-                name: Home
+                name: בית
                 icon: mdi:home
                 entity: group.is_lights
                 tap_action:
@@ -2005,7 +2005,7 @@ views:
                 card_type: pop-up
                 hash: "#ksol_details"
                 button_type: switch
-                name: Kitchen Solaris
+                name: סולריס
                 icon: mdi:greenhouse
                 entity: group.ksol_lights
                 tap_action:
@@ -2048,7 +2048,7 @@ views:
               - type: custom:bubble-card
                 card_type: climate
                 entity: climate.ksol_ac
-                name: AC
+                name: מזגן
                 min_temp: 16
                 max_temp: 30
                 step: 1
@@ -2076,7 +2076,7 @@ views:
                 card_type: pop-up
                 hash: "#ptio_details"
                 button_type: switch
-                name: Patio
+                name: חצר פנימית
                 icon: mdi:tree-outline
                 entity: group.ptio_lights
                 tap_action:
@@ -2142,6 +2142,14 @@ views:
                     button_type: switch
                     entity: light.ptio_lt_corridor_wall_e
                     name: מסדרון פטיו
+                    scrolling_effect: true
+                    tap_action:
+                      action: toggle
+                  - type: custom:bubble-card
+                    card_type: button
+                    button_type: switch
+                    entity: light.ptio_lt_corridor_wall_s
+                    name: דלת יציאה פטיו
                     scrolling_effect: true
                     tap_action:
                       action: toggle
@@ -2233,7 +2241,7 @@ views:
               - type: custom:bubble-card
                 card_type: climate
                 entity: climate.br2_ac
-                name: AC
+                name: מזגן
                 min_temp: 16
                 max_temp: 30
                 step: 1

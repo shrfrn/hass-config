@@ -7,6 +7,7 @@ group:
     name: Patio Lights
     entities:
       - light.ptio_lt_corridor_wall_e
+      - light.ptio_lt_corridor_wall_s
       - light.ptio_lt_wall_e
       - light.ptio_lt_wall_main_entrance
       - light.ptio_lt_wall_ne

@@ -1255,6 +1255,8 @@
   entities:
     light.ptio_lt_corridor_wall_e:
       state: true
+    light.ptio_lt_corridor_wall_s:
+      state: true
     light.ptio_lt_wall_e:
       state: true
     light.ptio_lt_wall_main_entrance:
@@ -1267,6 +1269,8 @@
       state: true
   metadata:
     light.ptio_lt_corridor_wall_e:
+      entity_only: true
+    light.ptio_lt_corridor_wall_s:
       entity_only: true
     light.ptio_lt_wall_e:
       entity_only: true
