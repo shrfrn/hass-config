@@ -1,10 +1,10 @@
-- id: '1765441621002'
+- id: "1765441621002"
   name: lr_minimal
   entities:
     light.lr_lt_wall_s:
       supported_color_modes:
-      - onoff
-      color_mode:
+        - onoff
+      color_mode: null
       icon: mdi:wall-sconce-flat-variant
       friendly_name: lr_lt_wall_s
       supported_features: 0
@@ -15,15 +15,15 @@
       state: true
     light.lr_lt_ceiling:
       supported_color_modes:
-      - onoff
-      color_mode:
+        - onoff
+      color_mode: null
       icon: mdi:spotlight-beam
       friendly_name: lr_lt_ceiling
       supported_features: 0
       state: false
     light.lr_lt_wall_e:
       supported_color_modes:
-      - onoff
+        - onoff
       color_mode: onoff
       icon: mdi:wall-sconce-outline
       friendly_name: lr_lt_wall_e
@@ -31,8 +31,8 @@
       state: true
     light.lr_lt_wall_n:
       supported_color_modes:
-      - onoff
-      color_mode:
+        - onoff
+      color_mode: null
       icon: mdi:wall-sconce-flat-variant
       friendly_name: lr_lt_wall_n
       supported_features: 0
@@ -49,65 +49,65 @@
       entity_only: true
     light.lr_lt_wall_n:
       entity_only: true
-- id: '1765442022697'
+- id: "1765442022697"
   name: lr_tv
   entities:
     light.lr_lt_wall_s:
       supported_color_modes:
-      - onoff
-      color_mode:
+        - onoff
+      color_mode: null
       icon: mdi:wall-sconce-flat-variant
       friendly_name: South Wall
       supported_features: 0
-      state: 'off'
+      state: off
     light.lr_lt_wall_e:
       supported_color_modes:
-      - onoff
+        - onoff
       color_mode: onoff
       icon: mdi:wall-sconce-outline
       friendly_name: East Wall
       supported_features: 0
-      state: 'on'
+      state: on
     light.lr_lt_wall_n:
       supported_color_modes:
-      - onoff
-      color_mode:
+        - onoff
+      color_mode: null
       icon: mdi:wall-sconce-flat-variant
       friendly_name: North Wall
       supported_features: 0
-      state: 'off'
+      state: off
     light.lr_lt_ceiling:
       supported_color_modes:
-      - onoff
-      color_mode:
+        - onoff
+      color_mode: null
       icon: mdi:spotlight-beam
       friendly_name: Ceiling
       supported_features: 0
-      state: 'off'
+      state: off
     switch.lr_soc_e:
       icon: mdi:floor-lamp-outline
       friendly_name: Standing Lamp
-      state: 'off'
+      state: off
     light.crd_lt_wall_e:
       supported_color_modes:
-      - onoff
-      color_mode:
+        - onoff
+      color_mode: null
       icon: mdi:wall-sconce-flat-variant
       friendly_name: Corridor Wall
       supported_features: 0
-      state: 'off'
+      state: off
     group.kt_lights:
       entity_id:
-      - light.kt_lt_ceiling_1
-      - light.kt_lt_ceiling_2
-      - light.kt_lt_ceiling_3
-      - light.kt_lt_strip_n
-      - light.kt_lt_strip_s
-      - light.kt_lt_wall_s
-      - light.kt_lt_wall_s_entrance
+        - light.kt_lt_ceiling_1
+        - light.kt_lt_ceiling_2
+        - light.kt_lt_ceiling_3
+        - light.kt_lt_strip_n
+        - light.kt_lt_strip_s
+        - light.kt_lt_wall_s
+        - light.kt_lt_wall_s_entrance
       order: 5
       friendly_name: Kitchen Lights
-      state: 'off'
+      state: off
   icon: mdi:television-classic
   metadata:
     light.lr_lt_wall_s:
@@ -124,20 +124,20 @@
       entity_only: true
     group.kt_lights:
       entity_only: true
-- id: '1765442602329'
+- id: "1765442602329"
   name: kt_standard
   entities:
     light.kt_lt_wall_s:
       supported_color_modes:
-      - onoff
-      color_mode:
+        - onoff
+      color_mode: null
       icon: mdi:outdoor-lamp
       friendly_name: Brick Wall
       supported_features: 0
       state: false
     light.kt_lt_strip_n:
       supported_color_modes:
-      - onoff
+        - onoff
       color_mode: onoff
       icon: mdi:track-light
       friendly_name: Counter Spots
@@ -145,7 +145,7 @@
       state: true
     light.kt_lt_strip_s:
       supported_color_modes:
-      - onoff
+        - onoff
       color_mode: onoff
       icon: mdi:track-light
       friendly_name: Brick Wall Spots
@@ -153,15 +153,15 @@
       state: true
     light.kt_lt_wall_s_entrance:
       supported_color_modes:
-      - onoff
-      color_mode:
+        - onoff
+      color_mode: null
       icon: mdi:wall-sconce-flat-variant
       friendly_name: Entrance Wall
       supported_features: 0
       state: false
     light.kt_lt_ceiling_1:
       supported_color_modes:
-      - onoff
+        - onoff
       color_mode: onoff
       icon: mdi:ceiling-light
       friendly_name: Dining Table
@@ -169,16 +169,16 @@
       state: true
     light.kt_lt_ceiling_3:
       supported_color_modes:
-      - onoff
-      color_mode:
+        - onoff
+      color_mode: null
       icon: mdi:light-recessed
       friendly_name: Entrance Ceiling
       supported_features: 0
       state: false
     light.kt_lt_ceiling_2:
       supported_color_modes:
-      - onoff
-      color_mode:
+        - onoff
+      color_mode: null
       icon: mdi:ceiling-light-multiple
       friendly_name: Sitting Counter
       supported_features: 0
@@ -199,12 +199,12 @@
       entity_only: true
     light.kt_lt_ceiling_2:
       entity_only: true
-- id: '1765442684161'
+- id: "1765442684161"
   name: lr_standard
   entities:
     light.lr_lt_wall_s:
       supported_color_modes:
-      - onoff
+        - onoff
       color_mode: onoff
       icon: mdi:wall-sconce-flat-variant
       friendly_name: lr_lt_wall_s
@@ -216,7 +216,7 @@
       state: true
     light.lr_lt_wall_e:
       supported_color_modes:
-      - onoff
+        - onoff
       color_mode: onoff
       icon: mdi:wall-sconce-outline
       friendly_name: lr_lt_wall_e
@@ -224,7 +224,7 @@
       state: true
     light.lr_lt_wall_n:
       supported_color_modes:
-      - onoff
+        - onoff
       color_mode: onoff
       icon: mdi:wall-sconce-flat-variant
       friendly_name: lr_lt_wall_n
@@ -232,8 +232,8 @@
       state: true
     light.lr_lt_ceiling:
       supported_color_modes:
-      - onoff
-      color_mode:
+        - onoff
+      color_mode: null
       icon: mdi:spotlight-beam
       friendly_name: lr_lt_ceiling
       supported_features: 0
@@ -250,43 +250,43 @@
     light.lr_lt_ceiling:
       entity_only: true
   icon: mdi:power
-- id: '1765442801277'
+- id: "1765442801277"
   name: mb_minimal
   entities:
     light.mb_bed_n:
       supported_color_modes:
-      - onoff
-      color_mode:
+        - onoff
+      color_mode: null
       friendly_name: mb_bed_n
       supported_features: 0
       state: false
     light.mb_lt_ceiling_hall:
       supported_color_modes:
-      - onoff
-      color_mode:
+        - onoff
+      color_mode: null
       icon: mdi:ceiling-light-multiple
       friendly_name: mb_lt_ceiling_hall
       supported_features: 0
       state: false
     light.mb_lt_wardrobe:
       supported_color_modes:
-      - onoff
-      color_mode:
+        - onoff
+      color_mode: null
       icon: mdi:track-light
       friendly_name: mb_lt_wardrobe
       supported_features: 0
       state: false
     light.mb_bed_s:
       supported_color_modes:
-      - onoff
-      color_mode:
+        - onoff
+      color_mode: null
       friendly_name: mb_bed_s
       supported_features: 0
       state: false
     light.mb_lt_wall:
       supported_color_modes:
-      - onoff
-      color_mode:
+        - onoff
+      color_mode: null
       icon: mdi:wall-sconce-flat-variant
       friendly_name: mb_lt_wall
       supported_features: 0
@@ -309,27 +309,27 @@
     switch.mb_soc:
       entity_only: true
   icon: mdi:circle-small
-- id: '1766081057053'
+- id: "1766081057053"
   name: stdn_standard
   entities:
     light.stdn_lt_wall_e:
       supported_color_modes:
-      - onoff
+        - onoff
       color_mode: onoff
       friendly_name: stdn_lt_wall_e
       supported_features: 0
       state: true
     light.stdn_lt_wall_n:
       supported_color_modes:
-      - onoff
-      color_mode:
+        - onoff
+      color_mode: null
       friendly_name: stdn_lt_wall_n
       supported_features: 0
       state: false
     light.stdn_lt_wall_w:
       supported_color_modes:
-      - onoff
-      color_mode:
+        - onoff
+      color_mode: null
       friendly_name: stdn_lt_wall_w
       supported_features: 0
       state: false
@@ -346,27 +346,27 @@
       entity_only: true
     switch.stdn_skt:
       entity_only: true
-- id: '1766081137837'
+- id: "1766081137837"
   name: stdn_minimal
   entities:
     light.stdn_lt_wall_e:
       supported_color_modes:
-      - onoff
-      color_mode:
+        - onoff
+      color_mode: null
       friendly_name: stdn_lt_wall_e
       supported_features: 0
       state: false
     light.stdn_lt_wall_n:
       supported_color_modes:
-      - onoff
-      color_mode:
+        - onoff
+      color_mode: null
       friendly_name: stdn_lt_wall_n
       supported_features: 0
       state: false
     light.stdn_lt_wall_w:
       supported_color_modes:
-      - onoff
-      color_mode:
+        - onoff
+      color_mode: null
       friendly_name: stdn_lt_wall_w
       supported_features: 0
       state: false
@@ -383,28 +383,28 @@
       entity_only: true
     switch.stdn_skt:
       entity_only: true
-- id: '1766095962507'
+- id: "1766095962507"
   name: kt_minimal
   entities:
     light.kt_lt_wall_s:
       supported_color_modes:
-      - onoff
-      color_mode:
+        - onoff
+      color_mode: null
       icon: mdi:outdoor-lamp
       friendly_name: Brick Wall
       supported_features: 0
       state: false
     light.kt_lt_strip_n:
       supported_color_modes:
-      - onoff
-      color_mode:
+        - onoff
+      color_mode: null
       icon: mdi:track-light
       friendly_name: Counter Spots
       supported_features: 0
       state: false
     light.kt_lt_strip_s:
       supported_color_modes:
-      - onoff
+        - onoff
       color_mode: onoff
       icon: mdi:track-light
       friendly_name: Brick Wall Spots
@@ -412,32 +412,32 @@
       state: true
     light.kt_lt_wall_s_entrance:
       supported_color_modes:
-      - onoff
-      color_mode:
+        - onoff
+      color_mode: null
       icon: mdi:wall-sconce-flat-variant
       friendly_name: Entrance Wall
       supported_features: 0
       state: false
     light.kt_lt_ceiling_2:
       supported_color_modes:
-      - onoff
-      color_mode:
+        - onoff
+      color_mode: null
       icon: mdi:ceiling-light-multiple
       friendly_name: Sitting Counter
       supported_features: 0
       state: false
     light.kt_lt_ceiling_3:
       supported_color_modes:
-      - onoff
-      color_mode:
+        - onoff
+      color_mode: null
       icon: mdi:light-recessed
       friendly_name: Entrance Ceiling
       supported_features: 0
       state: false
     light.kt_lt_ceiling_1:
       supported_color_modes:
-      - onoff
-      color_mode:
+        - onoff
+      color_mode: null
       icon: mdi:ceiling-light
       friendly_name: Dining Table
       supported_features: 0
@@ -458,42 +458,42 @@
       entity_only: true
     light.kt_lt_ceiling_1:
       entity_only: true
-- id: '1766151026672'
+- id: "1766151026672"
   name: mb_standard
   entities:
     light.mb_bed_n:
       supported_color_modes:
-      - onoff
-      color_mode:
+        - onoff
+      color_mode: null
       friendly_name: Sharon's Bedside
       supported_features: 0
       state: false
     light.mb_lt_ceiling_hall:
       supported_color_modes:
-      - onoff
-      color_mode:
+        - onoff
+      color_mode: null
       icon: mdi:ceiling-light-multiple
       friendly_name: Hall
       supported_features: 0
       state: false
     light.mb_lt_wardrobe:
       supported_color_modes:
-      - onoff
-      color_mode:
+        - onoff
+      color_mode: null
       icon: mdi:track-light
       friendly_name: Wardrobe
       supported_features: 0
       state: false
     light.mb_bed_s:
       supported_color_modes:
-      - onoff
-      color_mode:
+        - onoff
+      color_mode: null
       friendly_name: Shahar's Bedside
       supported_features: 0
       state: false
     light.mb_lt_wall:
       supported_color_modes:
-      - onoff
+        - onoff
       color_mode: onoff
       icon: mdi:wall-sconce-flat-variant
       friendly_name: Wall Lights
@@ -517,20 +517,20 @@
     switch.mb_soc:
       entity_only: true
   icon: mdi:power
-- id: '1767119548720'
+- id: "1767119548720"
   name: Twilight
   entities:
     light.lndr_lt_ceiling:
       supported_color_modes:
-      - onoff
-      color_mode:
+        - onoff
+      color_mode: null
       icon: mdi:light-recessed
       friendly_name: Ceiling
       supported_features: 0
       state: false
     light.lr_lt_wall_e:
       supported_color_modes:
-      - onoff
+        - onoff
       color_mode: onoff
       icon: mdi:wall-sconce-outline
       friendly_name: East Wall
@@ -538,7 +538,7 @@
       state: true
     light.lr_lt_wall_n:
       supported_color_modes:
-      - onoff
+        - onoff
       color_mode: onoff
       icon: mdi:wall-sconce-flat-variant
       friendly_name: North Wall
@@ -546,7 +546,7 @@
       state: true
     light.lr_lt_wall_s:
       supported_color_modes:
-      - onoff
+        - onoff
       color_mode: onoff
       icon: mdi:wall-sconce-flat-variant
       friendly_name: South Wall
@@ -558,15 +558,15 @@
       state: true
     light.kt_lt_wall_s:
       supported_color_modes:
-      - onoff
-      color_mode:
+        - onoff
+      color_mode: null
       icon: mdi:outdoor-lamp
       friendly_name: Brick Wall
       supported_features: 0
       state: false
     light.kt_lt_strip_s:
       supported_color_modes:
-      - onoff
+        - onoff
       color_mode: onoff
       icon: mdi:track-light
       friendly_name: Brick Wall Spots
@@ -574,32 +574,32 @@
       state: true
     light.kt_lt_strip_n:
       supported_color_modes:
-      - onoff
-      color_mode:
+        - onoff
+      color_mode: null
       icon: mdi:track-light
       friendly_name: Counter Spots
       supported_features: 0
       state: false
     light.kt_lt_ceiling_3:
       supported_color_modes:
-      - onoff
-      color_mode:
+        - onoff
+      color_mode: null
       icon: mdi:light-recessed
       friendly_name: Entrance Ceiling
       supported_features: 0
       state: false
     light.kt_lt_wall_s_entrance:
       supported_color_modes:
-      - onoff
-      color_mode:
+        - onoff
+      color_mode: null
       icon: mdi:wall-sconce-flat-variant
       friendly_name: Entrance Wall
       supported_features: 0
       state: false
     light.kt_lt_ceiling_2:
       supported_color_modes:
-      - onoff
-      color_mode:
+        - onoff
+      color_mode: null
       icon: mdi:ceiling-light-multiple
       friendly_name: Sitting Counter
       supported_features: 0
@@ -610,24 +610,24 @@
       state: true
     light.mb_lt_ceiling_hall:
       supported_color_modes:
-      - onoff
-      color_mode:
+        - onoff
+      color_mode: null
       icon: mdi:ceiling-light-multiple
       friendly_name: Hall
       supported_features: 0
       state: false
     light.mb_lt_wall:
       supported_color_modes:
-      - onoff
-      color_mode:
+        - onoff
+      color_mode: null
       icon: mdi:wall-sconce-flat-variant
       friendly_name: Wall Lights
       supported_features: 0
       state: false
     light.mb_lt_wardrobe:
       supported_color_modes:
-      - onoff
-      color_mode:
+        - onoff
+      color_mode: null
       icon: mdi:track-light
       friendly_name: Wardrobe
       supported_features: 0
@@ -638,44 +638,44 @@
       min_mireds: 250
       max_mireds: 454
       effect_list:
-      - blink
-      - breathe
-      - okay
-      - channel_change
-      - finish_effect
-      - stop_effect
+        - blink
+        - breathe
+        - okay
+        - channel_change
+        - finish_effect
+        - stop_effect
       supported_color_modes:
-      - color_temp
-      effect:
+        - color_temp
+      effect: null
       color_mode: color_temp
       brightness: 112
       color_temp_kelvin: 2702
       color_temp: 370
       hs_color:
-      - 28.391
-      - 65.659
+        - 28.391
+        - 65.659
       rgb_color:
-      - 255
-      - 167
-      - 88
+        - 255
+        - 167
+        - 88
       xy_color:
-      - 0.524
-      - 0.388
+        - 0.524
+        - 0.388
       icon: mdi:lamp-outline
       friendly_name: Office Corridor Table Light Ikea Bulb
       supported_features: 44
       state: true
     light.mb_soc_bulb:
       effect_list:
-      - blink
-      - breathe
-      - okay
-      - channel_change
-      - finish_effect
-      - stop_effect
+        - blink
+        - breathe
+        - okay
+        - channel_change
+        - finish_effect
+        - stop_effect
       supported_color_modes:
-      - brightness
-      effect:
+        - brightness
+      effect: null
       color_mode: brightness
       brightness: 222
       friendly_name: Ikea Bulb - Master Bedroom Standing Lamp
@@ -717,12 +717,12 @@
       entity_only: true
     light.mb_soc_bulb:
       entity_only: true
-- id: '1767376261953'
+- id: "1767376261953"
   name: Standard
   entities:
     light.stvdyv_tqrh_mrkz:
       supported_color_modes:
-      - onoff
+        - onoff
       color_mode: onoff
       icon: mdi:ceiling-light-multiple-outline
       friendly_name: Ceiling
@@ -730,7 +730,7 @@
       state: true
     light.stdr_lt_ceiling_stripes:
       supported_color_modes:
-      - onoff
+        - onoff
       color_mode: onoff
       icon: mdi:track-light
       friendly_name: Ceiling Spots
@@ -738,7 +738,7 @@
       state: true
     light.stvdyv_tqrh_tkht_glryh:
       supported_color_modes:
-      - onoff
+        - onoff
       color_mode: onoff
       icon: mdi:lightbulb-fluorescent-tube-outline
       friendly_name: Service Area
@@ -746,57 +746,57 @@
       state: true
     light.stvdyv_tqrh_glryh:
       supported_color_modes:
-      - onoff
-      color_mode:
+        - onoff
+      color_mode: null
       icon: mdi:ceiling-light-multiple
       friendly_name: Gallery Ceiling
       supported_features: 0
       state: false
     light.stdr_gallery_lt_wall_s:
       supported_color_modes:
-      - onoff
-      color_mode:
+        - onoff
+      color_mode: null
       icon: mdi:wall-sconce-flat-variant
       friendly_name: Gallery Wall
       supported_features: 0
       state: false
     light.stdr_kiln_lt_ceiling:
       supported_color_modes:
-      - onoff
-      color_mode:
+        - onoff
+      color_mode: null
       icon: mdi:lightbulb-fluorescent-tube-outline
       friendly_name: Kiln Room
       supported_features: 0
       state: false
     light.stdr_lt_wall_n_sink:
       supported_color_modes:
-      - onoff
-      color_mode:
+        - onoff
+      color_mode: null
       icon: mdi:outdoor-lamp
       friendly_name: Large Sink
       supported_features: 0
       state: false
     light.stdr_lt_wall_s_sink:
       supported_color_modes:
-      - onoff
-      color_mode:
+        - onoff
+      color_mode: null
       icon: mdi:outdoor-lamp
       friendly_name: Service Sink
       supported_features: 0
       state: false
     light.shahar_studio_standing_lamp:
       effect_list:
-      - blink
-      - breathe
-      - okay
-      - channel_change
-      - finish_effect
-      - stop_effect
+        - blink
+        - breathe
+        - okay
+        - channel_change
+        - finish_effect
+        - stop_effect
       supported_color_modes:
-      - brightness
-      effect:
-      color_mode:
-      brightness:
+        - brightness
+      effect: null
+      color_mode: null
+      brightness: null
       icon: mdi:floor-lamp
       friendly_name: Shahar's Studio Standing Lamp
       supported_features: 44
@@ -821,44 +821,44 @@
       entity_only: true
     light.shahar_studio_standing_lamp:
       entity_only: true
-- id: '1767376382152'
+- id: "1767376382152"
   name: Minimal
   entities:
     light.stvdyv_tqrh_mrkz:
       supported_color_modes:
-      - onoff
-      color_mode:
+        - onoff
+      color_mode: null
       icon: mdi:ceiling-light-multiple-outline
       friendly_name: Ceiling
       supported_features: 0
       state: false
     light.stdr_lt_ceiling_stripes:
       supported_color_modes:
-      - onoff
-      color_mode:
+        - onoff
+      color_mode: null
       icon: mdi:track-light
       friendly_name: Ceiling Spots
       supported_features: 0
       state: false
     light.stvdyv_tqrh_tkht_glryh:
       supported_color_modes:
-      - onoff
-      color_mode:
+        - onoff
+      color_mode: null
       icon: mdi:lightbulb-fluorescent-tube-outline
       friendly_name: Service Area
       supported_features: 0
       state: false
     light.stvdyv_tqrh_glryh:
       supported_color_modes:
-      - onoff
-      color_mode:
+        - onoff
+      color_mode: null
       icon: mdi:ceiling-light-multiple
       friendly_name: Gallery Ceiling
       supported_features: 0
       state: false
     light.stdr_gallery_lt_wall_s:
       supported_color_modes:
-      - onoff
+        - onoff
       color_mode: onoff
       icon: mdi:wall-sconce-flat-variant
       friendly_name: Gallery Wall
@@ -866,39 +866,39 @@
       state: true
     light.stdr_kiln_lt_ceiling:
       supported_color_modes:
-      - onoff
-      color_mode:
+        - onoff
+      color_mode: null
       icon: mdi:lightbulb-fluorescent-tube-outline
       friendly_name: Kiln Room
       supported_features: 0
       state: false
     light.stdr_lt_wall_n_sink:
       supported_color_modes:
-      - onoff
-      color_mode:
+        - onoff
+      color_mode: null
       icon: mdi:outdoor-lamp
       friendly_name: Large Sink
       supported_features: 0
       state: false
     light.stdr_lt_wall_s_sink:
       supported_color_modes:
-      - onoff
-      color_mode:
+        - onoff
+      color_mode: null
       icon: mdi:outdoor-lamp
       friendly_name: Service Sink
       supported_features: 0
       state: false
     light.shahar_studio_standing_lamp:
       effect_list:
-      - blink
-      - breathe
-      - okay
-      - channel_change
-      - finish_effect
-      - stop_effect
+        - blink
+        - breathe
+        - okay
+        - channel_change
+        - finish_effect
+        - stop_effect
       supported_color_modes:
-      - brightness
-      effect:
+        - brightness
+      effect: null
       color_mode: brightness
       brightness: 255
       icon: mdi:floor-lamp
@@ -925,12 +925,12 @@
       entity_only: true
     light.shahar_studio_standing_lamp:
       entity_only: true
-- id: '1767376538816'
+- id: "1767376538816"
   name: Night Work
   entities:
     light.stvdyv_tqrh_mrkz:
       supported_color_modes:
-      - onoff
+        - onoff
       color_mode: onoff
       icon: mdi:ceiling-light-multiple-outline
       friendly_name: Ceiling
@@ -938,7 +938,7 @@
       state: true
     light.stdr_lt_ceiling_stripes:
       supported_color_modes:
-      - onoff
+        - onoff
       color_mode: onoff
       icon: mdi:track-light
       friendly_name: Ceiling Spots
@@ -946,7 +946,7 @@
       state: true
     light.stvdyv_tqrh_tkht_glryh:
       supported_color_modes:
-      - onoff
+        - onoff
       color_mode: onoff
       icon: mdi:lightbulb-fluorescent-tube-outline
       friendly_name: Service Area
@@ -954,7 +954,7 @@
       state: true
     light.stvdyv_tqrh_glryh:
       supported_color_modes:
-      - onoff
+        - onoff
       color_mode: onoff
       icon: mdi:ceiling-light-multiple
       friendly_name: Gallery Ceiling
@@ -962,7 +962,7 @@
       state: true
     light.stdr_gallery_lt_wall_s:
       supported_color_modes:
-      - onoff
+        - onoff
       color_mode: onoff
       icon: mdi:wall-sconce-flat-variant
       friendly_name: Gallery Wall
@@ -970,15 +970,15 @@
       state: true
     light.stdr_kiln_lt_ceiling:
       supported_color_modes:
-      - onoff
-      color_mode:
+        - onoff
+      color_mode: null
       icon: mdi:lightbulb-fluorescent-tube-outline
       friendly_name: Kiln Room
       supported_features: 0
       state: false
     light.stdr_lt_wall_n_sink:
       supported_color_modes:
-      - onoff
+        - onoff
       color_mode: onoff
       icon: mdi:outdoor-lamp
       friendly_name: Large Sink
@@ -986,7 +986,7 @@
       state: true
     light.stdr_lt_wall_s_sink:
       supported_color_modes:
-      - onoff
+        - onoff
       color_mode: onoff
       icon: mdi:outdoor-lamp
       friendly_name: Service Sink
@@ -994,15 +994,15 @@
       state: true
     light.shahar_studio_standing_lamp:
       effect_list:
-      - blink
-      - breathe
-      - okay
-      - channel_change
-      - finish_effect
-      - stop_effect
+        - blink
+        - breathe
+        - okay
+        - channel_change
+        - finish_effect
+        - stop_effect
       supported_color_modes:
-      - brightness
-      effect:
+        - brightness
+      effect: null
       color_mode: brightness
       brightness: 255
       icon: mdi:floor-lamp
@@ -1011,7 +1011,7 @@
       state: true
     light.ssol_lt_wall_s:
       supported_color_modes:
-      - onoff
+        - onoff
       color_mode: onoff
       icon: mdi:outdoor-lamp
       friendly_name: Wall Light
@@ -1039,18 +1039,58 @@
       entity_only: true
     light.ssol_lt_wall_s:
       entity_only: true
+- id: "1767987848037"
+  name: Sleep
+  entities:
+    light.ofc_lt_corridor_table_bulb:
+      min_color_temp_kelvin: 2202
+      max_color_temp_kelvin: 4000
+      min_mireds: 250
+      max_mireds: 454
+      effect_list:
+        - blink
+        - breathe
+        - okay
+        - channel_change
+        - finish_effect
+        - stop_effect
+      supported_color_modes:
+        - color_temp
+      effect: null
+      color_mode: color_temp
+      brightness: 3
+      color_temp_kelvin: 2202
+      color_temp: 454
+      hs_color:
+        - 29.79
+        - 84.553
+      rgb_color:
+        - 255
+        - 146
+        - 39
+      xy_color:
+        - 0.579
+        - 0.388
+      icon: mdi:lamp-outline
+      friendly_name: Office Corridor Table Light Ikea Bulb
+      supported_features: 44
+      state: on
+  icon: mdi:sleep
+  metadata:
+    light.ofc_lt_corridor_table_bulb:
+      entity_only: true
 - id: template_br1
   name: br1_template
   icon: mdi:content-copy
   entities:
     light.br1_lt_ceiling:
-      state: true
+      state: on
     light.br1_lt_wall_s:
-      state: true
+      state: on
     light.br1_lt_wall_w:
-      state: true
+      state: on
     light.br1_lt_window_w:
-      state: true
+      state: on
   metadata:
     light.br1_lt_ceiling:
       entity_only: true
@@ -1065,13 +1105,13 @@
   icon: mdi:content-copy
   entities:
     light.cwc_heater_bathroom:
-      state: true
+      state: on
     light.cwc_lt_bathroom_ceiling:
-      state: true
+      state: on
     light.cwc_lt_bathroom_wall_s:
-      state: true
+      state: on
     light.cwc_lt_toilet_wall_e:
-      state: true
+      state: on
   metadata:
     light.cwc_heater_bathroom:
       entity_only: true
@@ -1086,9 +1126,9 @@
   icon: mdi:content-copy
   entities:
     light.crd_lt_mmd_wall_n:
-      state: true
+      state: on
     light.crd_lt_wall_e:
-      state: true
+      state: on
   metadata:
     light.crd_lt_mmd_wall_n:
       entity_only: true
@@ -1099,19 +1139,19 @@
   icon: mdi:content-copy
   entities:
     light.kt_lt_ceiling_1:
-      state: true
+      state: on
     light.kt_lt_ceiling_2:
-      state: true
+      state: on
     light.kt_lt_ceiling_3:
-      state: true
+      state: on
     light.kt_lt_strip_n:
-      state: true
+      state: on
     light.kt_lt_strip_s:
-      state: true
+      state: on
     light.kt_lt_wall_s:
-      state: true
+      state: on
     light.kt_lt_wall_s_entrance:
-      state: true
+      state: on
   metadata:
     light.kt_lt_ceiling_1:
       entity_only: true
@@ -1132,9 +1172,9 @@
   icon: mdi:content-copy
   entities:
     light.ksol_lt_sink:
-      state: true
+      state: on
     light.ksol_lt_wall_w:
-      state: true
+      state: on
   metadata:
     light.ksol_lt_sink:
       entity_only: true
@@ -1145,7 +1185,7 @@
   icon: mdi:content-copy
   entities:
     light.lndr_lt_ceiling:
-      state: true
+      state: on
   metadata:
     light.lndr_lt_ceiling:
       entity_only: true
@@ -1154,15 +1194,15 @@
   icon: mdi:content-copy
   entities:
     light.lr_lt_ceiling:
-      state: true
+      state: on
     light.lr_lt_wall_e:
-      state: true
+      state: on
     light.lr_lt_wall_n:
-      state: true
+      state: on
     light.lr_lt_wall_s:
-      state: true
+      state: on
     switch.lr_soc_e:
-      state: true
+      state: on
   metadata:
     light.lr_lt_ceiling:
       entity_only: true
@@ -1179,15 +1219,15 @@
   icon: mdi:content-copy
   entities:
     light.mb_bed_n:
-      state: true
+      state: on
     light.mb_bed_s:
-      state: true
+      state: on
     light.mb_lt_ceiling_hall:
-      state: true
+      state: on
     light.mb_lt_wall:
-      state: true
+      state: on
     light.mb_lt_wardrobe:
-      state: true
+      state: on
   metadata:
     light.mb_bed_n:
       entity_only: true
@@ -1204,17 +1244,17 @@
   icon: mdi:content-copy
   entities:
     light.mwc_ceiling_shower:
-      state: true
+      state: on
     light.mwc_ceiling_toilet:
-      state: true
+      state: on
     light.mwc_lt_bathroom_wall_e:
-      state: true
+      state: on
     light.mwc_lt_bathroom_wall_s:
-      state: true
+      state: on
     light.mwc_main_ceiling:
-      state: true
+      state: on
     light.mwc_main_wall:
-      state: true
+      state: on
   metadata:
     light.mwc_ceiling_shower:
       entity_only: true
@@ -1233,13 +1273,13 @@
   icon: mdi:content-copy
   entities:
     light.ofc_lt_ceiling_hall:
-      state: true
+      state: on
     light.ofc_lt_ceiling_wc:
-      state: true
+      state: on
     light.ofc_lt_corridor_table_bulb:
-      state: true
+      state: on
     light.ofc_lt_walls:
-      state: true
+      state: on
   metadata:
     light.ofc_lt_ceiling_hall:
       entity_only: true
@@ -1254,19 +1294,19 @@
   icon: mdi:content-copy
   entities:
     light.ptio_lt_corridor_wall_e:
-      state: true
+      state: on
     light.ptio_lt_corridor_wall_s:
-      state: true
+      state: on
     light.ptio_lt_wall_e:
-      state: true
+      state: on
     light.ptio_lt_wall_main_entrance:
-      state: true
+      state: on
     light.ptio_lt_wall_ne:
-      state: true
+      state: on
     light.ptio_lt_wall_nw:
-      state: true
+      state: on
     light.ptio_west_wall:
-      state: true
+      state: on
   metadata:
     light.ptio_lt_corridor_wall_e:
       entity_only: true
@@ -1287,23 +1327,23 @@
   icon: mdi:content-copy
   entities:
     light.shahar_studio_standing_lamp:
-      state: true
+      state: on
     light.stdr_lt_ceiling_gallery:
-      state: true
+      state: on
     light.stdr_lt_ceiling_kiln:
-      state: true
+      state: on
     light.stdr_lt_ceiling_main:
-      state: true
+      state: on
     light.stdr_lt_ceiling_service_area:
-      state: true
+      state: on
     light.stdr_lt_ceiling_spots:
-      state: true
+      state: on
     light.stdr_lt_wall_n_sink:
-      state: true
+      state: on
     light.stdr_lt_wall_s_gallery:
-      state: true
+      state: on
     light.stdr_lt_wall_s_sink:
-      state: true
+      state: on
   metadata:
     light.shahar_studio_standing_lamp:
       entity_only: true
@@ -1328,13 +1368,13 @@
   icon: mdi:content-copy
   entities:
     light.stdn_lt_wall_e:
-      state: true
+      state: on
     light.stdn_lt_wall_n:
-      state: true
+      state: on
     light.stdn_lt_wall_w:
-      state: true
+      state: on
     switch.stdn_skt:
-      state: true
+      state: on
   metadata:
     light.stdn_lt_wall_e:
       entity_only: true
@@ -1349,7 +1389,7 @@
   icon: mdi:content-copy
   entities:
     light.ssol_lt_wall_s:
-      state: true
+      state: on
   metadata:
     light.ssol_lt_wall_s:
       entity_only: true
@@ -1358,13 +1398,13 @@
   icon: mdi:content-copy
   entities:
     light.br2_lt_ceiling:
-      state: true
+      state: on
     light.br2_lt_wall_n:
-      state: true
+      state: on
     light.br2_lt_wall_w:
-      state: true
+      state: on
     light.br2_lt_window_w:
-      state: true
+      state: on
   metadata:
     light.br2_lt_ceiling:
       entity_only: true
@@ -1373,44 +1413,4 @@
     light.br2_lt_wall_w:
       entity_only: true
     light.br2_lt_window_w:
-      entity_only: true
-- id: '1767987848037'
-  name: Sleep
-  entities:
-    light.ofc_lt_corridor_table_bulb:
-      min_color_temp_kelvin: 2202
-      max_color_temp_kelvin: 4000
-      min_mireds: 250
-      max_mireds: 454
-      effect_list:
-      - blink
-      - breathe
-      - okay
-      - channel_change
-      - finish_effect
-      - stop_effect
-      supported_color_modes:
-      - color_temp
-      effect:
-      color_mode: color_temp
-      brightness: 3
-      color_temp_kelvin: 2202
-      color_temp: 454
-      hs_color:
-      - 29.79
-      - 84.553
-      rgb_color:
-      - 255
-      - 146
-      - 39
-      xy_color:
-      - 0.579
-      - 0.388
-      icon: mdi:lamp-outline
-      friendly_name: Office Corridor Table Light Ikea Bulb
-      supported_features: 44
-      state: 'on'
-  icon: mdi:sleep
-  metadata:
-    light.ofc_lt_corridor_table_bulb:
       entity_only: true

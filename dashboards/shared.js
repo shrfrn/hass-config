@@ -14,6 +14,9 @@ import { PARENTS } from '../users.js'
 const config = {
   schemaVersion: 1,
 
+  // Language for translations (from i18n/*.csv)
+  language: 'he',
+
   // Areas to pin at the top of the dashboard (in order)
   pinned_areas: [
     'living_room',

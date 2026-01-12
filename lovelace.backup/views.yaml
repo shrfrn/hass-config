@@ -2328,21 +2328,6 @@ views:
               \    "
           - type: custom:bubble-card
             card_type: separator
-            name: תרחישים
-          - type: grid
-            square: false
-            columns: 2
-            cards:
-              - type: custom:bubble-card
-                card_type: button
-                button_type: switch
-                entity: scene.sleep
-                name: Sleep
-                scrolling_effect: true
-                tap_action:
-                  action: toggle
-          - type: custom:bubble-card
-            card_type: separator
             name: אחר
           - type: grid
             square: false

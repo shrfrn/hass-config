@@ -1,0 +1,73 @@
+input_text:
+  climate_setpoints_json:
+    name: Climate setpoints (JSON)
+    max: 255
+    
+automation:
+
+- id: climate_restore_setpoints_on_start
+  alias: Climate - restore setpoints on start
+  mode: single
+  trigger:
+    - platform: homeassistant
+      event: start
+  action:
+    - delay: "00:00:10"
+    - variables:
+        raw: "{{ states('input_text.climate_setpoints_json') }}"
+        obj: >-
+          {{ (states('input_text.climate_setpoints_json')
+              | default('{}', true)
+              | from_json) }}
+
+        default_temp: 22.0
+        climates: "{{ states.climate | map(attribute='entity_id') | list }}"
+    - repeat:
+        for_each: "{{ climates }}"
+        sequence:
+          - variables:
+              full_eid: "{{ repeat.item }}"
+              short_id: "{{ repeat.item.split('.', 1)[1] }}"
+              temp: >-
+                {% if short_id in obj %}
+                  {{ obj[short_id] | float }}
+                {% else %}
+                  {{ default_temp }}
+                {% endif %}
+          - service: climate.set_temperature
+            target:
+              entity_id: "{{ full_eid }}"
+            data:
+              temperature: "{{ temp }}"
+
+- id: climate_store_setpoint_to_json
+  alias: Climate - store setpoint to JSON
+  mode: queued
+  trigger:
+    - platform: event
+      event_type: state_changed
+  condition:
+    - condition: template
+      value_template: >
+        {% set eid = trigger.event.data.entity_id %}
+        {{ eid is string and eid.startswith('climate.') }}
+    - condition: template
+      value_template: >
+        {% set new = trigger.event.data.new_state %}
+        {{ new is not none and new.attributes.get('temperature') is not none }}
+  action:
+    - variables:
+        full_eid: "{{ trigger.event.data.entity_id }}"
+        short_id: "{{ full_eid.split('.', 1)[1] }}"
+        reported: "{{ trigger.event.data.new_state.attributes.temperature | float }}"
+        raw: "{{ states('input_text.climate_setpoints_json') }}"
+        obj: >-
+          {{ (states('input_text.climate_setpoints_json')
+              | default('{}', true)
+              | from_json) }}
+              
+    - service: input_text.set_value
+      target:
+        entity_id: input_text.climate_setpoints_json
+      data:
+        value: "{{ dict(obj, **{ short_id: reported }) | to_json }}"
