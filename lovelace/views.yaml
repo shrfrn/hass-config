@@ -104,12 +104,12 @@ views:
 
               \    "
           - type: heading
-            heading: אזורים
+            heading: Areas
           - type: custom:bubble-card
             card_type: button
             button_type: switch
             entity: group.lr_lights
-            name: סלון
+            name: Living Room
             icon: mdi:sofa-outline
             scrolling_effect: true
             tap_action:
@@ -147,7 +147,7 @@ views:
             card_type: button
             button_type: switch
             entity: group.kt_lights
-            name: מטבח
+            name: Kitchen
             icon: mdi:pot-steam-outline
             scrolling_effect: true
             tap_action:
@@ -189,7 +189,7 @@ views:
               card_type: button
               button_type: switch
               entity: group.mb_lights
-              name: חדר שינה הורים
+              name: Master Bedroom
               icon: mdi:bed-king-outline
               scrolling_effect: true
               tap_action:
@@ -232,7 +232,7 @@ views:
               card_type: button
               button_type: switch
               entity: group.stdr_lights
-              name: סטודיו שחר
+              name: Shahar's Studio
               icon: mdi:palette
               scrolling_effect: true
               tap_action:
@@ -272,7 +272,7 @@ views:
               card_type: button
               button_type: switch
               entity: group.stdn_lights
-              name: סטודיו שרון
+              name: Sharon's Studio
               icon: mdi:piano
               scrolling_effect: true
               tap_action:
@@ -310,7 +310,7 @@ views:
             card_type: button
             button_type: switch
             entity: group.ofc_lights
-            name: משרד
+            name: Office
             icon: mdi:printer-outline
             scrolling_effect: true
             tap_action:
@@ -345,7 +345,7 @@ views:
             card_type: button
             button_type: switch
             entity: group.crd_lights
-            name: מסדרון בנות
+            name: Corridor
             icon: mdi:domain-switch
             scrolling_effect: true
             tap_action:
@@ -380,7 +380,7 @@ views:
             card_type: button
             button_type: switch
             entity: group.lndr_lights
-            name: חדר כביסה
+            name: Laundry Room
             icon: mdi:washing-machine
             scrolling_effect: true
             tap_action:
@@ -415,7 +415,7 @@ views:
             card_type: button
             button_type: switch
             entity: group.mmd_lights
-            name: ממ״ד
+            name: Mamad
             icon: mdi:security
             scrolling_effect: true
             tap_action:
@@ -450,7 +450,7 @@ views:
             card_type: button
             button_type: switch
             entity: group.mwc_lights
-            name: שירותי הורים
+            name: Master WC
             icon: mdi:bathtub-outline
             scrolling_effect: true
             tap_action:
@@ -474,7 +474,7 @@ views:
               card_type: button
               button_type: switch
               entity: group.ssol_lights
-              name: סולריס סטודיו
+              name: Studio Solaris
               icon: mdi:greenhouse
               scrolling_effect: true
               tap_action:
@@ -509,7 +509,7 @@ views:
             card_type: button
             button_type: switch
             entity: group.br1_lights
-            name: חדר אמאי
+            name: Amai's Room
             icon: mdi:bed-queen
             scrolling_effect: true
             tap_action:
@@ -547,7 +547,7 @@ views:
             card_type: button
             button_type: switch
             entity: group.cwc_lights
-            name: אמבטיה בנות
+            name: Children's WC
             icon: mdi:bathtub
             scrolling_effect: true
             tap_action:
@@ -566,7 +566,7 @@ views:
             card_type: button
             button_type: switch
             entity: group.is_lights
-            name: בית
+            name: Home
             icon: mdi:home
             scrolling_effect: true
             tap_action:
@@ -585,7 +585,7 @@ views:
             card_type: button
             button_type: switch
             entity: group.ksol_lights
-            name: סולריס מטבח
+            name: Kitchen Solaris
             icon: mdi:greenhouse
             scrolling_effect: true
             tap_action:
@@ -620,7 +620,7 @@ views:
             card_type: button
             button_type: switch
             entity: group.ptio_lights
-            name: חצר פנימית
+            name: Patio
             icon: mdi:tree-outline
             scrolling_effect: true
             tap_action:
@@ -639,7 +639,7 @@ views:
             card_type: button
             button_type: switch
             entity: group.br2_lights
-            name: חדר תום
+            name: Tom's Bedroom
             icon: mdi:bed-queen-outline
             scrolling_effect: true
             tap_action:
@@ -682,7 +682,7 @@ views:
             card_type: button
             button_type: switch
             entity: group.lr_lights
-            name: סלון
+            name: Living Room
             icon: mdi:sofa-outline
             scrolling_effect: true
             tap_action:
@@ -714,7 +714,7 @@ views:
               \    "
           - type: custom:bubble-card
             card_type: separator
-            name: תרחישים
+            name: Scenes
           - type: grid
             square: false
             columns: 2
@@ -723,7 +723,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: scene.lr_minimal
-                name: עדין
+                name: Minimal
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -731,7 +731,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: scene.lr_tv
-                name: טלויזיה
+                name: TV
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -739,13 +739,13 @@ views:
                 card_type: button
                 button_type: switch
                 entity: scene.lr_twilight_zone
-                name: דמדומים
+                name: Twilight
                 scrolling_effect: true
                 tap_action:
                   action: toggle
           - type: custom:bubble-card
             card_type: separator
-            name: תאורה
+            name: Lights
           - type: grid
             square: false
             columns: 2
@@ -754,7 +754,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: switch.lr_soc_e
-                name: מנורה עומדת
+                name: Standing Lamp
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -762,7 +762,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.lr_lt_wall_n
-                name: קיר צפוני
+                name: North Wall
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -770,7 +770,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.lr_lt_wall_e
-                name: קיר מזרחי
+                name: East Wall
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -778,17 +778,17 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.lr_lt_wall_s
-                name: קיר דרומי
+                name: South Wall
                 scrolling_effect: true
                 tap_action:
                   action: toggle
           - type: custom:bubble-card
             card_type: separator
-            name: מיזוג
+            name: Climate
           - type: custom:bubble-card
             card_type: climate
             entity: climate.lr_ac
-            name: מזגן
+            name: AC
             min_temp: 16
             max_temp: 30
             step: 1
@@ -815,7 +815,7 @@ views:
               \    "
           - type: custom:bubble-card
             card_type: separator
-            name: אחר
+            name: Other
           - type: grid
             square: false
             columns: 2
@@ -824,7 +824,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: media_player.lr_tv
-                name: טלויזיה
+                name: Living Room TV
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -832,7 +832,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.lr_lt_ceiling
-                name: תקרה
+                name: Ceiling
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -840,7 +840,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.lr_lt_outdoor_projector
-                name: פרוג׳קטור
+                name: Backyard Flood Light
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -848,7 +848,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: switch.lr_soc_w
-                name: שקע נשלט
+                name: Socket
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -861,7 +861,7 @@ views:
             card_type: button
             button_type: switch
             entity: group.kt_lights
-            name: מטבח
+            name: Kitchen
             icon: mdi:pot-steam-outline
             scrolling_effect: true
             tap_action:
@@ -893,7 +893,7 @@ views:
               \    "
           - type: custom:bubble-card
             card_type: separator
-            name: תרחישים
+            name: Scenes
           - type: grid
             square: false
             columns: 2
@@ -902,7 +902,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: scene.kt_minimal
-                name: עדין
+                name: kt_minimal
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -910,13 +910,13 @@ views:
                 card_type: button
                 button_type: switch
                 entity: scene.lr_twilight_zone
-                name: דמדומים
+                name: Twilight
                 scrolling_effect: true
                 tap_action:
                   action: toggle
           - type: custom:bubble-card
             card_type: separator
-            name: תאורה
+            name: Lights
           - type: grid
             square: false
             columns: 2
@@ -925,7 +925,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.kt_lt_strip_n
-                name: שיש
+                name: Counter Spots
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -933,7 +933,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.kt_lt_ceiling_1
-                name: שולחן אוכל
+                name: Dining Table
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -941,7 +941,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.kt_lt_strip_s
-                name: פס קיר לבנים
+                name: Brick Wall Spots
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -949,7 +949,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.kt_lt_wall_s
-                name: קיר לבנים
+                name: Brick Wall
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -957,7 +957,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.kt_lt_ceiling_2
-                name: דלפק
+                name: Sitting Counter
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -965,7 +965,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.kt_lt_wall_s_entrance
-                name: קיר מבואה
+                name: Entrance Wall
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -973,7 +973,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.kt_lt_ceiling_3
-                name: תקרת מבואה
+                name: Entrance Ceiling
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -981,17 +981,17 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.kt_lt_entrance_wall_outdoors
-                name: חוץ מבואה
+                name: Kitchen Balcony
                 scrolling_effect: true
                 tap_action:
                   action: toggle
           - type: custom:bubble-card
             card_type: separator
-            name: מיזוג
+            name: Climate
           - type: custom:bubble-card
             card_type: climate
             entity: climate.kt_ac
-            name: מזגן
+            name: AC
             min_temp: 16
             max_temp: 30
             step: 1
@@ -1015,7 +1015,7 @@ views:
               \    "
           - type: custom:bubble-card
             card_type: separator
-            name: אחר
+            name: Other
           - type: grid
             square: false
             columns: 2
@@ -1024,7 +1024,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: switch.kt_door_n
-                name: דלת סולארית
+                name: Solaris Door
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -1032,7 +1032,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: switch.kt_door_s
-                name: דלת ראשית
+                name: Main Door
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -1053,7 +1053,7 @@ views:
             card_type: button
             button_type: switch
             entity: group.mb_lights
-            name: חדר שינה הורים
+            name: Master Bedroom
             icon: mdi:bed-king-outline
             scrolling_effect: true
             tap_action:
@@ -1085,7 +1085,7 @@ views:
               \    "
           - type: custom:bubble-card
             card_type: separator
-            name: תרחישים
+            name: Scenes
           - type: grid
             square: false
             columns: 2
@@ -1094,7 +1094,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: scene.mb_minimal
-                name: עדין
+                name: mb_minimal
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -1102,13 +1102,13 @@ views:
                 card_type: button
                 button_type: switch
                 entity: scene.lr_twilight_zone
-                name: דמדומים
+                name: Twilight
                 scrolling_effect: true
                 tap_action:
                   action: toggle
           - type: custom:bubble-card
             card_type: separator
-            name: תאורה
+            name: Lights
           - type: grid
             square: false
             columns: 2
@@ -1117,7 +1117,7 @@ views:
                 card_type: button
                 button_type: slider
                 entity: light.mb_soc_bulb
-                name: מנורה עומדת
+                name: Standing Lamp
                 scrolling_effect: true
                 tap_action:
                   action: perform-action
@@ -1131,7 +1131,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.mb_lt_wall
-                name: קיר
+                name: Wall Lights
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -1139,7 +1139,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.mb_bed_s
-                name: שחר
+                name: Shahar's Bedside
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -1147,17 +1147,17 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.mb_bed_n
-                name: שרון
+                name: Sharon's Bedside
                 scrolling_effect: true
                 tap_action:
                   action: toggle
           - type: custom:bubble-card
             card_type: separator
-            name: מיזוג
+            name: Climate
           - type: custom:bubble-card
             card_type: climate
             entity: climate.mb_ac
-            name: מזגן
+            name: AC
             min_temp: 16
             max_temp: 30
             step: 1
@@ -1184,7 +1184,7 @@ views:
               \    "
           - type: custom:bubble-card
             card_type: separator
-            name: אחר
+            name: Other
           - type: grid
             square: false
             columns: 2
@@ -1193,7 +1193,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.mb_lt_wardrobe
-                name: חדר ארונות
+                name: Wardrobe
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -1201,7 +1201,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.mb_lt_ceiling_hall
-                name: מסדרון
+                name: Hall
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -1209,7 +1209,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: switch.mb_door_s
-                name: דלת פטיו
+                name: Patio Door
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -1225,7 +1225,7 @@ views:
             card_type: button
             button_type: switch
             entity: group.stdr_lights
-            name: סטודיו שחר
+            name: Shahar's Studio
             icon: mdi:palette
             scrolling_effect: true
             tap_action:
@@ -1257,7 +1257,7 @@ views:
               \    "
           - type: custom:bubble-card
             card_type: separator
-            name: תרחישים
+            name: Scenes
           - type: grid
             square: false
             columns: 2
@@ -1266,7 +1266,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: scene.stdr_minimal
-                name: עדין
+                name: Minimal
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -1274,13 +1274,13 @@ views:
                 card_type: button
                 button_type: switch
                 entity: scene.night_work
-                name: עבודה - לילה
+                name: Night Work
                 scrolling_effect: true
                 tap_action:
                   action: toggle
           - type: custom:bubble-card
             card_type: separator
-            name: תאורה
+            name: Lights
           - type: grid
             square: false
             columns: 2
@@ -1289,7 +1289,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.stdr_lt_ceiling_spots
-                name: ספוטים
+                name: Ceiling Spots
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -1297,7 +1297,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.stdr_lt_ceiling_main
-                name: תקרה שולחן
+                name: Ceiling
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -1305,7 +1305,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.stdr_lt_wall_n_sink
-                name: כיור גדול
+                name: Large Sink
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -1313,7 +1313,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.stdr_lt_wall_s_gallery
-                name: קיר גלריה
+                name: Gallery Wall
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -1321,7 +1321,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.stdr_lt_ceiling_gallery
-                name: תקרה גלריה
+                name: Gallery Ceiling
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -1329,7 +1329,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.stdr_lt_wall_s_sink
-                name: כיור שירות
+                name: Service Sink
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -1337,7 +1337,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.stdr_lt_ceiling_kiln
-                name: חדר תנורים
+                name: Kiln Room
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -1345,7 +1345,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.stdr_lt_ceiling_service_area
-                name: אישור שירות
+                name: Service Area
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -1353,7 +1353,7 @@ views:
                 card_type: button
                 button_type: slider
                 entity: light.shahar_studio_standing_lamp
-                name: מנורה עומדת
+                name: Shahar's Studio Standing Lamp
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -1362,11 +1362,11 @@ views:
                     action: none
           - type: custom:bubble-card
             card_type: separator
-            name: מיזוג
+            name: Climate
           - type: custom:bubble-card
             card_type: climate
             entity: climate.stdr_ac
-            name: מזגן
+            name: AC
             min_temp: 16
             max_temp: 30
             step: 1
@@ -1400,7 +1400,7 @@ views:
             card_type: button
             button_type: switch
             entity: group.stdn_lights
-            name: סטודיו שרון
+            name: Sharon's Studio
             icon: mdi:piano
             scrolling_effect: true
             tap_action:
@@ -1432,7 +1432,7 @@ views:
               \    "
           - type: custom:bubble-card
             card_type: separator
-            name: תרחישים
+            name: Scenes
           - type: grid
             square: false
             columns: 2
@@ -1441,13 +1441,13 @@ views:
                 card_type: button
                 button_type: switch
                 entity: scene.stdn_minimal
-                name: עדין
+                name: stdn_minimal
                 scrolling_effect: true
                 tap_action:
                   action: toggle
           - type: custom:bubble-card
             card_type: separator
-            name: תאורה
+            name: Lights
           - type: grid
             square: false
             columns: 2
@@ -1456,7 +1456,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.stdn_lt_wall_w
-                name: קיר מערבי
+                name: West Wall
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -1464,7 +1464,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.stdn_lt_wall_n
-                name: קיר צפוני
+                name: North Wall
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -1472,17 +1472,17 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.stdn_lt_wall_e
-                name: קיר מזרחי
+                name: East Wall
                 scrolling_effect: true
                 tap_action:
                   action: toggle
           - type: custom:bubble-card
             card_type: separator
-            name: מיזוג
+            name: Climate
           - type: custom:bubble-card
             card_type: climate
             entity: climate.stdn_ac
-            name: מזגן
+            name: AC
             min_temp: 16
             max_temp: 30
             step: 1
@@ -1509,7 +1509,7 @@ views:
               \    "
           - type: custom:bubble-card
             card_type: separator
-            name: אחר
+            name: Other
           - type: grid
             square: false
             columns: 2
@@ -1518,7 +1518,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: switch.stdn_skt
-                name: מנורה עומדת
+                name: Standing Lamp
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -1534,7 +1534,7 @@ views:
             card_type: button
             button_type: switch
             entity: group.ofc_lights
-            name: משרד
+            name: Office
             icon: mdi:printer-outline
             scrolling_effect: true
             tap_action:
@@ -1566,7 +1566,7 @@ views:
               \    "
           - type: custom:bubble-card
             card_type: separator
-            name: תאורה
+            name: Lights
           - type: grid
             square: false
             columns: 2
@@ -1575,7 +1575,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.ofc_lt_ceiling_hall
-                name: מסדרון משרד
+                name: Office Hall
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -1583,7 +1583,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.ofc_lt_ceiling_wc
-                name: שירותי אורחים
+                name: Guest WC
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -1591,7 +1591,7 @@ views:
                 card_type: button
                 button_type: slider
                 entity: light.ofc_lt_wall_bulbs
-                name: קירות משרד
+                name: Office Walls
                 scrolling_effect: true
                 tap_action:
                   action: perform-action
@@ -1605,7 +1605,7 @@ views:
                 card_type: button
                 button_type: slider
                 entity: light.ofc_lt_corridor_table_bulb
-                name: מנורת שולחן
+                name: Office Corridor Table Light Ikea Bulb
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -1616,11 +1616,11 @@ views:
                   action: more-info
           - type: custom:bubble-card
             card_type: separator
-            name: מיזוג
+            name: Climate
           - type: custom:bubble-card
             card_type: climate
             entity: climate.ofc_ac
-            name: מזגן
+            name: AC
             min_temp: 16
             max_temp: 30
             step: 1
@@ -1651,7 +1651,7 @@ views:
             card_type: button
             button_type: switch
             entity: group.crd_lights
-            name: מסדרון בנות
+            name: Corridor
             icon: mdi:domain-switch
             scrolling_effect: true
             tap_action:
@@ -1683,7 +1683,7 @@ views:
               \    "
           - type: custom:bubble-card
             card_type: separator
-            name: תאורה
+            name: Lights
           - type: grid
             square: false
             columns: 2
@@ -1692,7 +1692,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.crd_lt_wall_e
-                name: קיר מסדרון
+                name: Corridor Wall
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -1700,7 +1700,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.crd_lt_mmd_wall_n
-                name: כניסה לשירותים
+                name: Toilet Entrance
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -1708,17 +1708,17 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.crd_lt_entrance_wall_outdoors
-                name: כניסה חצר
+                name: Children Entrance Backyard
                 scrolling_effect: true
                 tap_action:
                   action: toggle
           - type: custom:bubble-card
             card_type: separator
-            name: מיזוג
+            name: Climate
           - type: custom:bubble-card
             card_type: climate
             entity: climate.crd_ac
-            name: מזגן
+            name: AC
             min_temp: 16
             max_temp: 30
             step: 1
@@ -1749,7 +1749,7 @@ views:
             card_type: button
             button_type: switch
             entity: group.lndr_lights
-            name: חדר כביסה
+            name: Laundry Room
             icon: mdi:washing-machine
             scrolling_effect: true
             tap_action:
@@ -1781,7 +1781,7 @@ views:
               \    "
           - type: custom:bubble-card
             card_type: separator
-            name: תאורה
+            name: Lights
           - type: grid
             square: false
             columns: 2
@@ -1790,7 +1790,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.lndr_lt_ceiling
-                name: תקרה
+                name: Ceiling
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -1798,7 +1798,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.lndr_lt_outdoor_projector
-                name: פרוג׳קטור
+                name: Flood Light
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -1806,17 +1806,17 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.lndr_lt_entrance_wall_outdoor
-                name: כניסה
+                name: Laundry Room Entrance
                 scrolling_effect: true
                 tap_action:
                   action: toggle
           - type: custom:bubble-card
             card_type: separator
-            name: מיזוג
+            name: Climate
           - type: custom:bubble-card
             card_type: climate
             entity: climate.lndr_ac
-            name: מזגן
+            name: AC
             min_temp: 16
             max_temp: 30
             step: 1
@@ -1847,7 +1847,7 @@ views:
             card_type: button
             button_type: switch
             entity: group.mmd_lights
-            name: ממ״ד
+            name: Mamad
             icon: mdi:security
             scrolling_effect: true
             tap_action:
@@ -1879,11 +1879,11 @@ views:
               \    "
           - type: custom:bubble-card
             card_type: separator
-            name: מיזוג
+            name: Climate
           - type: custom:bubble-card
             card_type: climate
             entity: climate.mmd_ac
-            name: מזגן
+            name: AC
             min_temp: 16
             max_temp: 30
             step: 1
@@ -1914,7 +1914,7 @@ views:
             card_type: button
             button_type: switch
             entity: group.mwc_lights
-            name: שירותי הורים
+            name: Master WC
             icon: mdi:bathtub-outline
             scrolling_effect: true
             tap_action:
@@ -1946,7 +1946,7 @@ views:
               \    "
           - type: custom:bubble-card
             card_type: separator
-            name: תאורה
+            name: Lights
           - type: grid
             square: false
             columns: 2
@@ -1955,7 +1955,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.mwc_main_ceiling
-                name: תקרה
+                name: Ceiling
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -1963,7 +1963,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.mwc_main_wall
-                name: קיר לבנים
+                name: Brick Wall
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -1971,7 +1971,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.mwc_ceiling_toilet
-                name: שירותים
+                name: Toilet
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -1979,7 +1979,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.mwc_ceiling_shower
-                name: מקלחת
+                name: Shower
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -1987,7 +1987,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.mwc_lt_bathroom_wall_s
-                name: אמבטיה דרום
+                name: mwc_lt_bathroom_wall_s
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -1995,7 +1995,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.mwc_lt_bathroom_wall_e
-                name: אמבטיה מזרח
+                name: mwc_lt_bathroom_wall_e
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -2003,7 +2003,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.mwc_outdoor_projector
-                name: פרוג׳קטור
+                name: Flood Light
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -2016,7 +2016,7 @@ views:
             card_type: button
             button_type: switch
             entity: group.ssol_lights
-            name: סולריס סטודיו
+            name: Studio Solaris
             icon: mdi:greenhouse
             scrolling_effect: true
             tap_action:
@@ -2048,7 +2048,7 @@ views:
               \    "
           - type: custom:bubble-card
             card_type: separator
-            name: תאורה
+            name: Lights
           - type: grid
             square: false
             columns: 2
@@ -2057,17 +2057,17 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.ssol_lt_wall_s
-                name: קיר כיור
+                name: Wall Light
                 scrolling_effect: true
                 tap_action:
                   action: toggle
           - type: custom:bubble-card
             card_type: separator
-            name: מיזוג
+            name: Climate
           - type: custom:bubble-card
             card_type: climate
             entity: climate.ssol_ac
-            name: מזגן
+            name: AC
             min_temp: 16
             max_temp: 30
             step: 1
@@ -2101,7 +2101,7 @@ views:
             card_type: button
             button_type: switch
             entity: group.br1_lights
-            name: חדר אמאי
+            name: Amai's Room
             icon: mdi:bed-queen
             scrolling_effect: true
             tap_action:
@@ -2133,7 +2133,7 @@ views:
               \    "
           - type: custom:bubble-card
             card_type: separator
-            name: תאורה
+            name: Lights
           - type: grid
             square: false
             columns: 2
@@ -2142,7 +2142,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.br1_lt_ceiling
-                name: תקרה
+                name: Ceiling
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -2150,7 +2150,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.br1_lt_wall_s
-                name: קיר דרומי
+                name: South Wall
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -2158,7 +2158,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.br1_lt_window_w
-                name: חלון
+                name: Window
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -2166,17 +2166,17 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.br1_lt_wall_w
-                name: קיר מערבי
+                name: West Wall
                 scrolling_effect: true
                 tap_action:
                   action: toggle
           - type: custom:bubble-card
             card_type: separator
-            name: מיזוג
+            name: Climate
           - type: custom:bubble-card
             card_type: climate
             entity: climate.br1_ac
-            name: מזגן
+            name: AC
             min_temp: 16
             max_temp: 30
             step: 1
@@ -2210,7 +2210,7 @@ views:
             card_type: button
             button_type: switch
             entity: group.cwc_lights
-            name: אמבטיה בנות
+            name: Children's WC
             icon: mdi:bathtub
             scrolling_effect: true
             tap_action:
@@ -2242,7 +2242,7 @@ views:
               \    "
           - type: custom:bubble-card
             card_type: separator
-            name: תאורה
+            name: Lights
           - type: grid
             square: false
             columns: 2
@@ -2251,7 +2251,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.cwc_lt_toilet_wall_e
-                name: שירותים
+                name: Toilet
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -2259,7 +2259,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.cwc_lt_bathroom_ceiling
-                name: תקרה
+                name: Ceiling
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -2267,7 +2267,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.cwc_lt_bathroom_wall_s
-                name: קיר כיור
+                name: Wall Light
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -2275,7 +2275,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.cwc_heater_bathroom
-                name: תנור
+                name: Heater
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -2283,7 +2283,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.cwc_lt_bathroom_wall_outdoors
-                name: קיר חוץ מזרח
+                name: Bathroom Wall
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -2296,7 +2296,7 @@ views:
             card_type: button
             button_type: switch
             entity: group.is_lights
-            name: בית
+            name: Home
             icon: mdi:home
             scrolling_effect: true
             tap_action:
@@ -2328,22 +2328,7 @@ views:
               \    "
           - type: custom:bubble-card
             card_type: separator
-            name: תרחישים
-          - type: grid
-            square: false
-            columns: 2
-            cards:
-              - type: custom:bubble-card
-                card_type: button
-                button_type: switch
-                entity: scene.sleep
-                name: Sleep
-                scrolling_effect: true
-                tap_action:
-                  action: toggle
-          - type: custom:bubble-card
-            card_type: separator
-            name: אחר
+            name: Other
           - type: grid
             square: false
             columns: 2
@@ -2360,7 +2345,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: switch.home_sw_heating
-                name: חימום מרכזי
+                name: Central Heating
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -2368,7 +2353,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: switch.home_sw_pima
-                name: אזעקה
+                name: Alarm
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -2381,7 +2366,7 @@ views:
             card_type: button
             button_type: switch
             entity: group.ksol_lights
-            name: סולריס מטבח
+            name: Kitchen Solaris
             icon: mdi:greenhouse
             scrolling_effect: true
             tap_action:
@@ -2413,7 +2398,7 @@ views:
               \    "
           - type: custom:bubble-card
             card_type: separator
-            name: תאורה
+            name: Lights
           - type: grid
             square: false
             columns: 2
@@ -2422,7 +2407,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.ksol_lt_wall_w
-                name: קיר
+                name: Wall Light
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -2430,17 +2415,17 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.ksol_lt_sink
-                name: כיור
+                name: Sink Light
                 scrolling_effect: true
                 tap_action:
                   action: toggle
           - type: custom:bubble-card
             card_type: separator
-            name: מיזוג
+            name: Climate
           - type: custom:bubble-card
             card_type: climate
             entity: climate.ksol_ac
-            name: מזגן
+            name: AC
             min_temp: 16
             max_temp: 30
             step: 1
@@ -2471,7 +2456,7 @@ views:
             card_type: button
             button_type: switch
             entity: group.ptio_lights
-            name: חצר פנימית
+            name: Patio
             icon: mdi:tree-outline
             scrolling_effect: true
             tap_action:
@@ -2503,7 +2488,7 @@ views:
               \    "
           - type: custom:bubble-card
             card_type: separator
-            name: תאורה
+            name: Lights
           - type: grid
             square: false
             columns: 2
@@ -2512,7 +2497,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.ptio_lt_wall_ne
-                name: קיר צפוני
+                name: North Wall
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -2520,7 +2505,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.ptio_lt_wall_nw
-                name: כניסה לפטיו
+                name: Patio Entrance
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -2528,7 +2513,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.ptio_lt_wall_e
-                name: קיר מזרחי
+                name: East Wall
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -2536,7 +2521,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.ptio_west_wall
-                name: קיר מערבי
+                name: West Wall
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -2544,7 +2529,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.ptio_lt_wall_main_entrance
-                name: אור דלת כניסה
+                name: Main Door Light
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -2552,7 +2537,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.ptio_lt_corridor_wall_e
-                name: מסדרון פטיו
+                name: Patio Corridor
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -2560,13 +2545,13 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.ptio_lt_corridor_wall_s
-                name: דלת יציאה פטיו
+                name: Corridor Door
                 scrolling_effect: true
                 tap_action:
                   action: toggle
           - type: custom:bubble-card
             card_type: separator
-            name: אחר
+            name: Other
           - type: grid
             square: false
             columns: 2
@@ -2575,7 +2560,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: switch.ptio_gate_ne
-                name: שער כחול
+                name: Blue Gate
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -2596,7 +2581,7 @@ views:
             card_type: button
             button_type: switch
             entity: group.br2_lights
-            name: חדר תום
+            name: Tom's Bedroom
             icon: mdi:bed-queen-outline
             scrolling_effect: true
             tap_action:
@@ -2628,7 +2613,7 @@ views:
               \    "
           - type: custom:bubble-card
             card_type: separator
-            name: תאורה
+            name: Lights
           - type: grid
             square: false
             columns: 2
@@ -2637,7 +2622,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.br2_lt_ceiling
-                name: תקרה
+                name: Ceiling
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -2645,7 +2630,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.br2_lt_wall_n
-                name: קיר צפוני
+                name: North Wall
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -2653,7 +2638,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.br2_lt_window_w
-                name: חלון
+                name: Window
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -2661,17 +2646,17 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.br2_lt_wall_w
-                name: קיר מערבי
+                name: West Wall
                 scrolling_effect: true
                 tap_action:
                   action: toggle
           - type: custom:bubble-card
             card_type: separator
-            name: מיזוג
+            name: Climate
           - type: custom:bubble-card
             card_type: climate
             entity: climate.br2_ac
-            name: מזגן
+            name: AC
             min_temp: 16
             max_temp: 30
             step: 1
