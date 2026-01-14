@@ -33,22 +33,3 @@ lovelace:
       type: module
     - url: /hacsfiles/lovelace-card-mod/card-mod.js
       type: module
-  dashboards:
-    home-main:
-      mode: yaml
-      title: Home
-      icon: mdi:view-dashboard
-      show_in_sidebar: true
-      filename: lovelace/main.yaml
-    views-en:
-      mode: yaml
-      title: Home (Views)
-      icon: mdi:view-dashboard-variant
-      show_in_sidebar: true
-      filename: lovelace/views-en.yaml
-    views-he:
-      mode: yaml
-      title: בית
-      icon: mdi:view-dashboard-variant
-      show_in_sidebar: true
-      filename: lovelace/views-he.yaml
