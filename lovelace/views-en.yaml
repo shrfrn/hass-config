@@ -1,0 +1,2683 @@
+views:
+  - title: Home
+    path: home
+    sections:
+      - type: grid
+        cards:
+          - type: custom:bubble-card
+            card_type: button
+            button_type: switch
+            entity: sun.sun
+            name: " "
+            icon: mdi:home-outline
+            card_layout: normal
+            rows: "2"
+            tap_action:
+              action: none
+            hold_action:
+              action: none
+            button_action:
+              tap_action:
+                action: none
+            sub_button:
+              - entity: switch.ptio_gate_ne
+                icon: mdi:key
+                tap_action:
+                  action: toggle
+              - entity: light.lr_lt_ceiling
+                icon: mdi:cctv
+                tap_action:
+                  action: toggle
+              - entity: switch.home_sw_pima
+                name: Alarm
+                tap_action:
+                  action: none
+                hold_action:
+                  action: toggle
+              - entity: script.ac_off
+                icon: mdi:snowflake-off
+                tap_action:
+                  action: none
+                hold_action:
+                  action: toggle
+              - entity: switch.home_sw_heating
+                tap_action:
+                  action: none
+                hold_action:
+                  action: toggle
+            styles: "
+
+              \      .bubble-sub-button-container {
+
+              \        right: unset;
+
+              \        inset-inline-end: 8px;
+
+              \      }
+
+              \    "
+          - type: custom:bubble-card
+            card_type: button
+            button_type: state
+            entity: binary_sensor.anyone_home
+            name: " "
+            icon: mdi:account-multiple
+            show_name: true
+            show_icon: true
+            show_state: false
+            scrolling_effect: false
+            button_action: {}
+            sub_button:
+              - entity: binary_sensor.sharon_home
+                name: Sharon
+                icon: mdi:account
+                show_name: true
+                show_state: false
+                show_last_changed: false
+              - entity: binary_sensor.shahar_home
+                name: Shahar
+                icon: mdi:account-tie-woman
+                show_name: true
+                show_state: false
+                show_last_changed: false
+              - entity: binary_sensor.tom_home
+                name: Tom
+                icon: mdi:human-female-girl
+                show_name: true
+                show_state: false
+                show_last_changed: false
+              - entity: binary_sensor.amai_home
+                name: Amai
+                icon: mdi:human-female-girl
+                show_name: true
+                show_state: false
+                show_last_changed: false
+            styles: "
+
+              \      .bubble-sub-button-container {
+
+              \        right: unset;
+
+              \        inset-inline-end: 8px;
+
+              \      }
+
+              \    "
+          - type: heading
+            heading: Areas
+          - type: custom:bubble-card
+            card_type: button
+            button_type: switch
+            entity: group.lr_lights
+            name: Living Room
+            icon: mdi:sofa-outline
+            scrolling_effect: true
+            tap_action:
+              action: perform-action
+              perform_action: scene.turn_on
+              target:
+                entity_id: scene.lr_standard
+              data: {}
+            hold_action:
+              action: toggle
+            button_action:
+              tap_action:
+                action: navigate
+                navigation_path: /views-en/living-room
+            sub_button:
+              - entity: climate.lr_ac
+                icon: mdi:snowflake
+                tap_action:
+                  action: toggle
+              - entity: switch.lr_fan
+                tap_action:
+                  action: toggle
+            styles: "
+
+              \      .bubble-sub-button-container {
+
+              \        right: unset;
+
+              \        inset-inline-end: 8px;
+
+              \      }
+
+              \    "
+          - type: custom:bubble-card
+            card_type: button
+            button_type: switch
+            entity: group.kt_lights
+            name: Kitchen
+            icon: mdi:pot-steam-outline
+            scrolling_effect: true
+            tap_action:
+              action: perform-action
+              perform_action: scene.turn_on
+              target:
+                entity_id: scene.kt_standard
+              data: {}
+            hold_action:
+              action: toggle
+            button_action:
+              tap_action:
+                action: navigate
+                navigation_path: /views-en/kitchen
+            sub_button:
+              - entity: climate.kt_ac
+                icon: mdi:snowflake
+                tap_action:
+                  action: toggle
+            styles: "
+
+              \      .bubble-sub-button-container {
+
+              \        right: unset;
+
+              \        inset-inline-end: 8px;
+
+              \      }
+
+              \    "
+          - type: conditional
+            conditions:
+              - condition: user
+                users: &a1
+                  - bdc857a611d74e9998fdc8535024b263
+                  - b10953f68ec043cea57260ca2f5e0880
+            card:
+              type: custom:bubble-card
+              card_type: button
+              button_type: switch
+              entity: group.mb_lights
+              name: Master Bedroom
+              icon: mdi:bed-king-outline
+              scrolling_effect: true
+              tap_action:
+                action: perform-action
+                perform_action: scene.turn_on
+                target:
+                  entity_id: scene.mb_standard
+                data: {}
+              hold_action:
+                action: toggle
+              button_action:
+                tap_action:
+                  action: navigate
+                  navigation_path: /views-en/bedroom
+              sub_button:
+                - entity: climate.mb_ac
+                  icon: mdi:snowflake
+                  tap_action:
+                    action: toggle
+                - entity: switch.mb_fan
+                  tap_action:
+                    action: toggle
+              styles: "
+
+                \      .bubble-sub-button-container {
+
+                \        right: unset;
+
+                \        inset-inline-end: 8px;
+
+                \      }
+
+                \    "
+          - type: conditional
+            conditions:
+              - condition: user
+                users: *a1
+            card:
+              type: custom:bubble-card
+              card_type: button
+              button_type: switch
+              entity: group.stdr_lights
+              name: Shahar's Studio
+              icon: mdi:palette
+              scrolling_effect: true
+              tap_action:
+                action: perform-action
+                perform_action: scene.turn_on
+                target:
+                  entity_id: scene.stdr_standard
+                data: {}
+              hold_action:
+                action: toggle
+              button_action:
+                tap_action:
+                  action: navigate
+                  navigation_path: /views-en/shahar-s-studio
+              sub_button:
+                - entity: climate.stdr_ac
+                  icon: mdi:snowflake
+                  tap_action:
+                    action: toggle
+              styles: "
+
+                \      .bubble-sub-button-container {
+
+                \        right: unset;
+
+                \        inset-inline-end: 8px;
+
+                \      }
+
+                \    "
+          - type: conditional
+            conditions:
+              - condition: user
+                users: *a1
+            card:
+              type: custom:bubble-card
+              card_type: button
+              button_type: switch
+              entity: group.stdn_lights
+              name: Sharon's Studio
+              icon: mdi:piano
+              scrolling_effect: true
+              tap_action:
+                action: perform-action
+                perform_action: scene.turn_on
+                target:
+                  entity_id: scene.stdn_standard
+                data: {}
+              hold_action:
+                action: toggle
+              button_action:
+                tap_action:
+                  action: navigate
+                  navigation_path: /views-en/sharon-s-studio
+              sub_button:
+                - entity: climate.stdn_ac
+                  icon: mdi:snowflake
+                  tap_action:
+                    action: toggle
+                - entity: switch.stdn_fan
+                  tap_action:
+                    action: toggle
+              styles: "
+
+                \      .bubble-sub-button-container {
+
+                \        right: unset;
+
+                \        inset-inline-end: 8px;
+
+                \      }
+
+                \    "
+          - type: custom:bubble-card
+            card_type: button
+            button_type: switch
+            entity: group.ofc_lights
+            name: Office
+            icon: mdi:printer-outline
+            scrolling_effect: true
+            tap_action:
+              action: perform-action
+              perform_action: scene.turn_on
+              target:
+                entity_id: scene.ofc_standard
+              data: {}
+            hold_action:
+              action: toggle
+            button_action:
+              tap_action:
+                action: navigate
+                navigation_path: /views-en/office
+            sub_button:
+              - entity: climate.ofc_ac
+                icon: mdi:snowflake
+                tap_action:
+                  action: toggle
+            styles: "
+
+              \      .bubble-sub-button-container {
+
+              \        right: unset;
+
+              \        inset-inline-end: 8px;
+
+              \      }
+
+              \    "
+          - type: custom:bubble-card
+            card_type: button
+            button_type: switch
+            entity: group.crd_lights
+            name: Corridor
+            icon: mdi:domain-switch
+            scrolling_effect: true
+            tap_action:
+              action: perform-action
+              perform_action: scene.turn_on
+              target:
+                entity_id: scene.crd_standard
+              data: {}
+            hold_action:
+              action: toggle
+            button_action:
+              tap_action:
+                action: navigate
+                navigation_path: /views-en/corridor
+            sub_button:
+              - entity: climate.crd_ac
+                icon: mdi:snowflake
+                tap_action:
+                  action: toggle
+            styles: "
+
+              \      .bubble-sub-button-container {
+
+              \        right: unset;
+
+              \        inset-inline-end: 8px;
+
+              \      }
+
+              \    "
+          - type: custom:bubble-card
+            card_type: button
+            button_type: switch
+            entity: group.lndr_lights
+            name: Laundry Room
+            icon: mdi:washing-machine
+            scrolling_effect: true
+            tap_action:
+              action: perform-action
+              perform_action: scene.turn_on
+              target:
+                entity_id: scene.lndr_standard
+              data: {}
+            hold_action:
+              action: toggle
+            button_action:
+              tap_action:
+                action: navigate
+                navigation_path: /views-en/laundry-room
+            sub_button:
+              - entity: climate.lndr_ac
+                icon: mdi:snowflake
+                tap_action:
+                  action: toggle
+            styles: "
+
+              \      .bubble-sub-button-container {
+
+              \        right: unset;
+
+              \        inset-inline-end: 8px;
+
+              \      }
+
+              \    "
+          - type: custom:bubble-card
+            card_type: button
+            button_type: switch
+            entity: group.mmd_lights
+            name: Mamad
+            icon: mdi:security
+            scrolling_effect: true
+            tap_action:
+              action: perform-action
+              perform_action: scene.turn_on
+              target:
+                entity_id: scene.mmd_standard
+              data: {}
+            hold_action:
+              action: toggle
+            button_action:
+              tap_action:
+                action: navigate
+                navigation_path: /views-en/mamad
+            sub_button:
+              - entity: climate.mmd_ac
+                icon: mdi:snowflake
+                tap_action:
+                  action: toggle
+            styles: "
+
+              \      .bubble-sub-button-container {
+
+              \        right: unset;
+
+              \        inset-inline-end: 8px;
+
+              \      }
+
+              \    "
+          - type: custom:bubble-card
+            card_type: button
+            button_type: switch
+            entity: group.mwc_lights
+            name: Master WC
+            icon: mdi:bathtub-outline
+            scrolling_effect: true
+            tap_action:
+              action: perform-action
+              perform_action: scene.turn_on
+              target:
+                entity_id: scene.mwc_standard
+              data: {}
+            hold_action:
+              action: toggle
+            button_action:
+              tap_action:
+                action: navigate
+                navigation_path: /views-en/parent-s-wc
+          - type: conditional
+            conditions:
+              - condition: user
+                users: *a1
+            card:
+              type: custom:bubble-card
+              card_type: button
+              button_type: switch
+              entity: group.ssol_lights
+              name: Studio Solaris
+              icon: mdi:greenhouse
+              scrolling_effect: true
+              tap_action:
+                action: perform-action
+                perform_action: scene.turn_on
+                target:
+                  entity_id: scene.ssol_standard
+                data: {}
+              hold_action:
+                action: toggle
+              button_action:
+                tap_action:
+                  action: navigate
+                  navigation_path: /views-en/studio-solaris
+              sub_button:
+                - entity: climate.ssol_ac
+                  icon: mdi:snowflake
+                  tap_action:
+                    action: toggle
+              styles: "
+
+                \      .bubble-sub-button-container {
+
+                \        right: unset;
+
+                \        inset-inline-end: 8px;
+
+                \      }
+
+                \    "
+          - type: custom:bubble-card
+            card_type: button
+            button_type: switch
+            entity: group.br1_lights
+            name: Amai's Room
+            icon: mdi:bed-queen
+            scrolling_effect: true
+            tap_action:
+              action: perform-action
+              perform_action: scene.turn_on
+              target:
+                entity_id: scene.br1_standard
+              data: {}
+            hold_action:
+              action: toggle
+            button_action:
+              tap_action:
+                action: navigate
+                navigation_path: /views-en/amai-s-room
+            sub_button:
+              - entity: climate.br1_ac
+                icon: mdi:snowflake
+                tap_action:
+                  action: toggle
+              - entity: switch.br1_fan
+                tap_action:
+                  action: toggle
+            styles: "
+
+              \      .bubble-sub-button-container {
+
+              \        right: unset;
+
+              \        inset-inline-end: 8px;
+
+              \      }
+
+              \    "
+          - type: custom:bubble-card
+            card_type: button
+            button_type: switch
+            entity: group.cwc_lights
+            name: Children's WC
+            icon: mdi:bathtub
+            scrolling_effect: true
+            tap_action:
+              action: perform-action
+              perform_action: scene.turn_on
+              target:
+                entity_id: scene.cwc_standard
+              data: {}
+            hold_action:
+              action: toggle
+            button_action:
+              tap_action:
+                action: navigate
+                navigation_path: /views-en/children-s-wc
+          - type: custom:bubble-card
+            card_type: button
+            button_type: switch
+            entity: group.is_lights
+            name: Home
+            icon: mdi:home
+            scrolling_effect: true
+            tap_action:
+              action: perform-action
+              perform_action: scene.turn_on
+              target:
+                entity_id: scene.is_standard
+              data: {}
+            hold_action:
+              action: toggle
+            button_action:
+              tap_action:
+                action: navigate
+                navigation_path: /views-en/home
+          - type: custom:bubble-card
+            card_type: button
+            button_type: switch
+            entity: group.ksol_lights
+            name: Kitchen Solaris
+            icon: mdi:greenhouse
+            scrolling_effect: true
+            tap_action:
+              action: perform-action
+              perform_action: scene.turn_on
+              target:
+                entity_id: scene.ksol_standard
+              data: {}
+            hold_action:
+              action: toggle
+            button_action:
+              tap_action:
+                action: navigate
+                navigation_path: /views-en/kitchen-solaris
+            sub_button:
+              - entity: climate.ksol_ac
+                icon: mdi:snowflake
+                tap_action:
+                  action: toggle
+            styles: "
+
+              \      .bubble-sub-button-container {
+
+              \        right: unset;
+
+              \        inset-inline-end: 8px;
+
+              \      }
+
+              \    "
+          - type: custom:bubble-card
+            card_type: button
+            button_type: switch
+            entity: group.ptio_lights
+            name: Patio
+            icon: mdi:tree-outline
+            scrolling_effect: true
+            tap_action:
+              action: perform-action
+              perform_action: scene.turn_on
+              target:
+                entity_id: scene.ptio_standard
+              data: {}
+            hold_action:
+              action: toggle
+            button_action:
+              tap_action:
+                action: navigate
+                navigation_path: /views-en/front-yard
+          - type: custom:bubble-card
+            card_type: button
+            button_type: switch
+            entity: group.br2_lights
+            name: Tom's Bedroom
+            icon: mdi:bed-queen-outline
+            scrolling_effect: true
+            tap_action:
+              action: perform-action
+              perform_action: scene.turn_on
+              target:
+                entity_id: scene.br2_standard
+              data: {}
+            hold_action:
+              action: toggle
+            button_action:
+              tap_action:
+                action: navigate
+                navigation_path: /views-en/tom-s-bedroom
+            sub_button:
+              - entity: climate.br2_ac
+                icon: mdi:snowflake
+                tap_action:
+                  action: toggle
+              - entity: switch.br2_fan
+                tap_action:
+                  action: toggle
+            styles: "
+
+              \      .bubble-sub-button-container {
+
+              \        right: unset;
+
+              \        inset-inline-end: 8px;
+
+              \      }
+
+              \    "
+  - icon: mdi:sofa-outline
+    path: living-room
+    sections:
+      - type: grid
+        cards:
+          - type: custom:bubble-card
+            card_type: button
+            button_type: switch
+            entity: group.lr_lights
+            name: Living Room
+            icon: mdi:sofa-outline
+            scrolling_effect: true
+            tap_action:
+              action: perform-action
+              perform_action: scene.turn_on
+              target:
+                entity_id: scene.lr_standard
+              data: {}
+            hold_action:
+              action: toggle
+            button_action:
+              tap_action:
+                action: none
+            sub_button:
+              - icon: mdi:home-outline
+                tap_action:
+                  action: navigate
+                  navigation_path: /views-en/home
+            styles: "
+
+              \      .bubble-sub-button-container {
+
+              \        right: unset;
+
+              \        inset-inline-end: 8px;
+
+              \      }
+
+              \    "
+          - type: custom:bubble-card
+            card_type: separator
+            name: Scenes
+          - type: grid
+            square: false
+            columns: 2
+            cards:
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: scene.lr_minimal
+                name: Minimal
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: scene.lr_tv
+                name: TV
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: scene.lr_twilight_zone
+                name: Twilight
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+          - type: custom:bubble-card
+            card_type: separator
+            name: Lights
+          - type: grid
+            square: false
+            columns: 2
+            cards:
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: switch.lr_soc_e
+                name: Standing Lamp
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.lr_lt_wall_n
+                name: North Wall
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.lr_lt_wall_e
+                name: East Wall
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.lr_lt_wall_s
+                name: South Wall
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+          - type: custom:bubble-card
+            card_type: separator
+            name: Climate
+          - type: custom:bubble-card
+            card_type: climate
+            entity: climate.lr_ac
+            name: AC
+            min_temp: 16
+            max_temp: 30
+            step: 1
+            tap_action:
+              action: toggle
+            sub_button:
+              - entity: switch.lr_fan
+                tap_action:
+                  action: toggle
+              - entity: climate.lr_ac
+                icon: mdi:chevron-down
+                select_attribute: hvac_modes
+                show_arrow: false
+            styles: "
+
+              \      .bubble-sub-button-container {
+
+              \        right: unset;
+
+              \        inset-inline-end: 8px;
+
+              \      }
+
+              \    "
+          - type: custom:bubble-card
+            card_type: separator
+            name: Other
+          - type: grid
+            square: false
+            columns: 2
+            cards:
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: media_player.lr_tv
+                name: Living Room TV
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.lr_lt_ceiling
+                name: Ceiling
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.lr_lt_outdoor_projector
+                name: Backyard Flood Light
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: switch.lr_soc_w
+                name: Socket
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+  - icon: mdi:pot-steam-outline
+    path: kitchen
+    sections:
+      - type: grid
+        cards:
+          - type: custom:bubble-card
+            card_type: button
+            button_type: switch
+            entity: group.kt_lights
+            name: Kitchen
+            icon: mdi:pot-steam-outline
+            scrolling_effect: true
+            tap_action:
+              action: perform-action
+              perform_action: scene.turn_on
+              target:
+                entity_id: scene.kt_standard
+              data: {}
+            hold_action:
+              action: toggle
+            button_action:
+              tap_action:
+                action: none
+            sub_button:
+              - icon: mdi:home-outline
+                tap_action:
+                  action: navigate
+                  navigation_path: /views-en/home
+            styles: "
+
+              \      .bubble-sub-button-container {
+
+              \        right: unset;
+
+              \        inset-inline-end: 8px;
+
+              \      }
+
+              \    "
+          - type: custom:bubble-card
+            card_type: separator
+            name: Scenes
+          - type: grid
+            square: false
+            columns: 2
+            cards:
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: scene.kt_minimal
+                name: kt_minimal
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: scene.lr_twilight_zone
+                name: Twilight
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+          - type: custom:bubble-card
+            card_type: separator
+            name: Lights
+          - type: grid
+            square: false
+            columns: 2
+            cards:
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.kt_lt_strip_n
+                name: Counter Spots
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.kt_lt_ceiling_1
+                name: Dining Table
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.kt_lt_strip_s
+                name: Brick Wall Spots
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.kt_lt_wall_s
+                name: Brick Wall
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.kt_lt_ceiling_2
+                name: Sitting Counter
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.kt_lt_wall_s_entrance
+                name: Entrance Wall
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.kt_lt_ceiling_3
+                name: Entrance Ceiling
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.kt_lt_entrance_wall_outdoors
+                name: Kitchen Balcony
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+          - type: custom:bubble-card
+            card_type: separator
+            name: Climate
+          - type: custom:bubble-card
+            card_type: climate
+            entity: climate.kt_ac
+            name: AC
+            min_temp: 16
+            max_temp: 30
+            step: 1
+            tap_action:
+              action: toggle
+            sub_button:
+              - entity: climate.kt_ac
+                icon: mdi:chevron-down
+                select_attribute: hvac_modes
+                show_arrow: false
+            styles: "
+
+              \      .bubble-sub-button-container {
+
+              \        right: unset;
+
+              \        inset-inline-end: 8px;
+
+              \      }
+
+              \    "
+          - type: custom:bubble-card
+            card_type: separator
+            name: Other
+          - type: grid
+            square: false
+            columns: 2
+            cards:
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: switch.kt_door_n
+                name: Solaris Door
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: switch.kt_door_s
+                name: Main Door
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: switch.kt_r_rshy_in_home_chime
+                name: שער ראשי In-home chime
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+  - icon: mdi:bed-king-outline
+    path: bedroom
+    sections:
+      - type: grid
+        cards:
+          - type: custom:bubble-card
+            card_type: button
+            button_type: switch
+            entity: group.mb_lights
+            name: Master Bedroom
+            icon: mdi:bed-king-outline
+            scrolling_effect: true
+            tap_action:
+              action: perform-action
+              perform_action: scene.turn_on
+              target:
+                entity_id: scene.mb_standard
+              data: {}
+            hold_action:
+              action: toggle
+            button_action:
+              tap_action:
+                action: none
+            sub_button:
+              - icon: mdi:home-outline
+                tap_action:
+                  action: navigate
+                  navigation_path: /views-en/home
+            styles: "
+
+              \      .bubble-sub-button-container {
+
+              \        right: unset;
+
+              \        inset-inline-end: 8px;
+
+              \      }
+
+              \    "
+          - type: custom:bubble-card
+            card_type: separator
+            name: Scenes
+          - type: grid
+            square: false
+            columns: 2
+            cards:
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: scene.mb_minimal
+                name: mb_minimal
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: scene.lr_twilight_zone
+                name: Twilight
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+          - type: custom:bubble-card
+            card_type: separator
+            name: Lights
+          - type: grid
+            square: false
+            columns: 2
+            cards:
+              - type: custom:bubble-card
+                card_type: button
+                button_type: slider
+                entity: light.mb_soc_bulb
+                name: Standing Lamp
+                scrolling_effect: true
+                tap_action:
+                  action: perform-action
+                  perform_action: homeassistant.toggle
+                  target:
+                    entity_id: switch.mb_soc
+                button_action:
+                  tap_action:
+                    action: none
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.mb_lt_wall
+                name: Wall Lights
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.mb_bed_s
+                name: Shahar's Bedside
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.mb_bed_n
+                name: Sharon's Bedside
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+          - type: custom:bubble-card
+            card_type: separator
+            name: Climate
+          - type: custom:bubble-card
+            card_type: climate
+            entity: climate.mb_ac
+            name: AC
+            min_temp: 16
+            max_temp: 30
+            step: 1
+            tap_action:
+              action: toggle
+            sub_button:
+              - entity: switch.mb_fan
+                tap_action:
+                  action: toggle
+              - entity: climate.mb_ac
+                icon: mdi:chevron-down
+                select_attribute: hvac_modes
+                show_arrow: false
+            styles: "
+
+              \      .bubble-sub-button-container {
+
+              \        right: unset;
+
+              \        inset-inline-end: 8px;
+
+              \      }
+
+              \    "
+          - type: custom:bubble-card
+            card_type: separator
+            name: Other
+          - type: grid
+            square: false
+            columns: 2
+            cards:
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.mb_lt_wardrobe
+                name: Wardrobe
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.mb_lt_ceiling_hall
+                name: Hall
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: switch.mb_door_s
+                name: Patio Door
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+    visible:
+      - user: bdc857a611d74e9998fdc8535024b263
+      - user: b10953f68ec043cea57260ca2f5e0880
+  - icon: mdi:palette
+    path: shahar-s-studio
+    sections:
+      - type: grid
+        cards:
+          - type: custom:bubble-card
+            card_type: button
+            button_type: switch
+            entity: group.stdr_lights
+            name: Shahar's Studio
+            icon: mdi:palette
+            scrolling_effect: true
+            tap_action:
+              action: perform-action
+              perform_action: scene.turn_on
+              target:
+                entity_id: scene.stdr_standard
+              data: {}
+            hold_action:
+              action: toggle
+            button_action:
+              tap_action:
+                action: none
+            sub_button:
+              - icon: mdi:home-outline
+                tap_action:
+                  action: navigate
+                  navigation_path: /views-en/home
+            styles: "
+
+              \      .bubble-sub-button-container {
+
+              \        right: unset;
+
+              \        inset-inline-end: 8px;
+
+              \      }
+
+              \    "
+          - type: custom:bubble-card
+            card_type: separator
+            name: Scenes
+          - type: grid
+            square: false
+            columns: 2
+            cards:
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: scene.stdr_minimal
+                name: Minimal
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: scene.night_work
+                name: Night Work
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+          - type: custom:bubble-card
+            card_type: separator
+            name: Lights
+          - type: grid
+            square: false
+            columns: 2
+            cards:
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.stdr_lt_ceiling_spots
+                name: Ceiling Spots
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.stdr_lt_ceiling_main
+                name: Ceiling
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.stdr_lt_wall_n_sink
+                name: Large Sink
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.stdr_lt_wall_s_gallery
+                name: Gallery Wall
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.stdr_lt_ceiling_gallery
+                name: Gallery Ceiling
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.stdr_lt_wall_s_sink
+                name: Service Sink
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.stdr_lt_ceiling_kiln
+                name: Kiln Room
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.stdr_lt_ceiling_service_area
+                name: Service Area
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: slider
+                entity: light.shahar_studio_standing_lamp
+                name: Shahar's Studio Standing Lamp
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+                button_action:
+                  tap_action:
+                    action: none
+          - type: custom:bubble-card
+            card_type: separator
+            name: Climate
+          - type: custom:bubble-card
+            card_type: climate
+            entity: climate.stdr_ac
+            name: AC
+            min_temp: 16
+            max_temp: 30
+            step: 1
+            tap_action:
+              action: toggle
+            sub_button:
+              - entity: climate.stdr_ac
+                icon: mdi:chevron-down
+                select_attribute: hvac_modes
+                show_arrow: false
+            styles: "
+
+              \      .bubble-sub-button-container {
+
+              \        right: unset;
+
+              \        inset-inline-end: 8px;
+
+              \      }
+
+              \    "
+    visible:
+      - user: bdc857a611d74e9998fdc8535024b263
+      - user: b10953f68ec043cea57260ca2f5e0880
+  - icon: mdi:piano
+    path: sharon-s-studio
+    sections:
+      - type: grid
+        cards:
+          - type: custom:bubble-card
+            card_type: button
+            button_type: switch
+            entity: group.stdn_lights
+            name: Sharon's Studio
+            icon: mdi:piano
+            scrolling_effect: true
+            tap_action:
+              action: perform-action
+              perform_action: scene.turn_on
+              target:
+                entity_id: scene.stdn_standard
+              data: {}
+            hold_action:
+              action: toggle
+            button_action:
+              tap_action:
+                action: none
+            sub_button:
+              - icon: mdi:home-outline
+                tap_action:
+                  action: navigate
+                  navigation_path: /views-en/home
+            styles: "
+
+              \      .bubble-sub-button-container {
+
+              \        right: unset;
+
+              \        inset-inline-end: 8px;
+
+              \      }
+
+              \    "
+          - type: custom:bubble-card
+            card_type: separator
+            name: Scenes
+          - type: grid
+            square: false
+            columns: 2
+            cards:
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: scene.stdn_minimal
+                name: stdn_minimal
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+          - type: custom:bubble-card
+            card_type: separator
+            name: Lights
+          - type: grid
+            square: false
+            columns: 2
+            cards:
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.stdn_lt_wall_w
+                name: West Wall
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.stdn_lt_wall_n
+                name: North Wall
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.stdn_lt_wall_e
+                name: East Wall
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+          - type: custom:bubble-card
+            card_type: separator
+            name: Climate
+          - type: custom:bubble-card
+            card_type: climate
+            entity: climate.stdn_ac
+            name: AC
+            min_temp: 16
+            max_temp: 30
+            step: 1
+            tap_action:
+              action: toggle
+            sub_button:
+              - entity: switch.stdn_fan
+                tap_action:
+                  action: toggle
+              - entity: climate.stdn_ac
+                icon: mdi:chevron-down
+                select_attribute: hvac_modes
+                show_arrow: false
+            styles: "
+
+              \      .bubble-sub-button-container {
+
+              \        right: unset;
+
+              \        inset-inline-end: 8px;
+
+              \      }
+
+              \    "
+          - type: custom:bubble-card
+            card_type: separator
+            name: Other
+          - type: grid
+            square: false
+            columns: 2
+            cards:
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: switch.stdn_skt
+                name: Standing Lamp
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+    visible:
+      - user: bdc857a611d74e9998fdc8535024b263
+      - user: b10953f68ec043cea57260ca2f5e0880
+  - icon: mdi:printer-outline
+    path: office
+    sections:
+      - type: grid
+        cards:
+          - type: custom:bubble-card
+            card_type: button
+            button_type: switch
+            entity: group.ofc_lights
+            name: Office
+            icon: mdi:printer-outline
+            scrolling_effect: true
+            tap_action:
+              action: perform-action
+              perform_action: scene.turn_on
+              target:
+                entity_id: scene.ofc_standard
+              data: {}
+            hold_action:
+              action: toggle
+            button_action:
+              tap_action:
+                action: none
+            sub_button:
+              - icon: mdi:home-outline
+                tap_action:
+                  action: navigate
+                  navigation_path: /views-en/home
+            styles: "
+
+              \      .bubble-sub-button-container {
+
+              \        right: unset;
+
+              \        inset-inline-end: 8px;
+
+              \      }
+
+              \    "
+          - type: custom:bubble-card
+            card_type: separator
+            name: Lights
+          - type: grid
+            square: false
+            columns: 2
+            cards:
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.ofc_lt_ceiling_hall
+                name: Office Hall
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.ofc_lt_ceiling_wc
+                name: Guest WC
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: slider
+                entity: light.ofc_lt_wall_bulbs
+                name: Office Walls
+                scrolling_effect: true
+                tap_action:
+                  action: perform-action
+                  perform_action: homeassistant.toggle
+                  target:
+                    entity_id: light.ofc_lt_walls
+                button_action:
+                  tap_action:
+                    action: none
+              - type: custom:bubble-card
+                card_type: button
+                button_type: slider
+                entity: light.ofc_lt_corridor_table_bulb
+                name: Office Corridor Table Light Ikea Bulb
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+                button_action:
+                  tap_action:
+                    action: none
+                double_tap_action:
+                  action: more-info
+          - type: custom:bubble-card
+            card_type: separator
+            name: Climate
+          - type: custom:bubble-card
+            card_type: climate
+            entity: climate.ofc_ac
+            name: AC
+            min_temp: 16
+            max_temp: 30
+            step: 1
+            tap_action:
+              action: toggle
+            sub_button:
+              - entity: climate.ofc_ac
+                icon: mdi:chevron-down
+                select_attribute: hvac_modes
+                show_arrow: false
+            styles: "
+
+              \      .bubble-sub-button-container {
+
+              \        right: unset;
+
+              \        inset-inline-end: 8px;
+
+              \      }
+
+              \    "
+  - icon: mdi:domain-switch
+    path: corridor
+    sections:
+      - type: grid
+        cards:
+          - type: custom:bubble-card
+            card_type: button
+            button_type: switch
+            entity: group.crd_lights
+            name: Corridor
+            icon: mdi:domain-switch
+            scrolling_effect: true
+            tap_action:
+              action: perform-action
+              perform_action: scene.turn_on
+              target:
+                entity_id: scene.crd_standard
+              data: {}
+            hold_action:
+              action: toggle
+            button_action:
+              tap_action:
+                action: none
+            sub_button:
+              - icon: mdi:home-outline
+                tap_action:
+                  action: navigate
+                  navigation_path: /views-en/home
+            styles: "
+
+              \      .bubble-sub-button-container {
+
+              \        right: unset;
+
+              \        inset-inline-end: 8px;
+
+              \      }
+
+              \    "
+          - type: custom:bubble-card
+            card_type: separator
+            name: Lights
+          - type: grid
+            square: false
+            columns: 2
+            cards:
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.crd_lt_wall_e
+                name: Corridor Wall
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.crd_lt_mmd_wall_n
+                name: Toilet Entrance
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.crd_lt_entrance_wall_outdoors
+                name: Children Entrance Backyard
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+          - type: custom:bubble-card
+            card_type: separator
+            name: Climate
+          - type: custom:bubble-card
+            card_type: climate
+            entity: climate.crd_ac
+            name: AC
+            min_temp: 16
+            max_temp: 30
+            step: 1
+            tap_action:
+              action: toggle
+            sub_button:
+              - entity: climate.crd_ac
+                icon: mdi:chevron-down
+                select_attribute: hvac_modes
+                show_arrow: false
+            styles: "
+
+              \      .bubble-sub-button-container {
+
+              \        right: unset;
+
+              \        inset-inline-end: 8px;
+
+              \      }
+
+              \    "
+  - icon: mdi:washing-machine
+    path: laundry-room
+    sections:
+      - type: grid
+        cards:
+          - type: custom:bubble-card
+            card_type: button
+            button_type: switch
+            entity: group.lndr_lights
+            name: Laundry Room
+            icon: mdi:washing-machine
+            scrolling_effect: true
+            tap_action:
+              action: perform-action
+              perform_action: scene.turn_on
+              target:
+                entity_id: scene.lndr_standard
+              data: {}
+            hold_action:
+              action: toggle
+            button_action:
+              tap_action:
+                action: none
+            sub_button:
+              - icon: mdi:home-outline
+                tap_action:
+                  action: navigate
+                  navigation_path: /views-en/home
+            styles: "
+
+              \      .bubble-sub-button-container {
+
+              \        right: unset;
+
+              \        inset-inline-end: 8px;
+
+              \      }
+
+              \    "
+          - type: custom:bubble-card
+            card_type: separator
+            name: Lights
+          - type: grid
+            square: false
+            columns: 2
+            cards:
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.lndr_lt_ceiling
+                name: Ceiling
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.lndr_lt_outdoor_projector
+                name: Flood Light
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.lndr_lt_entrance_wall_outdoor
+                name: Laundry Room Entrance
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+          - type: custom:bubble-card
+            card_type: separator
+            name: Climate
+          - type: custom:bubble-card
+            card_type: climate
+            entity: climate.lndr_ac
+            name: AC
+            min_temp: 16
+            max_temp: 30
+            step: 1
+            tap_action:
+              action: toggle
+            sub_button:
+              - entity: climate.lndr_ac
+                icon: mdi:chevron-down
+                select_attribute: hvac_modes
+                show_arrow: false
+            styles: "
+
+              \      .bubble-sub-button-container {
+
+              \        right: unset;
+
+              \        inset-inline-end: 8px;
+
+              \      }
+
+              \    "
+  - icon: mdi:security
+    path: mamad
+    sections:
+      - type: grid
+        cards:
+          - type: custom:bubble-card
+            card_type: button
+            button_type: switch
+            entity: group.mmd_lights
+            name: Mamad
+            icon: mdi:security
+            scrolling_effect: true
+            tap_action:
+              action: perform-action
+              perform_action: scene.turn_on
+              target:
+                entity_id: scene.mmd_standard
+              data: {}
+            hold_action:
+              action: toggle
+            button_action:
+              tap_action:
+                action: none
+            sub_button:
+              - icon: mdi:home-outline
+                tap_action:
+                  action: navigate
+                  navigation_path: /views-en/home
+            styles: "
+
+              \      .bubble-sub-button-container {
+
+              \        right: unset;
+
+              \        inset-inline-end: 8px;
+
+              \      }
+
+              \    "
+          - type: custom:bubble-card
+            card_type: separator
+            name: Climate
+          - type: custom:bubble-card
+            card_type: climate
+            entity: climate.mmd_ac
+            name: AC
+            min_temp: 16
+            max_temp: 30
+            step: 1
+            tap_action:
+              action: toggle
+            sub_button:
+              - entity: climate.mmd_ac
+                icon: mdi:chevron-down
+                select_attribute: hvac_modes
+                show_arrow: false
+            styles: "
+
+              \      .bubble-sub-button-container {
+
+              \        right: unset;
+
+              \        inset-inline-end: 8px;
+
+              \      }
+
+              \    "
+  - icon: mdi:bathtub-outline
+    path: parent-s-wc
+    sections:
+      - type: grid
+        cards:
+          - type: custom:bubble-card
+            card_type: button
+            button_type: switch
+            entity: group.mwc_lights
+            name: Master WC
+            icon: mdi:bathtub-outline
+            scrolling_effect: true
+            tap_action:
+              action: perform-action
+              perform_action: scene.turn_on
+              target:
+                entity_id: scene.mwc_standard
+              data: {}
+            hold_action:
+              action: toggle
+            button_action:
+              tap_action:
+                action: none
+            sub_button:
+              - icon: mdi:home-outline
+                tap_action:
+                  action: navigate
+                  navigation_path: /views-en/home
+            styles: "
+
+              \      .bubble-sub-button-container {
+
+              \        right: unset;
+
+              \        inset-inline-end: 8px;
+
+              \      }
+
+              \    "
+          - type: custom:bubble-card
+            card_type: separator
+            name: Lights
+          - type: grid
+            square: false
+            columns: 2
+            cards:
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.mwc_main_ceiling
+                name: Ceiling
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.mwc_main_wall
+                name: Brick Wall
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.mwc_ceiling_toilet
+                name: Toilet
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.mwc_ceiling_shower
+                name: Shower
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.mwc_lt_bathroom_wall_s
+                name: mwc_lt_bathroom_wall_s
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.mwc_lt_bathroom_wall_e
+                name: mwc_lt_bathroom_wall_e
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.mwc_outdoor_projector
+                name: Flood Light
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+  - icon: mdi:greenhouse
+    path: studio-solaris
+    sections:
+      - type: grid
+        cards:
+          - type: custom:bubble-card
+            card_type: button
+            button_type: switch
+            entity: group.ssol_lights
+            name: Studio Solaris
+            icon: mdi:greenhouse
+            scrolling_effect: true
+            tap_action:
+              action: perform-action
+              perform_action: scene.turn_on
+              target:
+                entity_id: scene.ssol_standard
+              data: {}
+            hold_action:
+              action: toggle
+            button_action:
+              tap_action:
+                action: none
+            sub_button:
+              - icon: mdi:home-outline
+                tap_action:
+                  action: navigate
+                  navigation_path: /views-en/home
+            styles: "
+
+              \      .bubble-sub-button-container {
+
+              \        right: unset;
+
+              \        inset-inline-end: 8px;
+
+              \      }
+
+              \    "
+          - type: custom:bubble-card
+            card_type: separator
+            name: Lights
+          - type: grid
+            square: false
+            columns: 2
+            cards:
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.ssol_lt_wall_s
+                name: Wall Light
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+          - type: custom:bubble-card
+            card_type: separator
+            name: Climate
+          - type: custom:bubble-card
+            card_type: climate
+            entity: climate.ssol_ac
+            name: AC
+            min_temp: 16
+            max_temp: 30
+            step: 1
+            tap_action:
+              action: toggle
+            sub_button:
+              - entity: climate.ssol_ac
+                icon: mdi:chevron-down
+                select_attribute: hvac_modes
+                show_arrow: false
+            styles: "
+
+              \      .bubble-sub-button-container {
+
+              \        right: unset;
+
+              \        inset-inline-end: 8px;
+
+              \      }
+
+              \    "
+    visible:
+      - user: bdc857a611d74e9998fdc8535024b263
+      - user: b10953f68ec043cea57260ca2f5e0880
+  - icon: mdi:bed-queen
+    path: amai-s-room
+    sections:
+      - type: grid
+        cards:
+          - type: custom:bubble-card
+            card_type: button
+            button_type: switch
+            entity: group.br1_lights
+            name: Amai's Room
+            icon: mdi:bed-queen
+            scrolling_effect: true
+            tap_action:
+              action: perform-action
+              perform_action: scene.turn_on
+              target:
+                entity_id: scene.br1_standard
+              data: {}
+            hold_action:
+              action: toggle
+            button_action:
+              tap_action:
+                action: none
+            sub_button:
+              - icon: mdi:home-outline
+                tap_action:
+                  action: navigate
+                  navigation_path: /views-en/home
+            styles: "
+
+              \      .bubble-sub-button-container {
+
+              \        right: unset;
+
+              \        inset-inline-end: 8px;
+
+              \      }
+
+              \    "
+          - type: custom:bubble-card
+            card_type: separator
+            name: Lights
+          - type: grid
+            square: false
+            columns: 2
+            cards:
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.br1_lt_ceiling
+                name: Ceiling
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.br1_lt_wall_s
+                name: South Wall
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.br1_lt_window_w
+                name: Window
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.br1_lt_wall_w
+                name: West Wall
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+          - type: custom:bubble-card
+            card_type: separator
+            name: Climate
+          - type: custom:bubble-card
+            card_type: climate
+            entity: climate.br1_ac
+            name: AC
+            min_temp: 16
+            max_temp: 30
+            step: 1
+            tap_action:
+              action: toggle
+            sub_button:
+              - entity: switch.br1_fan
+                tap_action:
+                  action: toggle
+              - entity: climate.br1_ac
+                icon: mdi:chevron-down
+                select_attribute: hvac_modes
+                show_arrow: false
+            styles: "
+
+              \      .bubble-sub-button-container {
+
+              \        right: unset;
+
+              \        inset-inline-end: 8px;
+
+              \      }
+
+              \    "
+  - icon: mdi:bathtub
+    path: children-s-wc
+    sections:
+      - type: grid
+        cards:
+          - type: custom:bubble-card
+            card_type: button
+            button_type: switch
+            entity: group.cwc_lights
+            name: Children's WC
+            icon: mdi:bathtub
+            scrolling_effect: true
+            tap_action:
+              action: perform-action
+              perform_action: scene.turn_on
+              target:
+                entity_id: scene.cwc_standard
+              data: {}
+            hold_action:
+              action: toggle
+            button_action:
+              tap_action:
+                action: none
+            sub_button:
+              - icon: mdi:home-outline
+                tap_action:
+                  action: navigate
+                  navigation_path: /views-en/home
+            styles: "
+
+              \      .bubble-sub-button-container {
+
+              \        right: unset;
+
+              \        inset-inline-end: 8px;
+
+              \      }
+
+              \    "
+          - type: custom:bubble-card
+            card_type: separator
+            name: Lights
+          - type: grid
+            square: false
+            columns: 2
+            cards:
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.cwc_lt_toilet_wall_e
+                name: Toilet
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.cwc_lt_bathroom_ceiling
+                name: Ceiling
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.cwc_lt_bathroom_wall_s
+                name: Wall Light
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.cwc_heater_bathroom
+                name: Heater
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.cwc_lt_bathroom_wall_outdoors
+                name: Bathroom Wall
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+  - icon: mdi:home
+    path: home
+    sections:
+      - type: grid
+        cards:
+          - type: custom:bubble-card
+            card_type: button
+            button_type: switch
+            entity: group.is_lights
+            name: Home
+            icon: mdi:home
+            scrolling_effect: true
+            tap_action:
+              action: perform-action
+              perform_action: scene.turn_on
+              target:
+                entity_id: scene.is_standard
+              data: {}
+            hold_action:
+              action: toggle
+            button_action:
+              tap_action:
+                action: none
+            sub_button:
+              - icon: mdi:home-outline
+                tap_action:
+                  action: navigate
+                  navigation_path: /views-en/home
+            styles: "
+
+              \      .bubble-sub-button-container {
+
+              \        right: unset;
+
+              \        inset-inline-end: 8px;
+
+              \      }
+
+              \    "
+          - type: custom:bubble-card
+            card_type: separator
+            name: Other
+          - type: grid
+            square: false
+            columns: 2
+            cards:
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: input_boolean.is_dark
+                name: Is Dark
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: switch.home_sw_heating
+                name: Central Heating
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: switch.home_sw_pima
+                name: Alarm
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+  - icon: mdi:greenhouse
+    path: kitchen-solaris
+    sections:
+      - type: grid
+        cards:
+          - type: custom:bubble-card
+            card_type: button
+            button_type: switch
+            entity: group.ksol_lights
+            name: Kitchen Solaris
+            icon: mdi:greenhouse
+            scrolling_effect: true
+            tap_action:
+              action: perform-action
+              perform_action: scene.turn_on
+              target:
+                entity_id: scene.ksol_standard
+              data: {}
+            hold_action:
+              action: toggle
+            button_action:
+              tap_action:
+                action: none
+            sub_button:
+              - icon: mdi:home-outline
+                tap_action:
+                  action: navigate
+                  navigation_path: /views-en/home
+            styles: "
+
+              \      .bubble-sub-button-container {
+
+              \        right: unset;
+
+              \        inset-inline-end: 8px;
+
+              \      }
+
+              \    "
+          - type: custom:bubble-card
+            card_type: separator
+            name: Lights
+          - type: grid
+            square: false
+            columns: 2
+            cards:
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.ksol_lt_wall_w
+                name: Wall Light
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.ksol_lt_sink
+                name: Sink Light
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+          - type: custom:bubble-card
+            card_type: separator
+            name: Climate
+          - type: custom:bubble-card
+            card_type: climate
+            entity: climate.ksol_ac
+            name: AC
+            min_temp: 16
+            max_temp: 30
+            step: 1
+            tap_action:
+              action: toggle
+            sub_button:
+              - entity: climate.ksol_ac
+                icon: mdi:chevron-down
+                select_attribute: hvac_modes
+                show_arrow: false
+            styles: "
+
+              \      .bubble-sub-button-container {
+
+              \        right: unset;
+
+              \        inset-inline-end: 8px;
+
+              \      }
+
+              \    "
+  - icon: mdi:tree-outline
+    path: front-yard
+    sections:
+      - type: grid
+        cards:
+          - type: custom:bubble-card
+            card_type: button
+            button_type: switch
+            entity: group.ptio_lights
+            name: Patio
+            icon: mdi:tree-outline
+            scrolling_effect: true
+            tap_action:
+              action: perform-action
+              perform_action: scene.turn_on
+              target:
+                entity_id: scene.ptio_standard
+              data: {}
+            hold_action:
+              action: toggle
+            button_action:
+              tap_action:
+                action: none
+            sub_button:
+              - icon: mdi:home-outline
+                tap_action:
+                  action: navigate
+                  navigation_path: /views-en/home
+            styles: "
+
+              \      .bubble-sub-button-container {
+
+              \        right: unset;
+
+              \        inset-inline-end: 8px;
+
+              \      }
+
+              \    "
+          - type: custom:bubble-card
+            card_type: separator
+            name: Lights
+          - type: grid
+            square: false
+            columns: 2
+            cards:
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.ptio_lt_wall_ne
+                name: North Wall
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.ptio_lt_wall_nw
+                name: Patio Entrance
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.ptio_lt_wall_e
+                name: East Wall
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.ptio_west_wall
+                name: West Wall
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.ptio_lt_wall_main_entrance
+                name: Main Door Light
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.ptio_lt_corridor_wall_e
+                name: Patio Corridor
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.ptio_lt_corridor_wall_s
+                name: Corridor Door
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+          - type: custom:bubble-card
+            card_type: separator
+            name: Other
+          - type: grid
+            square: false
+            columns: 2
+            cards:
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: switch.ptio_gate_ne
+                name: Blue Gate
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: switch.ptio_r_rshy_motion_detection
+                name: שער ראשי Motion detection
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+  - icon: mdi:bed-queen-outline
+    path: tom-s-bedroom
+    sections:
+      - type: grid
+        cards:
+          - type: custom:bubble-card
+            card_type: button
+            button_type: switch
+            entity: group.br2_lights
+            name: Tom's Bedroom
+            icon: mdi:bed-queen-outline
+            scrolling_effect: true
+            tap_action:
+              action: perform-action
+              perform_action: scene.turn_on
+              target:
+                entity_id: scene.br2_standard
+              data: {}
+            hold_action:
+              action: toggle
+            button_action:
+              tap_action:
+                action: none
+            sub_button:
+              - icon: mdi:home-outline
+                tap_action:
+                  action: navigate
+                  navigation_path: /views-en/home
+            styles: "
+
+              \      .bubble-sub-button-container {
+
+              \        right: unset;
+
+              \        inset-inline-end: 8px;
+
+              \      }
+
+              \    "
+          - type: custom:bubble-card
+            card_type: separator
+            name: Lights
+          - type: grid
+            square: false
+            columns: 2
+            cards:
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.br2_lt_ceiling
+                name: Ceiling
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.br2_lt_wall_n
+                name: North Wall
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.br2_lt_window_w
+                name: Window
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.br2_lt_wall_w
+                name: West Wall
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+          - type: custom:bubble-card
+            card_type: separator
+            name: Climate
+          - type: custom:bubble-card
+            card_type: climate
+            entity: climate.br2_ac
+            name: AC
+            min_temp: 16
+            max_temp: 30
+            step: 1
+            tap_action:
+              action: toggle
+            sub_button:
+              - entity: switch.br2_fan
+                tap_action:
+                  action: toggle
+              - entity: climate.br2_ac
+                icon: mdi:chevron-down
+                select_attribute: hvac_modes
+                show_arrow: false
+            styles: "
+
+              \      .bubble-sub-button-container {
+
+              \        right: unset;
+
+              \        inset-inline-end: 8px;
+
+              \      }
+
+              \    "

@@ -37,3 +37,15 @@ lovelace:
       icon: mdi:view-dashboard-variant
       show_in_sidebar: true
       filename: lovelace/views.yaml
+    views-en:
+      mode: yaml
+      title: Home (Views)
+      icon: mdi:view-dashboard-variant
+      show_in_sidebar: true
+      filename: lovelace/views-en.yaml
+    views-he:
+      mode: yaml
+      title: בית
+      icon: mdi:view-dashboard-variant
+      show_in_sidebar: true
+      filename: lovelace/views-he.yaml
