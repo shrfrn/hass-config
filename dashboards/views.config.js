@@ -50,6 +50,20 @@ const config = {
       { name: 'Amai', entity: 'binary_sensor.amai_home', icon: 'mdi:human-female-girl' },
     ],
   },
+  languages: [
+    {
+      lang: 'en',
+      output: 'lovelace/views-en.yaml',
+      dashboard_path: 'views-en',
+      dashboard_title: 'Home (Views)',
+    },
+    {
+      lang: 'he',
+      output: 'lovelace/views-he.yaml',
+      dashboard_path: 'views-he',
+      dashboard_title: 'בית',
+    },
+  ],
 }
 
 export default config
