@@ -14,10 +14,17 @@ default_config:
 frontend:
   themes: !include_dir_merge_named themes
 
-automation: !include automations.yaml
-script: !include scripts.yaml
+# UI-managed (HA writes here) + Generated (hass-gen writes here)
+automation ui: !include automations.yaml
+automation generated: !include automations/generated.yaml
+
+script ui: !include scripts.yaml
+script generated: !include ha-scripts/generated.yaml
+
 # group: !include groups.yaml
-scene: !include scenes.yaml
+
+scene ui: !include scenes.yaml
+scene generated: !include scenes/generated.yaml
 
 knx: !include knx/knx.yaml
 
