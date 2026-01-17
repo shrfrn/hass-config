@@ -10,7 +10,7 @@
 
 import { PARENTS } from '../users.js'
 
-/** @type {import('../inventory/types/config.d.ts').GlobalDashboardConfig} */
+/** @type {import('../inventory/types/config.js').GlobalDashboardConfig} */
 const config = {
   schemaVersion: 1,
 
@@ -33,7 +33,7 @@ const config = {
   ],
 
   // Areas to exclude from the dashboard
-  excluded_areas: ['home_assistant'],
+  excluded_areas: ['home_assistant', 'home'],
 
   // Scene suffix for default tap action (scene.<prefix><suffix>)
   default_scene_suffix: 'standard',

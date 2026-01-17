@@ -8,7 +8,6 @@ group:
     entities:
       - light.mwc_ceiling_shower
       - light.mwc_ceiling_toilet
-      - light.mwc_lt_bathroom_wall_e
       - light.mwc_lt_bathroom_wall_s
       - light.mwc_main_ceiling
       - light.mwc_main_wall
@@ -36,3 +35,25 @@ timer:
   mwc_vacancy:
     name: Master WC Vacancy Timer
     duration: "00:09:00"
+
+automation:
+  - id: sync_mwc_bathroom_wall_e_light
+    alias: Sync Master Bathroom East Wall Light
+    trigger:
+      - platform: state
+        entity_id:
+          - switch.mwc_sw_bathroom_wall_e
+          - light.mwc_lt_bathroom_wall_e
+        to:
+          - "on"
+          - "off"
+    condition:
+      - condition: template
+        value_template: "{{ trigger.to_state.state != trigger.from_state.state }}"
+    action:
+      - service: "homeassistant.turn_{{ trigger.to_state.state }}"
+        target:
+          entity_id: >
+            {% set triggered = trigger.entity_id %}
+            {% set all = ["switch.mwc_sw_bathroom_wall_e","light.mwc_lt_bathroom_wall_e"] %}
+            {{ all | reject('eq', triggered) | list }}

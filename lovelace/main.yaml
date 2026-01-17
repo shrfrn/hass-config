@@ -465,25 +465,6 @@ views:
           - type: custom:bubble-card
             card_type: button
             button_type: switch
-            entity: group.is_lights
-            name: בית
-            icon: mdi:home
-            scrolling_effect: true
-            tap_action:
-              action: perform-action
-              perform_action: scene.turn_on
-              target:
-                entity_id: scene.is_standard
-              data: {}
-            hold_action:
-              action: toggle
-            button_action:
-              tap_action:
-                action: navigate
-                navigation_path: "#is_details"
-          - type: custom:bubble-card
-            card_type: button
-            button_type: switch
             entity: group.ksol_lights
             name: סולריס מטבח
             icon: mdi:greenhouse
@@ -704,8 +685,16 @@ views:
                   - type: custom:bubble-card
                     card_type: button
                     button_type: switch
-                    entity: media_player.lr_tv
-                    name: טלויזיה
+                    entity: light.lr_lt_ceiling
+                    name: תקרה
+                    scrolling_effect: true
+                    tap_action:
+                      action: toggle
+                  - type: custom:bubble-card
+                    card_type: button
+                    button_type: switch
+                    entity: light.lr_lt_outdoor_projector
+                    name: פרוג׳קטור
                     scrolling_effect: true
                     tap_action:
                       action: toggle
@@ -720,16 +709,8 @@ views:
                   - type: custom:bubble-card
                     card_type: button
                     button_type: switch
-                    entity: light.lr_lt_ceiling
-                    name: תקרה
-                    scrolling_effect: true
-                    tap_action:
-                      action: toggle
-                  - type: custom:bubble-card
-                    card_type: button
-                    button_type: switch
-                    entity: light.lr_lt_outdoor_projector
-                    name: פרוג׳קטור
+                    entity: media_player.lr_tv
+                    name: טלויזיה
                     scrolling_effect: true
                     tap_action:
                       action: toggle
@@ -1040,14 +1021,6 @@ views:
                     - type: custom:bubble-card
                       card_type: button
                       button_type: switch
-                      entity: switch.mb_door_s
-                      name: דלת פטיו
-                      scrolling_effect: true
-                      tap_action:
-                        action: toggle
-                    - type: custom:bubble-card
-                      card_type: button
-                      button_type: switch
                       entity: light.mb_lt_wardrobe
                       name: חדר ארונות
                       scrolling_effect: true
@@ -1058,6 +1031,14 @@ views:
                       button_type: switch
                       entity: light.mb_lt_ceiling_hall
                       name: מסדרון
+                      scrolling_effect: true
+                      tap_action:
+                        action: toggle
+                    - type: custom:bubble-card
+                      card_type: button
+                      button_type: switch
+                      entity: switch.mb_door_s
+                      name: דלת פטיו
                       scrolling_effect: true
                       tap_action:
                         action: toggle
@@ -1681,6 +1662,14 @@ views:
                   - type: custom:bubble-card
                     card_type: button
                     button_type: switch
+                    entity: switch.mwc_sw_bathroom_wall_e
+                    name: Master Bathroom East Wall Light
+                    scrolling_effect: true
+                    tap_action:
+                      action: toggle
+                  - type: custom:bubble-card
+                    card_type: button
+                    button_type: switch
                     entity: light.mwc_main_ceiling
                     name: תקרה
                     scrolling_effect: true
@@ -1715,14 +1704,6 @@ views:
                     button_type: switch
                     entity: light.mwc_lt_bathroom_wall_s
                     name: אמבטיה דרום
-                    scrolling_effect: true
-                    tap_action:
-                      action: toggle
-                  - type: custom:bubble-card
-                    card_type: button
-                    button_type: switch
-                    entity: light.mwc_lt_bathroom_wall_e
-                    name: אמבטיה מזרח
                     scrolling_effect: true
                     tap_action:
                       action: toggle
@@ -1956,72 +1937,6 @@ views:
                     button_type: switch
                     entity: light.cwc_lt_bathroom_wall_outdoors
                     name: קיר חוץ מזרח
-                    scrolling_effect: true
-                    tap_action:
-                      action: toggle
-          - type: vertical-stack
-            cards:
-              - type: custom:bubble-card
-                card_type: pop-up
-                hash: "#is_details"
-                button_type: switch
-                name: בית
-                icon: mdi:home
-                entity: group.is_lights
-                tap_action:
-                  action: perform-action
-                  perform_action: scene.turn_on
-                  target:
-                    entity_id: scene.is_standard
-                  data: {}
-                hold_action:
-                  action: toggle
-                button_action:
-                  tap_action:
-                    action: none
-              - type: custom:bubble-card
-                card_type: separator
-                name: תרחישים
-              - type: grid
-                square: false
-                columns: 2
-                cards:
-                  - type: custom:bubble-card
-                    card_type: button
-                    button_type: switch
-                    entity: scene.sleep
-                    name: Sleep
-                    scrolling_effect: true
-                    tap_action:
-                      action: toggle
-              - type: custom:bubble-card
-                card_type: separator
-                name: אחר
-              - type: grid
-                square: false
-                columns: 2
-                cards:
-                  - type: custom:bubble-card
-                    card_type: button
-                    button_type: switch
-                    entity: input_boolean.is_dark
-                    name: Is Dark
-                    scrolling_effect: true
-                    tap_action:
-                      action: toggle
-                  - type: custom:bubble-card
-                    card_type: button
-                    button_type: switch
-                    entity: switch.home_sw_heating
-                    name: חימום מרכזי
-                    scrolling_effect: true
-                    tap_action:
-                      action: toggle
-                  - type: custom:bubble-card
-                    card_type: button
-                    button_type: switch
-                    entity: switch.home_sw_pima
-                    name: אזעקה
                     scrolling_effect: true
                     tap_action:
                       action: toggle
