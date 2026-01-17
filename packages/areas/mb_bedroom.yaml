@@ -56,6 +56,6 @@ automation:
       - service: "switch.turn_{{ trigger.to_state.state }}"
         target:
           entity_id: >
-  {% set triggered = trigger.entity_id %}
-  {% set all = ["switch.mb_soc","light.mb_soc_bulb"] %}
-  {{ all | reject('eq', triggered) | list }}
+            {% set triggered = trigger.entity_id %}
+            {% set all = ["switch.mb_soc","light.mb_soc_bulb"] %}
+            {{ all | reject('eq', triggered) | list }}
