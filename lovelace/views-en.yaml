@@ -309,7 +309,7 @@ views:
           - type: custom:bubble-card
             card_type: button
             button_type: switch
-            entity: group.ofc_lights
+            entity: group.office_lights
             name: Office
             icon: mdi:printer-outline
             scrolling_effect: true
@@ -317,7 +317,7 @@ views:
               action: perform-action
               perform_action: scene.turn_on
               target:
-                entity_id: scene.ofc_standard
+                entity_id: scene.office_standard
               data: {}
             hold_action:
               action: toggle
@@ -1117,7 +1117,7 @@ views:
                 card_type: button
                 button_type: slider
                 entity: light.mb_soc_bulb
-                name: Standing Lamp
+                name: Master Bedroom Standing Lamp
                 scrolling_effect: true
                 tap_action:
                   action: perform-action
@@ -1533,7 +1533,7 @@ views:
           - type: custom:bubble-card
             card_type: button
             button_type: switch
-            entity: group.ofc_lights
+            entity: group.office_lights
             name: Office
             icon: mdi:printer-outline
             scrolling_effect: true
@@ -1541,7 +1541,7 @@ views:
               action: perform-action
               perform_action: scene.turn_on
               target:
-                entity_id: scene.ofc_standard
+                entity_id: scene.office_standard
               data: {}
             hold_action:
               action: toggle
@@ -1566,11 +1566,37 @@ views:
               \    "
           - type: custom:bubble-card
             card_type: separator
+            name: Scenes
+          - type: grid
+            square: false
+            columns: 2
+            cards:
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: scene.office_test
+                name: office test
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+          - type: custom:bubble-card
+            card_type: separator
             name: Lights
           - type: grid
             square: false
             columns: 2
             cards:
+              - type: custom:bubble-card
+                card_type: button
+                button_type: slider
+                entity: light.ofc_wall_light
+                name: Office Wall Light
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+                button_action:
+                  tap_action:
+                    action: none
               - type: custom:bubble-card
                 card_type: button
                 button_type: switch
@@ -1587,20 +1613,6 @@ views:
                 scrolling_effect: true
                 tap_action:
                   action: toggle
-              - type: custom:bubble-card
-                card_type: button
-                button_type: slider
-                entity: light.ofc_lt_wall_bulbs
-                name: Office Walls
-                scrolling_effect: true
-                tap_action:
-                  action: perform-action
-                  perform_action: homeassistant.toggle
-                  target:
-                    entity_id: light.ofc_lt_walls
-                button_action:
-                  tap_action:
-                    action: none
               - type: custom:bubble-card
                 card_type: button
                 button_type: slider
@@ -2326,6 +2338,21 @@ views:
               \      }
 
               \    "
+          - type: custom:bubble-card
+            card_type: separator
+            name: Scenes
+          - type: grid
+            square: false
+            columns: 2
+            cards:
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: scene.sleep
+                name: Sleep
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
           - type: custom:bubble-card
             card_type: separator
             name: Other

@@ -1,5 +1,3 @@
-# Generated scene templates - DO NOT EDIT
-# This file is managed by hass-gen. Manual changes will be overwritten.
 - id: template_br1
   name: br1_template
   icon: mdi:content-copy
@@ -149,6 +147,8 @@
       state: on
     light.mb_lt_wardrobe:
       state: on
+    light.mb_soc_bulb:
+      state: on
   metadata:
     light.mb_bed_n:
       entity_only: true
@@ -159,6 +159,8 @@
     light.mb_lt_wall:
       entity_only: true
     light.mb_lt_wardrobe:
+      entity_only: true
+    light.mb_soc_bulb:
       entity_only: true
 - id: template_mwc
   name: mwc_template
@@ -189,8 +191,8 @@
       entity_only: true
     light.mwc_main_wall:
       entity_only: true
-- id: template_ofc
-  name: ofc_template
+- id: template_office
+  name: office_template
   icon: mdi:content-copy
   entities:
     light.ofc_lt_ceiling_hall:

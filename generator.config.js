@@ -44,14 +44,28 @@ const config = {
     },
 
     bedroom: {
-      dimmable_companions: {
-        'switch.mb_soc': 'light.mb_soc_bulb',
+      syncedEntities: {
+        mb_standing_lamp: {
+          name: 'Master Bedroom Standing Lamp',
+          power: null, // Always powered - switch doesn't cut power to bulb
+          entities: [
+            { entity_id: 'switch.mb_soc', sync: true },
+            { entity_id: 'light.mb_soc_bulb', sync: true, controls: 'dimmable' },
+          ],
+        },
       },
     },
 
     office: {
-      dimmable_companions: {
-        'light.ofc_lt_walls': 'light.ofc_lt_wall_bulbs',
+      syncedEntities: {
+        ofc_wall_light: {
+          name: 'Office Wall Light',
+          power: 'light.ofc_lt_walls', // KNX relay controls power to bulbs
+          entities: [
+            { entity_id: 'light.ofc_lt_walls', sync: true },
+            { entity_id: 'light.ofc_lt_wall_bulbs', sync: true, controls: 'dimmable' },
+          ],
+        },
       },
     },
 
