@@ -76,7 +76,7 @@ automation:
       - condition: template
         value_template: "{{ trigger.to_state.state != trigger.from_state.state }}"
     action:
-      - service: "light.turn_{{ trigger.to_state.state }}"
+      - service: "homeassistant.turn_{{ trigger.to_state.state }}"
         target:
           entity_id: >
             {% set triggered = trigger.entity_id %}

@@ -217,14 +217,14 @@ views:
               action: perform-action
               perform_action: scene.turn_on
               target:
-                entity_id: scene.office_standard
+                entity_id: scene.ofc_standard
               data: {}
             hold_action:
               action: toggle
             button_action:
               tap_action:
                 action: navigate
-                navigation_path: "#office_details"
+                navigation_path: "#ofc_details"
             sub_button:
               - entity: climate.ofc_ac
                 icon: mdi:snowflake
@@ -1340,16 +1340,16 @@ views:
             cards:
               - type: custom:bubble-card
                 card_type: pop-up
-                hash: "#office_details"
+                hash: "#ofc_details"
                 button_type: switch
                 name: משרד
                 icon: mdi:printer-outline
-                entity: group.office_lights
+                entity: group.ofc_lights
                 tap_action:
                   action: perform-action
                   perform_action: scene.turn_on
                   target:
-                    entity_id: scene.office_standard
+                    entity_id: scene.ofc_standard
                   data: {}
                 hold_action:
                   action: toggle

@@ -309,7 +309,7 @@ views:
           - type: custom:bubble-card
             card_type: button
             button_type: switch
-            entity: group.office_lights
+            entity: group.ofc_lights
             name: Office
             icon: mdi:printer-outline
             scrolling_effect: true
@@ -317,7 +317,7 @@ views:
               action: perform-action
               perform_action: scene.turn_on
               target:
-                entity_id: scene.office_standard
+                entity_id: scene.ofc_standard
               data: {}
             hold_action:
               action: toggle
@@ -1533,7 +1533,7 @@ views:
           - type: custom:bubble-card
             card_type: button
             button_type: switch
-            entity: group.office_lights
+            entity: group.ofc_lights
             name: Office
             icon: mdi:printer-outline
             scrolling_effect: true
@@ -1541,7 +1541,7 @@ views:
               action: perform-action
               perform_action: scene.turn_on
               target:
-                entity_id: scene.office_standard
+                entity_id: scene.ofc_standard
               data: {}
             hold_action:
               action: toggle
