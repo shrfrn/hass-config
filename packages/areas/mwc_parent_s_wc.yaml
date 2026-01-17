@@ -42,8 +42,8 @@ automation:
     trigger:
       - platform: state
         entity_id:
-          - switch.mwc_sw_bathroom_wall_e
           - light.mwc_lt_bathroom_wall_e
+          - switch.mwc_sw_bathroom_wall_e
         to:
           - "on"
           - "off"
@@ -55,5 +55,5 @@ automation:
         target:
           entity_id: >
             {% set triggered = trigger.entity_id %}
-            {% set all = ["switch.mwc_sw_bathroom_wall_e","light.mwc_lt_bathroom_wall_e"] %}
+            {% set all = ["light.mwc_lt_bathroom_wall_e","switch.mwc_sw_bathroom_wall_e"] %}
             {{ all | reject('eq', triggered) | list }}

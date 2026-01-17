@@ -94,8 +94,8 @@ const config = {
           name: 'Master Bathroom East Wall Light',
           power: null,
           entities: [
-            { entity_id: 'switch.mwc_sw_bathroom_wall_e', sync: true },
             { entity_id: 'light.mwc_lt_bathroom_wall_e', sync: true },
+            { entity_id: 'switch.mwc_sw_bathroom_wall_e', sync: true },
           ],
         },
       },

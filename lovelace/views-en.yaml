@@ -1946,7 +1946,7 @@ views:
               - type: custom:bubble-card
                 card_type: button
                 button_type: switch
-                entity: switch.mwc_sw_bathroom_wall_e
+                entity: light.mwc_lt_bathroom_wall_e
                 name: Master Bathroom East Wall Light
                 scrolling_effect: true
                 tap_action:
@@ -1987,7 +1987,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.mwc_lt_bathroom_wall_s
-                name: mwc_lt_bathroom_wall_s
+                name: South Wall
                 scrolling_effect: true
                 tap_action:
                   action: toggle
