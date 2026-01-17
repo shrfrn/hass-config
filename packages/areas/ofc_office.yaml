@@ -37,10 +37,9 @@ timer:
 light:
   - platform: template
     lights:
-      ofc_tlt_wall:
-        friendly_name: "Office Wall Light (Template)"
+      ofc_wall_light:
+        friendly_name: Office Wall Light
         value_template: "{{ is_state('light.ofc_lt_walls', 'on') }}"
-        level_template: "{{ state_attr('light.ofc_lt_wall_bulbs', 'brightness') | default(0) }}"
         turn_on:
           service: light.turn_on
           target:
@@ -49,6 +48,7 @@ light:
           service: light.turn_off
           target:
             entity_id: light.ofc_lt_walls
+        level_template: "{{ state_attr('light.ofc_lt_wall_bulbs', 'brightness') | default(0) }}"
         set_level:
           - service: light.turn_on
             target:

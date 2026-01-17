@@ -823,8 +823,8 @@ views:
               - type: custom:bubble-card
                 card_type: button
                 button_type: switch
-                entity: media_player.lr_tv
-                name: Living Room TV
+                entity: switch.lr_soc_w
+                name: Socket
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -847,8 +847,8 @@ views:
               - type: custom:bubble-card
                 card_type: button
                 button_type: switch
-                entity: switch.lr_soc_w
-                name: Socket
+                entity: media_player.lr_tv
+                name: Living Room TV
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -1192,6 +1192,14 @@ views:
               - type: custom:bubble-card
                 card_type: button
                 button_type: switch
+                entity: switch.mb_door_s
+                name: Patio Door
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
                 entity: light.mb_lt_wardrobe
                 name: Wardrobe
                 scrolling_effect: true
@@ -1202,14 +1210,6 @@ views:
                 button_type: switch
                 entity: light.mb_lt_ceiling_hall
                 name: Hall
-                scrolling_effect: true
-                tap_action:
-                  action: toggle
-              - type: custom:bubble-card
-                card_type: button
-                button_type: switch
-                entity: switch.mb_door_s
-                name: Patio Door
                 scrolling_effect: true
                 tap_action:
                   action: toggle

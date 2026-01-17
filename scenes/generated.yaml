@@ -191,8 +191,8 @@
       entity_only: true
     light.mwc_main_wall:
       entity_only: true
-- id: template_office
-  name: office_template
+- id: template_ofc
+  name: ofc_template
   icon: mdi:content-copy
   entities:
     light.ofc_lt_ceiling_hall:

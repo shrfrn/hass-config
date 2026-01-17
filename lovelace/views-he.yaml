@@ -309,7 +309,7 @@ views:
           - type: custom:bubble-card
             card_type: button
             button_type: switch
-            entity: group.office_lights
+            entity: group.ofc_lights
             name: משרד
             icon: mdi:printer-outline
             scrolling_effect: true
@@ -317,7 +317,7 @@ views:
               action: perform-action
               perform_action: scene.turn_on
               target:
-                entity_id: scene.office_standard
+                entity_id: scene.ofc_standard
               data: {}
             hold_action:
               action: toggle
@@ -823,8 +823,8 @@ views:
               - type: custom:bubble-card
                 card_type: button
                 button_type: switch
-                entity: media_player.lr_tv
-                name: טלויזיה
+                entity: switch.lr_soc_w
+                name: שקע נשלט
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -847,8 +847,8 @@ views:
               - type: custom:bubble-card
                 card_type: button
                 button_type: switch
-                entity: switch.lr_soc_w
-                name: שקע נשלט
+                entity: media_player.lr_tv
+                name: טלויזיה
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -1192,6 +1192,14 @@ views:
               - type: custom:bubble-card
                 card_type: button
                 button_type: switch
+                entity: switch.mb_door_s
+                name: דלת פטיו
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
                 entity: light.mb_lt_wardrobe
                 name: חדר ארונות
                 scrolling_effect: true
@@ -1202,14 +1210,6 @@ views:
                 button_type: switch
                 entity: light.mb_lt_ceiling_hall
                 name: מסדרון
-                scrolling_effect: true
-                tap_action:
-                  action: toggle
-              - type: custom:bubble-card
-                card_type: button
-                button_type: switch
-                entity: switch.mb_door_s
-                name: דלת פטיו
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -1533,7 +1533,7 @@ views:
           - type: custom:bubble-card
             card_type: button
             button_type: switch
-            entity: group.office_lights
+            entity: group.ofc_lights
             name: משרד
             icon: mdi:printer-outline
             scrolling_effect: true
@@ -1541,7 +1541,7 @@ views:
               action: perform-action
               perform_action: scene.turn_on
               target:
-                entity_id: scene.office_standard
+                entity_id: scene.ofc_standard
               data: {}
             hold_action:
               action: toggle
