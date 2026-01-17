@@ -34,20 +34,21 @@ timer:
     name: Office Vacancy Timer
     duration: "00:09:00"
 
-template:
-  - light:
-      - name: Office Wall Light
-        unique_id: ofc_wall_light
-        state: "{{ is_state('light.ofc_lt_walls', 'on') }}"
+light:
+  - platform: template
+    lights:
+      ofc_wall_light:
+        friendly_name: Office Wall Light
+        value_template: "{{ is_state('light.ofc_lt_walls', 'on') }}"
         turn_on:
-          - service: light.turn_on
-            target:
-              entity_id: light.ofc_lt_walls
+          service: light.turn_on
+          target:
+            entity_id: light.ofc_lt_walls
         turn_off:
-          - service: light.turn_off
-            target:
-              entity_id: light.ofc_lt_walls
-        level: "{{ state_attr('light.ofc_lt_wall_bulbs', 'brightness') | default(0) }}"
+          service: light.turn_off
+          target:
+            entity_id: light.ofc_lt_walls
+        level_template: "{{ state_attr('light.ofc_lt_wall_bulbs', 'brightness') | default(0) }}"
         set_level:
           - service: light.turn_on
             target:
@@ -56,8 +57,7 @@ template:
             timeout: "00:00:05"
           - service: light.turn_on
             target:
-              entity_id:
-                - light.ofc_lt_wall_bulbs
+              entity_id: light.ofc_lt_wall_bulbs
             data:
               brightness: "{{ brightness }}"
 
