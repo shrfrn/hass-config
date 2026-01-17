@@ -1663,7 +1663,7 @@ views:
                     card_type: button
                     button_type: switch
                     entity: light.mwc_lt_bathroom_wall_e
-                    name: Master Bathroom East Wall Light
+                    name: Bathroom East Wall
                     scrolling_effect: true
                     tap_action:
                       action: toggle

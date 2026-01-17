@@ -38,7 +38,7 @@ timer:
 
 automation:
   - id: sync_mwc_bathroom_wall_e_light
-    alias: Sync Master Bathroom East Wall Light
+    alias: Sync Bathroom East Wall
     trigger:
       - platform: state
         entity_id:

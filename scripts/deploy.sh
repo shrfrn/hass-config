@@ -77,15 +77,11 @@ if [ "$BRANCH_BASE" != "$MAIN_HEAD" ]; then
     }
 fi
 
-# TODO: Re-enable ha core check when Supervisor bug is fixed
-# Bug: "Object of type DockerMount is not JSON serializable" in Supervisor 2026.01.0
-# The check fails even with valid config. Skipping for now.
-# 
-# echo "[STAGE:CHECK]"
-# echo "Running config check..."
-# if ha core check; then
-#     ...
-# fi
+echo "[STAGE:CHECK]"
+echo "Running config check..."
+if ha core check; then
+    ...
+fi
 
 echo "[STAGE:MERGE]"
 echo "Merging to main (core check temporarily disabled)..."

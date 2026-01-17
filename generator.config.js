@@ -91,7 +91,7 @@ const config = {
     parent_s_wc: {
       syncedEntities: {
         mwc_bathroom_wall_e_light: {
-          name: 'Master Bathroom East Wall Light',
+          name: 'Bathroom East Wall',
           power: null,
           entities: [
             { entity_id: 'light.mwc_lt_bathroom_wall_e', sync: true },

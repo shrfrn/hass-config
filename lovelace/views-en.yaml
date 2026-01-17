@@ -1947,7 +1947,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.mwc_lt_bathroom_wall_e
-                name: Master Bathroom East Wall Light
+                name: Bathroom East Wall
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -1987,7 +1987,7 @@ views:
                 card_type: button
                 button_type: switch
                 entity: light.mwc_lt_bathroom_wall_s
-                name: South Wall
+                name: Bathroom South Wall
                 scrolling_effect: true
                 tap_action:
                   action: toggle
