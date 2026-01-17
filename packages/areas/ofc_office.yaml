@@ -79,6 +79,6 @@ automation:
       - service: "light.turn_{{ trigger.to_state.state }}"
         target:
           entity_id: >
-  {% set triggered = trigger.entity_id %}
-  {% set all = ["light.ofc_lt_walls","light.ofc_lt_wall_bulbs"] %}
-  {{ all | reject('eq', triggered) | list }}
+            {% set triggered = trigger.entity_id %}
+            {% set all = ["light.ofc_lt_walls","light.ofc_lt_wall_bulbs"] %}
+            {{ all | reject('eq', triggered) | list }}
