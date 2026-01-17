@@ -26,7 +26,7 @@ areas_lr_living_room: !include areas/lr_living_room.yaml
 areas_mb_bedroom: !include areas/mb_bedroom.yaml
 areas_mmd_mamad: !include areas/mmd_mamad.yaml
 areas_mwc_parent_s_wc: !include areas/mwc_parent_s_wc.yaml
-areas_ofc_office: !include areas/ofc_office.yaml
+areas_office_office: !include areas/office_office.yaml
 areas_ptio_front_yard: !include areas/ptio_front_yard.yaml
 areas_ssol_studio_solaris: !include areas/ssol_studio_solaris.yaml
 areas_stdn_sharon_s_studio: !include areas/stdn_sharon_s_studio.yaml

@@ -37,3 +37,25 @@ timer:
   mb_vacancy:
     name: Master Bedroom Vacancy Timer
     duration: "00:09:00"
+
+automation:
+  - id: sync_mb_standing_lamp
+    alias: Sync Master Bedroom Standing Lamp
+    trigger:
+      - platform: state
+        entity_id:
+          - switch.mb_soc
+          - light.mb_soc_bulb
+        to:
+          - "on"
+          - "off"
+    condition:
+      - condition: template
+        value_template: "{{ trigger.to_state.state != trigger.from_state.state }}"
+    action:
+      - service: "switch.turn_{{ trigger.to_state.state }}"
+        target:
+          entity_id: >
+  {% set triggered = trigger.entity_id %}
+  {% set all = ["switch.mb_soc","light.mb_soc_bulb"] %}
+  {{ all | reject('eq', triggered) | list }}
