@@ -71,6 +71,16 @@ const config = {
 
     sharon_s_studio: {
       include_in_group: ['switch.stdn_skt'],
+      syncedEntities: {
+        stdn_standing_lamp: {
+          name: 'Studio Standing Lamp',
+          power: null,
+          entities: [
+            { entity_id: 'switch.stdn_skt', sync: true },
+            { entity_id: 'light.stdn_standing_lamp_bulb', sync: true, controls: 'dimmable' },
+          ],
+        },
+      },
     },
 
     // Patio: include outdoor lights (normally excluded globally)

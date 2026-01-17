@@ -39,3 +39,25 @@ timer:
   stdn_vacancy:
     name: Sharon's Studio Vacancy Timer
     duration: "00:09:00"
+
+automation:
+  - id: sync_stdn_standing_lamp
+    alias: Sync Studio Standing Lamp
+    trigger:
+      - platform: state
+        entity_id:
+          - switch.stdn_skt
+          - light.stdn_standing_lamp_bulb
+        to:
+          - "on"
+          - "off"
+    condition:
+      - condition: template
+        value_template: "{{ trigger.to_state.state != trigger.from_state.state }}"
+    action:
+      - service: "homeassistant.turn_{{ trigger.to_state.state }}"
+        target:
+          entity_id: >
+            {% set triggered = trigger.entity_id %}
+            {% set all = ["switch.stdn_skt","light.stdn_standing_lamp_bulb"] %}
+            {{ all | reject('eq', triggered) | list }}

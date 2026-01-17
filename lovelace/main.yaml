@@ -704,6 +704,14 @@ views:
                   - type: custom:bubble-card
                     card_type: button
                     button_type: switch
+                    entity: media_player.lr_tv
+                    name: טלויזיה
+                    scrolling_effect: true
+                    tap_action:
+                      action: toggle
+                  - type: custom:bubble-card
+                    card_type: button
+                    button_type: switch
                     entity: switch.lr_soc_w
                     name: שקע נשלט
                     scrolling_effect: true
@@ -722,14 +730,6 @@ views:
                     button_type: switch
                     entity: light.lr_lt_outdoor_projector
                     name: פרוג׳קטור
-                    scrolling_effect: true
-                    tap_action:
-                      action: toggle
-                  - type: custom:bubble-card
-                    card_type: button
-                    button_type: switch
-                    entity: media_player.lr_tv
-                    name: טלויזיה
                     scrolling_effect: true
                     tap_action:
                       action: toggle
@@ -1268,6 +1268,20 @@ views:
                   cards:
                     - type: custom:bubble-card
                       card_type: button
+                      button_type: slider
+                      entity: light.stdn_standing_lamp_bulb
+                      name: Studio Standing Lamp
+                      scrolling_effect: true
+                      tap_action:
+                        action: perform-action
+                        perform_action: homeassistant.toggle
+                        target:
+                          entity_id: switch.stdn_skt
+                      button_action:
+                        tap_action:
+                          action: none
+                    - type: custom:bubble-card
+                      card_type: button
                       button_type: switch
                       entity: light.stdn_lt_wall_w
                       name: קיר מערבי
@@ -1321,21 +1335,6 @@ views:
                     \      }
 
                     \    "
-                - type: custom:bubble-card
-                  card_type: separator
-                  name: אחר
-                - type: grid
-                  square: false
-                  columns: 2
-                  cards:
-                    - type: custom:bubble-card
-                      card_type: button
-                      button_type: switch
-                      entity: switch.stdn_skt
-                      name: מנורה עומדת
-                      scrolling_effect: true
-                      tap_action:
-                        action: toggle
           - type: vertical-stack
             cards:
               - type: custom:bubble-card

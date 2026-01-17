@@ -823,6 +823,14 @@ views:
               - type: custom:bubble-card
                 card_type: button
                 button_type: switch
+                entity: media_player.lr_tv
+                name: Living Room TV
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
                 entity: switch.lr_soc_w
                 name: Socket
                 scrolling_effect: true
@@ -841,14 +849,6 @@ views:
                 button_type: switch
                 entity: light.lr_lt_outdoor_projector
                 name: Backyard Flood Light
-                scrolling_effect: true
-                tap_action:
-                  action: toggle
-              - type: custom:bubble-card
-                card_type: button
-                button_type: switch
-                entity: media_player.lr_tv
-                name: Living Room TV
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -1454,6 +1454,20 @@ views:
             cards:
               - type: custom:bubble-card
                 card_type: button
+                button_type: slider
+                entity: light.stdn_standing_lamp_bulb
+                name: Studio Standing Lamp
+                scrolling_effect: true
+                tap_action:
+                  action: perform-action
+                  perform_action: homeassistant.toggle
+                  target:
+                    entity_id: switch.stdn_skt
+                button_action:
+                  tap_action:
+                    action: none
+              - type: custom:bubble-card
+                card_type: button
                 button_type: switch
                 entity: light.stdn_lt_wall_w
                 name: West Wall
@@ -1507,21 +1521,6 @@ views:
               \      }
 
               \    "
-          - type: custom:bubble-card
-            card_type: separator
-            name: Other
-          - type: grid
-            square: false
-            columns: 2
-            cards:
-              - type: custom:bubble-card
-                card_type: button
-                button_type: switch
-                entity: switch.stdn_skt
-                name: Standing Lamp
-                scrolling_effect: true
-                tap_action:
-                  action: toggle
     visible:
       - user: bdc857a611d74e9998fdc8535024b263
       - user: b10953f68ec043cea57260ca2f5e0880
