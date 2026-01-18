@@ -51,13 +51,18 @@ automation:
         to:
           - "on"
           - "off"
-    condition:
-      - condition: template
-        value_template: "{{ trigger.to_state.state != trigger.from_state.state }}"
+        id: entity_sync
     action:
-      - service: "homeassistant.turn_{{ trigger.to_state.state }}"
-        target:
-          entity_id: >
-            {% set triggered = trigger.entity_id %}
-            {% set all = ["switch.stdn_skt","light.stdn_standing_lamp_bulb"] %}
-            {{ all | reject('eq', triggered) | list }}
+      - choose:
+          - conditions:
+              - condition: trigger
+                id: entity_sync
+              - condition: template
+                value_template: "{{ trigger.to_state.state != trigger.from_state.state }}"
+            sequence:
+              - service: "homeassistant.turn_{{ trigger.to_state.state }}"
+                target:
+                  entity_id: >
+                    {% set triggered = trigger.entity_id %}
+                    {% set all = ["switch.stdn_skt","light.stdn_standing_lamp_bulb"] %}
+                    {{ all | reject('eq', triggered) | list }}

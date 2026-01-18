@@ -49,13 +49,74 @@ automation:
         to:
           - "on"
           - "off"
-    condition:
-      - condition: template
-        value_template: "{{ trigger.to_state.state != trigger.from_state.state }}"
+        id: entity_sync
+      - domain: mqtt
+        device_id: "295eb95ac369b35c6cb4d7ad18669167"
+        type: action
+        subtype: "on"
+        trigger: device
+        id: device_on
+      - domain: mqtt
+        device_id: "295eb95ac369b35c6cb4d7ad18669167"
+        type: action
+        subtype: "off"
+        trigger: device
+        id: device_off
+      - domain: mqtt
+        device_id: "295eb95ac369b35c6cb4d7ad18669167"
+        type: action
+        subtype: brightness_move_up
+        trigger: device
+        id: brightness_up
+      - domain: mqtt
+        device_id: "295eb95ac369b35c6cb4d7ad18669167"
+        type: action
+        subtype: brightness_move_down
+        trigger: device
+        id: brightness_down
     action:
-      - service: "homeassistant.turn_{{ trigger.to_state.state }}"
-        target:
-          entity_id: >
-            {% set triggered = trigger.entity_id %}
-            {% set all = ["switch.mb_soc","light.mb_soc_bulb"] %}
-            {{ all | reject('eq', triggered) | list }}
+      - choose:
+          - conditions:
+              - condition: trigger
+                id: entity_sync
+              - condition: template
+                value_template: "{{ trigger.to_state.state != trigger.from_state.state }}"
+            sequence:
+              - service: "homeassistant.turn_{{ trigger.to_state.state }}"
+                target:
+                  entity_id: >
+                    {% set triggered = trigger.entity_id %}
+                    {% set all = ["switch.mb_soc","light.mb_soc_bulb"] %}
+                    {{ all | reject('eq', triggered) | list }}
+          - conditions:
+              - condition: trigger
+                id: device_on
+            sequence:
+              - service: homeassistant.turn_on
+                target:
+                  entity_id: switch.mb_soc
+          - conditions:
+              - condition: trigger
+                id: device_off
+            sequence:
+              - service: homeassistant.turn_off
+                target:
+                  entity_id: switch.mb_soc
+          - conditions:
+              - condition: trigger
+                id: brightness_up
+            sequence:
+              - service: light.turn_on
+                target:
+                  entity_id: light.mb_soc_bulb
+                data:
+                  brightness_step_pct: 10
+          - conditions:
+              - condition: trigger
+                id: brightness_down
+            sequence:
+              - service: light.turn_on
+                target:
+                  entity_id: light.mb_soc_bulb
+                data:
+                  brightness_step_pct: -10
