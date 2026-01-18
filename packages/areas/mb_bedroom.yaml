@@ -27,6 +27,10 @@ input_datetime:
     name: Master Bedroom Last Presence
     has_date: true
     has_time: true
+  mb_standing_lamp_dim_start_time:
+    name: mb_standing_lamp Dim Start Time
+    has_date: true
+    has_time: true
 
 input_boolean:
   mb_pause_automations:
@@ -92,7 +96,7 @@ automation:
                   entity_id: switch.mb_soc
   - id: dim_mb_standing_lamp
     alias: Dim Master Bedroom Standing Lamp
-    mode: restart
+    mode: single
     trigger:
       - domain: mqtt
         device_id: "295eb95ac369b35c6cb4d7ad18669167"
@@ -118,22 +122,52 @@ automation:
               - condition: trigger
                 id: brightness_up
             sequence:
+              - service: input_number.set_value
+                target:
+                  entity_id: input_number.mb_standing_lamp_dim_start
+                data:
+                  value: "{{ state_attr('light.mb_soc_bulb', 'brightness') | default(0) }}"
+              - service: input_text.set_value
+                target:
+                  entity_id: input_text.mb_standing_lamp_dim_direction
+                data:
+                  value: up
+              - service: input_datetime.set_datetime
+                target:
+                  entity_id: input_datetime.mb_standing_lamp_dim_start_time
+                data:
+                  datetime: "{{ now().strftime(\"%Y-%m-%d %H:%M:%S\") }}"
               - service: light.turn_on
                 target:
                   entity_id: light.mb_soc_bulb
                 data:
-                  brightness_pct: 100
-                  transition: "{{ ((100 - ((state_attr('light.mb_soc_bulb', 'brightness') | default(0)) / 255 * 100)) / 100 * 4) | round(1) }}"
+                  brightness: 255
+                  transition: 4
           - conditions:
               - condition: trigger
                 id: brightness_down
             sequence:
+              - service: input_number.set_value
+                target:
+                  entity_id: input_number.mb_standing_lamp_dim_start
+                data:
+                  value: "{{ state_attr('light.mb_soc_bulb', 'brightness') | default(255) }}"
+              - service: input_text.set_value
+                target:
+                  entity_id: input_text.mb_standing_lamp_dim_direction
+                data:
+                  value: down
+              - service: input_datetime.set_datetime
+                target:
+                  entity_id: input_datetime.mb_standing_lamp_dim_start_time
+                data:
+                  datetime: "{{ now().strftime(\"%Y-%m-%d %H:%M:%S\") }}"
               - service: light.turn_on
                 target:
                   entity_id: light.mb_soc_bulb
                 data:
-                  brightness_pct: 1
-                  transition: "{{ (((state_attr('light.mb_soc_bulb', 'brightness') | default(255)) / 255 * 100) / 100 * 4) | round(1) }}"
+                  brightness: 1
+                  transition: 4
           - conditions:
               - condition: trigger
                 id: brightness_stop
@@ -142,5 +176,35 @@ automation:
                 target:
                   entity_id: light.mb_soc_bulb
                 data:
-                  brightness: "{{ state_attr('light.mb_soc_bulb', 'brightness') }}"
+                  brightness: >
+                    {% set start = states('input_number.mb_standing_lamp_dim_start') | float(128) %}
+                    {% set direction = states('input_text.mb_standing_lamp_dim_direction') %}
+                    {% set start_time = states('input_datetime.mb_standing_lamp_dim_start_time') %}
+                    {% set elapsed = (as_timestamp(now()) - as_timestamp(start_time)) | float(0) %}
+                    {% set rate = 255 / 4 %}
+                    {% if direction == 'up' %}
+                      {{ ((start + (elapsed * rate)) | min(255)) | int }}
+                    {% elif direction == 'down' %}
+                      {{ ((start - (elapsed * rate)) | max(0)) | int }}
+                    {% else %}
+                      {{ start | int }}
+                    {% endif %}
                   transition: 0
+              - service: input_text.set_value
+                target:
+                  entity_id: input_text.mb_standing_lamp_dim_direction
+                data:
+                  value: "none"
+
+input_number:
+  mb_standing_lamp_dim_start:
+    name: mb_standing_lamp Dim Start Brightness
+    min: 0
+    max: 255
+    step: 1
+    mode: box
+
+input_text:
+  mb_standing_lamp_dim_direction:
+    name: mb_standing_lamp Dim Direction
+    initial: "none"
