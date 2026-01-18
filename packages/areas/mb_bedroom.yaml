@@ -62,18 +62,6 @@ automation:
         subtype: "off"
         trigger: device
         id: device_off
-      - domain: mqtt
-        device_id: "295eb95ac369b35c6cb4d7ad18669167"
-        type: action
-        subtype: brightness_move_up
-        trigger: device
-        id: brightness_up
-      - domain: mqtt
-        device_id: "295eb95ac369b35c6cb4d7ad18669167"
-        type: action
-        subtype: brightness_move_down
-        trigger: device
-        id: brightness_down
     action:
       - choose:
           - conditions:
@@ -102,21 +90,65 @@ automation:
               - service: homeassistant.turn_off
                 target:
                   entity_id: switch.mb_soc
+  - id: dim_mb_standing_lamp
+    alias: Dim Master Bedroom Standing Lamp
+    mode: restart
+    trigger:
+      - domain: mqtt
+        device_id: "295eb95ac369b35c6cb4d7ad18669167"
+        type: action
+        subtype: brightness_move_up
+        trigger: device
+        id: brightness_up
+      - domain: mqtt
+        device_id: "295eb95ac369b35c6cb4d7ad18669167"
+        type: action
+        subtype: brightness_move_down
+        trigger: device
+        id: brightness_down
+      - domain: mqtt
+        device_id: "295eb95ac369b35c6cb4d7ad18669167"
+        type: action
+        subtype: brightness_stop
+        trigger: device
+        id: brightness_stop
+    action:
+      - choose:
           - conditions:
               - condition: trigger
                 id: brightness_up
             sequence:
-              - service: light.turn_on
-                target:
-                  entity_id: light.mb_soc_bulb
-                data:
-                  brightness_step_pct: 10
+              - repeat:
+                  while:
+                    - condition: state
+                      entity_id: light.mb_soc_bulb
+                      state: "on"
+                  sequence:
+                    - service: light.turn_on
+                      target:
+                        entity_id: light.mb_soc_bulb
+                      data:
+                        brightness_step_pct: 10
+                    - delay:
+                        milliseconds: 200
           - conditions:
               - condition: trigger
                 id: brightness_down
             sequence:
-              - service: light.turn_on
-                target:
-                  entity_id: light.mb_soc_bulb
-                data:
-                  brightness_step_pct: -10
+              - repeat:
+                  while:
+                    - condition: state
+                      entity_id: light.mb_soc_bulb
+                      state: "on"
+                  sequence:
+                    - service: light.turn_on
+                      target:
+                        entity_id: light.mb_soc_bulb
+                      data:
+                        brightness_step_pct: -10
+                    - delay:
+                        milliseconds: 200
+          - conditions:
+              - condition: trigger
+                id: brightness_stop
+            sequence:
