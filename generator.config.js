@@ -51,7 +51,7 @@ const config = {
           entities: [
             { entity_id: 'switch.mb_soc', sync: true },
             { entity_id: 'light.mb_soc_bulb', sync: true, controls: 'dimmable' },
-            { device_id: '295eb95ac369b35c6cb4d7ad18669167', sync: false }, // IKEA remote
+            { device_id: '295eb95ac369b35c6cb4d7ad18669167', sync: false, dim: { style: 'hold', step_percent: 10, transition: 4 } }, // IKEA remote
           ],
         },
       },
