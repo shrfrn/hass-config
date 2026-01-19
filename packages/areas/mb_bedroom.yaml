@@ -46,8 +46,8 @@ automation:
       input:
         controller_device: "295eb95ac369b35c6cb4d7ad18669167"
         helper_long_press_delay: 100
-        button_up_long_max_loop_repeats: 100
-        button_down_long_max_loop_repeats: 100
+        button_up_long_max_loop_repeats: 50
+        button_down_long_max_loop_repeats: 50
         action_button_up_short:
           - service: light.turn_on
             target:
