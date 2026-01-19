@@ -51,15 +51,27 @@ const config = {
           entities: [
             { entity_id: 'switch.mb_soc', sync: true },
             { entity_id: 'light.mb_soc_bulb', sync: true, controls: 'dimmable' },
-            {   // IKEA remote
-                device_id: '295eb95ac369b35c6cb4d7ad18669167', 
-                sync: false, 
-                dim: { 
-                    style: 'hold', 
-                    step_percent: 10, 
-                    transition: 4 
-                } 
-            }, 
+            {   // IKEA remote - dimming handled by RODRET blueprint
+              device_id: '295eb95ac369b35c6cb4d7ad18669167',
+              sync: false,
+              blueprint: {
+                path: 'EPMatt/ikea_e2201.yaml',
+                input: {
+                  action_button_up_short: [
+                    { service: 'light.turn_on', target: { entity_id: 'light.mb_soc_bulb' } },
+                  ],
+                  action_button_up_long: [
+                    { service: 'light.turn_on', target: { entity_id: 'light.mb_soc_bulb' }, data: { brightness_step_pct: 10 } },
+                  ],
+                  action_button_down_short: [
+                    { service: 'light.turn_off', target: { entity_id: 'light.mb_soc_bulb' } },
+                  ],
+                  action_button_down_long: [
+                    { service: 'light.turn_on', target: { entity_id: 'light.mb_soc_bulb' }, data: { brightness_step_pct: -10 } },
+                  ],
+                },
+              },
+            },
           ],
         },
       },
