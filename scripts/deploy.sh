@@ -80,7 +80,8 @@ fi
 echo "[STAGE:CHECK]"
 echo "Running config check..."
 if ha core check; then
-    ...
+    echo "ERROR: core check failed"
+    exit 1
 fi
 
 echo "[STAGE:MERGE]"

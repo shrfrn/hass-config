@@ -58,6 +58,11 @@ const config = {
               sync: false,
               blueprint: ikeaE2201Base('light.mb_soc_bulb'),
             },
+            {   // IKEA remote - dimming handled by RODRET blueprint
+              device_id: '09fbd2ceffb101e3b5e10adf0f7a83b9',
+              sync: false,
+              blueprint: ikeaE2201Base('light.mb_soc_bulb'),
+            },
           ],
         },
       },
