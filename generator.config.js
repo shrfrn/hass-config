@@ -57,17 +57,18 @@ const config = {
               blueprint: {
                 path: 'EPMatt/ikea_e2201.yaml',
                 input: {
+                  helper_long_press_delay: 100,  // Faster loop (default: 250ms)
                   action_button_up_short: [
                     { service: 'light.turn_on', target: { entity_id: 'light.mb_soc_bulb' } },
                   ],
                   action_button_up_long: [
-                    { service: 'light.turn_on', target: { entity_id: 'light.mb_soc_bulb' }, data: { brightness_step_pct: 10 } },
+                    { service: 'light.turn_on', target: { entity_id: 'light.mb_soc_bulb' }, data: { brightness_step_pct: 3 } },
                   ],
                   action_button_down_short: [
                     { service: 'light.turn_off', target: { entity_id: 'light.mb_soc_bulb' } },
                   ],
                   action_button_down_long: [
-                    { service: 'light.turn_on', target: { entity_id: 'light.mb_soc_bulb' }, data: { brightness_step_pct: -10 } },
+                    { service: 'light.turn_on', target: { entity_id: 'light.mb_soc_bulb' }, data: { brightness_step_pct: -3 } },
                   ],
                 },
               },

@@ -45,6 +45,7 @@ automation:
       path: EPMatt/ikea_e2201.yaml
       input:
         controller_device: "295eb95ac369b35c6cb4d7ad18669167"
+        helper_long_press_delay: 100
         action_button_up_short:
           - service: light.turn_on
             target:
@@ -54,7 +55,7 @@ automation:
             target:
               entity_id: light.mb_soc_bulb
             data:
-              brightness_step_pct: 10
+              brightness_step_pct: 3
         action_button_down_short:
           - service: light.turn_off
             target:
@@ -64,7 +65,7 @@ automation:
             target:
               entity_id: light.mb_soc_bulb
             data:
-              brightness_step_pct: -10
+              brightness_step_pct: -3
   - id: sync_mb_standing_lamp
     alias: Sync Master Bedroom Standing Lamp
     trigger:
