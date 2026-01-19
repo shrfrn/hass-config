@@ -8,6 +8,8 @@
 // This file is never overwritten by the generator.
 // ============================================================================
 
+import { ikeaE2201Base } from './templates/config/ikea_e2201_base.js'
+
 /** @type {import('./inventory/types/config.d.ts').GeneratorConfig} */
 const config = {
   // Schema version - do not change manually
@@ -54,26 +56,7 @@ const config = {
             {   // IKEA remote - dimming handled by RODRET blueprint
               device_id: '295eb95ac369b35c6cb4d7ad18669167',
               sync: false,
-              blueprint: {
-                path: 'EPMatt/ikea_e2201.yaml',
-                input: {
-                  helper_long_press_delay: 100,             // Faster loop for(default: 250ms)
-                  button_up_long_max_loop_repeats: 50,      // Allow enough loops for full range
-                  button_down_long_max_loop_repeats: 50,    // Allow enough loops for full range
-                  action_button_up_short: [
-                    { service: 'light.turn_on', target: { entity_id: 'light.mb_soc_bulb' } },
-                  ],
-                  action_button_up_long: [
-                    { service: 'light.turn_on', target: { entity_id: 'light.mb_soc_bulb' }, data: { brightness_step_pct: 2 } },
-                  ],
-                  action_button_down_short: [
-                    { service: 'light.turn_off', target: { entity_id: 'light.mb_soc_bulb' } },
-                  ],
-                  action_button_down_long: [
-                    { service: 'light.turn_on', target: { entity_id: 'light.mb_soc_bulb' }, data: { brightness_step_pct: -2 } },
-                  ],
-                },
-              },
+              blueprint: ikeaE2201Base('light.mb_soc_bulb'),
             },
           ],
         },
