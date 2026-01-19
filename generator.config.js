@@ -62,13 +62,13 @@ const config = {
                     { service: 'light.turn_on', target: { entity_id: 'light.mb_soc_bulb' } },
                   ],
                   action_button_up_long: [
-                    { service: 'light.turn_on', target: { entity_id: 'light.mb_soc_bulb' }, data: { brightness_step_pct: 3 } },
+                    { service: 'light.turn_on', target: { entity_id: 'light.mb_soc_bulb' }, data: { brightness_step_pct: 2 } },
                   ],
                   action_button_down_short: [
                     { service: 'light.turn_off', target: { entity_id: 'light.mb_soc_bulb' } },
                   ],
                   action_button_down_long: [
-                    { service: 'light.turn_on', target: { entity_id: 'light.mb_soc_bulb' }, data: { brightness_step_pct: -3 } },
+                    { service: 'light.turn_on', target: { entity_id: 'light.mb_soc_bulb' }, data: { brightness_step_pct: -2 } },
                   ],
                 },
               },

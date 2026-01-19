@@ -55,7 +55,7 @@ automation:
             target:
               entity_id: light.mb_soc_bulb
             data:
-              brightness_step_pct: 3
+              brightness_step_pct: 2
         action_button_down_short:
           - service: light.turn_off
             target:
@@ -65,7 +65,7 @@ automation:
             target:
               entity_id: light.mb_soc_bulb
             data:
-              brightness_step_pct: -3
+              brightness_step_pct: -2
   - id: sync_mb_standing_lamp
     alias: Sync Master Bedroom Standing Lamp
     trigger:
