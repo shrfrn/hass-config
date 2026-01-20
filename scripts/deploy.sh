@@ -4,6 +4,9 @@
 # =============================================================================
 # Called by ship.sh via SSH. Pulls changes, validates, merges to main, restarts.
 # This script is symlinked from /root/deploy.sh
+#
+# Note: HA UI-managed files (automations.yaml, scenes.yaml, scripts.yaml) are
+# gitignored to avoid divergence. They're backed up by HA's built-in backups.
 # =============================================================================
 
 BRANCH=$1
@@ -12,55 +15,20 @@ EXIT_CODE=0
 
 cd "$REPO_DIR"
 
-# Commit any local changes made from HASS UI (scenes, automations, scripts)
-HAS_CHANGES_FROM_HASS_UI=""
-
-if [ -n "$(git status --porcelain)" ]; then
-    echo "Committing local changes made from HASS UI..."
-    git add -A
-    git commit -m "Auto-commit: UI changes from Home Assistant"
-    git push origin main || {
-        echo "ERROR: Failed to push UI changes to origin"
-        exit 1
-    }
-    HAS_CHANGES_FROM_HASS_UI="yes"
-fi
-
 git fetch origin
 
-# Check for divergence between local main and origin/main
-LOCAL_MAIN=$(git rev-parse main)
-REMOTE_MAIN=$(git rev-parse origin/main)
-MERGE_BASE=$(git merge-base main origin/main)
-
-if [ "$MERGE_BASE" != "$REMOTE_MAIN" ] && [ "$MERGE_BASE" != "$LOCAL_MAIN" ]; then
-    echo "ERROR: Local main has diverged from origin/main"
-    echo "Both have commits the other doesn't. Manual resolution required."
-    echo ""
-
-    echo "Commits on local main not in origin:"
-    git log --oneline origin/main..main
-    echo ""
-
-    echo "Commits on origin not in local main:"
-    git log --oneline main..origin/main
-    exit 1
-fi
-
-# Ensure main is current (only pull if we didn't just push it)
+# Ensure main is current
 git checkout main
-if [ -z "$HAS_CHANGES_FROM_HASS_UI" ]; then
-    git pull origin main
-fi
+git pull origin main
 
 # Checkout branch and reset to match origin (avoids divergence from previous rebases)
 git checkout "$BRANCH" || {
-    echo "ERROR: Could not checkout branch $BRANCH"
-    exit 1
+	echo "ERROR: Could not checkout branch $BRANCH"
+	exit 1
 }
 git reset --hard origin/"$BRANCH" || {
-    echo "ERROR: Could not reset branch to origin/$BRANCH"
-    exit 1
+	echo "ERROR: Could not reset branch to origin/$BRANCH"
+	exit 1
 }
 
 # Only rebase if main has moved forward since branch was created
@@ -68,33 +36,33 @@ BRANCH_BASE=$(git merge-base "$BRANCH" main)
 MAIN_HEAD=$(git rev-parse main)
 
 if [ "$BRANCH_BASE" != "$MAIN_HEAD" ]; then
-    echo "Main has diverged, rebasing branch onto latest main..."
-    git rebase main || {
-        echo "Rebase failed - branch has conflicts with main"
-        git rebase --abort
-        EXIT_CODE=1
-        exit $EXIT_CODE
-    }
+	echo "Main has diverged, rebasing branch onto latest main..."
+	git rebase main || {
+		echo "Rebase failed - branch has conflicts with main"
+		git rebase --abort
+		EXIT_CODE=1
+		exit $EXIT_CODE
+	}
 fi
 
 echo "[STAGE:CHECK]"
 echo "Running config check..."
 if ! ha core check; then
-    echo "ERROR: core check failed"
-    exit 1
+	echo "ERROR: core check failed"
+	exit 1
 fi
 
 echo "[STAGE:MERGE]"
-echo "Merging to main (core check temporarily disabled)..."
+echo "Merging to main..."
 
 git checkout main
 git merge "$BRANCH" --ff-only || {
-    echo "ERROR: Fast-forward merge failed (unexpected)"
-    exit 1
+	echo "ERROR: Fast-forward merge failed (unexpected)"
+	exit 1
 }
 git push origin main || {
-    echo "ERROR: Failed to push to origin. Deployment completed locally but not synced."
-    exit 1
+	echo "ERROR: Failed to push to origin. Deployment completed locally but not synced."
+	exit 1
 }
 
 echo "[STAGE:RESTART]"

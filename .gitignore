@@ -45,3 +45,9 @@ inventory/
 
 # Sensitive tokens
 token.txt
+
+# HA UI-managed files (avoid divergence with generator)
+# These are backed up by HA's built-in backup system
+automations.yaml
+scenes.yaml
+scripts.yaml
