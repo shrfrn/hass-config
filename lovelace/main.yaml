@@ -685,14 +685,6 @@ views:
                   - type: custom:bubble-card
                     card_type: button
                     button_type: switch
-                    entity: media_player.lr_tv
-                    name: טלויזיה
-                    scrolling_effect: true
-                    tap_action:
-                      action: toggle
-                  - type: custom:bubble-card
-                    card_type: button
-                    button_type: switch
                     entity: light.lr_lt_ceiling
                     name: תקרה
                     scrolling_effect: true
@@ -711,6 +703,14 @@ views:
                     button_type: switch
                     entity: switch.lr_soc_w
                     name: שקע נשלט
+                    scrolling_effect: true
+                    tap_action:
+                      action: toggle
+                  - type: custom:bubble-card
+                    card_type: button
+                    button_type: switch
+                    entity: media_player.lr_tv
+                    name: טלויזיה
                     scrolling_effect: true
                     tap_action:
                       action: toggle

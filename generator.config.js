@@ -8,7 +8,7 @@
 // This file is never overwritten by the generator.
 // ============================================================================
 
-import { ikeaE2201Base } from './templates/config/ikea_e2201_base.js'
+import { ikeaE2201Base, ikeaE2201DblClick } from 'hass-generator/src/blueprints/index.js'
 
 /** @type {import('./inventory/types/config.d.ts').GeneratorConfig} */
 const config = {
@@ -53,12 +53,12 @@ const config = {
           entities: [
             { entity_id: 'switch.mb_soc', sync: true },
             { entity_id: 'light.mb_soc_bulb', sync: true, controls: 'dimmable' },
-            {   // IKEA remote - dimming handled by RODRET blueprint
+            {   // IKEA remote (Sharon's) - dimming handled by RODRET blueprint
               device_id: '295eb95ac369b35c6cb4d7ad18669167',
               sync: false,
-              blueprint: ikeaE2201Base('light.mb_soc_bulb'),
+              blueprint: ikeaE2201DblClick('light.mb_soc_bulb'),
             },
-            {   // IKEA remote - dimming handled by RODRET blueprint
+            {   // IKEA remote (Shahar's) - dimming handled by RODRET blueprint
               device_id: '09fbd2ceffb101e3b5e10adf0f7a83b9',
               sync: false,
               blueprint: ikeaE2201Base('light.mb_soc_bulb'),
