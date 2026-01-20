@@ -58,11 +58,11 @@ const config = {
               sync: false,
               blueprint: ikeaE2201DblClick('light.mb_soc_bulb'),
             },
-            {   // IKEA remote (Shahar's) - dimming handled by RODRET blueprint
-              device_id: '09fbd2ceffb101e3b5e10adf0f7a83b9',
-              sync: false,
-              blueprint: ikeaE2201Base('light.mb_soc_bulb'),
-            },
+            // {   // IKEA remote (Shahar's) - dimming handled by RODRET blueprint
+            //   device_id: '09fbd2ceffb101e3b5e10adf0f7a83b9',
+            //   sync: false,
+            //   blueprint: ikeaE2201Base('light.mb_soc_bulb'),
+            // },
           ],
         },
       },
@@ -76,6 +76,11 @@ const config = {
           entities: [
             { entity_id: 'light.ofc_lt_walls', sync: true },
             { entity_id: 'light.ofc_lt_wall_bulbs', sync: true, controls: 'dimmable' },
+            {   // IKEA remote (Shahar's) - dimming handled by RODRET blueprint
+                device_id: '09fbd2ceffb101e3b5e10adf0f7a83b9',
+                sync: false,
+                blueprint: ikeaE2201Base('light.ofc_wall_light'),
+            },
           ],
         },
       },
