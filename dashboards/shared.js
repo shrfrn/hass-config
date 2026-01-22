@@ -49,7 +49,7 @@ const config = {
       included_scenes: ['scene.lr_twilight_zone'],
     },
     bedroom: {
-      excluded_lights: ['light.mb_lt_wardrobe', 'light.mb_lt_ceiling_hall'],
+      excluded_lights: ['light.mb_lt_wardrobe', 'light.mb_wardrobe_ikea_bulb'],
       included_lights: ['switch.mb_soc'],
       included_scenes: ['scene.lr_twilight_zone'],
       visible_to_users: PARENTS,

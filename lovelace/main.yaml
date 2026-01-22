@@ -1004,6 +1004,14 @@ views:
                       scrolling_effect: true
                       tap_action:
                         action: toggle
+                    - type: custom:bubble-card
+                      card_type: button
+                      button_type: switch
+                      entity: light.mb_lt_ceiling_hall
+                      name: מסדרון
+                      scrolling_effect: true
+                      tap_action:
+                        action: toggle
                 - type: custom:bubble-card
                   card_type: separator
                   name: מיזוג
@@ -1053,16 +1061,16 @@ views:
                     - type: custom:bubble-card
                       card_type: button
                       button_type: switch
-                      entity: light.mb_lt_ceiling_hall
-                      name: מסדרון
+                      entity: switch.mb_door_s
+                      name: דלת פטיו
                       scrolling_effect: true
                       tap_action:
                         action: toggle
                     - type: custom:bubble-card
                       card_type: button
                       button_type: switch
-                      entity: switch.mb_door_s
-                      name: דלת פטיו
+                      entity: light.mb_wardrobe_ikea_bulb
+                      name: Wardrobe Ikea Bulb
                       scrolling_effect: true
                       tap_action:
                         action: toggle
