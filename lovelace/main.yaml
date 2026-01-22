@@ -697,7 +697,10 @@ views:
                     name: תקרה
                     scrolling_effect: true
                     tap_action:
-                      action: toggle
+                      action: call-service
+                      service: homeassistant.toggle
+                      target:
+                        entity_id: light.lr_lt_ceiling
                   - type: custom:bubble-card
                     card_type: button
                     button_type: switch
@@ -705,7 +708,10 @@ views:
                     name: פרוג׳קטור
                     scrolling_effect: true
                     tap_action:
-                      action: toggle
+                      action: call-service
+                      service: homeassistant.toggle
+                      target:
+                        entity_id: light.lr_lt_outdoor_projector
                   - type: custom:bubble-card
                     card_type: button
                     button_type: switch
@@ -1057,7 +1063,10 @@ views:
                       name: חדר ארונות
                       scrolling_effect: true
                       tap_action:
-                        action: toggle
+                        action: call-service
+                        service: homeassistant.toggle
+                        target:
+                          entity_id: light.mb_lt_wardrobe
                     - type: custom:bubble-card
                       card_type: button
                       button_type: switch
@@ -1068,12 +1077,15 @@ views:
                         action: toggle
                     - type: custom:bubble-card
                       card_type: button
-                      button_type: switch
+                      button_type: slider
                       entity: light.mb_wardrobe_ikea_bulb
                       name: Wardrobe Ikea Bulb
                       scrolling_effect: true
                       tap_action:
-                        action: toggle
+                        action: call-service
+                        service: homeassistant.toggle
+                        target:
+                          entity_id: light.mb_wardrobe_ikea_bulb
           - type: conditional
             conditions:
               - condition: user
