@@ -1156,6 +1156,14 @@ views:
                 scrolling_effect: true
                 tap_action:
                   action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.mb_lt_ceiling_hall
+                name: Hall
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
           - type: custom:bubble-card
             card_type: separator
             name: Climate
@@ -1205,16 +1213,16 @@ views:
               - type: custom:bubble-card
                 card_type: button
                 button_type: switch
-                entity: light.mb_lt_ceiling_hall
-                name: Hall
+                entity: switch.mb_door_s
+                name: Patio Door
                 scrolling_effect: true
                 tap_action:
                   action: toggle
               - type: custom:bubble-card
                 card_type: button
                 button_type: switch
-                entity: switch.mb_door_s
-                name: Patio Door
+                entity: light.mb_wardrobe_ikea_bulb
+                name: Wardrobe Ikea Bulb
                 scrolling_effect: true
                 tap_action:
                   action: toggle

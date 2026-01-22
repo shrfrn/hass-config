@@ -153,8 +153,6 @@
       state: on
     light.mb_soc_bulb:
       state: on
-    light.mb_wardrobe_ikea_bulb:
-      state: on
   metadata:
     light.mb_bed_n:
       entity_only: true
@@ -167,8 +165,6 @@
     light.mb_lt_wardrobe:
       entity_only: true
     light.mb_soc_bulb:
-      entity_only: true
-    light.mb_wardrobe_ikea_bulb:
       entity_only: true
 - id: template_mwc
   name: mwc_template
