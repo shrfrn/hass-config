@@ -1129,17 +1129,6 @@ views:
                     action: none
               - type: custom:bubble-card
                 card_type: button
-                button_type: slider
-                entity: light.mb_wardrobe_ikea_bulb
-                name: Wardrobe Counter Lamp
-                scrolling_effect: true
-                tap_action:
-                  action: toggle
-                button_action:
-                  tap_action:
-                    action: none
-              - type: custom:bubble-card
-                card_type: button
                 button_type: switch
                 entity: light.mb_lt_wall
                 name: Wall Lights
