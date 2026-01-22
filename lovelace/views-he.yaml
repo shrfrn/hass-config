@@ -804,6 +804,14 @@ views:
               - type: custom:bubble-card
                 card_type: button
                 button_type: switch
+                entity: media_player.lr_tv
+                name: טלויזיה
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
                 entity: light.lr_lt_ceiling
                 name: תקרה
                 scrolling_effect: true
@@ -822,14 +830,6 @@ views:
                 button_type: switch
                 entity: switch.lr_soc_w
                 name: שקע נשלט
-                scrolling_effect: true
-                tap_action:
-                  action: toggle
-              - type: custom:bubble-card
-                card_type: button
-                button_type: switch
-                entity: media_player.lr_tv
-                name: טלויזיה
                 scrolling_effect: true
                 tap_action:
                   action: toggle
@@ -966,6 +966,19 @@ views:
                 scrolling_effect: true
                 tap_action:
                   action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: slider
+                entity: light.kitchen_counter_ikea_bulb
+                name: Kitchen Counter Ikea Bulb
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+                button_action:
+                  tap_action:
+                    action: none
+                double_tap_action:
+                  action: more-info
           - type: custom:bubble-card
             card_type: separator
             name: מיזוג
@@ -1105,6 +1118,17 @@ views:
                   perform_action: homeassistant.toggle
                   target:
                     entity_id: switch.mb_soc
+                button_action:
+                  tap_action:
+                    action: none
+              - type: custom:bubble-card
+                card_type: button
+                button_type: slider
+                entity: light.mb_wardrobe_ikea_bulb
+                name: Wardrobe Counter Lamp
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
                 button_action:
                   tap_action:
                     action: none

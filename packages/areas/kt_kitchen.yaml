@@ -6,6 +6,7 @@ group:
   kt_lights:
     name: Kitchen Lights
     entities:
+      - light.kitchen_counter_ikea_bulb
       - light.kt_lt_ceiling_1
       - light.kt_lt_ceiling_2
       - light.kt_lt_ceiling_3
