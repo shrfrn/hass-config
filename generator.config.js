@@ -8,11 +8,11 @@
 // This file is never overwritten by the generator.
 // ============================================================================
 
-import { ikeaE2201Base, ikeaE2201DblClick } from 'hass-generator/src/blueprints/index.js'
+import { ikeaE2201Base, ikeaE2201DblClick, ikeaE2213Base, ikeaE2213DblClick } from 'hass-generator/src/blueprints/index.js'
 
 /** @type {import('./inventory/types/config.d.ts').GeneratorConfig} */
 const config = {
-  // Schema version - do not change manually
+  // Schema version - do not change mikeaE2213Baseanually
   schemaVersion: 1,
 
   // ─────────────────────────────────────────────────────────────────────────
@@ -58,12 +58,19 @@ const config = {
               sync: false,
               blueprint: ikeaE2201DblClick('light.mb_soc_bulb'),
             },
-            // {   // IKEA remote (Shahar's) - dimming handled by RODRET blueprint
-            //   device_id: '09fbd2ceffb101e3b5e10adf0f7a83b9',
-            //   sync: false,
-            //   blueprint: ikeaE2201Base('light.mb_soc_bulb'),
-            // },
           ],
+        },
+        mb_wardrobe_counter_lamp: {
+          name: 'Wardrobe Counter Lamp',
+          power: null, // Always powered - switch doesn't cut power to bulb
+          entities: [
+            { entity_id: 'light.mb_wardrobe_ikea_bulb', sync: true, controls: 'dimmable' },
+            {   // IKEA remote (wardrobe) - dimming handled by SOMRIG blueprint
+                device_id: '040ff523d1637c52a0e79e8f4f7d3353',
+                sync: false,
+                blueprint: ikeaE2213Base('light.mb_soc_bulb'),
+            },
+            ],
         },
       },
     },

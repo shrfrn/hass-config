@@ -107,3 +107,34 @@ automation:
                     {% set triggered = trigger.entity_id %}
                     {% set all = ["switch.mb_soc","light.mb_soc_bulb"] %}
                     {{ all | reject('eq', triggered) | list }}
+  - id: blueprint_mb_wardrobe_counter_lamp
+    alias: Wardrobe Counter Lamp Remote
+    use_blueprint:
+      path: EPMatt/ikea_e2213.yaml
+      input:
+        controller_device: "040ff523d1637c52a0e79e8f4f7d3353"
+        helper_long_press_delay: 100
+        button_dots1_long_loop: true
+        button_dots1_long_max_loop_repeats: 50
+        button_dots2_long_loop: true
+        button_dots2_long_max_loop_repeats: 50
+        action_button_dots1_short:
+          - service: light.turn_on
+            target:
+              entity_id: light.mb_soc_bulb
+        action_button_dots1_long:
+          - service: light.turn_on
+            target:
+              entity_id: light.mb_soc_bulb
+            data:
+              brightness_step_pct: 2
+        action_button_dots2_short:
+          - service: light.turn_off
+            target:
+              entity_id: light.mb_soc_bulb
+        action_button_dots2_long:
+          - service: light.turn_on
+            target:
+              entity_id: light.mb_soc_bulb
+            data:
+              brightness_step_pct: -2
