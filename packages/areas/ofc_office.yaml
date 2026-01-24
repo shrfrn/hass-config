@@ -74,21 +74,21 @@ automation:
         action_button_up_short:
           - service: light.turn_on
             target:
-              entity_id: light.ofc_wall_light
+              entity_id: light.ofc_lt_wall_bulbs
         action_button_up_long:
           - service: light.turn_on
             target:
-              entity_id: light.ofc_wall_light
+              entity_id: light.ofc_lt_wall_bulbs
             data:
               brightness_step_pct: 2
         action_button_down_short:
           - service: light.turn_off
             target:
-              entity_id: light.ofc_wall_light
+              entity_id: light.ofc_lt_wall_bulbs
         action_button_down_long:
           - service: light.turn_on
             target:
-              entity_id: light.ofc_wall_light
+              entity_id: light.ofc_lt_wall_bulbs
             data:
               brightness_step_pct: -2
   - id: sync_ofc_wall_light
