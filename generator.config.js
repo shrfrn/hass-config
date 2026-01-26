@@ -84,10 +84,11 @@ const config = {
                     entities: [
                         { entity_id: 'light.ofc_lt_walls', sync: true },
                         { entity_id: 'light.ofc_lt_wall_bulbs', sync: true, controls: 'dimmable' },
-                        {   // IKEA remote (Shahar's) - dimming handled by RODRET blueprint
+                        {   // IKEA remote - dimming handled by RODRET blueprint
                             device_id: '09fbd2ceffb101e3b5e10adf0f7a83b9',
+                            name: 'shahar',
                             sync: false,
-                            blueprint: ikeaE2201Base('light.ofc_wall_light'), // Target template light for proper brightness tracking
+                            blueprint: ikeaE2201Base('light.ofc_wall_light'),
                         },
                     ],
                 },
