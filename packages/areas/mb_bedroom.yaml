@@ -44,9 +44,6 @@ timer:
 automation:
   - id: mb_standing_lamp_remote
     alias: Master Bedroom Standing Lamp Remote
-    labels:
-      - auto_generated
-      - fixture_mb_standing_lamp
     use_blueprint:
       path: EPMatt/ikea_e2201.yaml
       input:
@@ -90,9 +87,6 @@ automation:
               brightness_pct: 1
   - id: mb_standing_lamp_sync
     alias: Master Bedroom Standing Lamp Sync
-    labels:
-      - auto_generated
-      - fixture_mb_standing_lamp
     trigger:
       - platform: state
         entity_id:
@@ -118,9 +112,6 @@ automation:
                     {{ all | reject('eq', triggered) | list }}
   - id: mb_wardrobe_counter_lamp_remote
     alias: Wardrobe Counter Lamp Remote
-    labels:
-      - auto_generated
-      - fixture_mb_wardrobe_counter_lamp
     use_blueprint:
       path: EPMatt/ikea_e2213.yaml
       input:

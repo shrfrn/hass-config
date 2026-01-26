@@ -43,9 +43,6 @@ timer:
 automation:
   - id: stdn_standing_lamp_sync
     alias: Studio Standing Lamp Sync
-    labels:
-      - auto_generated
-      - fixture_stdn_standing_lamp
     trigger:
       - platform: state
         entity_id:
