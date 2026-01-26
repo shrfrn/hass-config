@@ -34,32 +34,66 @@ timer:
     name: Office Vacancy Timer
     duration: "00:09:00"
 
+input_number:
+  ofc_wall_light_brightness:
+    name: Office Wall Light Brightness
+    min: 0
+    max: 255
+    step: 1
+    initial: 254
+    mode: slider
+
+script:
+  ofc_wall_light_set_brightness:
+    alias: Office Wall Light Set Brightness
+    mode: single
+    fields:
+      brightness:
+        description: Brightness level (0-255)
+    sequence:
+      - wait_template: "{{ states('light.ofc_lt_wall_bulbs') != 'unavailable' }}"
+        timeout: "00:00:05"
+        continue_on_timeout: false
+      - service: light.turn_on
+        target:
+          entity_id: light.ofc_lt_wall_bulbs
+        data:
+          brightness: "{{ brightness }}"
+      - service: input_number.set_value
+        target:
+          entity_id: input_number.ofc_wall_light_brightness
+        data:
+          value: "{{ brightness }}"
+
 light:
   - platform: template
     lights:
       ofc_wall_light:
         friendly_name: Office Wall Light
         value_template: "{{ is_state('light.ofc_lt_walls', 'on') }}"
-        turn_on:
-          service: light.turn_on
-          target:
-            entity_id: light.ofc_lt_walls
         turn_off:
           service: light.turn_off
           target:
             entity_id: light.ofc_lt_walls
-        level_template: "{{ state_attr('light.ofc_lt_wall_bulbs', 'brightness') | default(0) }}"
-        set_level:
+        turn_on:
           - service: light.turn_on
             target:
               entity_id: light.ofc_lt_walls
-          - wait_template: "{{ states('light.ofc_lt_wall_bulbs') != 'unavailable' }}"
-            timeout: "00:00:05"
-          - service: light.turn_on
+          - service: input_number.set_value
             target:
-              entity_id: light.ofc_lt_wall_bulbs
+              entity_id: input_number.ofc_wall_light_brightness
             data:
-              brightness: "{{ brightness }}"
+              value: 254
+        level_template: "{{ states('input_number.ofc_wall_light_brightness') | int }}"
+        set_level:
+          - choose:
+              - conditions:
+                  - condition: template
+                    value_template: "{{ brightness | int > 0 }}"
+                sequence:
+                  - service: script.ofc_wall_light_set_brightness
+                    data:
+                      brightness: "{{ brightness }}"
 
 automation:
   - id: blueprint_ofc_wall_light
@@ -74,21 +108,21 @@ automation:
         action_button_up_short:
           - service: light.turn_on
             target:
-              entity_id: light.ofc_lt_wall_bulbs
+              entity_id: light.ofc_wall_light
         action_button_up_long:
           - service: light.turn_on
             target:
-              entity_id: light.ofc_lt_wall_bulbs
+              entity_id: light.ofc_wall_light
             data:
               brightness_step_pct: 2
         action_button_down_short:
           - service: light.turn_off
             target:
-              entity_id: light.ofc_lt_wall_bulbs
+              entity_id: light.ofc_wall_light
         action_button_down_long:
           - service: light.turn_on
             target:
-              entity_id: light.ofc_lt_wall_bulbs
+              entity_id: light.ofc_wall_light
             data:
               brightness_step_pct: -2
   - id: sync_ofc_wall_light
