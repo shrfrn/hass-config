@@ -44,9 +44,12 @@ input_number:
     mode: slider
 
 script:
-  ofc_wall_light_set_brightness:
-    alias: Office Wall Light Set Brightness
+  ofc_wall_light_ev_throttler:
+    alias: Office Wall Light Event Throttler
     mode: single
+    labels:
+      - auto_generated
+      - fixture_ofc_wall_light
     fields:
       brightness:
         description: Brightness level (0-255)
@@ -91,13 +94,16 @@ light:
                   - condition: template
                     value_template: "{{ brightness | int > 0 }}"
                 sequence:
-                  - service: script.ofc_wall_light_set_brightness
+                  - service: script.ofc_wall_light_ev_throttler
                     data:
                       brightness: "{{ brightness }}"
 
 automation:
-  - id: blueprint_ofc_wall_light
-    alias: Office Wall Light Remote
+  - id: ofc_wall_light_remote_shahar
+    alias: Office Wall Light shahar
+    labels:
+      - auto_generated
+      - fixture_ofc_wall_light
     use_blueprint:
       path: EPMatt/ikea_e2201.yaml
       input:
@@ -125,8 +131,11 @@ automation:
               entity_id: light.ofc_wall_light
             data:
               brightness_step_pct: -2
-  - id: sync_ofc_wall_light
-    alias: Sync Office Wall Light
+  - id: ofc_wall_light_sync
+    alias: Office Wall Light Sync
+    labels:
+      - auto_generated
+      - fixture_ofc_wall_light
     trigger:
       - platform: state
         entity_id:
