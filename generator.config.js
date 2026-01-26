@@ -87,7 +87,7 @@ const config = {
                         {   // IKEA remote (Shahar's) - dimming handled by RODRET blueprint
                             device_id: '09fbd2ceffb101e3b5e10adf0f7a83b9',
                             sync: false,
-                            blueprint: ikeaE2201Base('light.ofc_lt_wall_bulbs'),
+                            blueprint: ikeaE2201Base('light.ofc_wall_light'), // Target template light for proper brightness tracking
                         },
                     ],
                 },
