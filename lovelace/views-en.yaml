@@ -1101,6 +1101,14 @@ views:
               - type: custom:bubble-card
                 card_type: button
                 button_type: switch
+                entity: scene.bedroom_evening
+                name: Bedroom Evening
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
                 entity: scene.lr_twilight_zone
                 name: Twilight
                 scrolling_effect: true
