@@ -116,7 +116,7 @@ const config = {
 
         parent_s_wc: {
             syncedEntities: {
-                mwc_bathroom_wall_lights: {
+                bathroom_wall_lights: {
                     name: 'Bathroom Wall Lights',
                     power: null,
                     entities: [
@@ -128,7 +128,7 @@ const config = {
                             device_id: '9ac17cdea1e5d29ba9f8739af9b77d99',
                             name: 'Bathroom Remote',
                             sync: false,
-                            blueprint: ikeaE2213Base('light.mwc_bathroom_wall_lights'),
+                            blueprint: ikeaE2213Base('bathroom_wall_lights'),
                         }
                     ],
                 },

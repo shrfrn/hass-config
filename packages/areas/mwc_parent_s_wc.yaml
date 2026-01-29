@@ -40,13 +40,13 @@ timer:
 light:
   - platform: group
     name: Bathroom Wall Lights
-    unique_id: mwc_bathroom_wall_lights_group
+    unique_id: bathroom_wall_lights_group
     entities:
       - light.mwc_bathroom_east_wall_ikea_bulb
       - light.mwc_bathroom_south_wall_ikea_bulb
 
 automation:
-  - id: mwc_bathroom_wall_lights_remote_Bathroom Remote
+  - id: bathroom_wall_lights_remote_Bathroom Remote
     alias: Bathroom Wall Lights Bathroom Remote
     use_blueprint:
       path: EPMatt/ikea_e2213.yaml
@@ -60,24 +60,24 @@ automation:
         action_button_dots1_short:
           - service: light.turn_on
             target:
-              entity_id: light.mwc_bathroom_wall_lights
+              entity_id: bathroom_wall_lights
         action_button_dots1_long:
           - service: light.turn_on
             target:
-              entity_id: light.mwc_bathroom_wall_lights
+              entity_id: bathroom_wall_lights
             data:
               brightness_step_pct: 2
         action_button_dots2_short:
           - service: light.turn_off
             target:
-              entity_id: light.mwc_bathroom_wall_lights
+              entity_id: bathroom_wall_lights
         action_button_dots2_long:
           - service: light.turn_on
             target:
-              entity_id: light.mwc_bathroom_wall_lights
+              entity_id: bathroom_wall_lights
             data:
               brightness_step_pct: -2
-  - id: mwc_bathroom_wall_lights_sync
+  - id: bathroom_wall_lights_sync
     alias: Bathroom Wall Lights Sync
     trigger:
       - platform: state

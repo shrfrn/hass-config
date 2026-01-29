@@ -1987,7 +1987,7 @@ views:
               - type: custom:bubble-card
                 card_type: button
                 button_type: slider
-                entity: light.mwc_bathroom_wall_lights_group
+                entity: light.bathroom_wall_lights_group
                 name: Bathroom Wall Lights
                 scrolling_effect: true
                 tap_action:
