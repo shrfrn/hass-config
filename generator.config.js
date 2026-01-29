@@ -83,7 +83,9 @@ const config = {
                     power: 'light.ofc_lt_walls', // KNX relay controls power to bulbs
                     entities: [
                         { entity_id: 'light.ofc_lt_walls', sync: true },
-                        { entity_id: 'light.ofc_lt_wall_bulbs', sync: true, controls: 'dimmable' },
+                        // { entity_id: 'light.ofc_lt_wall_bulbs', sync: true, controls: 'dimmable' },
+                        { entity_id: 'light.ofc_lt_wall_n_ikea_bulb', sync: true, controls: 'dimmable' },
+                        { entity_id: 'light.ofc_lt_wall_s_ikea_bulb', sync: true, controls: 'dimmable' },
                         {   // IKEA remote - dimming handled by RODRET blueprint
                             device_id: '09fbd2ceffb101e3b5e10adf0f7a83b9',
                             name: 'shahar',
