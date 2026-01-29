@@ -8,6 +8,7 @@ group:
     entities:
       - light.mwc_ceiling_shower
       - light.mwc_ceiling_toilet
+      - light.mwc_lt_bathroom_wall_e
       - light.mwc_lt_bathroom_wall_s
       - light.mwc_main_ceiling
       - light.mwc_main_wall
@@ -36,13 +37,53 @@ timer:
     name: Master WC Vacancy Timer
     duration: "00:09:00"
 
+light:
+  - platform: group
+    name: Bathroom Wall Lights
+    unique_id: mwc_bathroom_wall_lights_group
+    entities:
+      - light.mwc_bathroom_east_wall_ikea_bulb
+      - light.mwc_bathroom_south_wall_ikea_bulb
+
 automation:
-  - id: mwc_bathroom_wall_e_light_sync
-    alias: Bathroom East Wall Sync
+  - id: mwc_bathroom_wall_lights_remote_Bathroom Remote
+    alias: Bathroom Wall Lights Bathroom Remote
+    use_blueprint:
+      path: EPMatt/ikea_e2213.yaml
+      input:
+        controller_device: "9ac17cdea1e5d29ba9f8739af9b77d99"
+        helper_long_press_delay: 100
+        button_dots1_long_loop: true
+        button_dots1_long_max_loop_repeats: 50
+        button_dots2_long_loop: true
+        button_dots2_long_max_loop_repeats: 50
+        action_button_dots1_short:
+          - service: light.turn_on
+            target:
+              entity_id: light.mwc_bathroom_wall_lights
+        action_button_dots1_long:
+          - service: light.turn_on
+            target:
+              entity_id: light.mwc_bathroom_wall_lights
+            data:
+              brightness_step_pct: 2
+        action_button_dots2_short:
+          - service: light.turn_off
+            target:
+              entity_id: light.mwc_bathroom_wall_lights
+        action_button_dots2_long:
+          - service: light.turn_on
+            target:
+              entity_id: light.mwc_bathroom_wall_lights
+            data:
+              brightness_step_pct: -2
+  - id: mwc_bathroom_wall_lights_sync
+    alias: Bathroom Wall Lights Sync
     trigger:
       - platform: state
         entity_id:
-          - light.mwc_lt_bathroom_wall_e
+          - light.mwc_bathroom_east_wall_ikea_bulb
+          - light.mwc_bathroom_south_wall_ikea_bulb
           - switch.mwc_sw_bathroom_wall_e
         to:
           - "on"
@@ -60,5 +101,5 @@ automation:
                 target:
                   entity_id: >
                     {% set triggered = trigger.entity_id %}
-                    {% set all = ["light.mwc_lt_bathroom_wall_e","switch.mwc_sw_bathroom_wall_e"] %}
+                    {% set all = ["light.mwc_bathroom_east_wall_ikea_bulb","light.mwc_bathroom_south_wall_ikea_bulb","switch.mwc_sw_bathroom_wall_e"] %}
                     {{ all | reject('eq', triggered) | list }}

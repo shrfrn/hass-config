@@ -116,12 +116,20 @@ const config = {
 
         parent_s_wc: {
             syncedEntities: {
-                mwc_bathroom_wall_e_light: {
-                    name: 'Bathroom East Wall',
+                mwc_bathroom_wall_lights: {
+                    name: 'Bathroom Wall Lights',
                     power: null,
                     entities: [
-                        { entity_id: 'light.mwc_lt_bathroom_wall_e', sync: true },
+                        // { entity_id: 'light.mwc_lt_bathroom_wall_e', sync: true },
+                        { entity_id: 'light.mwc_bathroom_east_wall_ikea_bulb', sync: true, controls: 'dimmable' },
+                        { entity_id: 'light.mwc_bathroom_south_wall_ikea_bulb', sync: true, controls: 'dimmable' },
                         { entity_id: 'switch.mwc_sw_bathroom_wall_e', sync: true },
+                        {
+                            device_id: '9ac17cdea1e5d29ba9f8739af9b77d99',
+                            name: 'Bathroom Remote',
+                            sync: false,
+                            blueprint: ikeaE2213Base('light.mwc_bathroom_wall_lights'),
+                        }
                     ],
                 },
             },
