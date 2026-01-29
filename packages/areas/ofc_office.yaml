@@ -51,12 +51,14 @@ script:
       brightness:
         description: Brightness level (0-255)
     sequence:
-      - wait_template: "{{ states('light.ofc_lt_wall_bulbs') != 'unavailable' }}"
+      - wait_template: "{{ states('light.ofc_lt_wall_n_ikea_bulb') != 'unavailable' and states('light.ofc_lt_wall_s_ikea_bulb') != 'unavailable' }}"
         timeout: "00:00:05"
         continue_on_timeout: false
       - service: light.turn_on
         target:
-          entity_id: light.ofc_lt_wall_bulbs
+          entity_id:
+            - light.ofc_lt_wall_n_ikea_bulb
+            - light.ofc_lt_wall_s_ikea_bulb
         data:
           brightness: "{{ brightness }}"
       - service: input_number.set_value
@@ -131,7 +133,8 @@ automation:
       - platform: state
         entity_id:
           - light.ofc_lt_walls
-          - light.ofc_lt_wall_bulbs
+          - light.ofc_lt_wall_n_ikea_bulb
+          - light.ofc_lt_wall_s_ikea_bulb
         to:
           - "on"
           - "off"
@@ -148,5 +151,5 @@ automation:
                 target:
                   entity_id: >
                     {% set triggered = trigger.entity_id %}
-                    {% set all = ["light.ofc_lt_walls","light.ofc_lt_wall_bulbs"] %}
+                    {% set all = ["light.ofc_lt_walls","light.ofc_lt_wall_n_ikea_bulb","light.ofc_lt_wall_s_ikea_bulb"] %}
                     {{ all | reject('eq', triggered) | list }}

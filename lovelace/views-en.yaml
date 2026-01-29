@@ -804,14 +804,6 @@ views:
               - type: custom:bubble-card
                 card_type: button
                 button_type: switch
-                entity: media_player.lr_tv
-                name: Living Room TV
-                scrolling_effect: true
-                tap_action:
-                  action: toggle
-              - type: custom:bubble-card
-                card_type: button
-                button_type: switch
                 entity: light.lr_lt_ceiling
                 name: Ceiling
                 scrolling_effect: true
@@ -836,6 +828,14 @@ views:
                 button_type: switch
                 entity: switch.lr_soc_w
                 name: Socket
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: media_player.lr_tv
+                name: Living Room TV
                 scrolling_effect: true
                 tap_action:
                   action: toggle

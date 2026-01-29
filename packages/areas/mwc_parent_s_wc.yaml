@@ -6,6 +6,7 @@ group:
   mwc_lights:
     name: Master WC Lights
     entities:
+      - light.mwc_bathroom_wall_lights_group
       - light.mwc_ceiling_shower
       - light.mwc_ceiling_toilet
       - light.mwc_lt_bathroom_wall_e
