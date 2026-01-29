@@ -1986,12 +1986,18 @@ views:
             cards:
               - type: custom:bubble-card
                 card_type: button
-                button_type: switch
-                entity: light.mwc_lt_bathroom_wall_e
-                name: Bathroom East Wall
+                button_type: slider
+                entity: light.mwc_bathroom_wall_lights_group
+                name: Bathroom Wall Lights
                 scrolling_effect: true
                 tap_action:
-                  action: toggle
+                  action: perform-action
+                  perform_action: homeassistant.toggle
+                  target:
+                    entity_id: switch.mwc_sw_bathroom_wall_e
+                button_action:
+                  tap_action:
+                    action: none
               - type: custom:bubble-card
                 card_type: button
                 button_type: switch
@@ -2029,6 +2035,14 @@ views:
                 button_type: switch
                 entity: light.mwc_lt_bathroom_wall_s
                 name: אמבטיה דרום
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.mwc_lt_bathroom_wall_e
+                name: אמבטיה מזרח
                 scrolling_effect: true
                 tap_action:
                   action: toggle
