@@ -808,14 +808,6 @@ views:
               - type: custom:bubble-card
                 card_type: button
                 button_type: switch
-                entity: switch.lr_soc_w
-                name: שקע נשלט
-                scrolling_effect: true
-                tap_action:
-                  action: toggle
-              - type: custom:bubble-card
-                card_type: button
-                button_type: switch
                 entity: light.lr_lt_ceiling
                 name: תקרה
                 scrolling_effect: true
@@ -835,6 +827,14 @@ views:
                   service: homeassistant.toggle
                   target:
                     entity_id: light.lr_lt_outdoor_projector
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: switch.lr_soc_w
+                name: שקע נשלט
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
               - type: custom:bubble-card
                 card_type: button
                 button_type: switch
@@ -1231,14 +1231,6 @@ views:
               - type: custom:bubble-card
                 card_type: button
                 button_type: switch
-                entity: switch.mb_door_s
-                name: דלת פטיו
-                scrolling_effect: true
-                tap_action:
-                  action: toggle
-              - type: custom:bubble-card
-                card_type: button
-                button_type: switch
                 entity: light.mb_lt_wardrobe
                 name: חדר ארונות
                 scrolling_effect: true
@@ -1247,6 +1239,14 @@ views:
                   service: homeassistant.toggle
                   target:
                     entity_id: light.mb_lt_wardrobe
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: switch.mb_door_s
+                name: דלת פטיו
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
               - type: custom:bubble-card
                 card_type: button
                 button_type: slider
@@ -2028,6 +2028,7 @@ views:
                 entity: light.mwc_bathroom_wall_lights
                 name: Bathroom Wall Lights
                 scrolling_effect: true
+                icon: mdi:coach-lamp-variant
                 tap_action:
                   action: toggle
                 button_action:
@@ -2047,7 +2048,7 @@ views:
                 entity: light.mwc_main_wall
                 name: קיר לבנים
                 scrolling_effect: true
-                icon: mdi:light-recessed
+                icon: mdi:lightbulb-multiple
                 tap_action:
                   action: toggle
               - type: custom:bubble-card
