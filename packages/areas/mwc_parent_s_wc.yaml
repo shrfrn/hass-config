@@ -6,7 +6,7 @@ group:
   mwc_lights:
     name: Master WC Lights
     entities:
-      - light.mwc_bathroom_wall_lights_group
+      - light.mwc_bathroom_wall_lights
       - light.mwc_ceiling_shower
       - light.mwc_ceiling_toilet
       - light.mwc_lt_bathroom_wall_e
@@ -39,6 +39,26 @@ timer:
     duration: "00:09:00"
 
 light:
+  - platform: template
+    lights:
+      mwc_bathroom_wall_lights:
+        friendly_name: Bathroom Wall Lights
+        value_template: "{{ is_state('light.mwc_bathroom_wall_lights_group', 'on') }}"
+        turn_on:
+          service: light.turn_on
+          target:
+            entity_id: light.mwc_bathroom_wall_lights_group
+        turn_off:
+          service: light.turn_off
+          target:
+            entity_id: light.mwc_bathroom_wall_lights_group
+        level_template: "{{ state_attr('light.mwc_bathroom_wall_lights_group', 'brightness') | int }}"
+        set_level:
+          service: light.turn_on
+          target:
+            entity_id: light.mwc_bathroom_wall_lights_group
+          data:
+            brightness: "{{ brightness }}"
   - platform: group
     name: mwc_bathroom_wall_lights_group
     unique_id: mwc_bathroom_wall_lights_group
@@ -80,11 +100,11 @@ automation:
               brightness_step_pct: -2
   - id: mwc_bathroom_wall_lights_sync
     alias: Bathroom Wall Lights Sync
+    mode: restart
     trigger:
       - platform: state
         entity_id:
-          - light.mwc_bathroom_east_wall_ikea_bulb
-          - light.mwc_bathroom_south_wall_ikea_bulb
+          - light.mwc_bathroom_wall_lights_group
           - switch.mwc_sw_bathroom_wall_e
         to:
           - "on"
@@ -102,5 +122,6 @@ automation:
                 target:
                   entity_id: >
                     {% set triggered = trigger.entity_id %}
-                    {% set all = ["light.mwc_bathroom_east_wall_ikea_bulb","light.mwc_bathroom_south_wall_ikea_bulb","switch.mwc_sw_bathroom_wall_e"] %}
-                    {{ all | reject('eq', triggered) | list }}
+                    {% set target_state = trigger.to_state.state %}
+                    {% set all = ["light.mwc_bathroom_wall_lights_group","switch.mwc_sw_bathroom_wall_e"] %}
+                    {{ all | reject('eq', triggered) | reject('is_state', target_state) | list }}

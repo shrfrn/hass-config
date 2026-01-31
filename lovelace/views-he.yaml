@@ -804,6 +804,14 @@ views:
               - type: custom:bubble-card
                 card_type: button
                 button_type: switch
+                entity: switch.lr_soc_w
+                name: שקע נשלט
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
                 entity: light.lr_lt_ceiling
                 name: תקרה
                 scrolling_effect: true
@@ -823,14 +831,6 @@ views:
                   service: homeassistant.toggle
                   target:
                     entity_id: light.lr_lt_outdoor_projector
-              - type: custom:bubble-card
-                card_type: button
-                button_type: switch
-                entity: switch.lr_soc_w
-                name: שקע נשלט
-                scrolling_effect: true
-                tap_action:
-                  action: toggle
               - type: custom:bubble-card
                 card_type: button
                 button_type: switch
@@ -1124,14 +1124,22 @@ views:
               - type: custom:bubble-card
                 card_type: button
                 button_type: slider
-                entity: light.mb_soc_bulb
+                entity: light.mb_standing_lamp
                 name: Master Bedroom Standing Lamp
                 scrolling_effect: true
                 tap_action:
-                  action: perform-action
-                  perform_action: homeassistant.toggle
-                  target:
-                    entity_id: switch.mb_soc
+                  action: toggle
+                button_action:
+                  tap_action:
+                    action: none
+              - type: custom:bubble-card
+                card_type: button
+                button_type: slider
+                entity: light.mb_wardrobe_counter_lamp
+                name: Wardrobe Counter Lamp
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
                 button_action:
                   tap_action:
                     action: none
@@ -1208,6 +1216,14 @@ views:
               - type: custom:bubble-card
                 card_type: button
                 button_type: switch
+                entity: switch.mb_door_s
+                name: דלת פטיו
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
                 entity: light.mb_lt_wardrobe
                 name: חדר ארונות
                 scrolling_effect: true
@@ -1216,14 +1232,6 @@ views:
                   service: homeassistant.toggle
                   target:
                     entity_id: light.mb_lt_wardrobe
-              - type: custom:bubble-card
-                card_type: button
-                button_type: switch
-                entity: switch.mb_door_s
-                name: דלת פטיו
-                scrolling_effect: true
-                tap_action:
-                  action: toggle
               - type: custom:bubble-card
                 card_type: button
                 button_type: slider
@@ -1477,14 +1485,11 @@ views:
               - type: custom:bubble-card
                 card_type: button
                 button_type: slider
-                entity: light.stdn_standing_lamp_bulb
+                entity: light.stdn_standing_lamp
                 name: Studio Standing Lamp
                 scrolling_effect: true
                 tap_action:
-                  action: perform-action
-                  perform_action: homeassistant.toggle
-                  target:
-                    entity_id: switch.stdn_skt
+                  action: toggle
                 button_action:
                   tap_action:
                     action: none
@@ -1987,14 +1992,11 @@ views:
               - type: custom:bubble-card
                 card_type: button
                 button_type: slider
-                entity: light.mwc_bathroom_wall_lights_group
+                entity: light.mwc_bathroom_wall_lights
                 name: Bathroom Wall Lights
                 scrolling_effect: true
                 tap_action:
-                  action: perform-action
-                  perform_action: homeassistant.toggle
-                  target:
-                    entity_id: switch.mwc_sw_bathroom_wall_e
+                  action: toggle
                 button_action:
                   tap_action:
                     action: none
