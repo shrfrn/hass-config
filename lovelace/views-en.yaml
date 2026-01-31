@@ -737,6 +737,7 @@ views:
                 entity: switch.lr_soc_e
                 name: Standing Lamp
                 scrolling_effect: true
+                icon: mdi:floor-lamp-outline
                 tap_action:
                   action: toggle
               - type: custom:bubble-card
@@ -745,6 +746,7 @@ views:
                 entity: light.lr_lt_wall_n
                 name: North Wall
                 scrolling_effect: true
+                icon: mdi:wall-sconce-flat-variant
                 tap_action:
                   action: toggle
               - type: custom:bubble-card
@@ -753,6 +755,7 @@ views:
                 entity: light.lr_lt_wall_e
                 name: East Wall
                 scrolling_effect: true
+                icon: mdi:wall-sconce-outline
                 tap_action:
                   action: toggle
               - type: custom:bubble-card
@@ -761,6 +764,7 @@ views:
                 entity: light.lr_lt_wall_s
                 name: South Wall
                 scrolling_effect: true
+                icon: mdi:wall-sconce-flat-variant
                 tap_action:
                   action: toggle
           - type: custom:bubble-card
@@ -914,6 +918,7 @@ views:
                 entity: light.kt_lt_strip_n
                 name: Counter Spots
                 scrolling_effect: true
+                icon: mdi:track-light
                 tap_action:
                   action: toggle
               - type: custom:bubble-card
@@ -922,6 +927,7 @@ views:
                 entity: light.kt_lt_ceiling_1
                 name: Dining Table
                 scrolling_effect: true
+                icon: mdi:ceiling-light
                 tap_action:
                   action: toggle
               - type: custom:bubble-card
@@ -930,6 +936,7 @@ views:
                 entity: light.kt_lt_strip_s
                 name: Brick Wall Spots
                 scrolling_effect: true
+                icon: mdi:track-light
                 tap_action:
                   action: toggle
               - type: custom:bubble-card
@@ -938,6 +945,7 @@ views:
                 entity: light.kt_lt_wall_s
                 name: Brick Wall
                 scrolling_effect: true
+                icon: mdi:outdoor-lamp
                 tap_action:
                   action: toggle
               - type: custom:bubble-card
@@ -946,6 +954,7 @@ views:
                 entity: light.kt_lt_ceiling_2
                 name: Sitting Counter
                 scrolling_effect: true
+                icon: mdi:ceiling-light-multiple
                 tap_action:
                   action: toggle
               - type: custom:bubble-card
@@ -954,6 +963,7 @@ views:
                 entity: light.kt_lt_wall_s_entrance
                 name: Entrance Wall
                 scrolling_effect: true
+                icon: mdi:wall-sconce-flat-variant
                 tap_action:
                   action: toggle
               - type: custom:bubble-card
@@ -962,6 +972,7 @@ views:
                 entity: light.kt_lt_ceiling_3
                 name: Entrance Ceiling
                 scrolling_effect: true
+                icon: mdi:light-recessed
                 tap_action:
                   action: toggle
               - type: custom:bubble-card
@@ -970,6 +981,7 @@ views:
                 entity: light.kt_lt_entrance_wall_outdoors
                 name: Kitchen Balcony
                 scrolling_effect: true
+                icon: mdi:outdoor-lamp
                 tap_action:
                   action: toggle
               - type: custom:bubble-card
@@ -1149,6 +1161,7 @@ views:
                 entity: light.mb_lt_wall
                 name: Wall Lights
                 scrolling_effect: true
+                icon: mdi:wall-sconce-flat-variant
                 tap_action:
                   action: toggle
               - type: custom:bubble-card
@@ -1173,6 +1186,7 @@ views:
                 entity: light.mb_lt_ceiling_hall
                 name: Hall
                 scrolling_effect: true
+                icon: mdi:ceiling-light-multiple
                 tap_action:
                   action: toggle
           - type: custom:bubble-card
@@ -1321,6 +1335,7 @@ views:
                 entity: light.stdr_lt_ceiling_spots
                 name: Ceiling Spots
                 scrolling_effect: true
+                icon: mdi:track-light
                 tap_action:
                   action: toggle
               - type: custom:bubble-card
@@ -1329,6 +1344,7 @@ views:
                 entity: light.stdr_lt_ceiling_main
                 name: Ceiling
                 scrolling_effect: true
+                icon: mdi:ceiling-light-multiple-outline
                 tap_action:
                   action: toggle
               - type: custom:bubble-card
@@ -1337,6 +1353,7 @@ views:
                 entity: light.stdr_lt_wall_n_sink
                 name: Large Sink
                 scrolling_effect: true
+                icon: mdi:outdoor-lamp
                 tap_action:
                   action: toggle
               - type: custom:bubble-card
@@ -1345,6 +1362,7 @@ views:
                 entity: light.stdr_lt_wall_s_gallery
                 name: Gallery Wall
                 scrolling_effect: true
+                icon: mdi:wall-sconce-flat-variant
                 tap_action:
                   action: toggle
               - type: custom:bubble-card
@@ -1353,6 +1371,7 @@ views:
                 entity: light.stdr_lt_ceiling_gallery
                 name: Gallery Ceiling
                 scrolling_effect: true
+                icon: mdi:ceiling-light-multiple
                 tap_action:
                   action: toggle
               - type: custom:bubble-card
@@ -1361,6 +1380,7 @@ views:
                 entity: light.stdr_lt_wall_s_sink
                 name: Service Sink
                 scrolling_effect: true
+                icon: mdi:outdoor-lamp
                 tap_action:
                   action: toggle
               - type: custom:bubble-card
@@ -1369,6 +1389,7 @@ views:
                 entity: light.stdr_lt_ceiling_kiln
                 name: Kiln Room
                 scrolling_effect: true
+                icon: mdi:lightbulb-fluorescent-tube-outline
                 tap_action:
                   action: toggle
               - type: custom:bubble-card
@@ -1377,6 +1398,7 @@ views:
                 entity: light.stdr_lt_ceiling_service_area
                 name: Service Area
                 scrolling_effect: true
+                icon: mdi:lightbulb-fluorescent-tube-outline
                 tap_action:
                   action: toggle
               - type: custom:bubble-card
@@ -1385,6 +1407,7 @@ views:
                 entity: light.shahar_studio_standing_lamp
                 name: Shahar's Studio Standing Lamp
                 scrolling_effect: true
+                icon: mdi:floor-lamp
                 tap_action:
                   action: toggle
                 button_action:
@@ -1499,6 +1522,7 @@ views:
                 entity: light.stdn_lt_wall_w
                 name: West Wall
                 scrolling_effect: true
+                icon: mdi:lightbulb
                 tap_action:
                   action: toggle
               - type: custom:bubble-card
@@ -1507,6 +1531,7 @@ views:
                 entity: light.stdn_lt_wall_n
                 name: North Wall
                 scrolling_effect: true
+                icon: mdi:lightbulb
                 tap_action:
                   action: toggle
               - type: custom:bubble-card
@@ -1645,6 +1670,7 @@ views:
                 entity: light.ofc_lt_corridor_table_bulb
                 name: Office Corridor Table Light Ikea Bulb
                 scrolling_effect: true
+                icon: mdi:lamp-outline
                 tap_action:
                   action: toggle
                 button_action:
@@ -1732,6 +1758,7 @@ views:
                 entity: light.crd_lt_wall_e
                 name: Corridor Wall
                 scrolling_effect: true
+                icon: mdi:wall-sconce-flat-variant
                 tap_action:
                   action: toggle
               - type: custom:bubble-card
@@ -1740,6 +1767,7 @@ views:
                 entity: light.crd_lt_mmd_wall_n
                 name: Toilet Entrance
                 scrolling_effect: true
+                icon: mdi:wall-sconce-flat-variant
                 tap_action:
                   action: toggle
               - type: custom:bubble-card
@@ -1748,6 +1776,7 @@ views:
                 entity: light.crd_lt_entrance_wall_outdoors
                 name: Children Entrance Backyard
                 scrolling_effect: true
+                icon: mdi:outdoor-lamp
                 tap_action:
                   action: toggle
           - type: custom:bubble-card
@@ -1830,6 +1859,7 @@ views:
                 entity: light.lndr_lt_ceiling
                 name: Ceiling
                 scrolling_effect: true
+                icon: mdi:light-recessed
                 tap_action:
                   action: toggle
               - type: custom:bubble-card
@@ -1838,6 +1868,7 @@ views:
                 entity: light.lndr_lt_outdoor_projector
                 name: Flood Light
                 scrolling_effect: true
+                icon: mdi:light-flood-down
                 tap_action:
                   action: toggle
               - type: custom:bubble-card
@@ -1846,6 +1877,7 @@ views:
                 entity: light.lndr_lt_entrance_wall_outdoor
                 name: Laundry Room Entrance
                 scrolling_effect: true
+                icon: mdi:wall-sconce-flat-variant
                 tap_action:
                   action: toggle
           - type: custom:bubble-card
@@ -2014,6 +2046,7 @@ views:
                 entity: light.mwc_main_wall
                 name: Brick Wall
                 scrolling_effect: true
+                icon: mdi:light-recessed
                 tap_action:
                   action: toggle
               - type: custom:bubble-card
@@ -2054,6 +2087,7 @@ views:
                 entity: light.mwc_outdoor_projector
                 name: Flood Light
                 scrolling_effect: true
+                icon: mdi:light-flood-down
                 tap_action:
                   action: toggle
   - icon: mdi:greenhouse
@@ -2108,6 +2142,7 @@ views:
                 entity: light.ssol_lt_wall_s
                 name: Wall Light
                 scrolling_effect: true
+                icon: mdi:outdoor-lamp
                 tap_action:
                   action: toggle
           - type: custom:bubble-card
@@ -2193,6 +2228,7 @@ views:
                 entity: light.br1_lt_ceiling
                 name: Ceiling
                 scrolling_effect: true
+                icon: mdi:light-recessed
                 tap_action:
                   action: toggle
               - type: custom:bubble-card
@@ -2201,6 +2237,7 @@ views:
                 entity: light.br1_lt_wall_s
                 name: South Wall
                 scrolling_effect: true
+                icon: mdi:outdoor-lamp
                 tap_action:
                   action: toggle
               - type: custom:bubble-card
@@ -2209,6 +2246,7 @@ views:
                 entity: light.br1_lt_window_w
                 name: Window
                 scrolling_effect: true
+                icon: mdi:ceiling-light-outline
                 tap_action:
                   action: toggle
               - type: custom:bubble-card
@@ -2217,6 +2255,7 @@ views:
                 entity: light.br1_lt_wall_w
                 name: West Wall
                 scrolling_effect: true
+                icon: mdi:outdoor-lamp
                 tap_action:
                   action: toggle
           - type: custom:bubble-card
@@ -2334,6 +2373,7 @@ views:
                 entity: light.cwc_lt_bathroom_wall_outdoors
                 name: Bathroom Wall
                 scrolling_effect: true
+                icon: mdi:wall-sconce-flat-variant
                 tap_action:
                   action: toggle
   - icon: mdi:greenhouse
@@ -2388,6 +2428,7 @@ views:
                 entity: light.ksol_lt_wall_w
                 name: Wall Light
                 scrolling_effect: true
+                icon: mdi:outdoor-lamp
                 tap_action:
                   action: toggle
               - type: custom:bubble-card
@@ -2396,6 +2437,7 @@ views:
                 entity: light.ksol_lt_sink
                 name: Sink Light
                 scrolling_effect: true
+                icon: mdi:lightbulb
                 tap_action:
                   action: toggle
           - type: custom:bubble-card
@@ -2478,6 +2520,7 @@ views:
                 entity: light.ptio_lt_wall_ne
                 name: North Wall
                 scrolling_effect: true
+                icon: mdi:wall-sconce-flat-variant
                 tap_action:
                   action: toggle
               - type: custom:bubble-card
@@ -2486,6 +2529,7 @@ views:
                 entity: light.ptio_lt_wall_nw
                 name: Patio Entrance
                 scrolling_effect: true
+                icon: mdi:wall-sconce-flat-variant
                 tap_action:
                   action: toggle
               - type: custom:bubble-card
@@ -2494,6 +2538,7 @@ views:
                 entity: light.ptio_lt_wall_e
                 name: East Wall
                 scrolling_effect: true
+                icon: mdi:wall-sconce-flat-variant
                 tap_action:
                   action: toggle
               - type: custom:bubble-card
@@ -2502,6 +2547,7 @@ views:
                 entity: light.ptio_west_wall
                 name: West Wall
                 scrolling_effect: true
+                icon: mdi:wall-sconce-flat-variant
                 tap_action:
                   action: toggle
               - type: custom:bubble-card
@@ -2510,6 +2556,7 @@ views:
                 entity: light.ptio_lt_wall_main_entrance
                 name: Main Door Light
                 scrolling_effect: true
+                icon: mdi:coach-lamp
                 tap_action:
                   action: toggle
               - type: custom:bubble-card
@@ -2518,6 +2565,7 @@ views:
                 entity: light.ptio_lt_corridor_wall_e
                 name: Patio Corridor
                 scrolling_effect: true
+                icon: mdi:wall-sconce-flat-variant
                 tap_action:
                   action: toggle
               - type: custom:bubble-card
@@ -2526,6 +2574,7 @@ views:
                 entity: light.ptio_lt_corridor_wall_s
                 name: Corridor Door
                 scrolling_effect: true
+                icon: mdi:lightbulb
                 tap_action:
                   action: toggle
           - type: custom:bubble-card
@@ -2603,6 +2652,7 @@ views:
                 entity: light.br2_lt_ceiling
                 name: Ceiling
                 scrolling_effect: true
+                icon: mdi:light-recessed
                 tap_action:
                   action: toggle
               - type: custom:bubble-card
@@ -2611,6 +2661,7 @@ views:
                 entity: light.br2_lt_wall_n
                 name: North Wall
                 scrolling_effect: true
+                icon: mdi:outdoor-lamp
                 tap_action:
                   action: toggle
               - type: custom:bubble-card
@@ -2619,6 +2670,7 @@ views:
                 entity: light.br2_lt_window_w
                 name: Window
                 scrolling_effect: true
+                icon: mdi:globe-light-outline
                 tap_action:
                   action: toggle
               - type: custom:bubble-card
@@ -2627,6 +2679,7 @@ views:
                 entity: light.br2_lt_wall_w
                 name: West Wall
                 scrolling_effect: true
+                icon: mdi:outdoor-lamp
                 tap_action:
                   action: toggle
           - type: custom:bubble-card
