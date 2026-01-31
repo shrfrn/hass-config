@@ -987,6 +987,7 @@ views:
                       entity: light.mb_standing_lamp
                       name: Master Bedroom Standing Lamp
                       scrolling_effect: true
+                      icon: mdi:floor-light-outline
                       tap_action:
                         action: toggle
                       button_action:
@@ -1787,6 +1788,7 @@ views:
                     entity: light.mwc_lt_bathroom_wall_s
                     name: אמבטיה דרום
                     scrolling_effect: true
+                    icon: mdi:coach-lamp-variant
                     tap_action:
                       action: toggle
                   - type: custom:bubble-card
@@ -1795,6 +1797,7 @@ views:
                     entity: light.mwc_lt_bathroom_wall_e
                     name: אמבטיה מזרח
                     scrolling_effect: true
+                    icon: mdi:coach-lamp-variant
                     tap_action:
                       action: toggle
                   - type: custom:bubble-card
