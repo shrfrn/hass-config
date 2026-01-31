@@ -1,3 +1,14 @@
 # Generated automations - DO NOT EDIT
 # This file is managed by hass-gen. Manual changes will be overwritten.
-[]
+- id: sync_knx_after_startup
+  alias: Sync KNX entity states after startup
+  description: Re-read KNX state from the bus 60s after HA starts so the dashboard matches physical switches used during boot.
+  trigger:
+    - platform: event
+      event_type: homeassistant_start
+  action:
+    - delay:
+        seconds: 60
+    - service: homeassistant.update_entity
+      target:
+        entity_id: "{{ integration_entities('knx') }}"
