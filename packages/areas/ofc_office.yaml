@@ -9,6 +9,7 @@ group:
       - light.ofc_lt_ceiling_hall
       - light.ofc_lt_ceiling_wc
       - light.ofc_lt_corridor_table_bulb
+      - light.ofc_wall_light
 
 input_select:
   ofc_active_scene:
@@ -96,6 +97,13 @@ light:
                   - service: script.ofc_wall_light_ev_throttler
                     data:
                       brightness: "{{ brightness }}"
+  - platform: group
+    name: ofc_wall_light_group
+    unique_id: ofc_wall_light_group
+    entities:
+      - light.ofc_lt_walls
+      - light.ofc_lt_wall_n_ikea_bulb
+      - light.ofc_lt_wall_s_ikea_bulb
 
 automation:
   - id: ofc_wall_light_remote_shahar
@@ -129,12 +137,11 @@ automation:
               brightness_step_pct: -2
   - id: ofc_wall_light_sync
     alias: Office Wall Light Sync
+    mode: restart
     trigger:
       - platform: state
         entity_id:
-          - light.ofc_lt_walls
-          - light.ofc_lt_wall_n_ikea_bulb
-          - light.ofc_lt_wall_s_ikea_bulb
+          - light.ofc_wall_light_group
         to:
           - "on"
           - "off"
@@ -151,5 +158,6 @@ automation:
                 target:
                   entity_id: >
                     {% set triggered = trigger.entity_id %}
-                    {% set all = ["light.ofc_lt_walls","light.ofc_lt_wall_n_ikea_bulb","light.ofc_lt_wall_s_ikea_bulb"] %}
-                    {{ all | reject('eq', triggered) | list }}
+                    {% set target_state = trigger.to_state.state %}
+                    {% set all = ["light.ofc_wall_light_group"] %}
+                    {{ all | reject('eq', triggered) | reject('is_state', target_state) | list }}
