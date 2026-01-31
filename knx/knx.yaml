@@ -15,235 +15,303 @@ light:
   
   - name: "lr_lt_wall_n"
     address: "1/0/65"
+    state_address: "1/0/65"
 
   - name: "lr_lt_wall_e"
     address: "1/0/70"
+    state_address: "1/0/70"
 
   - name: "lr_lt_wall_s"
     address: "1/0/97"
+    state_address: "1/0/97"
 
   - name: "lr_lt_ceiling"
     address: "1/0/69"
+    state_address: "1/0/69"
 
   - name: "lr_lt_outdoor_projector"
     address: "1/0/144"
+    state_address: "1/0/144"
 
   # Kitchen
 
   - name: "kt_lt_strip_n"
     address: "1/0/60"
+    state_address: "1/0/60"
 
   - name: "kt_lt_ceiling_main"
     address: "1/0/62"
+    state_address: "1/0/62"
 
   - name: "kt_lt_strip_s"
     address: "1/0/63"
+    state_address: "1/0/63"
 
   - name: "kt_lt_wall_s"
     address: "1/0/73"
+    state_address: "1/0/73"
 
   - name: "kt_lt_ceiling_bar"
     address: "1/0/58"
+    state_address: "1/0/58"
 
   - name: "kt_lt_wall_s_entrance"
     address: "1/0/71"
+    state_address: "1/0/71"
 
   - name: "kt_lt_ceiling_entrance"
     address: "1/0/101"
+    state_address: "1/0/101"
 
   - name: "kt_lt_entrance_wall_outdoors"
     address: "1/0/72"
+    state_address: "1/0/72"
     
   # Kitchen Solaris
     
   - name: "ksol_lt_wall_w"
     address: "1/0/103"
+    state_address: "1/0/103"
     
   - name: "ksol_lt_sink"
     address: "1/0/80"
+    state_address: "1/0/80"
     
   # Master Bedroom
     
   - name: "mb_lt_wall"
     address: "1/0/79"
+    state_address: "1/0/79"
         
   - name: "mb_bed_s"
     address: "1/0/75"
+    state_address: "1/0/75"
         
   - name: "mb_bed_n"
     address: "1/0/98"
+    state_address: "1/0/98"
     
   - name: "mb_lt_wardrobe"
     address: "1/0/77"
+    state_address: "1/0/77"
     
   - name: "mb_lt_ceiling_hall"
     address: "1/0/56"
+    state_address: "1/0/56"
 
   # Master Bathroom
 
   - name: "mwc_lt_main_ceiling"
     address: "1/0/49"
+    state_address: "1/0/49"
 
   - name: "mwc_lt_main_wall"
     address: "1/0/50"
+    state_address: "1/0/50"
 
   - name: "mwc_lt_toilet_ceiling"
     address: "1/0/51"
+    state_address: "1/0/51"
 
   - name: "mwc_lt_shower_ceiling"
     address: "1/0/52"
+    state_address: "1/0/52"
 
   - name: "mwc_lt_bathroom_wall_s"
     address: "1/0/99"
+    state_address: "1/0/99"
 
   - name: "mwc_lt_bathroom_wall_e"
     address: "1/0/53"
+    state_address: "1/0/53"
     
   - name: "mwc_lt_outdoor_projector"
     address: "1/0/35"
+    state_address: "1/0/35"
     
   # Office
     
   - name: "ofc_lt_ceiling_hall"
     address: "1/0/54"
+    state_address: "1/0/54"
     
   - name: "ofc_lt_ceiling_wc"
     address: "1/0/57"
+    state_address: "1/0/57"
     
   - name: "ofc_lt_walls"
     address: "1/0/104"
+    state_address: "1/0/104"
 
   # Corridor
 
   - name: "crd_lt_wall_e"
     address: "1/0/110"
+    state_address: "1/0/110"
 
   - name: "crd_lt_mmd_wall_n"
     address: "1/0/105"
+    state_address: "1/0/105"
 
   - name: "crd_lt_entrance_wall_outdoors"
     address: "1/0/112"
+    state_address: "1/0/112"
 
   # Children Bathroom
 
   - name: "cwc_lt_toilet_wall_e"
     address: "1/0/106"
+    state_address: "1/0/106"
 
   - name: "cwc_lt_bathroom_ceiling"
     address: "1/0/123"
+    state_address: "1/0/123"
 
   - name: "cwc_lt_bathroom_wall_s"
     address: "1/0/124"
+    state_address: "1/0/124"
 
   - name: "cwc_heater_bathroom"
     address: "1/0/127"
+    state_address: "1/0/127"
 
   - name: "cwc_lt_bathroom_wall_outdoors"
     address: "1/0/146"
+    state_address: "1/0/146"
 
   # Amai's Room
 
   - name: "br1_lt_ceiling"
     address: "1/0/117"
+    state_address: "1/0/117"
 
   - name: "br1_lt_wall_s"
     address: "1/0/118"
+    state_address: "1/0/118"
 
   - name: "br1_lt_window_w"
     address: "1/0/122"
+    state_address: "1/0/122"
 
   - name: "br1_lt_wall_w"
     address: "1/0/120"
+    state_address: "1/0/120"
 
   # Tom's Room
 
   - name: "br2_lt_ceiling"
     address: "1/0/113"
+    state_address: "1/0/113"
 
   - name: "br2_lt_wall_n"
     address: "1/0/114"
+    state_address: "1/0/114"
 
   - name: "br2_lt_window_w"
     address: "1/0/115"
+    state_address: "1/0/115"
 
   - name: "br2_lt_wall_w"
     address: "1/0/136"
+    state_address: "1/0/136"
 
   # Laundry Room
 
   - name: "lndr_lt_ceiling"
     address: "1/0/149"
+    state_address: "1/0/149"
 
   - name: "lndr_lt_outdoor_projector"
     address: "1/0/125"
+    state_address: "1/0/125"
 
   - name: "lndr_lt_entrance_wall_outdoor"
     address: "1/0/148"
+    state_address: "1/0/148"
   
   # Sharon's Studio
     
   - name: "stdn_lt_wall_w"
     address: "1/0/3"
+    state_address: "1/0/3"
     
   - name: "stdn_lt_wall_n"
     address: "1/0/4"
+    state_address: "1/0/4"
     
   - name: "stdn_lt_wall_e"
     address: "1/0/5"
+    state_address: "1/0/5"
     
   # Sharar's Studio
     
   - name: "stdr_lt_ceiling_stripes"
     address: "1/0/9"
+    state_address: "1/0/9"
     
   - name: "stdr_lt_ceiling_center"
     address: "1/0/8"
+    state_address: "1/0/8"
 
   - name: "stdr_lt_wall_n_sink"
     address: "1/0/11"
+    state_address: "1/0/11"
 
   - name: "stdr_gallery_lt_wall_s"
     address: "1/0/19"
+    state_address: "1/0/19"
 
   - name: "stdr_gallery_lt_ceiling"
     address: "1/0/20"
+    state_address: "1/0/20"
 
   - name: "stdr_lt_wall_s_sink"
     address: "1/0/13"
+    state_address: "1/0/13"
 
   - name: "stdr_kiln_lt_ceiling"
     address: "1/0/14"
+    state_address: "1/0/14"
 
   - name: "stdr_service_lt_ceiling"
     address: "1/0/12"
+    state_address: "1/0/12"
 
   # Studio Solaris
     
   - name: "ssol_lt_wall_s"
     address: "1/0/22"
+    state_address: "1/0/22"
 
   # Patio
     
   - name: "ptio_lt_wall_ne"
     address: "1/0/41"
+    state_address: "1/0/41"
     
   - name: "ptio_lt_wall_nw"
     address: "1/0/7"
+    state_address: "1/0/7"
     
   - name: "ptio_lt_wall_e"
     address: "1/0/17"
+    state_address: "1/0/17"
     
   - name: "ptio_lt_wall_w"
     address: "1/0/61"
+    state_address: "1/0/61"
     
   - name: "ptio_lt_wall_main_entrance"
     address: "1/0/87"
+    state_address: "1/0/87"
     
   - name: "ptio_lt_corridor_wall_e"
     address: "1/0/24"
+    state_address: "1/0/24"
     
   - name: "ptio_lt_corridor_wall_s"
     address: "1/0/15"
+    state_address: "1/0/15"
 
 # Switches
 
@@ -253,23 +321,29 @@ switch:
   
   - name: "home_sw_heating"
     address: "1/0/45"
+    state_address: "1/0/45"
 
   - name: "home_sw_ipas_led_brightness"
     address: "5/0/0"
+    state_address: "5/0/0"
 
   - name: "home_sw_pima"
     address: "15/0/1"
+    state_address: "15/0/1"
 
   # Living Room
   
   - name: "lr_fan"
     address: "1/0/64"
+    state_address: "1/0/64"
   
   - name: "lr_soc_e"
     address: "1/0/66"
+    state_address: "1/0/66"
   
   - name: "lr_soc_w"
     address: "1/0/67"
+    state_address: "1/0/67"
 
   # Kitchen
   
@@ -285,9 +359,11 @@ switch:
     
   - name: "mb_fan"
     address: "1/0/55"
+    state_address: "1/0/55"
     
   - name: "mb_soc"
     address: "1/0/76"
+    state_address: "1/0/76"
 
   - name: "mb_door_s"         # Master Bedroom Entrance
     address: "5/1/3"          # set
@@ -297,24 +373,29 @@ switch:
   
   - name: "mwc_sw_bathroom_wall_e" # Wall Switch Bathroom Entrance
     address: "1/0/37"
+    state_address: "1/0/37"
 
   # Tom's Room
 
   - name: "br2_fan"
     address: "1/0/116"
+    state_address: "1/0/116"
 
   # Amai's Room
 
   - name: "br1_fan"
     address: "1/0/126"
+    state_address: "1/0/126"
 
   # Sharon's Studio
 
   - name: "stdn_fan"
     address: "1/0/1"
+    state_address: "1/0/1"
 
   - name: "stdn_skt"
     address: "1/0/2"
+    state_address: "1/0/2"
 
   # Patio
 

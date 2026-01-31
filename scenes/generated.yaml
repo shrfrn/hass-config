@@ -174,10 +174,6 @@
       state: on
     light.mwc_ceiling_toilet:
       state: on
-    light.mwc_lt_bathroom_wall_e:
-      state: on
-    light.mwc_lt_bathroom_wall_s:
-      state: on
     light.mwc_main_ceiling:
       state: on
     light.mwc_main_wall:
@@ -186,10 +182,6 @@
     light.mwc_ceiling_shower:
       entity_only: true
     light.mwc_ceiling_toilet:
-      entity_only: true
-    light.mwc_lt_bathroom_wall_e:
-      entity_only: true
-    light.mwc_lt_bathroom_wall_s:
       entity_only: true
     light.mwc_main_ceiling:
       entity_only: true
