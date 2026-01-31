@@ -987,7 +987,7 @@ views:
                       entity: light.mb_standing_lamp
                       name: Master Bedroom Standing Lamp
                       scrolling_effect: true
-                      icon: mdi:floor-light-outline
+                      icon: mdi:floor-lamp-outline
                       tap_action:
                         action: toggle
                       button_action:
