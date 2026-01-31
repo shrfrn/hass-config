@@ -118,7 +118,6 @@ const config = {
         },
 
         parent_s_wc: {
-			exclude_from_group: ['light.mwc_lt_bathroom_wall_s', 'light.mwc_lt_bathroom_wall_e'],
             syncedEntities: {
                 mwc_bathroom_wall_lights: {
                     name: 'Bathroom Wall Lights',

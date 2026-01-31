@@ -63,6 +63,10 @@ const config = {
     studio_solaris: {
       visible_to_users: PARENTS,
     },
+	parent_s_wc: {
+		visible_to_users: PARENTS,
+		excluded_lights: ['light.mwc_lt_bathroom_wall_s', 'light.mwc_lt_bathroom_wall_e'],
+	},
   },
 }
 
