@@ -52,6 +52,7 @@ light:
           service: light.turn_off
           target:
             entity_id: light.mwc_bathroom_wall_lights_group
+        icon_template: "{{ 'mdi:coach-lamp-variant' }}"
         level_template: "{{ state_attr('light.mwc_bathroom_wall_lights_group', 'brightness') | int }}"
         set_level:
           service: light.turn_on

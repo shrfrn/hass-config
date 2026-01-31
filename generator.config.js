@@ -121,6 +121,7 @@ const config = {
             syncedEntities: {
                 mwc_bathroom_wall_lights: {
                     name: 'Bathroom Wall Lights',
+					icon: 'mdi:coach-lamp-variant',
                     power: null,
                     entities: [
                         // { entity_id: 'light.mwc_lt_bathroom_wall_e', sync: true },
