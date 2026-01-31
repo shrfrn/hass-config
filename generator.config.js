@@ -50,6 +50,7 @@ const config = {
             syncedEntities: {
                 mb_standing_lamp: {
                     name: 'Master Bedroom Standing Lamp',
+					icon: 'mdi:floor-light-outline',
                     power: null, // Always powered - switch doesn't cut power to bulb
                     entities: [
                         { entity_id: 'switch.mb_soc', sync: true },
