@@ -446,25 +446,30 @@ views:
               \      }
 
               \    "
-          - type: custom:bubble-card
-            card_type: button
-            button_type: switch
-            entity: group.mwc_lights
-            name: Master WC
-            icon: mdi:bathtub-outline
-            scrolling_effect: true
-            tap_action:
-              action: perform-action
-              perform_action: scene.turn_on
-              target:
-                entity_id: scene.mwc_standard
-              data: {}
-            hold_action:
-              action: toggle
-            button_action:
+          - type: conditional
+            conditions:
+              - condition: user
+                users: *a1
+            card:
+              type: custom:bubble-card
+              card_type: button
+              button_type: switch
+              entity: group.mwc_lights
+              name: Master WC
+              icon: mdi:bathtub-outline
+              scrolling_effect: true
               tap_action:
-                action: navigate
-                navigation_path: /views-en/parent-s-wc
+                action: perform-action
+                perform_action: scene.turn_on
+                target:
+                  entity_id: scene.mwc_standard
+                data: {}
+              hold_action:
+                action: toggle
+              button_action:
+                tap_action:
+                  action: navigate
+                  navigation_path: /views-en/parent-s-wc
           - type: conditional
             conditions:
               - condition: user
@@ -2070,30 +2075,44 @@ views:
               - type: custom:bubble-card
                 card_type: button
                 button_type: switch
-                entity: light.mwc_lt_bathroom_wall_s
-                name: Bathroom South Wall
-                scrolling_effect: true
-                icon: mdi:coach-lamp-variant
-                tap_action:
-                  action: toggle
-              - type: custom:bubble-card
-                card_type: button
-                button_type: switch
-                entity: light.mwc_lt_bathroom_wall_e
-                name: Bathroom East Wall
-                scrolling_effect: true
-                icon: mdi:coach-lamp-variant
-                tap_action:
-                  action: toggle
-              - type: custom:bubble-card
-                card_type: button
-                button_type: switch
                 entity: light.mwc_outdoor_projector
                 name: Flood Light
                 scrolling_effect: true
                 icon: mdi:light-flood-down
                 tap_action:
                   action: toggle
+          - type: custom:bubble-card
+            card_type: separator
+            name: Other
+          - type: grid
+            square: false
+            columns: 2
+            cards:
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.mwc_lt_bathroom_wall_s
+                name: Bathroom South Wall
+                scrolling_effect: true
+                tap_action:
+                  action: call-service
+                  service: homeassistant.toggle
+                  target:
+                    entity_id: light.mwc_lt_bathroom_wall_s
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.mwc_lt_bathroom_wall_e
+                name: Bathroom East Wall
+                scrolling_effect: true
+                tap_action:
+                  action: call-service
+                  service: homeassistant.toggle
+                  target:
+                    entity_id: light.mwc_lt_bathroom_wall_e
+    visible:
+      - user: bdc857a611d74e9998fdc8535024b263
+      - user: b10953f68ec043cea57260ca2f5e0880
   - icon: mdi:greenhouse
     path: studio-solaris
     sections:

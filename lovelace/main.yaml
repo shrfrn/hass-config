@@ -346,25 +346,30 @@ views:
               \      }
 
               \    "
-          - type: custom:bubble-card
-            card_type: button
-            button_type: switch
-            entity: group.mwc_lights
-            name: שירותי הורים
-            icon: mdi:bathtub-outline
-            scrolling_effect: true
-            tap_action:
-              action: perform-action
-              perform_action: scene.turn_on
-              target:
-                entity_id: scene.mwc_standard
-              data: {}
-            hold_action:
-              action: toggle
-            button_action:
+          - type: conditional
+            conditions:
+              - condition: user
+                users: *a1
+            card:
+              type: custom:bubble-card
+              card_type: button
+              button_type: switch
+              entity: group.mwc_lights
+              name: שירותי הורים
+              icon: mdi:bathtub-outline
+              scrolling_effect: true
               tap_action:
-                action: navigate
-                navigation_path: "#mwc_details"
+                action: perform-action
+                perform_action: scene.turn_on
+                target:
+                  entity_id: scene.mwc_standard
+                data: {}
+              hold_action:
+                action: toggle
+              button_action:
+                tap_action:
+                  action: navigate
+                  navigation_path: "#mwc_details"
           - type: conditional
             conditions:
               - condition: user
@@ -1711,105 +1716,121 @@ views:
                   \      }
 
                   \    "
-          - type: vertical-stack
-            cards:
-              - type: custom:bubble-card
-                card_type: pop-up
-                hash: "#mwc_details"
-                button_type: switch
-                name: שירותי הורים
-                icon: mdi:bathtub-outline
-                entity: group.mwc_lights
-                tap_action:
-                  action: perform-action
-                  perform_action: scene.turn_on
-                  target:
-                    entity_id: scene.mwc_standard
-                  data: {}
-                hold_action:
-                  action: toggle
-                button_action:
+          - type: conditional
+            conditions:
+              - condition: user
+                users: *a1
+            card:
+              type: vertical-stack
+              cards:
+                - type: custom:bubble-card
+                  card_type: pop-up
+                  hash: "#mwc_details"
+                  button_type: switch
+                  name: שירותי הורים
+                  icon: mdi:bathtub-outline
+                  entity: group.mwc_lights
                   tap_action:
-                    action: none
-              - type: custom:bubble-card
-                card_type: separator
-                name: תאורה
-              - type: grid
-                square: false
-                columns: 2
-                cards:
-                  - type: custom:bubble-card
-                    card_type: button
-                    button_type: slider
-                    entity: light.mwc_bathroom_wall_lights
-                    name: Bathroom Wall Lights
-                    scrolling_effect: true
-                    icon: mdi:coach-lamp-variant
+                    action: perform-action
+                    perform_action: scene.turn_on
+                    target:
+                      entity_id: scene.mwc_standard
+                    data: {}
+                  hold_action:
+                    action: toggle
+                  button_action:
                     tap_action:
-                      action: toggle
-                    button_action:
+                      action: none
+                - type: custom:bubble-card
+                  card_type: separator
+                  name: תאורה
+                - type: grid
+                  square: false
+                  columns: 2
+                  cards:
+                    - type: custom:bubble-card
+                      card_type: button
+                      button_type: slider
+                      entity: light.mwc_bathroom_wall_lights
+                      name: Bathroom Wall Lights
+                      scrolling_effect: true
+                      icon: mdi:coach-lamp-variant
                       tap_action:
-                        action: none
-                  - type: custom:bubble-card
-                    card_type: button
-                    button_type: switch
-                    entity: light.mwc_main_ceiling
-                    name: תקרה
-                    scrolling_effect: true
-                    tap_action:
-                      action: toggle
-                  - type: custom:bubble-card
-                    card_type: button
-                    button_type: switch
-                    entity: light.mwc_main_wall
-                    name: קיר לבנים
-                    scrolling_effect: true
-                    icon: mdi:lightbulb-multiple
-                    tap_action:
-                      action: toggle
-                  - type: custom:bubble-card
-                    card_type: button
-                    button_type: switch
-                    entity: light.mwc_ceiling_toilet
-                    name: שירותים
-                    scrolling_effect: true
-                    tap_action:
-                      action: toggle
-                  - type: custom:bubble-card
-                    card_type: button
-                    button_type: switch
-                    entity: light.mwc_ceiling_shower
-                    name: מקלחת
-                    scrolling_effect: true
-                    tap_action:
-                      action: toggle
-                  - type: custom:bubble-card
-                    card_type: button
-                    button_type: switch
-                    entity: light.mwc_lt_bathroom_wall_s
-                    name: אמבטיה דרום
-                    scrolling_effect: true
-                    icon: mdi:coach-lamp-variant
-                    tap_action:
-                      action: toggle
-                  - type: custom:bubble-card
-                    card_type: button
-                    button_type: switch
-                    entity: light.mwc_lt_bathroom_wall_e
-                    name: אמבטיה מזרח
-                    scrolling_effect: true
-                    icon: mdi:coach-lamp-variant
-                    tap_action:
-                      action: toggle
-                  - type: custom:bubble-card
-                    card_type: button
-                    button_type: switch
-                    entity: light.mwc_outdoor_projector
-                    name: פרוג׳קטור
-                    scrolling_effect: true
-                    icon: mdi:light-flood-down
-                    tap_action:
-                      action: toggle
+                        action: toggle
+                      button_action:
+                        tap_action:
+                          action: none
+                    - type: custom:bubble-card
+                      card_type: button
+                      button_type: switch
+                      entity: light.mwc_main_ceiling
+                      name: תקרה
+                      scrolling_effect: true
+                      tap_action:
+                        action: toggle
+                    - type: custom:bubble-card
+                      card_type: button
+                      button_type: switch
+                      entity: light.mwc_main_wall
+                      name: קיר לבנים
+                      scrolling_effect: true
+                      icon: mdi:lightbulb-multiple
+                      tap_action:
+                        action: toggle
+                    - type: custom:bubble-card
+                      card_type: button
+                      button_type: switch
+                      entity: light.mwc_ceiling_toilet
+                      name: שירותים
+                      scrolling_effect: true
+                      tap_action:
+                        action: toggle
+                    - type: custom:bubble-card
+                      card_type: button
+                      button_type: switch
+                      entity: light.mwc_ceiling_shower
+                      name: מקלחת
+                      scrolling_effect: true
+                      tap_action:
+                        action: toggle
+                    - type: custom:bubble-card
+                      card_type: button
+                      button_type: switch
+                      entity: light.mwc_outdoor_projector
+                      name: פרוג׳קטור
+                      scrolling_effect: true
+                      icon: mdi:light-flood-down
+                      tap_action:
+                        action: toggle
+                - type: custom:bubble-card
+                  card_type: separator
+                  name: אחר
+                - type: grid
+                  square: false
+                  columns: 2
+                  cards:
+                    - type: custom:bubble-card
+                      card_type: button
+                      button_type: switch
+                      entity: light.mwc_lt_bathroom_wall_s
+                      name: אמבטיה דרום
+                      scrolling_effect: true
+                      tap_action:
+                        action: call-service
+                        service: homeassistant.toggle
+                        target:
+                          entity_id: light.mwc_lt_bathroom_wall_s
+                    - type: custom:bubble-card
+                      card_type: button
+                      button_type: switch
+                      entity: light.mwc_lt_bathroom_wall_e
+                      name: אמבטיה מזרח
+                      scrolling_effect: true
+                      tap_action:
+                        action: call-service
+                        service: homeassistant.toggle
+                        target:
+                          entity_id: light.mwc_lt_bathroom_wall_e
           - type: conditional
             conditions:
               - condition: user
