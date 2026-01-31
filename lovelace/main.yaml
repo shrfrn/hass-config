@@ -618,6 +618,7 @@ views:
                     entity: switch.lr_soc_e
                     name: מנורה עומדת
                     scrolling_effect: true
+                    icon: mdi:floor-lamp-outline
                     tap_action:
                       action: toggle
                   - type: custom:bubble-card
@@ -626,6 +627,7 @@ views:
                     entity: light.lr_lt_wall_n
                     name: קיר צפוני
                     scrolling_effect: true
+                    icon: mdi:wall-sconce-flat-variant
                     tap_action:
                       action: toggle
                   - type: custom:bubble-card
@@ -634,6 +636,7 @@ views:
                     entity: light.lr_lt_wall_e
                     name: קיר מזרחי
                     scrolling_effect: true
+                    icon: mdi:wall-sconce-outline
                     tap_action:
                       action: toggle
                   - type: custom:bubble-card
@@ -642,6 +645,7 @@ views:
                     entity: light.lr_lt_wall_s
                     name: קיר דרומי
                     scrolling_effect: true
+                    icon: mdi:wall-sconce-flat-variant
                     tap_action:
                       action: toggle
               - type: custom:bubble-card
@@ -776,6 +780,7 @@ views:
                     entity: light.kt_lt_strip_n
                     name: שיש
                     scrolling_effect: true
+                    icon: mdi:track-light
                     tap_action:
                       action: toggle
                   - type: custom:bubble-card
@@ -784,6 +789,7 @@ views:
                     entity: light.kt_lt_ceiling_1
                     name: שולחן אוכל
                     scrolling_effect: true
+                    icon: mdi:ceiling-light
                     tap_action:
                       action: toggle
                   - type: custom:bubble-card
@@ -792,6 +798,7 @@ views:
                     entity: light.kt_lt_strip_s
                     name: פס קיר לבנים
                     scrolling_effect: true
+                    icon: mdi:track-light
                     tap_action:
                       action: toggle
                   - type: custom:bubble-card
@@ -800,6 +807,7 @@ views:
                     entity: light.kt_lt_wall_s
                     name: קיר לבנים
                     scrolling_effect: true
+                    icon: mdi:outdoor-lamp
                     tap_action:
                       action: toggle
                   - type: custom:bubble-card
@@ -808,6 +816,7 @@ views:
                     entity: light.kt_lt_ceiling_2
                     name: דלפק
                     scrolling_effect: true
+                    icon: mdi:ceiling-light-multiple
                     tap_action:
                       action: toggle
                   - type: custom:bubble-card
@@ -816,6 +825,7 @@ views:
                     entity: light.kt_lt_wall_s_entrance
                     name: קיר מבואה
                     scrolling_effect: true
+                    icon: mdi:wall-sconce-flat-variant
                     tap_action:
                       action: toggle
                   - type: custom:bubble-card
@@ -824,6 +834,7 @@ views:
                     entity: light.kt_lt_ceiling_3
                     name: תקרת מבואה
                     scrolling_effect: true
+                    icon: mdi:light-recessed
                     tap_action:
                       action: toggle
                   - type: custom:bubble-card
@@ -832,6 +843,7 @@ views:
                     entity: light.kt_lt_entrance_wall_outdoors
                     name: חוץ מבואה
                     scrolling_effect: true
+                    icon: mdi:outdoor-lamp
                     tap_action:
                       action: toggle
                   - type: custom:bubble-card
@@ -997,6 +1009,7 @@ views:
                       entity: light.mb_lt_wall
                       name: קיר
                       scrolling_effect: true
+                      icon: mdi:wall-sconce-flat-variant
                       tap_action:
                         action: toggle
                     - type: custom:bubble-card
@@ -1021,6 +1034,7 @@ views:
                       entity: light.mb_lt_ceiling_hall
                       name: מסדרון
                       scrolling_effect: true
+                      icon: mdi:ceiling-light-multiple
                       tap_action:
                         action: toggle
                 - type: custom:bubble-card
@@ -1152,6 +1166,7 @@ views:
                       entity: light.stdr_lt_ceiling_spots
                       name: ספוטים
                       scrolling_effect: true
+                      icon: mdi:track-light
                       tap_action:
                         action: toggle
                     - type: custom:bubble-card
@@ -1160,6 +1175,7 @@ views:
                       entity: light.stdr_lt_ceiling_main
                       name: תקרה שולחן
                       scrolling_effect: true
+                      icon: mdi:ceiling-light-multiple-outline
                       tap_action:
                         action: toggle
                     - type: custom:bubble-card
@@ -1168,6 +1184,7 @@ views:
                       entity: light.stdr_lt_wall_n_sink
                       name: כיור גדול
                       scrolling_effect: true
+                      icon: mdi:outdoor-lamp
                       tap_action:
                         action: toggle
                     - type: custom:bubble-card
@@ -1176,6 +1193,7 @@ views:
                       entity: light.stdr_lt_wall_s_gallery
                       name: קיר גלריה
                       scrolling_effect: true
+                      icon: mdi:wall-sconce-flat-variant
                       tap_action:
                         action: toggle
                     - type: custom:bubble-card
@@ -1184,6 +1202,7 @@ views:
                       entity: light.stdr_lt_ceiling_gallery
                       name: תקרה גלריה
                       scrolling_effect: true
+                      icon: mdi:ceiling-light-multiple
                       tap_action:
                         action: toggle
                     - type: custom:bubble-card
@@ -1192,6 +1211,7 @@ views:
                       entity: light.stdr_lt_wall_s_sink
                       name: כיור שירות
                       scrolling_effect: true
+                      icon: mdi:outdoor-lamp
                       tap_action:
                         action: toggle
                     - type: custom:bubble-card
@@ -1200,6 +1220,7 @@ views:
                       entity: light.stdr_lt_ceiling_kiln
                       name: חדר תנורים
                       scrolling_effect: true
+                      icon: mdi:lightbulb-fluorescent-tube-outline
                       tap_action:
                         action: toggle
                     - type: custom:bubble-card
@@ -1208,6 +1229,7 @@ views:
                       entity: light.stdr_lt_ceiling_service_area
                       name: אישור שירות
                       scrolling_effect: true
+                      icon: mdi:lightbulb-fluorescent-tube-outline
                       tap_action:
                         action: toggle
                     - type: custom:bubble-card
@@ -1216,6 +1238,7 @@ views:
                       entity: light.shahar_studio_standing_lamp
                       name: מנורה עומדת
                       scrolling_effect: true
+                      icon: mdi:floor-lamp
                       tap_action:
                         action: toggle
                       button_action:
@@ -1313,6 +1336,7 @@ views:
                       entity: light.stdn_lt_wall_w
                       name: קיר מערבי
                       scrolling_effect: true
+                      icon: mdi:lightbulb
                       tap_action:
                         action: toggle
                     - type: custom:bubble-card
@@ -1321,6 +1345,7 @@ views:
                       entity: light.stdn_lt_wall_n
                       name: קיר צפוני
                       scrolling_effect: true
+                      icon: mdi:lightbulb
                       tap_action:
                         action: toggle
                     - type: custom:bubble-card
@@ -1437,6 +1462,7 @@ views:
                     entity: light.ofc_lt_corridor_table_bulb
                     name: מנורת שולחן
                     scrolling_effect: true
+                    icon: mdi:lamp-outline
                     tap_action:
                       action: toggle
                     button_action:
@@ -1505,6 +1531,7 @@ views:
                     entity: light.crd_lt_wall_e
                     name: קיר מסדרון
                     scrolling_effect: true
+                    icon: mdi:wall-sconce-flat-variant
                     tap_action:
                       action: toggle
                   - type: custom:bubble-card
@@ -1513,6 +1540,7 @@ views:
                     entity: light.crd_lt_mmd_wall_n
                     name: כניסה לשירותים
                     scrolling_effect: true
+                    icon: mdi:wall-sconce-flat-variant
                     tap_action:
                       action: toggle
                   - type: custom:bubble-card
@@ -1521,6 +1549,7 @@ views:
                     entity: light.crd_lt_entrance_wall_outdoors
                     name: כניסה חצר
                     scrolling_effect: true
+                    icon: mdi:outdoor-lamp
                     tap_action:
                       action: toggle
               - type: custom:bubble-card
@@ -1584,6 +1613,7 @@ views:
                     entity: light.lndr_lt_ceiling
                     name: תקרה
                     scrolling_effect: true
+                    icon: mdi:light-recessed
                     tap_action:
                       action: toggle
                   - type: custom:bubble-card
@@ -1592,6 +1622,7 @@ views:
                     entity: light.lndr_lt_outdoor_projector
                     name: פרוג׳קטור
                     scrolling_effect: true
+                    icon: mdi:light-flood-down
                     tap_action:
                       action: toggle
                   - type: custom:bubble-card
@@ -1600,6 +1631,7 @@ views:
                     entity: light.lndr_lt_entrance_wall_outdoor
                     name: כניסה
                     scrolling_effect: true
+                    icon: mdi:wall-sconce-flat-variant
                     tap_action:
                       action: toggle
               - type: custom:bubble-card
@@ -1730,6 +1762,7 @@ views:
                     entity: light.mwc_main_wall
                     name: קיר לבנים
                     scrolling_effect: true
+                    icon: mdi:light-recessed
                     tap_action:
                       action: toggle
                   - type: custom:bubble-card
@@ -1770,6 +1803,7 @@ views:
                     entity: light.mwc_outdoor_projector
                     name: פרוג׳קטור
                     scrolling_effect: true
+                    icon: mdi:light-flood-down
                     tap_action:
                       action: toggle
           - type: conditional
@@ -1810,6 +1844,7 @@ views:
                       entity: light.ssol_lt_wall_s
                       name: קיר כיור
                       scrolling_effect: true
+                      icon: mdi:outdoor-lamp
                       tap_action:
                         action: toggle
                 - type: custom:bubble-card
@@ -1873,6 +1908,7 @@ views:
                     entity: light.br1_lt_ceiling
                     name: תקרה
                     scrolling_effect: true
+                    icon: mdi:light-recessed
                     tap_action:
                       action: toggle
                   - type: custom:bubble-card
@@ -1881,6 +1917,7 @@ views:
                     entity: light.br1_lt_wall_s
                     name: קיר דרומי
                     scrolling_effect: true
+                    icon: mdi:outdoor-lamp
                     tap_action:
                       action: toggle
                   - type: custom:bubble-card
@@ -1889,6 +1926,7 @@ views:
                     entity: light.br1_lt_window_w
                     name: חלון
                     scrolling_effect: true
+                    icon: mdi:ceiling-light-outline
                     tap_action:
                       action: toggle
                   - type: custom:bubble-card
@@ -1897,6 +1935,7 @@ views:
                     entity: light.br1_lt_wall_w
                     name: קיר מערבי
                     scrolling_effect: true
+                    icon: mdi:outdoor-lamp
                     tap_action:
                       action: toggle
               - type: custom:bubble-card
@@ -1995,6 +2034,7 @@ views:
                     entity: light.cwc_lt_bathroom_wall_outdoors
                     name: קיר חוץ מזרח
                     scrolling_effect: true
+                    icon: mdi:wall-sconce-flat-variant
                     tap_action:
                       action: toggle
           - type: vertical-stack
@@ -2030,6 +2070,7 @@ views:
                     entity: light.ksol_lt_wall_w
                     name: קיר
                     scrolling_effect: true
+                    icon: mdi:outdoor-lamp
                     tap_action:
                       action: toggle
                   - type: custom:bubble-card
@@ -2038,6 +2079,7 @@ views:
                     entity: light.ksol_lt_sink
                     name: כיור
                     scrolling_effect: true
+                    icon: mdi:lightbulb
                     tap_action:
                       action: toggle
               - type: custom:bubble-card
@@ -2101,6 +2143,7 @@ views:
                     entity: light.ptio_lt_wall_ne
                     name: קיר צפוני
                     scrolling_effect: true
+                    icon: mdi:wall-sconce-flat-variant
                     tap_action:
                       action: toggle
                   - type: custom:bubble-card
@@ -2109,6 +2152,7 @@ views:
                     entity: light.ptio_lt_wall_nw
                     name: כניסה לפטיו
                     scrolling_effect: true
+                    icon: mdi:wall-sconce-flat-variant
                     tap_action:
                       action: toggle
                   - type: custom:bubble-card
@@ -2117,6 +2161,7 @@ views:
                     entity: light.ptio_lt_wall_e
                     name: קיר מזרחי
                     scrolling_effect: true
+                    icon: mdi:wall-sconce-flat-variant
                     tap_action:
                       action: toggle
                   - type: custom:bubble-card
@@ -2125,6 +2170,7 @@ views:
                     entity: light.ptio_west_wall
                     name: קיר מערבי
                     scrolling_effect: true
+                    icon: mdi:wall-sconce-flat-variant
                     tap_action:
                       action: toggle
                   - type: custom:bubble-card
@@ -2133,6 +2179,7 @@ views:
                     entity: light.ptio_lt_wall_main_entrance
                     name: אור דלת כניסה
                     scrolling_effect: true
+                    icon: mdi:coach-lamp
                     tap_action:
                       action: toggle
                   - type: custom:bubble-card
@@ -2141,6 +2188,7 @@ views:
                     entity: light.ptio_lt_corridor_wall_e
                     name: מסדרון פטיו
                     scrolling_effect: true
+                    icon: mdi:wall-sconce-flat-variant
                     tap_action:
                       action: toggle
                   - type: custom:bubble-card
@@ -2149,6 +2197,7 @@ views:
                     entity: light.ptio_lt_corridor_wall_s
                     name: דלת יציאה פטיו
                     scrolling_effect: true
+                    icon: mdi:lightbulb
                     tap_action:
                       action: toggle
               - type: custom:bubble-card
@@ -2207,6 +2256,7 @@ views:
                     entity: light.br2_lt_ceiling
                     name: תקרה
                     scrolling_effect: true
+                    icon: mdi:light-recessed
                     tap_action:
                       action: toggle
                   - type: custom:bubble-card
@@ -2215,6 +2265,7 @@ views:
                     entity: light.br2_lt_wall_n
                     name: קיר צפוני
                     scrolling_effect: true
+                    icon: mdi:outdoor-lamp
                     tap_action:
                       action: toggle
                   - type: custom:bubble-card
@@ -2223,6 +2274,7 @@ views:
                     entity: light.br2_lt_window_w
                     name: חלון
                     scrolling_effect: true
+                    icon: mdi:globe-light-outline
                     tap_action:
                       action: toggle
                   - type: custom:bubble-card
@@ -2231,6 +2283,7 @@ views:
                     entity: light.br2_lt_wall_w
                     name: קיר מערבי
                     scrolling_effect: true
+                    icon: mdi:outdoor-lamp
                     tap_action:
                       action: toggle
               - type: custom:bubble-card
