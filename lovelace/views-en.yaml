@@ -829,8 +829,13 @@ views:
                       is_volume_muted: false
                   visibility:
                     - condition: state
-                      entity: media_player.lr_tv
-                      state_not: off
+                      entity_id: media_player.lr_tv
+                      state: &a3
+                        - playing
+                        - paused
+                        - idle
+                        - on
+                        - buffering
                 - icon: mdi:play-pause
                   force_icon: true
                   content_layout: icon-left
@@ -845,8 +850,8 @@ views:
                       command: play_pause
                   visibility:
                     - condition: state
-                      entity: media_player.lr_tv
-                      state_not: off
+                      entity_id: media_player.lr_tv
+                      state: *a3
                 - entity: remote.slvn
                   icon: mdi:power
                   force_icon: true
