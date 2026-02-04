@@ -120,7 +120,7 @@ const config = {
         parent_s_wc: {
             syncedEntities: {
                 mwc_bathroom_wall_lights: {
-                    name: 'Bathroom Wall Lights',
+                    name: 'Bathroom',
 					icon: 'mdi:coach-lamp-variant',
                     power: null,
                     entities: [
