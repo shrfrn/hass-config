@@ -857,13 +857,8 @@ views:
                   force_icon: true
                   name: Power
                   tap_action:
-                    action: perform-action
-                    perform_action: remote.send_command
-                    target:
-                      entity_id:
-                        - remote.slvn
-                    data:
-                      command: wakeup
+                    action: navigate
+                    navigation_path: "#lr_aptv_remote"
                   hold_action:
                     action: perform-action
                     perform_action: remote.send_command
@@ -924,6 +919,13 @@ views:
                 sub_button:
                   main: []
                   bottom: []
+                open_action:
+                  action: perform-action
+                  perform_action: remote.send_command
+                  target:
+                    entity_id: remote.slvn
+                  data:
+                    command: wakeup
               - type: custom:bubble-card
                 card_type: sub-buttons
                 rows: 0.938
