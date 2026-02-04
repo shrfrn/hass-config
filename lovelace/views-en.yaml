@@ -808,9 +808,8 @@ views:
             name: Media
           - type: custom:bubble-card
             card_type: button
-            button_type: state
-            entity: media_player.lr_tv
-            name: TV
+            button_type: switch
+            entity: remote.slvn
             icon: mdi:remote-tv
             button_action:
               tap_action:
@@ -820,58 +819,51 @@ views:
               action: navigate
               navigation_path: "#lr_aptv_remote"
             sub_button:
-              - icon: mdi:volume-high
-                name: Volume
-                entity: media_player.lr_tv
-                tap_action:
-                  action: perform-action
-                  perform_action: media_player.volume_mute
-                  target: {}
-                  data:
-                    is_volume_muted: false
-              - icon: mdi:play-pause
-                force_icon: true
-                name: Play / Pause
-                tap_action:
-                  action: perform-action
-                  perform_action: remote.send_command
-                  target:
-                    entity_id: remote.slvn
-                  data:
-                    command: play_pause
-              - entity: remote.slvn
-                icon: mdi:power
-                force_icon: true
-                name: Power
-                tap_action:
-                  action: perform-action
-                  perform_action: remote.send_command
-                  target:
-                    entity_id:
-                      - remote.slvn
-                  data:
-                    command: wakeup
-                hold_action:
-                  action: perform-action
-                  perform_action: remote.send_command
-                  target:
-                    entity_id: remote.slvn
-                  data:
-                    num_repeats: 1
-                    delay_secs: 0.4
-                    hold_secs: 0
-                    command: suspend
-            styles: "
-
-              \      .bubble-sub-button-container {
-
-              \        right: unset;
-
-              \        inset-inline-end: 8px;
-
-              \      }
-
-              \    "
+              main:
+                - icon: mdi:volume-high
+                  name: Volume
+                  entity: media_player.lr_tv
+                  tap_action:
+                    action: perform-action
+                    perform_action: media_player.volume_mute
+                    target: {}
+                    data:
+                      is_volume_muted: false
+                - icon: mdi:play-pause
+                  force_icon: true
+                  content_layout: icon-left
+                  fill_width: false
+                  name: Play / Pause
+                  tap_action:
+                    action: perform-action
+                    perform_action: remote.send_command
+                    target:
+                      entity_id: remote.slvn
+                    data:
+                      command: play_pause
+                - entity: remote.slvn
+                  icon: mdi:power
+                  force_icon: true
+                  name: Power
+                  tap_action:
+                    action: perform-action
+                    perform_action: remote.send_command
+                    target:
+                      entity_id:
+                        - remote.slvn
+                    data:
+                      command: wakeup
+                  hold_action:
+                    action: perform-action
+                    perform_action: remote.send_command
+                    target:
+                      entity_id: remote.slvn
+                    data:
+                      num_repeats: 1
+                      delay_secs: 0.4
+                      hold_secs: 0
+                      command: suspend
+              bottom: []
           - type: custom:bubble-card
             card_type: separator
             name: Other
@@ -909,202 +901,207 @@ views:
                   service: homeassistant.toggle
                   target:
                     entity_id: light.lr_lt_outdoor_projector
-          - type: custom:bubble-card
-            card_type: pop-up
-            hash: "#lr_aptv_remote"
-            button_type: name
-            show_header: false
-            card_layout: large
-            show_icon: true
-          - type: custom:bubble-card
-            card_type: sub-buttons
-            rows: 0.938
-            hide_main_background: true
-            sub_button:
-              main: []
-              bottom:
-                - name: Sources
-                  buttons_layout: inline
-                  justify_content: space-between
-                  group:
-                    - icon: mdi:netflix
-                      force_icon: true
-                      content_layout: icon-left
-                      fill_width: false
-                      name: Netflix
-                      tap_action:
-                        action: perform-action
-                        perform_action: media_player.select_source
-                        target:
-                          entity_id: media_player.lr_tv
-                        data:
-                          source: Netflix
-                      hold_action:
-                        action: perform-action
-                        perform_action: remote.send_command
-                        target:
-                          entity_id: remote.slvn
-                        data:
-                          command: home_hold
-                    - icon: mdi:youtube
-                      force_icon: true
-                      content_layout: icon-left
-                      fill_width: false
-                      name: YouTube
-                      tap_action:
-                        action: perform-action
-                        perform_action: media_player.select_source
-                        target:
-                          entity_id: media_player.lr_tv
-                        data:
-                          source: YouTube
-                      hold_action:
-                        action: perform-action
-                        perform_action: remote.send_command
-                        target:
-                          entity_id: remote.slvn
-                        data:
-                          command: home_hold
-                    - icon: mdi:apple
-                      force_icon: true
-                      content_layout: icon-left
-                      fill_width: false
-                      name: Apple TV
-                      tap_action:
-                        action: perform-action
-                        perform_action: media_player.select_source
-                        target:
-                          entity_id: media_player.lr_tv
-                        data:
-                          source: TV
-                      hold_action:
-                        action: perform-action
-                        perform_action: remote.send_command
-                        target:
-                          entity_id: remote.slvn
-                        data:
-                          command: home_hold
-                - name: Exit
-                  buttons_layout: inline
-                  group:
-                    - icon: mdi:close
-                      force_icon: true
-                      content_layout: icon-left
-                      fill_width: false
-                      name: Close
-                      tap_action:
-                        action: navigate
-                        navigation_path: /views-en/home
-                      hold_action:
-                        action: perform-action
-                        perform_action: remote.send_command
-                        target:
-                          entity_id: remote.slvn
-                        data:
-                          command: suspend
-          - type: custom:universal-remote-card
-            rows:
-              - - touchpad
-            platform: Apple TV
-            custom_actions: []
-            remote_id: remote.slvn
-            media_player_id: media_player.lr_tv
-            autofill_entity_id: true
-          - type: custom:bubble-card
-            card_type: sub-buttons
-            rows: 0.938
-            hide_main_background: true
-            sub_button:
-              main: []
-              bottom:
-                - name: Skip
-                  buttons_layout: inline
-                  justify_content: space-around
-                  group:
-                    - icon: mdi:rewind-10
-                      force_icon: true
-                      content_layout: icon-left
-                      fill_width: false
-                      name: Back 10 Secs.
-                      tap_action:
-                        action: perform-action
-                        perform_action: remote.send_command
-                        target:
-                          entity_id: remote.slvn
-                        data:
-                          command: skip_backward
-                    - icon: mdi:fast-forward-10
-                      force_icon: true
-                      content_layout: icon-left
-                      fill_width: false
-                      name: Forward 10 Secs.
-                      tap_action:
-                        action: perform-action
-                        perform_action: remote.send_command
-                        target:
-                          entity_id: remote.slvn
-                        data:
-                          command: skip_forward
-          - type: custom:bubble-card
-            card_type: sub-buttons
-            rows: 0.938
-            hide_main_background: true
-            footer_mode: true
-            footer_full_width: true
-            footer_bottom_offset: "30"
-            sub_button:
-              main: []
-              bottom:
-                - name: Automatically grouped
-                  buttons_layout: inline
-                  group: []
-                - name: Nav
-                  buttons_layout: inline
-                  justify_content: space-around
-                  group:
-                    - icon: mdi:play-pause
-                      force_icon: true
-                      content_layout: icon-left
-                      fill_width: false
-                      name: Play / Pause
-                      tap_action:
-                        action: perform-action
-                        perform_action: remote.send_command
-                        target:
-                          entity_id: remote.slvn
-                        data:
-                          command: play_pause
-                    - icon: mdi:chevron-left
-                      force_icon: true
-                      content_layout: icon-left
-                      fill_width: false
-                      name: Back
-                      tap_action:
-                        action: perform-action
-                        perform_action: remote.send_command
-                        target:
-                          entity_id: remote.slvn
-                        data:
-                          command: menu
-                    - icon: mdi:television
-                      force_icon: true
-                      content_layout: icon-left
-                      fill_width: false
-                      name: Home
-                      tap_action:
-                        action: perform-action
-                        perform_action: remote.send_command
-                        target:
-                          entity_id: remote.slvn
-                        data:
-                          command: home
-                      hold_action:
-                        action: perform-action
-                        perform_action: remote.send_command
-                        target:
-                          entity_id: remote.slvn
-                        data:
-                          command: home_hold
+          - type: vertical-stack
+            cards:
+              - type: custom:bubble-card
+                card_type: pop-up
+                hash: "#lr_aptv_remote"
+                button_type: name
+                show_header: false
+                card_layout: large
+                show_icon: true
+                sub_button:
+                  main: []
+                  bottom: []
+              - type: custom:bubble-card
+                card_type: sub-buttons
+                rows: 0.938
+                hide_main_background: true
+                sub_button:
+                  main: []
+                  bottom:
+                    - name: Sources
+                      buttons_layout: inline
+                      justify_content: space-between
+                      group:
+                        - icon: mdi:netflix
+                          force_icon: true
+                          content_layout: icon-left
+                          fill_width: false
+                          name: Netflix
+                          tap_action:
+                            action: perform-action
+                            perform_action: media_player.select_source
+                            target:
+                              entity_id: media_player.lr_tv
+                            data:
+                              source: Netflix
+                          hold_action:
+                            action: perform-action
+                            perform_action: remote.send_command
+                            target:
+                              entity_id: remote.slvn
+                            data:
+                              command: home_hold
+                        - icon: mdi:youtube
+                          force_icon: true
+                          content_layout: icon-left
+                          fill_width: false
+                          name: YouTube
+                          tap_action:
+                            action: perform-action
+                            perform_action: media_player.select_source
+                            target:
+                              entity_id: media_player.lr_tv
+                            data:
+                              source: YouTube
+                          hold_action:
+                            action: perform-action
+                            perform_action: remote.send_command
+                            target:
+                              entity_id: remote.slvn
+                            data:
+                              command: home_hold
+                        - icon: mdi:apple
+                          force_icon: true
+                          content_layout: icon-left
+                          fill_width: false
+                          name: Apple TV
+                          tap_action:
+                            action: perform-action
+                            perform_action: media_player.select_source
+                            target:
+                              entity_id: media_player.lr_tv
+                            data:
+                              source: TV
+                          hold_action:
+                            action: perform-action
+                            perform_action: remote.send_command
+                            target:
+                              entity_id: remote.slvn
+                            data:
+                              command: home_hold
+                    - name: Exit
+                      buttons_layout: inline
+                      group:
+                        - icon: mdi:close
+                          force_icon: true
+                          content_layout: icon-left
+                          fill_width: false
+                          name: Close
+                          tap_action:
+                            action: navigate
+                            navigation_path: /views-en
+                          hold_action:
+                            action: perform-action
+                            perform_action: remote.send_command
+                            target:
+                              entity_id: remote.slvn
+                            data:
+                              command: suspend
+              - type: custom:universal-remote-card
+                rows:
+                  - - touchpad
+                platform: Apple TV
+                custom_actions: []
+                remote_id: remote.slvn
+                media_player_id: media_player.lr_tv
+                autofill_entity_id: true
+              - type: custom:bubble-card
+                card_type: sub-buttons
+                rows: 0.938
+                hide_main_background: true
+                sub_button:
+                  main: []
+                  bottom:
+                    - name: Skip
+                      buttons_layout: inline
+                      justify_content: space-around
+                      group:
+                        - icon: mdi:rewind-10
+                          force_icon: true
+                          content_layout: icon-left
+                          fill_width: false
+                          name: Back 10 Secs.
+                          tap_action:
+                            action: perform-action
+                            perform_action: remote.send_command
+                            target:
+                              entity_id: remote.slvn
+                            data:
+                              command: skip_backward
+                        - icon: mdi:fast-forward-10
+                          force_icon: true
+                          content_layout: icon-left
+                          fill_width: false
+                          name: Forward 10 Secs.
+                          tap_action:
+                            action: perform-action
+                            perform_action: remote.send_command
+                            target:
+                              entity_id: remote.slvn
+                            data:
+                              command: skip_forward
+              - type: custom:bubble-card
+                card_type: sub-buttons
+                rows: 0.938
+                hide_main_background: true
+                footer_mode: true
+                footer_full_width: true
+                footer_bottom_offset: "30"
+                sub_button:
+                  main: []
+                  bottom:
+                    - name: Automatically grouped
+                      buttons_layout: inline
+                      group: []
+                    - name: Nav
+                      buttons_layout: inline
+                      justify_content: space-around
+                      group:
+                        - icon: mdi:play-pause
+                          force_icon: true
+                          content_layout: icon-left
+                          fill_width: false
+                          name: Play / Pause
+                          tap_action:
+                            action: perform-action
+                            perform_action: remote.send_command
+                            target:
+                              entity_id: remote.slvn
+                            data:
+                              command: play_pause
+                        - icon: mdi:chevron-left
+                          force_icon: true
+                          content_layout: icon-left
+                          fill_width: false
+                          name: Back
+                          tap_action:
+                            action: perform-action
+                            perform_action: remote.send_command
+                            target:
+                              entity_id: remote.slvn
+                            data:
+                              command: menu
+                        - icon: mdi:television
+                          force_icon: true
+                          content_layout: icon-left
+                          fill_width: false
+                          name: Home
+                          tap_action:
+                            action: perform-action
+                            perform_action: remote.send_command
+                            target:
+                              entity_id: remote.slvn
+                            data:
+                              command: home
+                          hold_action:
+                            action: perform-action
+                            perform_action: remote.send_command
+                            target:
+                              entity_id: remote.slvn
+                            data:
+                              command: home_hold
   - icon: mdi:pot-steam-outline
     path: kitchen
     sections:
