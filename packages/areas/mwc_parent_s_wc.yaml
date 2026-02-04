@@ -42,7 +42,7 @@ light:
   - platform: template
     lights:
       mwc_bathroom_wall_lights:
-        friendly_name: Bathroom Wall Lights
+        friendly_name: Bathroom
         value_template: "{{ is_state('light.mwc_bathroom_wall_lights_group', 'on') }}"
         turn_on:
           service: light.turn_on
@@ -69,7 +69,7 @@ light:
 
 automation:
   - id: mwc_bathroom_wall_lights_remote_Bathroom Remote
-    alias: Bathroom Wall Lights Bathroom Remote
+    alias: Bathroom Bathroom Remote
     use_blueprint:
       path: EPMatt/ikea_e2213.yaml
       input:
@@ -100,7 +100,7 @@ automation:
             data:
               brightness_step_pct: -2
   - id: mwc_bathroom_wall_lights_sync
-    alias: Bathroom Wall Lights Sync
+    alias: Bathroom Sync
     mode: restart
     trigger:
       - platform: state

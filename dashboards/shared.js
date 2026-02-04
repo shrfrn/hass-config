@@ -44,6 +44,10 @@ const config = {
     living_room: {
       excluded_lights: ['light.lr_lt_outdoor_projector', 'light.lr_lt_ceiling'],
       included_lights: ['switch.lr_soc_e'],
+      media: {
+        platform: 'apple_tv',
+        remote_entity: 'remote.slvn',
+      },
     },
     kitchen: {
       included_scenes: ['scene.lr_twilight_zone'],
