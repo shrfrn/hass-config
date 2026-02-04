@@ -827,6 +827,10 @@ views:
                     target: {}
                     data:
                       is_volume_muted: false
+                  visibility:
+                    - condition: state
+                      entity: media_player.lr_tv
+                      state_not: off
                 - icon: mdi:play-pause
                   force_icon: true
                   content_layout: icon-left
@@ -839,6 +843,10 @@ views:
                       entity_id: remote.slvn
                     data:
                       command: play_pause
+                  visibility:
+                    - condition: state
+                      entity: media_player.lr_tv
+                      state_not: off
                 - entity: remote.slvn
                   icon: mdi:power
                   force_icon: true
