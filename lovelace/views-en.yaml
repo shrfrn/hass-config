@@ -125,6 +125,10 @@ views:
                 action: navigate
                 navigation_path: /views-en/living-room
             sub_button:
+              - icon: mdi:television
+                tap_action:
+                  action: navigate
+                  navigation_path: "#lr_aptv_remote"
               - entity: climate.lr_ac
                 icon: mdi:snowflake
                 tap_action:
