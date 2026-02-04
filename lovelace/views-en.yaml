@@ -991,7 +991,7 @@ views:
                           name: Close
                           tap_action:
                             action: navigate
-                            navigation_path: /views-en
+                            navigation_path: /views-en/living-room
                           hold_action:
                             action: perform-action
                             perform_action: remote.send_command
