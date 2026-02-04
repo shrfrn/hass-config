@@ -812,12 +812,10 @@ views:
             entity: remote.slvn
             icon: mdi:remote-tv
             button_action:
-              tap_action:
+              tap_action: &a2
                 action: navigate
                 navigation_path: "#lr_aptv_remote"
-            tap_action:
-              action: navigate
-              navigation_path: "#lr_aptv_remote"
+            tap_action: *a2
             sub_button:
               main:
                 - icon: mdi:volume-high
