@@ -833,7 +833,7 @@ views:
                       is_volume_muted: false
                   visibility:
                     - condition: state
-                      entity_id: media_player.lr_tv
+                      entity: media_player.lr_tv
                       state: &a3
                         - playing
                         - paused
@@ -854,7 +854,7 @@ views:
                       command: play_pause
                   visibility:
                     - condition: state
-                      entity_id: media_player.lr_tv
+                      entity: media_player.lr_tv
                       state: *a3
                 - entity: remote.slvn
                   icon: mdi:power
