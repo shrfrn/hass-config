@@ -70,7 +70,7 @@ const config = {
                         {   // IKEA remote (wardrobe) - dimming handled by SOMRIG blueprint
                             device_id: '040ff523d1637c52a0e79e8f4f7d3353',
                             sync: false,
-                            blueprint: ikeaE2213Base('light.mb_wardrobe_ikea_bulb'),
+                            blueprint: ikeaE2213DblClick('light.mb_wardrobe_ikea_bulb'),
                         },
                     ],
                 },
