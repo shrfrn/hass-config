@@ -17,6 +17,9 @@ cd "$REPO_DIR"
 
 git fetch origin
 
+# Discard HA-managed file changes so checkout can proceed (HA will rewrite .HA_VERSION)
+git restore .HA_VERSION 2>/dev/null || git checkout -- .HA_VERSION 2>/dev/null || true
+
 # Ensure main is current
 git checkout main
 git pull origin main
