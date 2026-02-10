@@ -188,6 +188,12 @@ automation:
               entity_id: light.mb_wardrobe_ikea_bulb
             data:
               brightness_step_pct: 2
+        action_button_dots1_double:
+          - service: light.turn_on
+            target:
+              entity_id: light.mb_wardrobe_ikea_bulb
+            data:
+              brightness_pct: 100
         action_button_dots2_short:
           - service: light.turn_off
             target:
@@ -198,3 +204,9 @@ automation:
               entity_id: light.mb_wardrobe_ikea_bulb
             data:
               brightness_step_pct: -2
+        action_button_dots2_double:
+          - service: light.turn_on
+            target:
+              entity_id: light.mb_wardrobe_ikea_bulb
+            data:
+              brightness_pct: 1
