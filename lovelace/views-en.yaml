@@ -742,6 +742,18 @@ views:
             cards:
               - type: custom:bubble-card
                 card_type: button
+                button_type: slider
+                entity: light.lr_standing_lamp
+                name: Living Room Standing Lamp
+                scrolling_effect: true
+                icon: mdi:floor-lamp-outline
+                tap_action:
+                  action: toggle
+                button_action:
+                  tap_action:
+                    action: none
+              - type: custom:bubble-card
+                card_type: button
                 button_type: switch
                 entity: switch.lr_soc_e
                 name: Standing Lamp
@@ -878,14 +890,6 @@ views:
             square: false
             columns: 2
             cards:
-              - type: custom:bubble-card
-                card_type: button
-                button_type: switch
-                entity: switch.lr_soc_w
-                name: Socket
-                scrolling_effect: true
-                tap_action:
-                  action: toggle
               - type: custom:bubble-card
                 card_type: button
                 button_type: switch
@@ -1558,14 +1562,6 @@ views:
               - type: custom:bubble-card
                 card_type: button
                 button_type: switch
-                entity: switch.mb_door_s
-                name: Patio Door
-                scrolling_effect: true
-                tap_action:
-                  action: toggle
-              - type: custom:bubble-card
-                card_type: button
-                button_type: switch
                 entity: light.mb_lt_wardrobe
                 name: Wardrobe
                 scrolling_effect: true
@@ -1574,6 +1570,14 @@ views:
                   service: homeassistant.toggle
                   target:
                     entity_id: light.mb_lt_wardrobe
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: switch.mb_door_s
+                name: Patio Door
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
               - type: custom:bubble-card
                 card_type: button
                 button_type: slider

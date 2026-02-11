@@ -14,6 +14,7 @@ group:
       - light.lr_lt_wall_e
       - light.lr_lt_wall_n
       - light.lr_lt_wall_s
+      - light.lr_standing_lamp
       - switch.lr_soc_e
       - switch.lr_soc_w
 
@@ -44,3 +45,60 @@ timer:
   lr_vacancy:
     name: Living Room Vacancy Timer
     duration: "00:09:00"
+
+light:
+  - platform: template
+    lights:
+      lr_standing_lamp:
+        friendly_name: Living Room Standing Lamp
+        value_template: "{{ is_state('light.lr_standing_lamp_group', 'on') }}"
+        turn_on:
+          service: light.turn_on
+          target:
+            entity_id: light.lr_standing_lamp_group
+        turn_off:
+          service: light.turn_off
+          target:
+            entity_id: light.lr_standing_lamp_group
+        icon_template: "{{ 'mdi:floor-lamp-outline' }}"
+        level_template: "{{ state_attr('light.lr_standing_lamp_group', 'brightness') | int }}"
+        set_level:
+          service: light.turn_on
+          target:
+            entity_id: light.lr_standing_lamp_group
+          data:
+            brightness: "{{ brightness }}"
+  - platform: group
+    name: lr_standing_lamp_group
+    unique_id: lr_standing_lamp_group
+    entities:
+      - light.living_room_standing_lamp_ikea_bulb
+
+automation:
+  - id: lr_standing_lamp_sync
+    alias: Living Room Standing Lamp Sync
+    mode: restart
+    trigger:
+      - platform: state
+        entity_id:
+          - light.lr_standing_lamp_group
+          - switch.lr_soc_w
+        to:
+          - "on"
+          - "off"
+        id: entity_sync
+    action:
+      - choose:
+          - conditions:
+              - condition: trigger
+                id: entity_sync
+              - condition: template
+                value_template: "{{ trigger.to_state.state != trigger.from_state.state }}"
+            sequence:
+              - service: "homeassistant.turn_{{ trigger.to_state.state }}"
+                target:
+                  entity_id: >
+                    {% set triggered = trigger.entity_id %}
+                    {% set target_state = trigger.to_state.state %}
+                    {% set all = ["light.lr_standing_lamp_group","switch.lr_soc_w"] %}
+                    {{ all | reject('eq', triggered) | reject('is_state', target_state) | list }}
