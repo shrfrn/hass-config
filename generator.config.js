@@ -43,6 +43,17 @@ const config = {
     areas: {
         living_room: {
             include_in_group: ['switch.lr_soc_e', 'switch.lr_soc_w'],
+			syncedEntities: {
+				lr_standing_lamp: {
+					name: 'Living Room Standing Lamp',
+					icon: 'mdi:floor-lamp-outline',
+					power: null,
+					entities: [
+						{ entity_id: 'switch.lr_soc_w', sync: true },
+						{ entity_id: 'light.living_room_standing_lamp_ikea_bulb', sync: true, controls: 'dimmable' },
+					],
+				},
+			},
         },
 
         bedroom: {
