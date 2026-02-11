@@ -32,13 +32,13 @@ homeassistant:
   packages: !include packages/index.yaml
 
 lovelace:
-  resource_mode: yaml
+  mode: yaml
   resources:
     - url: /hacsfiles/Bubble-Card/bubble-card.js
       type: module
-    - url: /hacsfiles/lovelace-card-mod/card-mod.js
+    - url: /hacsfiles/lovelace-mushroom/mushroom.js
       type: module
-    - url: /hacsfiles/universal-remote-card/universal-remote-card.min.js
+    - url: /hacsfiles/lovelace-card-mod/card-mod.js
       type: module
   dashboards:
     home-main:

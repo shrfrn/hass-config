@@ -813,7 +813,7 @@ views:
           - type: custom:bubble-card
             card_type: button
             button_type: switch
-            entity: remote.slvn
+            entity: media_player.lr_tv
             icon: mdi:remote-tv
             button_action:
               tap_action: &a2
