@@ -873,12 +873,17 @@ views:
                       
                       	.bubble-sub-button-container,
                       	.bubble-sub-button-bottom-container {
-                      		min-height: 56px;
+                      		min-height: 72px;
                       		padding: 10px 0;
                       	}
                       	.bubble-sub-button {
-                      		--bubble-sub-button-height: 48px;
-                      		min-width: 48px;
+                      		--bubble-sub-button-height: 64px;
+                      		min-width: 64px;
+                      		width: 64px;
+                      		height: 64px;
+                      		padding: 16px;
+                      		border-radius: 50%;
+                      		box-sizing: border-box;
                       	}
                       	.bubble-sub-button .show-icon,
                       	.bubble-sub-button .icon-without-state {
@@ -926,12 +931,17 @@ views:
                       
                       	.bubble-sub-button-container,
                       	.bubble-sub-button-bottom-container {
-                      		min-height: 56px;
+                      		min-height: 72px;
                       		padding: 10px 0;
                       	}
                       	.bubble-sub-button {
-                      		--bubble-sub-button-height: 48px;
-                      		min-width: 48px;
+                      		--bubble-sub-button-height: 64px;
+                      		min-width: 64px;
+                      		width: 64px;
+                      		height: 64px;
+                      		padding: 16px;
+                      		border-radius: 50%;
+                      		box-sizing: border-box;
                       	}
                       	.bubble-sub-button .show-icon,
                       	.bubble-sub-button .icon-without-state {
