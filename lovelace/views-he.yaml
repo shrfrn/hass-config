@@ -1029,7 +1029,9 @@ views:
                   		box-shadow: none;
                   	}
                   	#touchpad::part(toucharea) {
+                  		min-height: 45vh;
                   		min-height: 45dvh;
+                  		height: 45vh;
                   		height: 45dvh;
                   	}
               - type: custom:bubble-card
