@@ -826,12 +826,8 @@ views:
                   name: Volume
                   entity: media_player.lr_tv
                   tap_action:
-                    action: perform-action
-                    perform_action: media_player.volume_mute
-                    target:
-                      entity_id: media_player.lr_tv
-                    data:
-                      is_volume_muted: false
+                    action: more-info
+                    entity: media_player.lr_tv
                   visibility:
                     - condition: state
                       entity: media_player.lr_tv

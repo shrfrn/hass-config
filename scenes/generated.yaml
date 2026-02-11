@@ -126,6 +126,8 @@
       state: on
     switch.lr_soc_e:
       state: on
+    switch.lr_soc_w:
+      state: on
   metadata:
     light.lr_lt_ceiling:
       entity_only: true
@@ -136,6 +138,8 @@
     light.lr_lt_wall_s:
       entity_only: true
     switch.lr_soc_e:
+      entity_only: true
+    switch.lr_soc_w:
       entity_only: true
 - id: template_mb
   name: mb_template

@@ -42,7 +42,7 @@ const config = {
 
     areas: {
         living_room: {
-            include_in_group: ['switch.lr_soc_e'],
+            include_in_group: ['switch.lr_soc_e', 'switch.lr_soc_w'],
         },
 
         bedroom: {
