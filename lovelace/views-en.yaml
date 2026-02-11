@@ -755,6 +755,15 @@ views:
               - type: custom:bubble-card
                 card_type: button
                 button_type: switch
+                entity: switch.lr_soc_w
+                name: Socket
+                scrolling_effect: true
+                icon: mdi:light-flood-up
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
                 entity: light.lr_lt_wall_n
                 name: North Wall
                 scrolling_effect: true
@@ -903,14 +912,6 @@ views:
                   service: homeassistant.toggle
                   target:
                     entity_id: light.lr_lt_outdoor_projector
-              - type: custom:bubble-card
-                card_type: button
-                button_type: switch
-                entity: switch.lr_soc_w
-                name: Socket
-                scrolling_effect: true
-                tap_action:
-                  action: toggle
           - type: vertical-stack
             cards:
               - type: custom:bubble-card
