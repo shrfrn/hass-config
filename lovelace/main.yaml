@@ -871,12 +871,18 @@ views:
                     hide_main_background: true
                     styles: |
                       
-                      	.bubble-sub-button-container {
+                      	.bubble-sub-button-container,
+                      	.bubble-sub-button-bottom-container {
                       		min-height: 56px;
                       		padding: 10px 0;
                       	}
-                      	ha-icon-button, [class*="icon-button"] {
-                      		--mdc-icon-button-size: 52px;
+                      	.bubble-sub-button {
+                      		--bubble-sub-button-height: 48px;
+                      		min-width: 48px;
+                      	}
+                      	.bubble-sub-button .show-icon,
+                      	.bubble-sub-button .icon-without-state {
+                      		--mdc-icon-size: 28px;
                       	}
                     sub_button:
                       main: []
@@ -918,12 +924,18 @@ views:
                     footer_bottom_offset: "30"
                     styles: |
                       
-                      	.bubble-sub-button-container {
+                      	.bubble-sub-button-container,
+                      	.bubble-sub-button-bottom-container {
                       		min-height: 56px;
                       		padding: 10px 0;
                       	}
-                      	ha-icon-button, [class*="icon-button"] {
-                      		--mdc-icon-button-size: 52px;
+                      	.bubble-sub-button {
+                      		--bubble-sub-button-height: 48px;
+                      		min-width: 48px;
+                      	}
+                      	.bubble-sub-button .show-icon,
+                      	.bubble-sub-button .icon-without-state {
+                      		--mdc-icon-size: 28px;
                       	}
                     sub_button:
                       main: []
