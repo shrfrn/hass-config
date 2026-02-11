@@ -861,14 +861,23 @@ views:
                       	#touchpad::part(toucharea) {
                       		background: var(--secondary-background-color);
                       		min-height: 250px;
-                      		min-height: clamp(250px, 100vw, 400px);
+                      		min-height: clamp(250px, 105vw, 400px);
                       		height: 250px;
-                      		height: clamp(250px, 100vw, 400px);
+                      		height: clamp(250px, 105vw, 400px);
                       	}
                   - type: custom:bubble-card
                     card_type: sub-buttons
                     rows: 0.938
                     hide_main_background: true
+                    styles: |
+                      
+                      	.bubble-sub-button-container {
+                      		min-height: 56px;
+                      		padding: 10px 0;
+                      	}
+                      	ha-icon-button, [class*="icon-button"] {
+                      		--mdc-icon-button-size: 52px;
+                      	}
                     sub_button:
                       main: []
                       bottom:
@@ -907,6 +916,15 @@ views:
                     footer_mode: true
                     footer_full_width: true
                     footer_bottom_offset: "30"
+                    styles: |
+                      
+                      	.bubble-sub-button-container {
+                      		min-height: 56px;
+                      		padding: 10px 0;
+                      	}
+                      	ha-icon-button, [class*="icon-button"] {
+                      		--mdc-icon-button-size: 52px;
+                      	}
                     sub_button:
                       main: []
                       bottom:
