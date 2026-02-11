@@ -82,7 +82,7 @@ automation:
       - platform: state
         entity_id:
           - light.lr_standing_lamp_group
-          - switch.lr_soc_w
+          - switch.lr_soc_e
         to:
           - "on"
           - "off"
@@ -100,5 +100,5 @@ automation:
                   entity_id: >
                     {% set triggered = trigger.entity_id %}
                     {% set target_state = trigger.to_state.state %}
-                    {% set all = ["light.lr_standing_lamp_group","switch.lr_soc_w"] %}
+                    {% set all = ["light.lr_standing_lamp_group","switch.lr_soc_e"] %}
                     {{ all | reject('eq', triggered) | reject('is_state', target_state) | list }}

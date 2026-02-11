@@ -49,7 +49,7 @@ const config = {
 					icon: 'mdi:floor-lamp-outline',
 					power: null,
 					entities: [
-						{ entity_id: 'switch.lr_soc_w', sync: true },
+						{ entity_id: 'switch.lr_soc_e', sync: true },
 						{ entity_id: 'light.living_room_standing_lamp_ikea_bulb', sync: true, controls: 'dimmable' },
 					],
 				},
