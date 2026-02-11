@@ -40,6 +40,8 @@ lovelace:
       type: module
     - url: /hacsfiles/lovelace-card-mod/card-mod.js
       type: module
+    - url: /hacsfiles/universal-remote-card/universal-remote-card.min.js
+      type: module
   dashboards:
     home-main:
       mode: yaml

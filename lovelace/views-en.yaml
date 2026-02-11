@@ -1021,6 +1021,17 @@ views:
                 remote_id: remote.slvn
                 media_player_id: media_player.lr_tv
                 autofill_entity_id: true
+                styles: |
+                  
+                  	ha-card {
+                  		padding: 0;
+                  		border: none;
+                  		box-shadow: none;
+                  	}
+                  	#touchpad::part(toucharea) {
+                  		min-height: 45dvh;
+                  		height: 45dvh;
+                  	}
               - type: custom:bubble-card
                 card_type: sub-buttons
                 rows: 0.938
