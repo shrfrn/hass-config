@@ -828,7 +828,8 @@ views:
                   tap_action:
                     action: perform-action
                     perform_action: media_player.volume_mute
-                    target: {}
+                    target:
+                      entity_id: media_player.lr_tv
                     data:
                       is_volume_muted: false
                   visibility:
