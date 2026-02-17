@@ -153,6 +153,10 @@ light:
     address: "1/0/105"
     state_address: "1/0/105"
 
+  - name: "crd_lt_sunroof_wall"
+    address: "1/0/111"
+    state_address: "1/0/111"
+
   - name: "crd_lt_entrance_wall_outdoors"
     address: "1/0/112"
     state_address: "1/0/112"
