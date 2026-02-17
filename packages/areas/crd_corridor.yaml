@@ -8,6 +8,7 @@ group:
     entities:
       - light.crd_lt_mmd_wall_n
       - light.crd_lt_wall_e
+      - light.crd_sunroof_lights
 
 input_select:
   crd_active_scene:
@@ -32,3 +33,101 @@ timer:
   crd_vacancy:
     name: Corridor Vacancy Timer
     duration: "00:09:00"
+
+input_number:
+  crd_sunroof_lights_brightness:
+    name: Corridor Sunroof Lights Brightness
+    min: 0
+    max: 255
+    step: 1
+    initial: 254
+    mode: slider
+
+script:
+  crd_sunroof_lights_ev_throttler:
+    alias: Corridor Sunroof Lights Event Throttler
+    mode: single
+    fields:
+      brightness:
+        description: Brightness level (0-255)
+    sequence:
+      - wait_template: "{{ states('light.crd_lt_wall_n_ikea_bulb') != 'unavailable' and states('light.crd_lt_wall_s_ikea_bulb') != 'unavailable' }}"
+        timeout: "00:00:05"
+        continue_on_timeout: false
+      - service: light.turn_on
+        target:
+          entity_id:
+            - light.crd_lt_wall_n_ikea_bulb
+            - light.crd_lt_wall_s_ikea_bulb
+        data:
+          brightness: "{{ brightness }}"
+      - service: input_number.set_value
+        target:
+          entity_id: input_number.crd_sunroof_lights_brightness
+        data:
+          value: "{{ brightness }}"
+
+light:
+  - platform: template
+    lights:
+      crd_sunroof_lights:
+        friendly_name: Corridor Sunroof Lights
+        value_template: "{{ is_state('light.crd_lt_sunroof_wall', 'on') }}"
+        turn_off:
+          service: light.turn_off
+          target:
+            entity_id: light.crd_lt_sunroof_wall
+        turn_on:
+          - service: light.turn_on
+            target:
+              entity_id: light.crd_lt_sunroof_wall
+          - service: input_number.set_value
+            target:
+              entity_id: input_number.crd_sunroof_lights_brightness
+            data:
+              value: 254
+        level_template: "{{ states('input_number.crd_sunroof_lights_brightness') | int }}"
+        set_level:
+          - choose:
+              - conditions:
+                  - condition: template
+                    value_template: "{{ brightness | int > 0 }}"
+                sequence:
+                  - service: script.crd_sunroof_lights_ev_throttler
+                    data:
+                      brightness: "{{ brightness }}"
+  - platform: group
+    name: crd_sunroof_lights_group
+    unique_id: crd_sunroof_lights_group
+    entities:
+      - light.crd_lt_sunroof_wall
+      - light.crd_lt_wall_n_ikea_bulb
+      - light.crd_lt_wall_s_ikea_bulb
+
+automation:
+  - id: crd_sunroof_lights_sync
+    alias: Corridor Sunroof Lights Sync
+    mode: restart
+    trigger:
+      - platform: state
+        entity_id:
+          - light.crd_sunroof_lights_group
+        to:
+          - "on"
+          - "off"
+        id: entity_sync
+    action:
+      - choose:
+          - conditions:
+              - condition: trigger
+                id: entity_sync
+              - condition: template
+                value_template: "{{ trigger.to_state.state != trigger.from_state.state }}"
+            sequence:
+              - service: "homeassistant.turn_{{ trigger.to_state.state }}"
+                target:
+                  entity_id: >
+                    {% set triggered = trigger.entity_id %}
+                    {% set target_state = trigger.to_state.state %}
+                    {% set all = ["light.crd_sunroof_lights_group"] %}
+                    {{ all | reject('eq', triggered) | reject('is_state', target_state) | list }}
