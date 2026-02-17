@@ -109,6 +109,20 @@ const config = {
             },
         },
 
+        corridor: {
+            syncedEntities: {
+                crd_sunroof_lights: {
+                    name: 'Corridor Sunroof Lights',
+                    power: 'light.crd_lt_sunroof_wall', // KNX relay controls power to bulbs
+                    entities: [
+                        { entity_id: 'light.crd_lt_sunroof_wall', sync: true },
+                        { entity_id: 'light.crd_lt_wall_n_ikea_bulb', sync: true, controls: 'dimmable' },
+                        { entity_id: 'light.crd_lt_wall_s_ikea_bulb', sync: true, controls: 'dimmable' },
+                    ],
+                },
+            },
+        },
+
         sharon_s_studio: {
             include_in_group: ['switch.stdn_skt'],
             syncedEntities: {
