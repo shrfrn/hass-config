@@ -1044,12 +1044,17 @@ views:
                                   window.dispatchEvent(new
                                   Event('location-changed'))
                           hold_action:
-                            action: perform-action
-                            perform_action: remote.send_command
-                            target:
-                              entity_id: remote.slvn
-                            data:
-                              command: suspend
+                            action: fire-dom-event
+                            browser_mod:
+                              service: browser_mod.javascript
+                              data:
+                                code: hass.callService('remote', 'send_command', {"command":"suspend"},
+                                  {"entity_id":"remote.slvn"}); const p =
+                                  localStorage.getItem('tv_remote_return_path')
+                                  || '/views-he/living-room';
+                                  history.pushState(null, '', p);
+                                  window.dispatchEvent(new
+                                  Event('location-changed'))
               - type: custom:universal-remote-card
                 rows:
                   - - touchpad
