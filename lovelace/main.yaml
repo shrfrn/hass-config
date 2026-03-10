@@ -707,12 +707,16 @@ views:
                     entity: remote.slvn
                     icon: mdi:remote-tv
                     button_action:
-                      tap_action:
-                        action: navigate
-                        navigation_path: "#lr_aptv_remote"
-                    tap_action:
-                      action: navigate
-                      navigation_path: "#lr_aptv_remote"
+                      tap_action: &a2
+                        action: fire-dom-event
+                        browser_mod:
+                          service: browser_mod.javascript
+                          data:
+                            code: localStorage.setItem('tv_remote_return_path', window.location.pathname +
+                              window.location.hash); history.pushState(null, '',
+                              '#lr_aptv_remote'); window.dispatchEvent(new
+                              Event('location-changed'))
+                    tap_action: *a2
                     sub_button:
                       main:
                         - icon: mdi:volume-high
@@ -769,6 +773,14 @@ views:
                     sub_button:
                       main: []
                       bottom: []
+                    close_action:
+                      action: fire-dom-event
+                      browser_mod:
+                        service: browser_mod.javascript
+                        data:
+                          code: const p = localStorage.getItem('tv_remote_return_path') || '#lr_details';
+                            history.pushState(null, '', p);
+                            window.dispatchEvent(new Event('location-changed'))
                   - type: custom:bubble-card
                     card_type: sub-buttons
                     rows: 0.938
@@ -846,8 +858,14 @@ views:
                               fill_width: false
                               name: Close
                               tap_action:
-                                action: navigate
-                                navigation_path: "#lr_details"
+                                action: fire-dom-event
+                                browser_mod:
+                                  service: browser_mod.javascript
+                                  data:
+                                    code: const p = localStorage.getItem('tv_remote_return_path') || '#lr_details';
+                                      history.pushState(null, '', p);
+                                      window.dispatchEvent(new
+                                      Event('location-changed'))
                               hold_action:
                                 action: perform-action
                                 perform_action: remote.send_command

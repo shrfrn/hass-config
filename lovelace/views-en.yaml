@@ -127,8 +127,14 @@ views:
             sub_button:
               - icon: mdi:television
                 tap_action:
-                  action: navigate
-                  navigation_path: /views-en/living-room#lr_aptv_remote
+                  action: fire-dom-event
+                  browser_mod:
+                    service: browser_mod.javascript
+                    data:
+                      code: localStorage.setItem('tv_remote_return_path', window.location.pathname +
+                        window.location.hash); history.pushState(null, '',
+                        '/views-en/living-room#lr_aptv_remote');
+                        window.dispatchEvent(new Event('location-changed'))
               - entity: climate.lr_ac
                 icon: mdi:snowflake
                 tap_action:
@@ -829,8 +835,14 @@ views:
             icon: mdi:remote-tv
             button_action:
               tap_action: &a2
-                action: navigate
-                navigation_path: "#lr_aptv_remote"
+                action: fire-dom-event
+                browser_mod:
+                  service: browser_mod.javascript
+                  data:
+                    code: localStorage.setItem('tv_remote_return_path', window.location.pathname +
+                      window.location.hash); history.pushState(null, '',
+                      '/views-en/living-room#lr_aptv_remote');
+                      window.dispatchEvent(new Event('location-changed'))
             tap_action: *a2
             sub_button:
               main:
@@ -870,8 +882,14 @@ views:
                   force_icon: true
                   name: Power
                   tap_action:
-                    action: navigate
-                    navigation_path: "#lr_aptv_remote"
+                    action: fire-dom-event
+                    browser_mod:
+                      service: browser_mod.javascript
+                      data:
+                        code: localStorage.setItem('tv_remote_return_path', window.location.pathname +
+                          window.location.hash); history.pushState(null, '',
+                          '/views-en/living-room#lr_aptv_remote');
+                          window.dispatchEvent(new Event('location-changed'))
                   hold_action:
                     action: perform-action
                     perform_action: remote.send_command
@@ -931,6 +949,14 @@ views:
                     entity_id: remote.slvn
                   data:
                     command: wakeup
+                close_action:
+                  action: fire-dom-event
+                  browser_mod:
+                    service: browser_mod.javascript
+                    data:
+                      code: const p = localStorage.getItem('tv_remote_return_path') ||
+                        '/views-en/living-room'; history.pushState(null, '', p);
+                        window.dispatchEvent(new Event('location-changed'))
               - type: custom:bubble-card
                 card_type: sub-buttons
                 rows: 0.938
@@ -1008,8 +1034,15 @@ views:
                           fill_width: false
                           name: Close
                           tap_action:
-                            action: navigate
-                            navigation_path: /views-en/living-room
+                            action: fire-dom-event
+                            browser_mod:
+                              service: browser_mod.javascript
+                              data:
+                                code: const p = localStorage.getItem('tv_remote_return_path') ||
+                                  '/views-en/living-room';
+                                  history.pushState(null, '', p);
+                                  window.dispatchEvent(new
+                                  Event('location-changed'))
                           hold_action:
                             action: perform-action
                             perform_action: remote.send_command
