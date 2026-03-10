@@ -42,3 +42,5 @@ lovelace:
       type: module
     - url: /hacsfiles/universal-remote-card/universal-remote-card.min.js
       type: module
+    - url: /hacsfiles/browser_mod/browser_mod.js
+      type: module
