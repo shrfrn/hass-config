@@ -939,9 +939,8 @@ views:
                               data:
                                 code: hass.callService('input_select', 'select_option',
                                   {"option":"tv","entity_id":"input_select.tv_samsung_7_series_65"});
-                                  hass.callService('media_player',
-                                  'select_source',
-                                  {"source":"TV","entity_id":"media_player.tv_samsung_7_series_65"})
+                                  hass.callService('remote', 'send_command',
+                                  {"command":"KEY_HOME","entity_id":"remote.tv_samsung_7_series_65"})
                         - icon: mdi:apple
                           force_icon: true
                           content_layout: icon-left
@@ -954,9 +953,8 @@ views:
                               data:
                                 code: hass.callService('input_select', 'select_option',
                                   {"option":"apple_tv","entity_id":"input_select.tv_samsung_7_series_65"});
-                                  hass.callService('media_player',
-                                  'select_source',
-                                  {"source":"HDMI","entity_id":"media_player.tv_samsung_7_series_65"})
+                                  hass.callService('remote', 'send_command',
+                                  {"command":"KEY_HDMI1","entity_id":"remote.tv_samsung_7_series_65"})
                     - name: Exit
                       buttons_layout: inline
                       group:
@@ -1005,18 +1003,6 @@ views:
                         buttons_layout: inline
                         justify_content: space-between
                         group:
-                          - icon: mdi:television
-                            force_icon: true
-                            content_layout: icon-left
-                            fill_width: false
-                            name: TV
-                            tap_action:
-                              action: perform-action
-                              perform_action: media_player.select_source
-                              target:
-                                entity_id: media_player.tv_samsung_7_series_65
-                              data:
-                                source: TV
                           - icon: mdi:netflix
                             force_icon: true
                             content_layout: icon-left
@@ -1029,18 +1015,6 @@ views:
                                 entity_id: media_player.tv_samsung_7_series_65
                               data:
                                 source: Netflix
-                          - icon: mdi:hdmi-port
-                            force_icon: true
-                            content_layout: icon-left
-                            fill_width: false
-                            name: HDMI
-                            tap_action:
-                              action: perform-action
-                              perform_action: media_player.select_source
-                              target:
-                                entity_id: media_player.tv_samsung_7_series_65
-                              data:
-                                source: HDMI
               - type: conditional
                 conditions: *a3
                 card:
