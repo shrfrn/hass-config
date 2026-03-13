@@ -105,7 +105,7 @@ const config = {
                         id: 'apple_tv',
                         name: 'Apple TV',
                         icon: 'mdi:apple',
-                        select_source: { command: { entity: 'remote.tv_samsung_7_series_65', type: 'send_command', payload: { command: 'KEY_HDMI' } } },
+                        select_source: { command: { entity: 'remote.slvn', type: 'send_command', payload: { command: 'wakeup' } } },
                         platform: 'Apple TV',
                         remote_entity: 'remote.slvn',
                         media_player_entity: 'media_player.lr_apple_tv',
