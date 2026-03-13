@@ -905,11 +905,9 @@ views:
                   bottom: []
                 open_action:
                   action: perform-action
-                  perform_action: remote.send_command
+                  perform_action: media_player.turn_on
                   target:
-                    entity_id: remote.tv_samsung_7_series_65
-                  data:
-                    command: wakeup
+                    entity_id: media_player.tv_samsung_7_series_65
                 close_action:
                   action: fire-dom-event
                   browser_mod:
@@ -982,8 +980,8 @@ views:
                             browser_mod:
                               service: browser_mod.javascript
                               data:
-                                code: hass.callService('remote', 'send_command', {"command":"suspend"},
-                                  {"entity_id":"remote.tv_samsung_7_series_65"});
+                                code: hass.callService('media_player', 'turn_off', {},
+                                  {"entity_id":"media_player.tv_samsung_7_series_65"});
                                   const p =
                                   localStorage.getItem('tv_remote_return_path')
                                   || '/views-en/living-room';
