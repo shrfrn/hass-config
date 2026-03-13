@@ -57,7 +57,7 @@ const config = {
                         command: {
                             entity: 'remote.tv_samsung_7_series_65',
                             type: 'send_command',
-                            payload: { command: 'KEY_VOLUMEDOWN' },
+                            payload: { command: 'KEY_VOLDOWN' },
                         },
                     },
                     {
@@ -77,7 +77,7 @@ const config = {
                         command: {
                             entity: 'remote.tv_samsung_7_series_65',
                             type: 'send_command',
-                            payload: { command: 'KEY_VOLUMEUP' },
+                            payload: { command: 'KEY_VOLUP' },
                         },
                     },
                 ],
@@ -87,16 +87,16 @@ const config = {
                         id: 'tv',
                         name: 'TV',
                         icon: 'mdi:television',
-                        select_source: { source: 'TV' },
+                        select_source: { command: { entity: 'remote.tv_samsung_7_series_65', type: 'send_command', payload: { command: 'KEY_HOME' } } },
                         favorites: [
                             {
                                 id: 'tv_tuner',
                                 name: 'TV',
                                 icon: 'mdi:television',
                                 command: {
-                                    entity: 'media_player.tv_samsung_7_series_65',
-                                    type: 'select_source',
-                                    payload: { source: 'TV' },
+                                    entity: 'remote.tv_samsung_7_series_65',
+                                    type: 'send_command',
+                                    payload: { command: 'KEY_TV' },
                                 },
                             },
                             {
@@ -114,9 +114,9 @@ const config = {
                                 name: 'HDMI',
                                 icon: 'mdi:hdmi-port',
                                 command: {
-                                    entity: 'media_player.tv_samsung_7_series_65',
-                                    type: 'select_source',
-                                    payload: { source: 'HDMI' },
+                                    entity: 'remote.tv_samsung_7_series_65',
+                                    type: 'send_command',
+                                    payload: { command: 'KEY_HDMI' },
                                 },
                             },
                         ],

@@ -937,11 +937,10 @@ views:
                             browser_mod:
                               service: browser_mod.javascript
                               data:
-                                code: hass.callService('input_select', 'select_option', {"option":"tv"},
-                                  {"entity_id":"input_select.tv_samsung_7_series_65"});
-                                  hass.callService('media_player',
-                                  'select_source',
-                                  {"source":"TV","entity_id":"media_player.tv_samsung_7_series_65"})
+                                code: hass.callService('input_select', 'select_option',
+                                  {"option":"tv","entity_id":"input_select.tv_samsung_7_series_65"});
+                                  hass.callService('remote', 'send_command',
+                                  {"command":"KEY_HOME","entity_id":"remote.tv_samsung_7_series_65"})
                         - icon: mdi:apple
                           force_icon: true
                           content_layout: icon-left
@@ -952,8 +951,8 @@ views:
                             browser_mod:
                               service: browser_mod.javascript
                               data:
-                                code: hass.callService('input_select', 'select_option', {"option":"apple_tv"},
-                                  {"entity_id":"input_select.tv_samsung_7_series_65"});
+                                code: hass.callService('input_select', 'select_option',
+                                  {"option":"apple_tv","entity_id":"input_select.tv_samsung_7_series_65"});
                                   hass.callService('remote', 'send_command',
                                   {"command":"KEY_HDMI","entity_id":"remote.tv_samsung_7_series_65"})
                     - name: Exit
@@ -979,7 +978,7 @@ views:
                             browser_mod:
                               service: browser_mod.javascript
                               data:
-                                code: hass.callService('media_player', 'turn_off', {},
+                                code: hass.callService('media_player', 'turn_off',
                                   {"entity_id":"media_player.tv_samsung_7_series_65"});
                                   const p =
                                   localStorage.getItem('tv_remote_return_path')
@@ -1011,11 +1010,11 @@ views:
                             name: TV
                             tap_action:
                               action: perform-action
-                              perform_action: media_player.select_source
+                              perform_action: remote.send_command
                               target:
-                                entity_id: media_player.tv_samsung_7_series_65
+                                entity_id: remote.tv_samsung_7_series_65
                               data:
-                                source: TV
+                                command: KEY_TV
                           - icon: mdi:netflix
                             force_icon: true
                             content_layout: icon-left
@@ -1035,11 +1034,11 @@ views:
                             name: HDMI
                             tap_action:
                               action: perform-action
-                              perform_action: media_player.select_source
+                              perform_action: remote.send_command
                               target:
-                                entity_id: media_player.tv_samsung_7_series_65
+                                entity_id: remote.tv_samsung_7_series_65
                               data:
-                                source: HDMI
+                                command: KEY_HDMI
               - type: conditional
                 conditions: *a3
                 card:
@@ -1110,7 +1109,7 @@ views:
                               target:
                                 entity_id: remote.tv_samsung_7_series_65
                               data: &a5
-                                command: KEY_VOLUMEDOWN
+                                command: KEY_VOLDOWN
                           - icon: mdi:volume-mute
                             force_icon: true
                             content_layout: icon-left
@@ -1134,7 +1133,7 @@ views:
                               target:
                                 entity_id: remote.tv_samsung_7_series_65
                               data: &a7
-                                command: KEY_VOLUMEUP
+                                command: KEY_VOLUP
               - type: conditional
                 conditions: &a4
                   - condition: state
