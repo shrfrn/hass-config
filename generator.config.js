@@ -87,18 +87,8 @@ const config = {
                         id: 'tv',
                         name: 'TV',
                         icon: 'mdi:television',
-                        select_source: { source: 'TV' },
+                        select_source: { command: { entity: 'remote.tv_samsung_7_series_65', type: 'send_command', payload: { command: 'KEY_HOME' } } },
                         favorites: [
-                            {
-                                id: 'tv_tuner',
-                                name: 'TV',
-                                icon: 'mdi:television',
-                                command: {
-                                    entity: 'media_player.tv_samsung_7_series_65',
-                                    type: 'select_source',
-                                    payload: { source: 'TV' },
-                                },
-                            },
                             {
                                 id: 'tv_netflix',
                                 name: 'Netflix',
@@ -109,23 +99,13 @@ const config = {
                                     payload: { source: 'Netflix' },
                                 },
                             },
-                            {
-                                id: 'tv_hdmi',
-                                name: 'HDMI',
-                                icon: 'mdi:hdmi-port',
-                                command: {
-                                    entity: 'media_player.tv_samsung_7_series_65',
-                                    type: 'select_source',
-                                    payload: { source: 'HDMI' },
-                                },
-                            },
                         ],
                     },
                     {
                         id: 'apple_tv',
                         name: 'Apple TV',
                         icon: 'mdi:apple',
-                        select_source: { source: 'HDMI' },
+                        select_source: { command: { entity: 'remote.tv_samsung_7_series_65', type: 'send_command', payload: { command: 'KEY_HDMI1' } } },
                         platform: 'Apple TV',
                         remote_entity: 'remote.slvn',
                         media_player_entity: 'media_player.lr_apple_tv',
