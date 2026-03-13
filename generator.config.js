@@ -87,16 +87,16 @@ const config = {
                         id: 'tv',
                         name: 'TV',
                         icon: 'mdi:television',
-                        select_source: { command: { entity: 'remote.tv_samsung_7_series_65', type: 'send_command', payload: { command: 'KEY_HOME' } } },
+                        select_source: { source: 'TV' },
                         favorites: [
                             {
                                 id: 'tv_tuner',
                                 name: 'TV',
                                 icon: 'mdi:television',
                                 command: {
-                                    entity: 'remote.tv_samsung_7_series_65',
-                                    type: 'send_command',
-                                    payload: { command: 'KEY_TV' },
+                                    entity: 'media_player.tv_samsung_7_series_65',
+                                    type: 'select_source',
+                                    payload: { source: 'TV' },
                                 },
                             },
                             {
@@ -114,9 +114,9 @@ const config = {
                                 name: 'HDMI',
                                 icon: 'mdi:hdmi-port',
                                 command: {
-                                    entity: 'remote.tv_samsung_7_series_65',
-                                    type: 'send_command',
-                                    payload: { command: 'KEY_HDMI' },
+                                    entity: 'media_player.tv_samsung_7_series_65',
+                                    type: 'select_source',
+                                    payload: { source: 'HDMI' },
                                 },
                             },
                         ],
@@ -125,11 +125,21 @@ const config = {
                         id: 'apple_tv',
                         name: 'Apple TV',
                         icon: 'mdi:apple',
-                        select_source: { command: { entity: 'remote.tv_samsung_7_series_65', type: 'send_command', payload: { command: 'KEY_HDMI' } } },
+                        select_source: { source: 'HDMI' },
                         platform: 'Apple TV',
                         remote_entity: 'remote.slvn',
                         media_player_entity: 'media_player.lr_apple_tv',
                         favorites: [
+                            {
+                                id: 'tv_app',
+                                name: 'TV',
+                                icon: 'mdi:television-classic',
+                                command: {
+                                    entity: 'media_player.lr_apple_tv',
+                                    type: 'select_source',
+                                    payload: { source: 'TV' },
+                                },
+                            },
                             {
                                 id: 'netflix',
                                 name: 'Netflix',
@@ -148,6 +158,16 @@ const config = {
                                     entity: 'media_player.lr_apple_tv',
                                     type: 'select_source',
                                     payload: { source: 'YouTube' },
+                                },
+                            },
+                            {
+                                id: 'settings',
+                                name: 'Settings',
+                                icon: 'mdi:cog',
+                                command: {
+                                    entity: 'media_player.lr_apple_tv',
+                                    type: 'select_source',
+                                    payload: { source: 'Settings' },
                                 },
                             },
                         ],

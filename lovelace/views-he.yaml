@@ -939,8 +939,9 @@ views:
                               data:
                                 code: hass.callService('input_select', 'select_option',
                                   {"option":"tv","entity_id":"input_select.tv_samsung_7_series_65"});
-                                  hass.callService('remote', 'send_command',
-                                  {"command":"KEY_HOME","entity_id":"remote.tv_samsung_7_series_65"})
+                                  hass.callService('media_player',
+                                  'select_source',
+                                  {"source":"TV","entity_id":"media_player.tv_samsung_7_series_65"})
                         - icon: mdi:apple
                           force_icon: true
                           content_layout: icon-left
@@ -953,8 +954,9 @@ views:
                               data:
                                 code: hass.callService('input_select', 'select_option',
                                   {"option":"apple_tv","entity_id":"input_select.tv_samsung_7_series_65"});
-                                  hass.callService('remote', 'send_command',
-                                  {"command":"KEY_HDMI","entity_id":"remote.tv_samsung_7_series_65"})
+                                  hass.callService('media_player',
+                                  'select_source',
+                                  {"source":"HDMI","entity_id":"media_player.tv_samsung_7_series_65"})
                     - name: Exit
                       buttons_layout: inline
                       group:
@@ -1010,11 +1012,11 @@ views:
                             name: TV
                             tap_action:
                               action: perform-action
-                              perform_action: remote.send_command
+                              perform_action: media_player.select_source
                               target:
-                                entity_id: remote.tv_samsung_7_series_65
+                                entity_id: media_player.tv_samsung_7_series_65
                               data:
-                                command: KEY_TV
+                                source: TV
                           - icon: mdi:netflix
                             force_icon: true
                             content_layout: icon-left
@@ -1034,11 +1036,11 @@ views:
                             name: HDMI
                             tap_action:
                               action: perform-action
-                              perform_action: remote.send_command
+                              perform_action: media_player.select_source
                               target:
-                                entity_id: remote.tv_samsung_7_series_65
+                                entity_id: media_player.tv_samsung_7_series_65
                               data:
-                                command: KEY_HDMI
+                                source: HDMI
               - type: conditional
                 conditions: *a3
                 card:
@@ -1151,6 +1153,18 @@ views:
                         buttons_layout: inline
                         justify_content: space-between
                         group:
+                          - icon: mdi:television-classic
+                            force_icon: true
+                            content_layout: icon-left
+                            fill_width: false
+                            name: TV
+                            tap_action:
+                              action: perform-action
+                              perform_action: media_player.select_source
+                              target:
+                                entity_id: media_player.lr_apple_tv
+                              data:
+                                source: TV
                           - icon: mdi:netflix
                             force_icon: true
                             content_layout: icon-left
@@ -1175,6 +1189,18 @@ views:
                                 entity_id: media_player.lr_apple_tv
                               data:
                                 source: YouTube
+                          - icon: mdi:cog
+                            force_icon: true
+                            content_layout: icon-left
+                            fill_width: false
+                            name: Settings
+                            tap_action:
+                              action: perform-action
+                              perform_action: media_player.select_source
+                              target:
+                                entity_id: media_player.lr_apple_tv
+                              data:
+                                source: Settings
               - type: conditional
                 conditions: *a4
                 card:
