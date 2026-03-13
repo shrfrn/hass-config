@@ -954,9 +954,9 @@ views:
                               data:
                                 code: hass.callService('input_select', 'select_option', {"option":"apple_tv"},
                                   {"entity_id":"input_select.tv_samsung_7_series_65"});
-                                  hass.callService('media_player',
-                                  'select_source', {"source":"HDMI"},
-                                  {"entity_id":"media_player.tv_samsung_7_series_65"})
+                                  hass.callService('remote', 'send_command',
+                                  {"command":"KEY_HDMI"},
+                                  {"entity_id":"remote.tv_samsung_7_series_65"})
                     - name: Exit
                       buttons_layout: inline
                       group:
