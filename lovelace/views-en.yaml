@@ -125,6 +125,16 @@ views:
                 action: navigate
                 navigation_path: /views-en/living-room
             sub_button:
+              - icon: mdi:television
+                tap_action:
+                  action: fire-dom-event
+                  browser_mod:
+                    service: browser_mod.javascript
+                    data:
+                      code: localStorage.setItem('tv_remote_return_path', window.location.pathname +
+                        window.location.hash); history.pushState(null, '',
+                        '/views-en/living-room#lr_tv_remote');
+                        window.dispatchEvent(new Event('location-changed'))
               - entity: climate.lr_ac
                 icon: mdi:snowflake
                 tap_action:
@@ -817,6 +827,43 @@ views:
               \    "
           - type: custom:bubble-card
             card_type: separator
+            name: Media
+          - type: custom:bubble-card
+            card_type: button
+            button_type: switch
+            entity: media_player.tv_samsung_7_series_65
+            icon: mdi:remote-tv
+            button_action:
+              tap_action: &a2
+                action: fire-dom-event
+                browser_mod:
+                  service: browser_mod.javascript
+                  data:
+                    code: localStorage.setItem('tv_remote_return_path', window.location.pathname +
+                      window.location.hash); history.pushState(null, '',
+                      '/views-en/living-room#lr_tv_remote');
+                      window.dispatchEvent(new Event('location-changed'))
+            tap_action: *a2
+            sub_button:
+              main:
+                - icon: mdi:volume-high
+                  name: Volume
+                  entity: media_player.tv_samsung_7_series_65
+                  tap_action:
+                    action: more-info
+                    entity: media_player.tv_samsung_7_series_65
+                  visibility:
+                    - condition: state
+                      entity: media_player.tv_samsung_7_series_65
+                      state:
+                        - playing
+                        - paused
+                        - idle
+                        - on
+                        - buffering
+              bottom: []
+          - type: custom:bubble-card
+            card_type: separator
             name: Other
           - type: grid
             square: false
@@ -844,6 +891,422 @@ views:
                   service: homeassistant.toggle
                   target:
                     entity_id: light.lr_lt_outdoor_projector
+          - type: vertical-stack
+            cards:
+              - type: custom:bubble-card
+                card_type: pop-up
+                hash: "#lr_tv_remote"
+                button_type: name
+                show_header: false
+                card_layout: large
+                show_icon: true
+                sub_button:
+                  main: []
+                  bottom: []
+                open_action:
+                  action: perform-action
+                  perform_action: remote.send_command
+                  target:
+                    entity_id: remote.tv_samsung_7_series_65
+                  data:
+                    command: wakeup
+                close_action:
+                  action: fire-dom-event
+                  browser_mod:
+                    service: browser_mod.javascript
+                    data:
+                      code: const p = localStorage.getItem('tv_remote_return_path') ||
+                        '/views-en/living-room'; history.pushState(null, '', p);
+                        window.dispatchEvent(new Event('location-changed'))
+              - type: custom:bubble-card
+                card_type: sub-buttons
+                rows: 0.938
+                hide_main_background: true
+                sub_button:
+                  main: []
+                  bottom:
+                    - name: Sources
+                      buttons_layout: inline
+                      justify_content: space-between
+                      group:
+                        - icon: mdi:television
+                          force_icon: true
+                          content_layout: icon-left
+                          fill_width: false
+                          name: TV
+                          tap_action:
+                            action: fire-dom-event
+                            browser_mod:
+                              service: browser_mod.javascript
+                              data:
+                                code: hass.callService('input_select', 'select_option', {"option":"tv"},
+                                  {"entity_id":"input_select.tv_samsung_7_series_65"});
+                                  hass.callService('media_player',
+                                  'select_source', {"source":"TV"},
+                                  {"entity_id":"media_player.tv_samsung_7_series_65"})
+                        - icon: mdi:apple
+                          force_icon: true
+                          content_layout: icon-left
+                          fill_width: false
+                          name: Apple TV
+                          tap_action:
+                            action: fire-dom-event
+                            browser_mod:
+                              service: browser_mod.javascript
+                              data:
+                                code: hass.callService('input_select', 'select_option', {"option":"apple_tv"},
+                                  {"entity_id":"input_select.tv_samsung_7_series_65"});
+                                  hass.callService('media_player',
+                                  'select_source', {"source":"HDMI 3"},
+                                  {"entity_id":"media_player.tv_samsung_7_series_65"})
+                    - name: Exit
+                      buttons_layout: inline
+                      group:
+                        - icon: mdi:close
+                          force_icon: true
+                          content_layout: icon-left
+                          fill_width: false
+                          name: Close
+                          tap_action:
+                            action: fire-dom-event
+                            browser_mod:
+                              service: browser_mod.javascript
+                              data:
+                                code: const p = localStorage.getItem('tv_remote_return_path') ||
+                                  '/views-en/living-room';
+                                  history.pushState(null, '', p);
+                                  window.dispatchEvent(new
+                                  Event('location-changed'))
+                          hold_action:
+                            action: fire-dom-event
+                            browser_mod:
+                              service: browser_mod.javascript
+                              data:
+                                code: hass.callService('remote', 'send_command', {"command":"suspend"},
+                                  {"entity_id":"remote.tv_samsung_7_series_65"});
+                                  const p =
+                                  localStorage.getItem('tv_remote_return_path')
+                                  || '/views-en/living-room';
+                                  history.pushState(null, '', p);
+                                  window.dispatchEvent(new
+                                  Event('location-changed'))
+              - type: conditional
+                conditions: &a3
+                  - condition: state
+                    entity: input_select.tv_samsung_7_series_65
+                    state: tv
+                card:
+                  type: custom:bubble-card
+                  card_type: sub-buttons
+                  rows: 0.938
+                  hide_main_background: true
+                  sub_button:
+                    main: []
+                    bottom:
+                      - name: Favorites
+                        buttons_layout: inline
+                        justify_content: space-between
+                        group:
+                          - icon: mdi:television
+                            force_icon: true
+                            content_layout: icon-left
+                            fill_width: false
+                            name: TV
+                            tap_action:
+                              action: perform-action
+                              perform_action: media_player.select_source
+                              target:
+                                entity_id: media_player.tv_samsung_7_series_65
+                              data:
+                                source: TV
+                          - icon: mdi:netflix
+                            force_icon: true
+                            content_layout: icon-left
+                            fill_width: false
+                            name: Netflix
+                            tap_action:
+                              action: perform-action
+                              perform_action: media_player.select_source
+                              target:
+                                entity_id: media_player.tv_samsung_7_series_65
+                              data:
+                                source: Netflix
+                          - icon: mdi:hdmi-port
+                            force_icon: true
+                            content_layout: icon-left
+                            fill_width: false
+                            name: HDMI 1
+                            tap_action:
+                              action: perform-action
+                              perform_action: media_player.select_source
+                              target:
+                                entity_id: media_player.tv_samsung_7_series_65
+                              data:
+                                source: HDMI 1
+              - type: conditional
+                conditions: *a3
+                card:
+                  type: custom:universal-remote-card
+                  rows:
+                    - - touchpad
+                  platform: Samsung TV
+                  custom_actions: []
+                  remote_id: remote.tv_samsung_7_series_65
+                  media_player_id: media_player.tv_samsung_7_series_65
+                  autofill_entity_id: true
+                  styles: |
+                    
+                    	ha-card {
+                    		padding: 0;
+                    		border: none;
+                    		box-shadow: none;
+                    	}
+                    	#touchpad::part(toucharea) {
+                    		background: var(--secondary-background-color);
+                    		min-height: 250px;
+                    		min-height: clamp(250px, 100vw, 400px);
+                    		height: 250px;
+                    		height: clamp(250px, 100vw, 400px);
+                    	}
+              - type: conditional
+                conditions: *a3
+                card:
+                  type: custom:bubble-card
+                  card_type: sub-buttons
+                  rows: 0.938
+                  hide_main_background: true
+                  styles: |
+                    
+                    	.bubble-sub-button-container,
+                    	.bubble-sub-button-bottom-container {
+                    		min-height: 72px;
+                    		padding: 10px 0;
+                    	}
+                    	.bubble-sub-button {
+                    		--bubble-sub-button-height: 64px;
+                    		min-width: 64px;
+                    		width: 64px;
+                    		height: 64px;
+                    		padding: 16px;
+                    		border-radius: 50%;
+                    		box-sizing: border-box;
+                    	}
+                    	.bubble-sub-button .show-icon,
+                    	.bubble-sub-button .icon-without-state {
+                    		--mdc-icon-size: 28px;
+                    	}
+                  sub_button:
+                    main: []
+                    bottom:
+                      - name: Controls
+                        buttons_layout: inline
+                        justify_content: space-around
+                        group:
+                          - icon: mdi:volume-minus
+                            force_icon: true
+                            content_layout: icon-left
+                            fill_width: false
+                            name: Volume Down
+                            tap_action:
+                              action: perform-action
+                              perform_action: remote.send_command
+                              target:
+                                entity_id: remote.tv_samsung_7_series_65
+                              data: &a5
+                                command: KEY_VOLUMEDOWN
+                          - icon: mdi:volume-mute
+                            force_icon: true
+                            content_layout: icon-left
+                            fill_width: false
+                            name: Mute
+                            tap_action:
+                              action: perform-action
+                              perform_action: remote.send_command
+                              target:
+                                entity_id: remote.tv_samsung_7_series_65
+                              data: &a6
+                                command: KEY_MUTE
+                          - icon: mdi:volume-plus
+                            force_icon: true
+                            content_layout: icon-left
+                            fill_width: false
+                            name: Volume Up
+                            tap_action:
+                              action: perform-action
+                              perform_action: remote.send_command
+                              target:
+                                entity_id: remote.tv_samsung_7_series_65
+                              data: &a7
+                                command: KEY_VOLUMEUP
+              - type: conditional
+                conditions: &a4
+                  - condition: state
+                    entity: input_select.tv_samsung_7_series_65
+                    state: apple_tv
+                card:
+                  type: custom:bubble-card
+                  card_type: sub-buttons
+                  rows: 0.938
+                  hide_main_background: true
+                  sub_button:
+                    main: []
+                    bottom:
+                      - name: Favorites
+                        buttons_layout: inline
+                        justify_content: space-between
+                        group:
+                          - icon: mdi:netflix
+                            force_icon: true
+                            content_layout: icon-left
+                            fill_width: false
+                            name: Netflix
+                            tap_action:
+                              action: perform-action
+                              perform_action: media_player.select_source
+                              target:
+                                entity_id: media_player.lr_apple_tv
+                              data:
+                                source: Netflix
+                          - icon: mdi:youtube
+                            force_icon: true
+                            content_layout: icon-left
+                            fill_width: false
+                            name: YouTube
+                            tap_action:
+                              action: perform-action
+                              perform_action: media_player.select_source
+                              target:
+                                entity_id: media_player.lr_apple_tv
+                              data:
+                                source: YouTube
+              - type: conditional
+                conditions: *a4
+                card:
+                  type: custom:universal-remote-card
+                  rows:
+                    - - touchpad
+                  platform: Apple TV
+                  custom_actions: []
+                  remote_id: remote.slvn
+                  media_player_id: media_player.lr_apple_tv
+                  autofill_entity_id: true
+                  styles: |
+                    
+                    	ha-card {
+                    		padding: 0;
+                    		border: none;
+                    		box-shadow: none;
+                    	}
+                    	#touchpad::part(toucharea) {
+                    		background: var(--secondary-background-color);
+                    		min-height: 250px;
+                    		min-height: clamp(250px, 100vw, 400px);
+                    		height: 250px;
+                    		height: clamp(250px, 100vw, 400px);
+                    	}
+              - type: conditional
+                conditions: *a4
+                card:
+                  type: custom:bubble-card
+                  card_type: sub-buttons
+                  rows: 0.938
+                  hide_main_background: true
+                  styles: |
+                    
+                    	.bubble-sub-button-container,
+                    	.bubble-sub-button-bottom-container {
+                    		min-height: 72px;
+                    		padding: 10px 0;
+                    	}
+                    	.bubble-sub-button {
+                    		--bubble-sub-button-height: 64px;
+                    		min-width: 64px;
+                    		width: 64px;
+                    		height: 64px;
+                    		padding: 16px;
+                    		border-radius: 50%;
+                    		box-sizing: border-box;
+                    	}
+                    	.bubble-sub-button .show-icon,
+                    	.bubble-sub-button .icon-without-state {
+                    		--mdc-icon-size: 28px;
+                    	}
+                  sub_button:
+                    main: []
+                    bottom:
+                      - name: Controls
+                        buttons_layout: inline
+                        justify_content: space-around
+                        group:
+                          - icon: mdi:volume-minus
+                            force_icon: true
+                            content_layout: icon-left
+                            fill_width: false
+                            name: Volume Down
+                            tap_action:
+                              action: perform-action
+                              perform_action: remote.send_command
+                              target:
+                                entity_id: remote.tv_samsung_7_series_65
+                              data: *a5
+                          - icon: mdi:volume-mute
+                            force_icon: true
+                            content_layout: icon-left
+                            fill_width: false
+                            name: Mute
+                            tap_action:
+                              action: perform-action
+                              perform_action: remote.send_command
+                              target:
+                                entity_id: remote.tv_samsung_7_series_65
+                              data: *a6
+                          - icon: mdi:volume-plus
+                            force_icon: true
+                            content_layout: icon-left
+                            fill_width: false
+                            name: Volume Up
+                            tap_action:
+                              action: perform-action
+                              perform_action: remote.send_command
+                              target:
+                                entity_id: remote.tv_samsung_7_series_65
+                              data: *a7
+                          - icon: mdi:play-pause
+                            force_icon: true
+                            content_layout: icon-left
+                            fill_width: false
+                            name: Play / Pause
+                            tap_action:
+                              action: perform-action
+                              perform_action: remote.send_command
+                              target:
+                                entity_id: remote.slvn
+                              data:
+                                command: play_pause
+                          - icon: mdi:chevron-left
+                            force_icon: true
+                            content_layout: icon-left
+                            fill_width: false
+                            name: Back
+                            tap_action:
+                              action: perform-action
+                              perform_action: remote.send_command
+                              target:
+                                entity_id: remote.slvn
+                              data:
+                                command: menu
+                          - icon: mdi:television
+                            force_icon: true
+                            content_layout: icon-left
+                            fill_width: false
+                            name: Home
+                            tap_action:
+                              action: perform-action
+                              perform_action: remote.send_command
+                              target:
+                                entity_id: remote.slvn
+                              data:
+                                command: home
   - icon: mdi:pot-steam-outline
     path: kitchen
     sections:
