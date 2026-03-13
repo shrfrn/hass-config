@@ -29,12 +29,6 @@ input_select:
       - scene.lr_twilight_zone
       - scene.lr_template
     initial: "none"
-  tv_samsung_7_series_65:
-    name: Living Room TV Source
-    options:
-      - tv
-      - apple_tv
-    initial: tv
 
 input_datetime:
   lr_last_presence:
