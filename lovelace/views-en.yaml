@@ -1273,6 +1273,40 @@ views:
                               target:
                                 entity_id: remote.tv_samsung_7_series_65
                               data: *a7
+              - type: conditional
+                conditions: *a4
+                card:
+                  type: custom:bubble-card
+                  card_type: sub-buttons
+                  rows: 0.938
+                  hide_main_background: true
+                  styles: |
+                    
+                    	.bubble-sub-button-container,
+                    	.bubble-sub-button-bottom-container {
+                    		min-height: 72px;
+                    		padding: 10px 0;
+                    	}
+                    	.bubble-sub-button {
+                    		--bubble-sub-button-height: 64px;
+                    		min-width: 64px;
+                    		width: 64px;
+                    		height: 64px;
+                    		padding: 16px;
+                    		border-radius: 50%;
+                    		box-sizing: border-box;
+                    	}
+                    	.bubble-sub-button .show-icon,
+                    	.bubble-sub-button .icon-without-state {
+                    		--mdc-icon-size: 28px;
+                    	}
+                  sub_button:
+                    main: []
+                    bottom:
+                      - name: Controls
+                        buttons_layout: inline
+                        justify_content: space-around
+                        group:
                           - icon: mdi:play-pause
                             force_icon: true
                             content_layout: icon-left
