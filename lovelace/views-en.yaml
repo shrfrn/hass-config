@@ -956,7 +956,9 @@ views:
                                   hass.callService('remote', 'send_command',
                                   {"command":"KEY_EXIT","entity_id":"remote.tv_samsung_7_series_65"});
                                   hass.callService('remote', 'send_command',
-                                  {"command":"wakeup","entity_id":"remote.slvn"})
+                                  {"command":"wakeup","entity_id":"remote.slvn"});
+                                  hass.callService('remote', 'send_command',
+                                  {"command":"KEY_EXIT","entity_id":"remote.tv_samsung_7_series_65"})
                     - name: Exit
                       buttons_layout: inline
                       group:
