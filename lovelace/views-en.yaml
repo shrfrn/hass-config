@@ -953,9 +953,11 @@ views:
                               data:
                                 code: hass.callService('input_select', 'select_option',
                                   {"option":"apple_tv","entity_id":"input_select.tv_samsung_7_series_65"});
-                                  hass.callService('remote', 'send_command',
-                                  {"command":"KEY_EXIT","entity_id":"remote.tv_samsung_7_series_65"});
-                                  hass.callService('remote', 'send_command',
+                                  setTimeout(() => hass.callService('remote',
+                                  'send_command',
+                                  {"command":"KEY_EXIT","entity_id":"remote.tv_samsung_7_series_65"}),
+                                  1000); hass.callService('remote',
+                                  'send_command',
                                   {"command":"wakeup","entity_id":"remote.slvn"});
                                   hass.callService('remote', 'send_command',
                                   {"command":"KEY_EXIT","entity_id":"remote.tv_samsung_7_series_65"})
