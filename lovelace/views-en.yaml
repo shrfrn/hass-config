@@ -1051,7 +1051,7 @@ views:
                 card:
                   type: custom:bubble-card
                   card_type: sub-buttons
-                  rows: 0.9
+                  rows: 0.938
                   hide_main_background: true
                   styles: "
 
@@ -1093,11 +1093,13 @@ views:
                     \t}
 
 
-                    .bubble-sub-button-bottom-container {
+                    ha-card {
 
-                    \ttransform: translateY(-80px);
+                    \tposition: relative;
 
-                    \tmargin-bottom: -80px;
+                    \ttop: -40px;
+
+                    \tz-index: 5;
 
                     }
 
@@ -1138,7 +1140,7 @@ views:
                 card:
                   type: custom:bubble-card
                   card_type: sub-buttons
-                  rows: 0.9
+                  rows: 0.938
                   hide_main_background: true
                   styles: "
 
@@ -1182,7 +1184,7 @@ views:
 
                     .bubble-sub-button-bottom-container {
 
-                    \tmargin-bottom: 32px;
+                    \tmargin-bottom: 48px;
 
                     }
 
@@ -1325,7 +1327,7 @@ views:
                 card:
                   type: custom:bubble-card
                   card_type: sub-buttons
-                  rows: 0.9
+                  rows: 0.938
                   hide_main_background: true
                   styles: "
 
@@ -1367,11 +1369,13 @@ views:
                     \t}
 
 
-                    .bubble-sub-button-bottom-container {
+                    ha-card {
 
-                    \ttransform: translateY(-80px);
+                    \tposition: relative;
 
-                    \tmargin-bottom: -80px;
+                    \ttop: -40px;
+
+                    \tz-index: 5;
 
                     }
 
@@ -1412,7 +1416,7 @@ views:
                 card:
                   type: custom:bubble-card
                   card_type: sub-buttons
-                  rows: 0.9
+                  rows: 0.938
                   hide_main_background: true
                   styles: "
 
@@ -1456,7 +1460,7 @@ views:
 
                     .bubble-sub-button-bottom-container {
 
-                    \tmargin-bottom: 32px;
+                    \tmargin-bottom: 48px;
 
                     }
 
@@ -1506,7 +1510,7 @@ views:
                 card:
                   type: custom:bubble-card
                   card_type: sub-buttons
-                  rows: 0.9
+                  rows: 0.938
                   hide_main_background: true
                   styles: "
 
@@ -1550,7 +1554,7 @@ views:
 
                     .bubble-sub-button-bottom-container {
 
-                    \tmargin-bottom: 32px;
+                    \tmargin-bottom: 48px;
 
                     }
 
