@@ -1202,6 +1202,12 @@ views:
 
                     }
 
+                    .bubble-sub-button-bottom-container > div:first-child {
+
+                    \tmargin-bottom: 16px;
+
+                    }
+
                     \t\t"
                   sub_button:
                     main: []
@@ -1492,6 +1498,12 @@ views:
 
                     }
 
+                    .bubble-sub-button-bottom-container > div:first-child {
+
+                    \tmargin-bottom: 16px;
+
+                    }
+
                     \t\t"
                   sub_button:
                     main: []
@@ -1591,6 +1603,12 @@ views:
                     .bubble-sub-button-bottom-container {
 
                     \tmargin-bottom: 32px;
+
+                    }
+
+                    .bubble-sub-button-bottom-container > div:first-child {
+
+                    \tmargin-bottom: 16px;
 
                     }
 
