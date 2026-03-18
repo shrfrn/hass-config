@@ -1093,6 +1093,12 @@ views:
                     \t}
 
 
+                    .bubble-sub-button-bottom-container {
+
+                    \tmargin-bottom: 0;
+
+                    }
+
                     ha-card {
 
                     \tposition: relative;
@@ -1182,9 +1188,11 @@ views:
                     \t}
 
 
-                    .bubble-sub-button-bottom-container {
+                    ha-card {
 
-                    \tmargin-bottom: 88px;
+                    \tposition: relative;
+
+                    \ttop: 24px;
 
                     }
 
@@ -1369,6 +1377,12 @@ views:
                     \t}
 
 
+                    .bubble-sub-button-bottom-container {
+
+                    \tmargin-bottom: 0;
+
+                    }
+
                     ha-card {
 
                     \tposition: relative;
@@ -1458,9 +1472,11 @@ views:
                     \t}
 
 
-                    .bubble-sub-button-bottom-container {
+                    ha-card {
 
-                    \tmargin-bottom: 88px;
+                    \tposition: relative;
+
+                    \ttop: 24px;
 
                     }
 
@@ -1552,9 +1568,11 @@ views:
                     \t}
 
 
-                    .bubble-sub-button-bottom-container {
+                    ha-card {
 
-                    \tmargin-bottom: 88px;
+                    \tposition: relative;
+
+                    \ttop: 24px;
 
                     }
 
