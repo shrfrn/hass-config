@@ -1053,26 +1053,66 @@ views:
                   card_type: sub-buttons
                   rows: 0.938
                   hide_main_background: true
-                  styles: |
-                    
-                    	.bubble-sub-button-container,
-                    	.bubble-sub-button-bottom-container {
-                    		min-height: 72px;
-                    		padding: 10px 0;
-                    	}
-                    	.bubble-sub-button {
-                    		--bubble-sub-button-height: 64px;
-                    		min-width: 64px;
-                    		width: 64px;
-                    		height: 64px;
-                    		padding: 16px;
-                    		border-radius: 50%;
-                    		box-sizing: border-box;
-                    	}
-                    	.bubble-sub-button .show-icon,
-                    	.bubble-sub-button .icon-without-state {
-                    		--mdc-icon-size: 28px;
-                    	}
+                  styles: "
+
+
+                    \t.bubble-sub-button-container,
+
+                    \t.bubble-sub-button-bottom-container {
+
+                    \t\tmin-height: 72px;
+
+                    \t\tpadding: 10px 0;
+
+                    \t}
+
+                    \t.bubble-sub-button {
+
+                    \t\t--bubble-sub-button-height: 64px;
+
+                    \t\tmin-width: 64px;
+
+                    \t\twidth: 64px;
+
+                    \t\theight: 64px;
+
+                    \t\tpadding: 16px;
+
+                    \t\tborder-radius: 50%;
+
+                    \t\tbox-sizing: border-box;
+
+                    \t}
+
+                    \t.bubble-sub-button .show-icon,
+
+                    \t.bubble-sub-button .icon-without-state {
+
+                    \t\t--mdc-icon-size: 28px;
+
+                    \t}
+
+
+                    ha-card {
+
+                    \tposition: relative;
+
+                    \tmargin-top: -72px;
+
+                    \tz-index: 2;
+
+                    }
+
+                    .bubble-sub-button-bottom-container.alignment-lanes-active.\
+                    groups-layout-inline {
+
+                    \tposition: relative;
+
+                    \ttop: 0;
+
+                    }
+
+                    \t\t"
                   sub_button:
                     main: []
                     bottom:
@@ -1271,26 +1311,66 @@ views:
                   card_type: sub-buttons
                   rows: 0.938
                   hide_main_background: true
-                  styles: |
-                    
-                    	.bubble-sub-button-container,
-                    	.bubble-sub-button-bottom-container {
-                    		min-height: 72px;
-                    		padding: 10px 0;
-                    	}
-                    	.bubble-sub-button {
-                    		--bubble-sub-button-height: 64px;
-                    		min-width: 64px;
-                    		width: 64px;
-                    		height: 64px;
-                    		padding: 16px;
-                    		border-radius: 50%;
-                    		box-sizing: border-box;
-                    	}
-                    	.bubble-sub-button .show-icon,
-                    	.bubble-sub-button .icon-without-state {
-                    		--mdc-icon-size: 28px;
-                    	}
+                  styles: "
+
+
+                    \t.bubble-sub-button-container,
+
+                    \t.bubble-sub-button-bottom-container {
+
+                    \t\tmin-height: 72px;
+
+                    \t\tpadding: 10px 0;
+
+                    \t}
+
+                    \t.bubble-sub-button {
+
+                    \t\t--bubble-sub-button-height: 64px;
+
+                    \t\tmin-width: 64px;
+
+                    \t\twidth: 64px;
+
+                    \t\theight: 64px;
+
+                    \t\tpadding: 16px;
+
+                    \t\tborder-radius: 50%;
+
+                    \t\tbox-sizing: border-box;
+
+                    \t}
+
+                    \t.bubble-sub-button .show-icon,
+
+                    \t.bubble-sub-button .icon-without-state {
+
+                    \t\t--mdc-icon-size: 28px;
+
+                    \t}
+
+
+                    ha-card {
+
+                    \tposition: relative;
+
+                    \tmargin-top: -72px;
+
+                    \tz-index: 2;
+
+                    }
+
+                    .bubble-sub-button-bottom-container.alignment-lanes-active.\
+                    groups-layout-inline {
+
+                    \tposition: relative;
+
+                    \ttop: 0;
+
+                    }
+
+                    \t\t"
                   sub_button:
                     main: []
                     bottom:
