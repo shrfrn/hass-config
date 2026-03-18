@@ -1051,7 +1051,7 @@ views:
                 card:
                   type: custom:bubble-card
                   card_type: sub-buttons
-                  rows: 0.938
+                  rows: 0.9
                   hide_main_background: true
                   styles: "
 
@@ -1095,9 +1095,9 @@ views:
 
                     .bubble-sub-button-bottom-container {
 
-                    \ttransform: translateY(-32px);
+                    \ttransform: translateY(-80px);
 
-                    \tmargin-bottom: -32px;
+                    \tmargin-bottom: -80px;
 
                     }
 
@@ -1138,7 +1138,7 @@ views:
                 card:
                   type: custom:bubble-card
                   card_type: sub-buttons
-                  rows: 0.938
+                  rows: 0.9
                   hide_main_background: true
                   styles: "
 
@@ -1182,7 +1182,7 @@ views:
 
                     .bubble-sub-button-bottom-container {
 
-                    \tmargin-bottom: 16px;
+                    \tmargin-bottom: 32px;
 
                     }
 
@@ -1325,7 +1325,7 @@ views:
                 card:
                   type: custom:bubble-card
                   card_type: sub-buttons
-                  rows: 0.938
+                  rows: 0.9
                   hide_main_background: true
                   styles: "
 
@@ -1369,9 +1369,9 @@ views:
 
                     .bubble-sub-button-bottom-container {
 
-                    \ttransform: translateY(-32px);
+                    \ttransform: translateY(-80px);
 
-                    \tmargin-bottom: -32px;
+                    \tmargin-bottom: -80px;
 
                     }
 
@@ -1412,7 +1412,7 @@ views:
                 card:
                   type: custom:bubble-card
                   card_type: sub-buttons
-                  rows: 0.938
+                  rows: 0.9
                   hide_main_background: true
                   styles: "
 
@@ -1456,7 +1456,7 @@ views:
 
                     .bubble-sub-button-bottom-container {
 
-                    \tmargin-bottom: 16px;
+                    \tmargin-bottom: 32px;
 
                     }
 
@@ -1506,7 +1506,7 @@ views:
                 card:
                   type: custom:bubble-card
                   card_type: sub-buttons
-                  rows: 0.938
+                  rows: 0.9
                   hide_main_background: true
                   styles: "
 
@@ -1550,7 +1550,7 @@ views:
 
                     .bubble-sub-button-bottom-container {
 
-                    \tmargin-bottom: 16px;
+                    \tmargin-bottom: 32px;
 
                     }
 
