@@ -1192,13 +1192,13 @@ views:
 
                     \tposition: relative;
 
-                    \ttop: 12px;
+                    \ttop: -8px;
 
                     }
 
                     .bubble-sub-button-bottom-container {
 
-                    \tmargin-bottom: 16px;
+                    \tmargin-bottom: 24px;
 
                     }
 
@@ -1482,13 +1482,13 @@ views:
 
                     \tposition: relative;
 
-                    \ttop: 12px;
+                    \ttop: -8px;
 
                     }
 
                     .bubble-sub-button-bottom-container {
 
-                    \tmargin-bottom: 16px;
+                    \tmargin-bottom: 24px;
 
                     }
 
@@ -1584,13 +1584,13 @@ views:
 
                     \tposition: relative;
 
-                    \ttop: 12px;
+                    \ttop: -8px;
 
                     }
 
                     .bubble-sub-button-bottom-container {
 
-                    \tmargin-bottom: 16px;
+                    \tmargin-bottom: 24px;
 
                     }
 
