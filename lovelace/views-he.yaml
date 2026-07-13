@@ -1583,6 +1583,17 @@ views:
             cards:
               - type: custom:bubble-card
                 card_type: button
+                button_type: slider
+                entity: light.kt_balcony_lights
+                name: Kitchen Balcony Lights
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+                button_action:
+                  tap_action:
+                    action: none
+              - type: custom:bubble-card
+                card_type: button
                 button_type: switch
                 entity: light.kt_lt_strip_n
                 name: שיש
@@ -1642,15 +1653,6 @@ views:
                 name: תקרת מבואה
                 scrolling_effect: true
                 icon: mdi:light-recessed
-                tap_action:
-                  action: toggle
-              - type: custom:bubble-card
-                card_type: button
-                button_type: switch
-                entity: light.kt_lt_entrance_wall_outdoors
-                name: חוץ מבואה
-                scrolling_effect: true
-                icon: mdi:outdoor-lamp
                 tap_action:
                   action: toggle
               - type: custom:bubble-card
@@ -1900,6 +1902,14 @@ views:
               - type: custom:bubble-card
                 card_type: button
                 button_type: switch
+                entity: switch.mb_door_s
+                name: דלת פטיו
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
                 entity: light.mb_lt_wardrobe
                 name: חדר ארונות
                 scrolling_effect: true
@@ -1908,14 +1918,6 @@ views:
                   service: homeassistant.toggle
                   target:
                     entity_id: light.mb_lt_wardrobe
-              - type: custom:bubble-card
-                card_type: button
-                button_type: switch
-                entity: switch.mb_door_s
-                name: דלת פטיו
-                scrolling_effect: true
-                tap_action:
-                  action: toggle
               - type: custom:bubble-card
                 card_type: button
                 button_type: slider
@@ -2165,6 +2167,14 @@ views:
                 button_type: switch
                 entity: scene.stdn_minimal
                 name: עדין
+                scrolling_effect: true
+                tap_action:
+                  action: toggle
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: scene.sharon_s_studio_ac_on
+                name: Sharon's Studio AC On
                 scrolling_effect: true
                 tap_action:
                   action: toggle

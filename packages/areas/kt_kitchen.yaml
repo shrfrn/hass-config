@@ -7,6 +7,7 @@ group:
     name: Kitchen Lights
     entities:
       - light.kitchen_counter_ikea_bulb
+      - light.kt_balcony_lights
       - light.kt_lt_ceiling_1
       - light.kt_lt_ceiling_2
       - light.kt_lt_ceiling_3
@@ -40,3 +41,144 @@ timer:
   kt_vacancy:
     name: Kitchen Vacancy Timer
     duration: "00:09:00"
+
+input_number:
+  kt_balcony_lights_brightness:
+    name: Kitchen Balcony Lights Brightness
+    min: 0
+    max: 255
+    step: 1
+    initial: 254
+    mode: slider
+
+script:
+  kt_balcony_lights_ev_throttler:
+    alias: Kitchen Balcony Lights Event Throttler
+    mode: single
+    fields:
+      brightness:
+        description: Brightness level (0-255)
+    sequence:
+      - wait_template: "{{ states('light.ikea_bulb_kitchen_balcony_north_wall') != 'unavailable' and states('light.ikea_bulb_kitchen_balcony_south_wall') != 'unavailable' }}"
+        timeout: "00:00:05"
+        continue_on_timeout: false
+      - service: light.turn_on
+        target:
+          entity_id:
+            - light.ikea_bulb_kitchen_balcony_north_wall
+            - light.ikea_bulb_kitchen_balcony_south_wall
+        data:
+          brightness: "{{ brightness }}"
+      - service: input_number.set_value
+        target:
+          entity_id: input_number.kt_balcony_lights_brightness
+        data:
+          value: "{{ brightness }}"
+
+light:
+  - platform: template
+    lights:
+      kt_balcony_lights:
+        friendly_name: Kitchen Balcony Lights
+        value_template: "{{ is_state('light.kt_lt_entrance_wall_outdoors', 'on') }}"
+        turn_off:
+          service: light.turn_off
+          target:
+            entity_id: light.kt_lt_entrance_wall_outdoors
+        turn_on:
+          - service: light.turn_on
+            target:
+              entity_id: light.kt_lt_entrance_wall_outdoors
+          - service: input_number.set_value
+            target:
+              entity_id: input_number.kt_balcony_lights_brightness
+            data:
+              value: 254
+        level_template: "{{ states('input_number.kt_balcony_lights_brightness') | int }}"
+        set_level:
+          - choose:
+              - conditions:
+                  - condition: template
+                    value_template: "{{ brightness | int > 0 }}"
+                sequence:
+                  - service: script.kt_balcony_lights_ev_throttler
+                    data:
+                      brightness: "{{ brightness }}"
+  - platform: group
+    name: kt_balcony_lights_group
+    unique_id: kt_balcony_lights_group
+    entities:
+      - light.kt_lt_entrance_wall_outdoors
+      - light.ikea_bulb_kitchen_balcony_north_wall
+      - light.ikea_bulb_kitchen_balcony_south_wall
+
+automation:
+  - id: kt_balcony_lights_remote_Kitchen Balcony Lights Remote
+    alias: Kitchen Balcony Lights Kitchen Balcony Lights Remote
+    use_blueprint:
+      path: EPMatt/ikea_e2213.yaml
+      input:
+        controller_device: f639ec656d8fe521a83b825b67c9b956
+        helper_long_press_delay: 100
+        button_dots1_long_loop: true
+        button_dots1_long_max_loop_repeats: 50
+        button_dots2_long_loop: true
+        button_dots2_long_max_loop_repeats: 50
+        action_button_dots1_short:
+          - service: light.turn_on
+            target:
+              entity_id: light.kt_balcony_lights
+        action_button_dots1_long:
+          - service: light.turn_on
+            target:
+              entity_id: light.kt_balcony_lights
+            data:
+              brightness_step_pct: 2
+        action_button_dots1_double:
+          - service: light.turn_on
+            target:
+              entity_id: light.kt_balcony_lights
+            data:
+              brightness_pct: 100
+        action_button_dots2_short:
+          - service: light.turn_off
+            target:
+              entity_id: light.kt_balcony_lights
+        action_button_dots2_long:
+          - service: light.turn_on
+            target:
+              entity_id: light.kt_balcony_lights
+            data:
+              brightness_step_pct: -2
+        action_button_dots2_double:
+          - service: light.turn_on
+            target:
+              entity_id: light.kt_balcony_lights
+            data:
+              brightness_pct: 1
+  - id: kt_balcony_lights_sync
+    alias: Kitchen Balcony Lights Sync
+    mode: restart
+    trigger:
+      - platform: state
+        entity_id:
+          - light.kt_balcony_lights_group
+        to:
+          - "on"
+          - "off"
+        id: entity_sync
+    action:
+      - choose:
+          - conditions:
+              - condition: trigger
+                id: entity_sync
+              - condition: template
+                value_template: "{{ trigger.to_state.state != trigger.from_state.state }}"
+            sequence:
+              - service: "homeassistant.turn_{{ trigger.to_state.state }}"
+                target:
+                  entity_id: >
+                    {% set triggered = trigger.entity_id %}
+                    {% set target_state = trigger.to_state.state %}
+                    {% set all = ["light.kt_balcony_lights_group"] %}
+                    {{ all | reject('eq', triggered) | reject('is_state', target_state) | list }}
