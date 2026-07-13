@@ -232,6 +232,27 @@ const config = {
             },
         },
 
+		kitchen: {
+			syncedEntities: {
+                kt_balcony_lights: {
+                    name: 'Kitchen Balcony Lights',
+                    power: 'light.kt_lt_entrance_wall_outdoors', // KNX relay controls power to bulbs
+                    entities: [
+                        { entity_id: 'light.kt_lt_entrance_wall_outdoors', sync: true },
+                        // { entity_id: 'light.ofc_lt_wall_bulbs', sync: true, controls: 'dimmable' },
+                        { entity_id: 'light.ikea_bulb_kitchen_balcony_north_wall', sync: true, controls: 'dimmable' },
+                        { entity_id: 'light.ikea_bulb_kitchen_balcony_south_wall', sync: true, controls: 'dimmable' },
+                        {   // IKEA remote - dimming handled by RODRET blueprint
+                            device_id: 'f639ec656d8fe521a83b825b67c9b956',
+                            name: 'Kitchen Balcony Lights Remote',
+                            sync: false,
+                            blueprint: ikeaE2213DblClick('light.kt_balcony_lights'),
+                        },
+                    ],
+                },
+			},
+		},
+
         office: {
             syncedEntities: {
                 ofc_wall_light: {
